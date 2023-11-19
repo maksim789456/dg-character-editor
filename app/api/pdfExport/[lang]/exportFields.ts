@@ -16,7 +16,32 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.personalSection.name,
       fieldType: FieldType.Text,
-      value: character.fullName,
+      value: character.fullName ?? '',
+    },
+    {
+      fieldName: pdfForm.personalSection.profession,
+      fieldType: FieldType.Text,
+      value: character.profession ?? '',
+    },
+    {
+      fieldName: pdfForm.personalSection.employer,
+      fieldType: FieldType.Text,
+      value: character.employer ?? '',
+    },
+    {
+      fieldName: pdfForm.personalSection.nationality,
+      fieldType: FieldType.Text,
+      value: character.nationality ?? '',
+    },
+    {
+      fieldName: pdfForm.personalSection.age,
+      fieldType: FieldType.Text,
+      value: character.age ?? '',
+    },
+    {
+      fieldName: pdfForm.personalSection.education,
+      fieldType: FieldType.Text,
+      value: character.education ?? '',
     },
     {
       fieldName: pdfForm.personalSection.genderMCheck,
