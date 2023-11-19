@@ -12,17 +12,25 @@ const pdfFiles = {
   ru: "Character_Sheet_RUS.pdf",
 } as any;
 
-const ExportButton: React.FC<ExportButtonProps> = ({
-  lang,
-  ...props
-}) => {
+const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
   const dgCharacter = useSelector(
     (state: any) => state.dgCharacter
   ) as DgCharacter;
 
   const exportButton = async (e: React.MouseEvent<HTMLElement>) => {
+    const dgCharacterReduced = {
+      ...dgCharacter,
+      skills: dgCharacter.skills
+        .filter((skill) => skill.characterSkillRate !== undefined)
+        .map((skill) => {
+          return { ...skill, baseSkillRate: undefined };
+        }),
+    };
+
     axios
-      .post("api/pdfExport/" + lang, dgCharacter, { responseType: "blob" })
+      .post("api/pdfExport/" + lang, dgCharacterReduced, {
+        responseType: "blob",
+      })
       .then((blob) => {
         const url = window.URL.createObjectURL(blob.data);
         const downloadAnchorNode = document.createElement("a");
