@@ -66,7 +66,7 @@ const PersonalSection: React.FC<PersonalSectionProps> = ({
           disabled={!dgCharacter.editMode}
           gender={dgCharacter.gender}
           onGenderChange={(value) => dispatch(set({ field: "gender", value }))}
-          customGender={dgCharacter.customGender}
+          customGender={dgCharacter.customGender ?? ''}
           onCustomGenderChange={(value) =>
             dispatch(set({ field: "customGender", value }))
           }

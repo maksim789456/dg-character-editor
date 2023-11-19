@@ -36,7 +36,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.personalSection.genderCustomField,
       fieldType: FieldType.Text,
-      value: character.customGender,
+      value: character.customGender ?? '',
     },
     {
       fieldName: pdfForm.staticSection.str,
@@ -51,7 +51,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.strDescription,
       fieldType: FieldType.Text,
-      value: character.stats.str.description,
+      value: character.stats.str.description ?? '',
     },
     {
       fieldName: pdfForm.staticSection.con,
@@ -66,7 +66,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.conDescription,
       fieldType: FieldType.Text,
-      value: character.stats.con.description,
+      value: character.stats.con.description ?? '',
     },
     {
       fieldName: pdfForm.staticSection.dex,
@@ -81,7 +81,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.dexDescription,
       fieldType: FieldType.Text,
-      value: character.stats.dex.description,
+      value: character.stats.dex.description ?? '',
     },
     {
       fieldName: pdfForm.staticSection.int,
@@ -96,7 +96,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.intDescription,
       fieldType: FieldType.Text,
-      value: character.stats.int.description,
+      value: character.stats.int.description ?? '',
     },
     {
       fieldName: pdfForm.staticSection.pow,
@@ -111,7 +111,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.powDescription,
       fieldType: FieldType.Text,
-      value: character.stats.pow.description,
+      value: character.stats.pow.description ?? '',
     },
     {
       fieldName: pdfForm.staticSection.cha,
@@ -126,7 +126,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.chaDescription,
       fieldType: FieldType.Text,
-      value: character.stats.cha.description,
+      value: character.stats.cha.description ?? '',
     },
     {
       fieldName: pdfForm.staticSection.hpMax,
@@ -169,12 +169,12 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.physicalDescription,
       fieldType: FieldType.Text,
-      value: character.stats.description,
+      value: character.stats.description ?? '',
     },
     {
       fieldName: pdfForm.psychologicalSection.motivation,
       fieldType: FieldType.Text,
-      value: character.motivationDescription,
+      value: character.motivationDescription ?? '',
     },
     {
       fieldName: pdfForm.psychologicalSection.violence1,
@@ -209,22 +209,22 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.woundsSection.wounds,
       fieldType: FieldType.Text,
-      value: character.wounds,
+      value: character.wounds ?? '',
     },
     {
       fieldName: pdfForm.equipmentSection.armor,
       fieldType: FieldType.Text,
-      value: character.armorAndGear,
+      value: character.armorAndGear ?? '',
     },
     {
       fieldName: pdfForm.remarksSection.personalDetails,
       fieldType: FieldType.Text,
-      value: character.personalDetails,
+      value: character.personalDetails ?? '',
     },
     {
       fieldName: pdfForm.remarksSection.homeFamilyEvents,
       fieldType: FieldType.Text,
-      value: character.developmentsFamily,
+      value: character.developmentsFamily ?? '',
     },
   ] as ExportFieldDescription[];
 

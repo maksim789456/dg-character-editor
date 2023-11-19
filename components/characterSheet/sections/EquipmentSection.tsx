@@ -33,7 +33,7 @@ const EquipmentSection: React.FC<EquipmentSectionProps> = ({
           title={sectionLocale?.armor}
           multiline={true}
           rows={6}
-          value={dgCharacter.armorAndGear}
+          value={dgCharacter.armorAndGear ?? ''}
           onValueChange={(value) =>
             dispatch(set({ field: "armorAndGear", value }))
           }

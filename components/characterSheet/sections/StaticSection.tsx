@@ -107,7 +107,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
                   placeholder={sectionLocale?.statsDescriptionPlaceholder}
                   value={
                     isExceptional
-                      ? statValue.description
+                      ? statValue.description ?? ''
                       : sectionLocale?.bpStatMax
                   }
                   onValueChange={(value) =>
@@ -214,9 +214,6 @@ const StaticSection: React.FC<StaticSectionProps> = ({
                   ? 0
                   : dgCharacter.stats.san - dgCharacter.stats.pow.score
               }`}
-              // onValueChange={(value) =>
-              //   dispatch(setStat({ field: "bp", value }))
-              // }
             />
           </div>
         </div>
@@ -224,7 +221,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
           title={sectionLocale?.description}
           multiline={true}
           disabled={!dgCharacter.editMode}
-          value={dgCharacter.stats.description}
+          value={dgCharacter.stats.description ?? ''}
           onValueChange={(value) =>
             dispatch(setStat({ field: "description", value }))
           }

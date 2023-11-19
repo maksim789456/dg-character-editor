@@ -27,7 +27,7 @@ const WoundsSection: React.FC<WoundsSectionProps> = ({
           title={sectionLocale?.wounds}
           multiline={true}
           rows={6}
-          value={dgCharacter.wounds}
+          value={dgCharacter.wounds ?? ''}
           onValueChange={(value) => dispatch(set({ field: "wounds", value }))}
         />
         <div className="border-t border-dg flex items-center justify-center gap-3 px-1">
@@ -38,7 +38,7 @@ const WoundsSection: React.FC<WoundsSectionProps> = ({
             <input
               type="checkbox"
               className="mr-1"
-              checked={dgCharacter.firstHelpAttempted}
+              checked={dgCharacter.firstHelpAttempted ?? false}
               onChange={(e) =>
                 dispatch(
                   set({ field: "firstHelpAttempted", value: e.target.checked })

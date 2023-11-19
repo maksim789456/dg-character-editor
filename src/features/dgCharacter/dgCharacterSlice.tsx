@@ -17,26 +17,23 @@ const initialState = {
   nationality: "",
 
   gender: DgGender.None,
-  customGender: "",
   age: "",
   education: "",
 
   stats: {
-    str: { score: 3, description: "" },
-    con: { score: 3, description: "" },
-    dex: { score: 3, description: "" },
-    int: { score: 3, description: "" },
-    pow: { score: 3, description: "" },
-    cha: { score: 3, description: "" },
+    str: { score: 3 },
+    con: { score: 3 },
+    dex: { score: 3 },
+    int: { score: 3 },
+    pow: { score: 3 },
+    cha: { score: 3 },
     hp: 3,
     wp: 3,
     san: 15,
     bp: 12,
-    description: "",
   } as DgCharacterStats,
 
   bounds: [] as DgCharacterBound[],
-  motivationDescription: "",
   violence: 0,
   helplessness: 0,
 
@@ -82,19 +79,12 @@ const initialState = {
     { id: "survival", baseSkillRate: 10 },
     { id: "swim", baseSkillRate: 20 },
     { id: "unarmed_combat", baseSkillRate: 40 },
-    { id: "unnatural", baseSkillRate: 0, hideDamage: true }
+    { id: "unnatural", baseSkillRate: 0, hideDamage: true },
   ] as DgCharacterSkill[],
-
-  wounds: '',
-  firstHelpAttempted: false,
-  armorAndGear: '',
   weapons: [] as DgCharacterWeapon[],
-
-  personalDetails: '',
-  developmentsFamily: '',
   specialTrainings: [] as DgCharacterSpecialTraining[],
 
-  editMode: true
+  editMode: true,
 } as DgCharacter;
 
 export interface SetReducerProps {
@@ -176,7 +166,7 @@ export const dgCharacterSlice = createSlice({
     addOtherSkill: (state: DgCharacter, action: PayloadAction<string>) => {
       state.skills.push({
         id: action.payload,
-        name: '',
+        name: "",
         baseSkillRate: 0,
         isOther: true,
         characterSkillRate: 0,
@@ -190,18 +180,21 @@ export const dgCharacterSlice = createSlice({
     },
     addWeapon: (state: DgCharacter) => {
       state.weapons.push({
-        name: '',
-        skill: '',
-        baseRange: '',
-        damage: '',
-        armorPiercing: '',
-        lethality: '',
-        killRadius: '',
-        ammo: ''
+        name: "",
+        skill: "",
+        baseRange: "",
+        damage: "",
+        armorPiercing: "",
+        lethality: "",
+        killRadius: "",
+        ammo: "",
       } as DgCharacterWeapon);
       return state;
     },
-    editWeapon: (state: DgCharacter, action: PayloadAction<EditWeaponProps>) => {
+    editWeapon: (
+      state: DgCharacter,
+      action: PayloadAction<EditWeaponProps>
+    ) => {
       if (state.weapons[action.payload.id]) {
         state.weapons[action.payload.id] = action.payload.weapon;
       }
@@ -209,14 +202,18 @@ export const dgCharacterSlice = createSlice({
     },
     addSpecialTraining: (state: DgCharacter) => {
       state.specialTrainings.push({
-        name: '',
-        skill: ''
+        name: "",
+        skill: "",
       } as DgCharacterSpecialTraining);
       return state;
     },
-    editSpecialTraining: (state: DgCharacter, action: PayloadAction<EditSpecialTrainingProps>) => {
+    editSpecialTraining: (
+      state: DgCharacter,
+      action: PayloadAction<EditSpecialTrainingProps>
+    ) => {
       if (state.specialTrainings[action.payload.id]) {
-        state.specialTrainings[action.payload.id] = action.payload.specialTraining;
+        state.specialTrainings[action.payload.id] =
+          action.payload.specialTraining;
       }
       return state;
     },

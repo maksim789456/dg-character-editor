@@ -122,7 +122,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
           <textarea
             className="bg-blue-100 resize-none w-full translate-y-3"
             rows={7}
-            value={dgCharacter.motivationDescription}
+            value={dgCharacter.motivationDescription ?? ''}
             onChange={(e) =>
               dispatch(
                 set({ field: "motivationDescription", value: e.target.value })
