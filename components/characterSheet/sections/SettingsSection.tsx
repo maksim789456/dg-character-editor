@@ -5,12 +5,10 @@ import { DgCharacter } from "@/src/model/character";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
-  pdfFieldsDict: any;
 }
 
 const SettingsSection: React.FC<SettingsSectionProps> = ({
   lang,
-  pdfFieldsDict,
   ...props
 }) => {
   const dgCharacter = useSelector(
@@ -32,7 +30,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
           }
         />
       </div>
-      <ExportButton lang={lang} pdfForm={pdfFieldsDict} />
+      <ExportButton lang={lang} />
       {props.children}
     </div>
   );

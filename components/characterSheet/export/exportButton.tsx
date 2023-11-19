@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 interface ExportButtonProps extends React.HTMLAttributes<HTMLDivElement> {
-  pdfForm: any;
   lang: string;
 }
 
@@ -14,7 +13,6 @@ const pdfFiles = {
 } as any;
 
 const ExportButton: React.FC<ExportButtonProps> = ({
-  pdfForm,
   lang,
   ...props
 }) => {

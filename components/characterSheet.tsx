@@ -15,13 +15,11 @@ import SettingsSection from "./characterSheet/sections/SettingsSection";
 export default function CharacterSheet({
   lang,
   langDict,
-  skillsDict,
-  pdfFieldsDict
+  skillsDict
 }: {
   lang: string;
   langDict: any;
   skillsDict: any;
-  pdfFieldsDict: any;
 }) {
   const downloadJson = () => {
     const dgCharacter = store.getState().dgCharacter;
@@ -43,7 +41,7 @@ export default function CharacterSheet({
     <main id="dgCharacter" className="flex min-h-screen flex-col items-center justify-between px-24 py-1 bg-white">
       <div className="w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
-          <SettingsSection className="col-span-2" lang={lang} pdfFieldsDict={pdfFieldsDict.pdfForm}/>
+          <SettingsSection className="col-span-2" lang={lang}/>
           <div className="col-span-2 h-16 bg-dg flex items-center justify-center">
             <Image
               alt="delta green logo"
