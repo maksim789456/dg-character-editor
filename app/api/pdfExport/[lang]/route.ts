@@ -1,9 +1,8 @@
 import fieldDescriptions, {
   FieldType,
-} from "@/components/characterSheet/export/exportFields";
+} from "@/app/api/pdfExport/[lang]/exportFields";
 import { getPdfFieldsDictionary } from "@/res/dictionaries";
 import { DgCharacter } from "@/src/model/character";
-import { pdf } from "@react-pdf/renderer";
 import { promises as fs } from "fs";
 import { NextResponse } from "next/server";
 import path from "path";
