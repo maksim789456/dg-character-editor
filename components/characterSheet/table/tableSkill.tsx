@@ -38,7 +38,7 @@ const TableSkill = memo(function TableSkillInternal({
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     let value = e.target.value === "" ? 0 : parseInt(e.target.value);
-    if (isNaN(value)) value = 0; 
+    if (isNaN(value)) value = 0;
     if (value > 99) value = 99;
     if (onCharacterSkillRateChange) onCharacterSkillRateChange(value);
   };
@@ -57,7 +57,7 @@ const TableSkill = memo(function TableSkillInternal({
         "border-b border-r border-dg",
         "w-full",
         props.className || "",
-        skill.isTypal ? "row-span-2 grid-rows-2" : "",
+        skill.isTypal ? "row-span-2 grid-rows-2" : "grid-rows-1",
         "grid",
         "grid-cols-12",
         "h-full"
@@ -66,12 +66,14 @@ const TableSkill = memo(function TableSkillInternal({
       {skill.hideDamage ? (
         <div></div>
       ) : (
-        <input
+        <div className="flex items-center justify-center">
+          <input
           type="checkbox"
-          className="m-1.5"
+          className="w-4 h-4"
           checked={damaged ?? false}
           onChange={onDamagedInputChange}
         />
+        </div>
       )}
       <p className="font-dg-main text-dg text-sm col-span-9 py-1.5">{`${skill.name} (${skill.baseSkillRate}%)`}</p>
       <input

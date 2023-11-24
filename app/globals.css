@@ -8,5 +8,8 @@
 }
 
 .skills-grid {
-  grid-template: repeat(18, 1fr) / repeat(3, 1fr);
+  grid-template: repeat(27, 1fr) / repeat(2, 1fr);
+  @media (min-width: 1024px) {
+    grid-template: repeat(18, 1fr) / repeat(3, 1fr) !important;
+  }
 }

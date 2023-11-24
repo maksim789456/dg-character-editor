@@ -15,7 +15,7 @@ import SettingsSection from "./characterSheet/sections/SettingsSection";
 export default function CharacterSheet({
   lang,
   langDict,
-  skillsDict
+  skillsDict,
 }: {
   lang: string;
   langDict: any;
@@ -38,10 +38,13 @@ export default function CharacterSheet({
   };
 
   return (
-    <main id="dgCharacter" className="flex min-h-screen flex-col items-center justify-between px-24 py-1 bg-white">
-      <div className="w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
+    <main
+      id="dgCharacter"
+      className="min-h-screen px-0 py-1 bg-white lg:flex lg:flex-col lg:items-center lg:justify-between lg:px-24"
+    >
+      <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
-          <SettingsSection className="col-span-2" lang={lang}/>
+          <SettingsSection className="col-span-2" lang={lang} />
           <div className="col-span-2 h-16 bg-dg flex items-center justify-center">
             <Image
               alt="delta green logo"
@@ -54,9 +57,13 @@ export default function CharacterSheet({
           <PersonalSection
             sectionLocale={langDict.characterList.personalSection}
           />
-          <StaticSection sectionLocale={langDict.characterList.staticSection} />
+          <StaticSection
+            sectionLocale={langDict.characterList.staticSection}
+            className="col-span-2 lg:col-span-1"
+          />
           <PsychologicalSection
             sectionLocale={langDict.characterList.psychologicalSection}
+            className="col-span-2 lg:col-span-1"
           />
           <SkillsSection
             sectionLocale={langDict.characterList.skillsSection}

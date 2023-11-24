@@ -64,7 +64,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
           checked={gender === DgGender.Female}
           onChange={(e) => onCheckboxChange(e, DgGender.Female)}
         />
-        <p className="font-dg-main text-xs mr-2">{fTitle}</p>
+        <p className="font-dg-main text-xs mr-0.5">{fTitle}</p>
         <input
           type="checkbox"
           disabled={disabled}
