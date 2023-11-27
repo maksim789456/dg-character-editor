@@ -1,0 +1,252 @@
+{
+  "pdfForm": {
+    "personalSection": {
+      "name": "1 LAST NAME FIRST NAME MIDDLE INITIAL",
+      "profession": "2 PROFESSION RANK IF APPLICABLE",
+      "employer": "3 EMPLOYER",
+      "nationality": "4 NATIONALITY",
+      "genderMCheck": "Check Box8",
+      "genderFCheck": "Check Box7",
+      "genderCustomCheck": "Check Box9",
+      "genderCustomField": "SEX",
+      "age": "6 AGE AND DOB",
+      "education": "7 EDUCATION AND OCCUPATION"
+    },
+    "staticSection": {
+      "str": "STR",
+      "strX5": "STRx5",
+      "strDescription": "STR DISTINGUISHING FEATURES",
+      "con": "CON",
+      "conX5": "CONx5",
+      "conDescription": "CON DISTINGUISHING FEATURES",
+      "dex": "DEX",
+      "dexX5": "DEXx5",
+      "dexDescription": "DEX DISTINGUISHING FEATURES",
+      "int": "INT",
+      "intX5": "INTx5",
+      "intDescription": "INT DISTINGUISHING FEATURES",
+      "pow": "POW",
+      "powX5": "POWx5",
+      "powDescription": "POW DISTINGUISHING FEATURES",
+      "cha": "CHA",
+      "chaX5": "CHAx5",
+      "chaDescription": "CHA DISTINGUISHING FEATURES",
+      "hpMax": "MAXIMUMHit Points HP",
+      "hpCurr": "CURRENTHit Points HP",
+      "wpMax": "MAXIMUMWillpower Points WP",
+      "wpCurr": "CURRENTWillpower Points WP",
+      "sanMax": "MAXIMUMSanity Points SAN",
+      "sanCurr": "CURRENTSanity Points SAN",
+      "bpCurr": "CURRENTBreaking Point BP",
+      "physicalDescription": "10 PHYSICAL DESCRIPTION"
+    },
+    "psychologicalSection": {
+      "bounds": [
+        {
+          "name": "BOND 1",
+          "score": "BOND 1 SCORE",
+          "damageCheck": ""
+        },
+        {
+          "name": "BOND 2",
+          "score": "BOND 2 SCORE",
+          "damageCheck": ""
+        },
+        {
+          "name": "BOND 3",
+          "score": "BOND 3 SCORE",
+          "damageCheck": ""
+        },
+        {
+          "name": "BOND 4",
+          "score": "BOND 4 SCORE",
+          "damageCheck": ""
+        },
+        {
+          "name": "BOND 5",
+          "score": "BOND 5 SCORE",
+          "damageCheck": ""
+        }
+      ],
+      "motivation": "12 MOTIVATIONS AND MENTAL DISORDERSPSYCHOLOGICAL DATA",
+      "violence1": "Check Box1",
+      "violence2": "Check Box2",
+      "violence3": "Check Box3",
+      "helplessness1": "Check Box4",
+      "helplessness2": "Check Box5",
+      "helplessness3": "Check Box6"
+    },
+    "skillsSection": [
+      { "id": "accounting", "valueFormName": "Accounting 10" },
+      { "id": "alertness", "valueFormName": "Alertness 20" },
+      { "id": "anthropology", "valueFormName": "Anthropology 0" },
+      { "id": "archeology", "valueFormName": "Archeology 0" },
+      { "id": "art", "valueFormName": "Art 0", "typalFormName": "Art" },
+      { "id": "artillery", "valueFormName": "Artillery 0" },
+      { "id": "athletics", "valueFormName": "Athletics 30" },
+      { "id": "bureaucracy", "valueFormName": "Bureaucracy 10" },
+      { "id": "computer_science", "valueFormName": "Computer Science 0" },
+      { "id": "craft", "valueFormName": "Craft 0", "typalFormName": "Craft" },
+      { "id": "criminology", "valueFormName": "Criminology 10" },
+      { "id": "demolitions", "valueFormName": "Demolitions 0" },
+      { "id": "disguise", "valueFormName": "Disguise 10" },
+      { "id": "dodge", "valueFormName": "Dodge 30" },
+      { "id": "drive", "valueFormName": "Drive 20" },
+      { "id": "firearms", "valueFormName": "Firearms 20" },
+      { "id": "first_aid", "valueFormName": "First Aid 10" },
+      { "id": "forensics", "valueFormName": "Forensics 0" },
+      { "id": "heavy_machinery", "valueFormName": "Heavy Machinery 10" },
+      { "id": "heavy_weapons", "valueFormName": "Heavy Weapons 0" },
+      { "id": "history", "valueFormName": "History 10" },
+      { "id": "humint", "valueFormName": "HUMINT 10" },
+      { "id": "law", "valueFormName": "Law 0" },
+      { "id": "medicine", "valueFormName": "Medicine 0" },
+      { "id": "melee_weapons", "valueFormName": "Melee Weapons 30" },
+      {
+        "id": "military_science",
+        "valueFormName": "Military Science 0",
+        "typalFormName": "Military Science"
+      },
+      { "id": "navigate", "valueFormName": "Navigate 10" },
+      { "id": "occult", "valueFormName": "Occult 10" },
+      { "id": "persuade", "valueFormName": "Persuade 20" },
+      { "id": "pharmacy", "valueFormName": "Pharmacy 0" },
+      { "id": "pilot", "valueFormName": "Pilot 0", "typalFormName": "Pilot" },
+      { "id": "psychotherapy", "valueFormName": "Psychotherapy 10" },
+      { "id": "ride", "valueFormName": "Ride 10" },
+      {
+        "id": "science",
+        "valueFormName": "Science 0",
+        "typalFormName": "Science"
+      },
+      { "id": "search", "valueFormName": "Search 20" },
+      { "id": "sigint", "valueFormName": "SIGINT 0" },
+      { "id": "stealth", "valueFormName": "Stealth 10" },
+      { "id": "surgery", "valueFormName": "Surgery 0" },
+      { "id": "survival", "valueFormName": "Survival 10" },
+      { "id": "swim", "valueFormName": "Swim 20" },
+      { "id": "unarmed_combat", "valueFormName": "Unarmed Combat 40" },
+      { "id": "unnatural", "valueFormName": "Unnatural 0" },
+      {
+        "id": "other0",
+        "nameFormName": "Foreign Languages and Other Skills 1",
+        "valueFormName": "Foreign Languages and Other Skills 1 Score"
+      },
+      {
+        "id": "other1",
+        "nameFormName": "Foreign Languages and Other Skills 2",
+        "valueFormName": "Foreign Languages and Other Skills 2 Score"
+      },
+      {
+        "id": "other2",
+        "nameFormName": "Foreign Languages and Other Skills 3",
+        "valueFormName": "Foreign Languages and Other Skills 3 Score"
+      },
+      {
+        "id": "other3",
+        "nameFormName": "Foreign Languages and Other Skills 4",
+        "valueFormName": "Foreign Languages and Other Skills 4 Score"
+      },
+      {
+        "id": "other4",
+        "nameFormName": "Foreign Languages and Other Skills 5",
+        "valueFormName": "Foreign Languages and Other Skills 5 Score"
+      },
+      {
+        "id": "other5",
+        "nameFormName": "Foreign Languages and Other Skills 6",
+        "valueFormName": "Foreign Languages and Other Skills 6 Score"
+      }
+    ],
+    "woundsSection": {
+      "wounds": "14 WOUNDS AND AILMENTS_2"
+    },
+    "equipmentSection": {
+      "armor": "15 ARMOR AND GEAR",
+      "weapons": [
+        {
+          "weapon": "WEAPONa",
+          "skill": "SKILL a",
+          "baseRange": "BASE RANGEa",
+          "damage": "DAMAGEa",
+          "armorPiercing": "ARMOR PIERCINGa",
+          "killDamage": "KILL DAMAGEa",
+          "killRadius": "KILL RADIUSa",
+          "ammo": "AMMO a"
+        },
+        {
+          "weapon": "WEAPONb",
+          "skill": "SKILL b",
+          "baseRange": "BASE RANGEb",
+          "damage": "DAMAGEb",
+          "armorPiercing": "ARMOR PIERCINGb",
+          "killDamage": "KILL DAMAGEb",
+          "killRadius": "KILL RADIUSb",
+          "ammo": "AMMO b"
+        },
+        {
+          "weapon": "WEAPONc",
+          "skill": "SKILL c",
+          "baseRange": "BASE RANGEc",
+          "damage": "DAMAGEc",
+          "armorPiercing": "ARMOR PIERCINGc",
+          "killDamage": "KILL DAMAGEc",
+          "killRadius": "KILL RADIUSc",
+          "ammo": "AMMO c"
+        },
+        {
+          "weapon": "WEAPONd",
+          "skill": "SKILL d",
+          "baseRange": "BASE RANGEd",
+          "damage": "DAMAGEd",
+          "armorPiercing": "ARMOR PIERCINGd",
+          "killDamage": "KILL DAMAGEd",
+          "killRadius": "KILL RADIUSd",
+          "ammo": "AMMO d"
+        },
+        {
+          "weapon": "WEAPONe",
+          "skill": "SKILL e",
+          "baseRange": "BASE RANGEe",
+          "damage": "DAMAGEe",
+          "armorPiercing": "ARMOR PIERCINGe",
+          "killDamage": "KILL DAMAGEe",
+          "killRadius": "KILL RADIUSe",
+          "ammo": "AMMO e"
+        },
+        {
+          "weapon": "WEAPONf",
+          "skill": "SKILL f",
+          "baseRange": "BASE RANGEf",
+          "damage": "DAMAGEf",
+          "armorPiercing": "ARMOR PIERCINGf",
+          "killDamage": "KILL DAMAGEf",
+          "killRadius": "KILL RADIUSf",
+          "ammo": "AMMO f"
+        },
+        {
+          "weapon": "WEAPONg",
+          "skill": "SKILL g",
+          "baseRange": "BASE RANGEg",
+          "damage": "DAMAGEg",
+          "armorPiercing": "ARMOR PIERCINGg",
+          "killDamage": "KILL DAMAGEg",
+          "killRadius": "KILL RADIUSg",
+          "ammo": "AMMO g"
+        }
+      ]
+    },
+    "remarksSection": {
+      "personalDetails": "17 PERSONAL DETAILS AND NOTES",
+      "homeFamilyEvents": "18 DEVELOPMENTS WHICH AFFECT HOME AND FAMILY",
+      "specialTrainings": [
+        { "name": "SPECIAL TRAININGa", "value": "SKILL OR STATa" },
+        { "name": "SPECIAL TRAININGb", "value": "SKILL OR STATb" },
+        { "name": "SPECIAL TRAININGc", "value": "SKILL OR STATc" },
+        { "name": "SPECIAL TRAININGd", "value": "SKILL OR STATd" },
+        { "name": "SPECIAL TRAININGe", "value": "SKILL OR STATe" },
+        { "name": "SPECIAL TRAININGf", "value": "SKILL OR STATf" }
+      ]
+    }
+  }
+}

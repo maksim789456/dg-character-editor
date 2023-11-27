@@ -1,0 +1,103 @@
+{
+  "characterList": {
+    "personalSection": {
+      "categoryName": "ЛИЧНЫЕ ДАННЫЕ",
+      "fullName": "1. ФАМИЛИЯ, ИМЯ, ОТЧЕСТВО",
+      "profession": "2. ПРОФЕССИЯ (ЗВАНИЕ ПРИ НАЛИЧИИ)",
+      "employer": "3. МЕСТО РАБОТЫ",
+      "nationality": "4. НАЦИОНАЛЬНОСТЬ",
+      "gender": "5. ПОЛ",
+      "genderM": "М",
+      "genderF": "Ж",
+      "age": "6. ВОЗРАСТ, Д. Р.",
+      "education": "7. ОБРАЗОВАНИЕ, ОПЫТ РАБОТЫ"
+    },
+    "staticSection": {
+      "categoryName": "СТАТИСТИЧЕСКИЕ ДАННЫЕ",
+      "stats": "8. ХАРАКТЕРИСТИКИ",
+      "statsValue": "ЗНАЧЕНИЕ",
+      "statsValueX5": "x5",
+      "statsDescription": "ОТЛИЧИТЕЛЬНАЯ ЧЕРТА",
+      "statsDescriptionPlaceholder": "<9 или >12",
+      "strStat": "Сила (СИЛ)",
+      "conStat": "Телосложение (ТЕЛ)",
+      "dexStat": "Ловкость (ЛОВ)",
+      "intStat": "Интеллект (ИНТ)",
+      "powStat": "Воля (ВОЛ)",
+      "chaStat": "Харизма (ХАР)",
+
+      "calcStats": "9. ПРОИЗВОДНЫЕ АТРИБУТЫ",
+      "calcStatsMax": "МАКСИМАЛЬНОЕ",
+      "calcStatsCurrent": "ТЕКУЩЕЕ",
+
+      "hpStat": "Очки Здоровья (ОЗ)",
+      "hpStatMaxPlaceholder": "(СИЛ + ТЕЛ)/2",
+      "wpStat": "Очки Воли (ОВ)",
+      "wpStatMaxPlaceholder": "ВОЛ",
+      "sanStat": "Очки Рассудка (ОР)",
+      "sanStatMaxPlaceholder": "99 - Сверхъестественное",
+      "bpStat": "Точка Надлома (ТН)",
+      "bpStatMax": "НЕТ",
+      "bpStatCurrentPlaceholder": "ОР - ОВ",
+
+      "description": "10. ВНЕШНИЙ ВИД"
+    },
+    "psychologicalSection": {
+      "categoryName": "ПСИХОЛОГИЧЕСКИЕ ДАННЫЕ",
+      "bonds": "11. СВЯЗИ",
+      "bondsValue": "ЗНАЧЕНИЕ",
+      "addBound": "Добавить связь",
+      "noBounds": "Нет связей",
+      "bondsInstruction": "Отметьте урон в Связям, до конца следующей Домашней сцены",
+      "motivation": "12. МОТИВАЦИИ И ПСИХОЛОГИЧЕСКИЕ РАССТРОЙСТВА",
+      "sanLoss": "13. СЛУЧАИ ПОТЕРИ ОР БЕЗ УМОПОМЕШАТЕЛЬСТВА",
+      "sanLossAdapted": "адаптир.",
+      "sanLossViolence": "Насилие",
+      "sanLossHelplessness": "Беспомощность"
+    },
+    "skillsSection": {
+      "categoryName": "НАБОР ПРИКЛАДНЫХ НАВЫКОВ",
+      "otherSkills": "Иностранные языки и другие навыки:",
+      "skillsInstruction": "Отметьте квадратик при провале проверки навыка. В конце сессии добавь 1D4 к каждому отмеченному навыку и сотри все отметки."
+    },
+    "woundsSection": {
+      "categoryName": "ТРАВМЫ",
+      "wounds": "14. РАНЫ И НЕДУГИ",
+      "firstHelp": "Оказывалась ли Первая Помощь после последнего ранения?",
+      "firstHelpYes": "Да: дальнейшее восстановление только при помощи Медицины, Хирургии или долгий отдых"
+    },
+    "equipmentSection": {
+      "categoryName": "ЭКИПИРОВКА",
+      "armor": "15. БРОНЯ И СНАРЯЖЕНИЕ",
+      "armorDescription": "Броня снижает значение урона от всех атак, кроме Прицельных Выстрелов и удачных проверок Летальности",
+      "weapons": "16. ОРУЖИЕ",
+      "addWeapon": "Добавить оружие",
+      "noWeapons": "Нет оружия",
+      "weaponsSkill": "% НАВЫКА",
+      "weaponsRange": "ДАЛЬНОСТЬ",
+      "weaponsDamage": "УРОН",
+      "weaponsArmorPiecing": "БРОНЕБОЙНОСТЬ",
+      "weaponsLethality": "ЛЕТАЛЬНОСТЬ",
+      "weaponsKillRadius": "РАДИУС ПОРАЖ.",
+      "weaponsAmmo": "БОЕЗАПАС"
+    },
+    "remarksSection": {
+      "categoryName": "ПРИМЕЧАНИЯ",
+      "personalInfoRemarks": "17. ЛИЧНЫЕ ДАННЫЕ И ПРИМЕЧАНИЯ",
+      "homeFamilyEvents": "18. СОБЫТИЯ ЗАТРАГИВАЮЩИЕ ДОМ И СЕМЬЮ",
+      "specialTraining": "19. СПЕЦ. ПОДГОТОВКА",
+      "addSpecialTraining": "Добавить спец. подготовку",
+      "noSpecialTrainings": "No спец. подготовок",
+      "specialTrainingSkill": "ИСПОЛЬЗ. НАВЫК ИЛИ ХАРАКТЕРИСТИКА",
+      "remarksDescription": "Пожалуйста, укажите, причины вербовки и согласия на работу агента." 
+    },
+    "other": {
+      "pieceOfArt": "ЭТО ХУДОЖЕСТВЕННОЕ ПРОИЗВЕДЕНИЕ",
+      "executive": "20. УПОЛНОМОЧЕННОЕ ДОЛЖНОСТНОЕ ЛИЦО",
+      "sign": "21. ПОДПИСЬ АГЕНТА",
+      "formUsaP1": "ФОРМА.",
+      "formUsaP2": "США",
+      "topSecret": "СОВЕРШЕННО СЕКРЕТНО // СОСТАВИТЕЛЬ КОНТРОЛИРУЕТ РАСПРОСТРАНЕНИЕ // ТРЕБУЕТСЯ СПЕЦИАЛЬНЫЙ ДОСТУП - ЛИСТ ДОКУМЕНТАЦИИ ДЛЯ АГЕНТОВ ДЕЛЬТЫ ГРИН"
+    }
+  }
+}

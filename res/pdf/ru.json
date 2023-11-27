@@ -1,0 +1,282 @@
+{
+  "pdfForm": {
+    "personalSection": {
+      "name": "1 ФАМИЛИЯ, ИМЯ, ОТЧЕСТВО",
+      "profession": "2 ПРОФЕССИЯ (ЗВАНИЕ ПРИ НАЛИЧИИ)",
+      "employer": "3 МЕСТО РАБОТЫ",
+      "nationality": "4 НАЦИОНАЛЬНОСТЬ",
+      "genderMCheck": "ЧекБоксМ",
+      "genderFCheck": "ЧекБоксЖ",
+      "genderCustomCheck": "ЧекБоксНеправильный",
+      "genderCustomField": "5 ПОЛ",
+      "age": "6 ВОЗРАСТ, ДЕНЬ РОЖДЕНИЯ",
+      "education": "7 ОБРАЗОВАНИЕ, ОПЫТ РАБОТЫ"
+    },
+    "staticSection": {
+      "str": "СИЛ",
+      "strX5": "СИЛ×5",
+      "strDescription": "ОТЛИЧИТЕЛЬНАЯ ЧЕРТА СИЛ",
+      "con": "ТЕЛ",
+      "conX5": "ТЕЛ×5",
+      "conDescription": "ОТЛИЧИТЕЛЬНАЯ ЧЕРТА ТЕЛ",
+      "dex": "ЛОВ",
+      "dexX5": "ЛОВ×5",
+      "dexDescription": "ОТЛИЧИТЕЛЬНАЯ ЧЕРТА ЛОВ",
+      "int": "ИНТ",
+      "intX5": "ИНТ×5",
+      "intDescription": "ОТЛИЧИТЕЛЬНАЯ ЧЕРТА ИНТ",
+      "pow": "ВОЛ",
+      "powX5": "ВОЛ×5",
+      "powDescription": "ОТЛИЧИТЕЛЬНАЯ ЧЕРТА ВОЛ",
+      "cha": "ХАР",
+      "chaX5": "ХАР×5",
+      "chaDescription": "ОТЛИЧИТЕЛЬНАЯ ЧЕРТА ХАР",
+      "hpMax": "МАКСИМАЛЬНОЕ ЗНАЧЕНИЕ Очков Здоровья ОЗ",
+      "hpCurr": "ТЕКУЩЕЕ ЗНАЧЕНИЕ Очков Здоровья ОЗ",
+      "wpMax": "МАКСИМАЛЬНОЕ ЗНАЧЕНИЕ Очков Воли ОВ",
+      "wpCurr": "ТЕКУЩЕЕ ЗНАЧЕНИЕ Очков Воли ОВ",
+      "sanMax": "МАКСИМАЛЬНОЕ ЗНАЧЕНИЕ Очков Рассудка ОР",
+      "sanCurr": "ТЕКУЩЕЕ ЗНАЧЕНИЕ Очков Рассудка ОР",
+      "bpCurr": "ТЕКУЩЕЕ ЗНАЧЕНИЕ Переломного Момента ПМ",
+      "physicalDescription": "10 ВНЕШНИЙ ВИД"
+    },
+    "psychologicalSection": {
+      "bounds": [
+        {
+          "name": "СВЯЗЬ 1",
+          "score": "ЗНАЧЕНИЕ СВЯЗИ 1",
+          "damageCheck": "ЧекБоксСвязь1"
+        },
+        {
+          "name": "СВЯЗЬ 2",
+          "score": "ЗНАЧЕНИЕ СВЯЗИ 2",
+          "damageCheck": "ЧекБоксСвязь2"
+        },
+        {
+          "name": "СВЯЗЬ 3",
+          "score": "ЗНАЧЕНИЕ СВЯЗИ 3",
+          "damageCheck": "ЧекБоксСвязь3"
+        },
+        {
+          "name": "СВЯЗЬ 4",
+          "score": "ЗНАЧЕНИЕ СВЯЗИ 4",
+          "damageCheck": "ЧекБоксСвязь4"
+        },
+        {
+          "name": "СВЯЗЬ 5",
+          "score": "ЗНАЧЕНИЕ СВЯЗИ 5",
+          "damageCheck": "ЧекБоксСвязь5"
+        }
+      ],
+      "motivation": "12 МОТИВАЦИИ И ПСИХОЛОГИЧЕСКИЕ РАССТРОЙСТВА",
+      "violence1": "ЧекБоксНасилие1",
+      "violence2": "ЧекБоксНасилие2",
+      "violence3": "ЧекБоксНасилие3",
+      "helplessness1": "ЧекБоксБеспомощность1",
+      "helplessness2": "ЧекБоксБеспомощность2",
+      "helplessness3": "ЧекБоксБеспомощность3"
+    },
+    "skillsSection": [
+      { "id": "accounting", "valueFormName": "Бух. учёт 10" },
+      { "id": "alertness", "valueFormName": "Бдительность 20" },
+      { "id": "anthropology", "valueFormName": "Антропология 0" },
+      { "id": "archeology", "valueFormName": "Археология 0" },
+      {
+        "id": "art",
+        "valueFormName": "Искусство 0",
+        "typalFormName": "Искусство"
+      },
+      { "id": "artillery", "valueFormName": "Артиллерия 0" },
+      { "id": "athletics", "valueFormName": "Атлетика 30" },
+      { "id": "bureaucracy", "valueFormName": "Бюрократия 10" },
+      { "id": "computer_science", "valueFormName": "Информатика 0" },
+      {
+        "id": "craft",
+        "valueFormName": "Ремесло 0",
+        "typalFormName": "Ремесло"
+      },
+      { "id": "criminology", "valueFormName": "Криминология 10" },
+      { "id": "demolitions", "valueFormName": "Подрывное дело 0" },
+      { "id": "disguise", "valueFormName": "Смена внешности 10" },
+      { "id": "dodge", "valueFormName": "Уклонение 30" },
+      { "id": "drive", "valueFormName": "Вождение 20" },
+      { "id": "firearms", "valueFormName": "Огнестрельное оружие 20" },
+      { "id": "first_aid", "valueFormName": "Первая помощь 10" },
+      { "id": "forensics", "valueFormName": "Судмедэкспертиза 0" },
+      { "id": "heavy_machinery", "valueFormName": "Тяжелая техника 10" },
+      { "id": "heavy_weapons", "valueFormName": "Тяжелое вооружение 0" },
+      { "id": "history", "valueFormName": "История 10" },
+      { "id": "humint", "valueFormName": "Агентурная разведка 10" },
+      { "id": "law", "valueFormName": "Юриспруденция 0" },
+      { "id": "medicine", "valueFormName": "Медицина 0" },
+      { "id": "melee_weapons", "valueFormName": "Оружие ближнего боя 30" },
+      {
+        "id": "military_science",
+        "valueFormName": "Военные науки 0",
+        "typalFormName": "Военные науки"
+      },
+      { "id": "navigate", "valueFormName": "Навигация 10" },
+      { "id": "occult", "valueFormName": "Окультизм 10" },
+      { "id": "persuade", "valueFormName": "Убеждение 20" },
+      { "id": "pharmacy", "valueFormName": "Фармацевтика 0" },
+      {
+        "id": "pilot",
+        "valueFormName": "Пилотирование 0",
+        "typalFormName": "Пилотирование"
+      },
+      { "id": "psychotherapy", "valueFormName": "Психотерапия 10" },
+      { "id": "ride", "valueFormName": "Верховая езда 10" },
+      {
+        "id": "science",
+        "valueFormName": "Наука 0",
+        "typalFormName": "Наука"
+      },
+      { "id": "search", "valueFormName": "Поиск 20" },
+      { "id": "sigint", "valueFormName": "Радиоэлектронная разведка 0" },
+      { "id": "stealth", "valueFormName": "Скрытность 10" },
+      { "id": "surgery", "valueFormName": "Хирургия 0" },
+      { "id": "survival", "valueFormName": "Выживание 10" },
+      { "id": "swim", "valueFormName": "Плавание 20" },
+      { "id": "unarmed_combat", "valueFormName": "Бой без оружия 40" },
+      { "id": "unnatural", "valueFormName": "Сверхъестественное 0" },
+      {
+        "id": "other0",
+        "nameFormName": "Иностранные языки и другие навыки 1",
+        "valueFormName": "Значение иностранных языков и других навыков 1"
+      },
+      {
+        "id": "other1",
+        "nameFormName": "Иностранные языки и другие навыки 2",
+        "valueFormName": "Значение иностранных языков и других навыков 2"
+      },
+      {
+        "id": "other2",
+        "nameFormName": "Иностранные языки и другие навыки 3",
+        "valueFormName": "Значение иностранных языков и других навыков 3"
+      },
+      {
+        "id": "other3",
+        "nameFormName": "Иностранные языки и другие навыки 4",
+        "valueFormName": "Значение иностранных языков и других навыков 4"
+      },
+      {
+        "id": "other4",
+        "nameFormName": "Иностранные языки и другие навыки 5",
+        "valueFormName": "Значение иностранных языков и других навыков 5"
+      },
+      {
+        "id": "other5",
+        "nameFormName": "Иностранные языки и другие навыки 6",
+        "valueFormName": "Значение иностранных языков и других навыков 6"
+      }
+    ],
+    "woundsSection": {
+      "wounds": "14 РАНЫ И НЕДУГИ_2"
+    },
+    "equipmentSection": {
+      "armor": "15 БРОНЯ И СНАРЯЖЕНИЕ",
+      "weapons": [
+        {
+          "weapon": "ОружиеА",
+          "skill": "НавыкА",
+          "baseRange": "ДальностьА",
+          "damage": "УронА",
+          "armorPiercing": "БронебойностьА",
+          "killDamage": "ЛетальностьА",
+          "killRadius": "РадиусПораженияА",
+          "ammo": "БоезапасА"
+        },
+        {
+          "weapon": "ОружиеБ",
+          "skill": "НавыкаБ",
+          "baseRange": "ДальностьБ",
+          "damage": "УронБ",
+          "armorPiercing": "БронебойностьБ",
+          "killDamage": "ЛетальностьБ",
+          "killRadius": "РадиусПораженияБ",
+          "ammo": "БоезапасБ"
+        },
+        {
+          "weapon": "ОружиеВ",
+          "skill": "НавыкВ",
+          "baseRange": "ДальностьВ",
+          "damage": "УронВ",
+          "armorPiercing": "БронебойностьВ",
+          "killDamage": "ЛетальностьВ",
+          "killRadius": "РадиусПораженияВ",
+          "ammo": "БоезапасВ"
+        },
+        {
+          "weapon": "ОружиеГ",
+          "skill": "НавыкаГ",
+          "baseRange": "ДальностьГ",
+          "damage": "УронГ",
+          "armorPiercing": "БронебойностьГ",
+          "killDamage": "ЛетальностьГ",
+          "killRadius": "РадиусПораженияГ",
+          "ammo": "БоезапасГ"
+        },
+        {
+          "weapon": "ОружиеД",
+          "skill": "НавыкД",
+          "baseRange": "ДальностьД",
+          "damage": "УронД",
+          "armorPiercing": "БронебойностьД",
+          "killDamage": "ЛетальностьД",
+          "killRadius": "РадиусПоражениД",
+          "ammo": "БоезапасД"
+        },
+        {
+          "weapon": "ОружиеЕ",
+          "skill": "Навык",
+          "baseRange": "ДальностьЕ",
+          "damage": "УронЕ",
+          "armorPiercing": "БронебойностьЕ",
+          "killDamage": "ЛетальностьЕ",
+          "killRadius": "РадиусПораженияЕ",
+          "ammo": "БоезапасЕ"
+        },
+        {
+          "weapon": "ОружиеЖ",
+          "skill": "НавыкЖ",
+          "baseRange": "ДальностьЖ",
+          "damage": "УронЖ",
+          "armorPiercing": "БронебойностьЖ",
+          "killDamage": "ЛетальностьЖ",
+          "killRadius": "РадиусПораженияЖ",
+          "ammo": "БоезапасЖ"
+        }
+      ]
+    },
+    "remarksSection": {
+      "personalDetails": "17 ЛИЧНЫЕ ДАННЫЕ И ПРИМЕЧАНИЯ",
+      "homeFamilyEvents": "18 СОБЫТИЯ ЗАТРАГИВАЮЩИЕ ДОМ И СЕМЬЮ",
+      "specialTrainings": [
+        {
+          "name": "СПЕЦИАЛЬНАЯ ПОДГОТОВКА 1",
+          "value": "НАВЫК ИЛИ ХАРАКТЕРИСТИКА 1"
+        },
+        {
+          "name": "СПЕЦИАЛЬНАЯ ПОДГОТОВКА 2",
+          "value": "НАВЫК ИЛИ ХАРАКТЕРИСТИКА 2"
+        },
+        {
+          "name": "СПЕЦИАЛЬНАЯ ПОДГОТОВКА 3",
+          "value": "НАВЫК ИЛИ ХАРАКТЕРИСТИКА 3"
+        },
+        {
+          "name": "СПЕЦИАЛЬНАЯ ПОДГОТОВКА 4",
+          "value": "НАВЫК ИЛИ ХАРАКТЕРИСТИКА 4"
+        },
+        {
+          "name": "СПЕЦИАЛЬНАЯ ПОДГОТОВКА 5",
+          "value": "НАВЫК ИЛИ ХАРАКТЕРИСТИКА 5"
+        },
+        {
+          "name": "СПЕЦИАЛЬНАЯ ПОДГОТОВКА 6",
+          "value": "НАВЫК ИЛИ ХАРАКТЕРИСТИКА 6"
+        }
+      ]
+    }
+  }
+}

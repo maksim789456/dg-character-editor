@@ -1,0 +1,101 @@
+{
+  "characterList": {
+    "personalSection": {
+      "categoryName": "PERSONAL DATA",
+      "fullName": "1. LAST NAME, FIRST NAME, MIDDLE INITIAL",
+      "profession": "2. PROFESSION (RANK IF APPLICABLE)",
+      "employer": "3. EMPLOYER",
+      "nationality": "4. NATIONALITY",
+      "gender": "5. SEX",
+      "genderM": "M",
+      "genderF": "F",
+      "age": "6. AGE AND D.O.B.",
+      "education": "7. EDUCATION AND OCCUPATIONAL HISTORY"
+    },
+    "staticSection": {
+      "categoryName": "STATISTICAL DATA",
+      "stats": "8. STATISTICS",
+      "statsValue": "SCORE",
+      "statsValueX5": "x5",
+      "statsDescription": "DISTINGUISHING FEATURES",
+      "statsDescriptionPlaceholder": "<9 or >12",
+      "strStat": "Strength (STR)",
+      "conStat": "Constitution (CON)",
+      "dexStat": "Dexterity (DEX)",
+      "intStat": "Intelligence (INT)",
+      "powStat": "Power (POW)",
+      "chaStat": "Charisma (CHA)",
+
+      "calcStats": "9. DERIVED ATTRIBUTES",
+      "calcStatsMax": "MAXIMUM",
+      "calcStatsCurrent": "CURRENT",
+
+      "hpStat": "Hit Points (HP)",
+      "hpStatMaxPlaceholder": "(STR + CON)/2",
+      "wpStat": "Willpower Points (WP)",
+      "wpStatMaxPlaceholder": "POW",
+      "sanStat": "Sanity Points (SAN)",
+      "sanStatMaxPlaceholder": "99 - Unnatural",
+      "bpStat": "Breaking Point (BP)",
+      "bpStatMax": "N/A",
+      "bpStatCurrentPlaceholder": "",
+
+      "description": "10. PHYSICAL DESCRIPTION"
+    },
+    "psychologicalSection": {
+      "categoryName": "PSYCHOLOGICAL DATA",
+      "bonds": "11. BONDS",
+      "bondsValue": "SCORE",
+      "addBound": "Add Bound",
+      "noBounds": "No Bounds",
+      "bondsInstruction": "Check a damaged Bond’s box until the next Home scene ends.",
+      "motivation": "12. MOTIVATIONS AND MENTAL DISORDERS",
+      "sanLoss": "13. INCIDENTS OF SAN LOSS WITHOUT GOING INSANE",
+      "sanLossAdapted": "adapted",
+      "sanLossViolence": "Violence",
+      "sanLossHelplessness": "Helplessness"
+    },
+    "skillsSection": {
+      "categoryName": "APPLICABLE SKILL SETS",
+      "otherSkills": "Foreign Languages and Other Skills:",
+      "skillsInstruction": "Check a box when you attempt to use a skill and fail. After the session, add 1D4 to each checked skill and erase all checks."
+    },
+    "woundsSection": {
+      "categoryName": "INJURIES",
+      "wounds": "14. WOUNDS AND AILMENTS",
+      "firstHelp": "Has First Aid been attempted since the last injury?",
+      "firstHelpYes": "Yes: Only Medicine, Surgery, or long-term rest can help further."
+    },
+    "equipmentSection": {
+      "categoryName": "EQUIPMENT",
+      "armor": "15. ARMOR AND GEAR",
+      "armorDescription": "Body armor reduces the damage of all attacks except Called Shots and successful Lethality rolls.",
+      "weapons": "16. WEAPONS",
+      "addWeapon": "Add weapon",
+      "noWeapons": "No weapons",
+      "weaponsSkill": "SKILL %",
+      "weaponsRange": "BASE RANGE",
+      "weaponsDamage": "DAMAGE",
+      "weaponsArmorPiecing": "ARMOR PIERCING",
+      "weaponsLethality": "LETHALITY",
+      "weaponsKillRadius": "KILL RADIUS",
+      "weaponsAmmo": "AMMO"
+    },
+    "remarksSection": {
+      "categoryName": "REMARKS",
+      "personalInfoRemarks": "17. PERSONAL DETAILS AND NOTES",
+      "homeFamilyEvents": "18. DEVELOPMENTS WHICH AFFECT HOME AND FAMILY",
+      "specialTraining": "19. SPECIAL TRAINING",
+      "addSpecialTraining": "Add Special Training",
+      "noSpecialTrainings": "No Special Trainings",
+      "specialTrainingSkill": "SKILL OR STAT USED",
+      "remarksDescription": "Please indicate why this agent was recruited and why the agent agreed to be recruited." 
+    },
+    "other": {
+      "pieceOfArt": "THIS IS A WORK OF FICTION",
+      "executive": "20. AUTHORIZING OFFICER",
+      "sign": "21. AGENT SIGNATURE",
+      "topSecret": "TOP SECRET//ORCON//SPECIAL ACCESS REQUIRED—DELTA GREEN AGENT DOCUMENTATION SHEET"
+    }
+  }
+}
