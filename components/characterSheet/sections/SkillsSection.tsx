@@ -35,7 +35,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
       {...props}
     >
       <div className="grid grid-flow-col skills-grid">
-        {skillsDict.map((langSkill: DgCharacterSkill, i: number) => {
+        {skillsDict.baseSkills.map((langSkill: DgCharacterSkill, i: number) => {
           const skillId = dgCharacter.skills.findIndex(
             (pred) => pred.id === langSkill.id
           );
