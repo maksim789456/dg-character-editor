@@ -66,6 +66,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
                   })
                 )
               }
+              types={skillsDict.typalSkillVariants[skill.id]}
               type={skill.type}
               onTypeChange={(value) =>
                 dispatch(

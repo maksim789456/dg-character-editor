@@ -12,6 +12,7 @@ interface TableSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   onDamagedChange?: (damage: boolean) => void;
   characterSkillRate: number;
   onCharacterSkillRateChange: (skillRate: number) => void;
+  types: any[];
   type?: string;
   onTypeChange?: (type: string) => void;
 }
@@ -23,6 +24,7 @@ const TableSkill = memo(function TableSkillInternal({
   onDamagedChange,
   characterSkillRate,
   onCharacterSkillRateChange,
+  types,
   type,
   onTypeChange,
   ...props
@@ -43,7 +45,7 @@ const TableSkill = memo(function TableSkillInternal({
     if (onCharacterSkillRateChange) onCharacterSkillRateChange(value);
   };
 
-  const onTypeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onTypeSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (onTypeChange) onTypeChange(e.target.value);
   };
 
@@ -68,11 +70,11 @@ const TableSkill = memo(function TableSkillInternal({
       ) : (
         <div className="flex items-center justify-center">
           <input
-          type="checkbox"
-          className="w-4 h-4"
-          checked={damaged ?? false}
-          onChange={onDamagedInputChange}
-        />
+            type="checkbox"
+            className="w-4 h-4"
+            checked={damaged ?? false}
+            onChange={onDamagedInputChange}
+          />
         </div>
       )}
       <p className="font-dg-main text-dg text-sm col-span-9 py-1.5">{`${skill.name} (${skill.baseSkillRate}%)`}</p>
@@ -90,14 +92,27 @@ const TableSkill = memo(function TableSkillInternal({
         }
       ></input>
       {skill.isTypal ? (
-        <input
-          type="text"
+        <select
+          className="w-full h-full bg-blue-100 col-span-10 py-1.5 disabled:bg-gray-200"
           disabled={disabled}
-          value={type ?? ""}
-          onChange={onTypeInputChange}
-          className="w-full h-full bg-blue-100 text-center col-span-10 py-1.5 disabled:bg-gray-200"
-        ></input>
+          value={skill.type ?? ""}
+          onChange={onTypeSelectChange}
+        >
+          <option value={""}></option>
+          {types.map((skill: any, i: number) => (
+            <option key={i} value={skill.id}>
+              {skill.name}
+            </option>
+          ))}
+        </select>
       ) : (
+        // <input
+        //   type="text"
+        //   disabled={disabled}
+        //   value={type ?? ""}
+        //   onChange={onTypeInputChange}
+        //   className="w-full h-full bg-blue-100 text-center col-span-10 py-1.5 disabled:bg-gray-200"
+        // ></input>
         <></>
       )}
     </div>
