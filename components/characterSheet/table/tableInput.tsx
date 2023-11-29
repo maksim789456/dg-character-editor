@@ -9,6 +9,7 @@ interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   through?: boolean;
   value?: number | string;
+  maxValue?: number;
   onValueChange?: (value: number | string) => void;
   checkboxValue?: boolean;
   onCheckboxValueChange?: (value: boolean) => void;
@@ -21,6 +22,7 @@ const TableInput: React.FC<TableInputProps> = ({
   disabled,
   through,
   value,
+  maxValue,
   onValueChange,
   checkboxValue,
   onCheckboxValueChange,
@@ -30,7 +32,8 @@ const TableInput: React.FC<TableInputProps> = ({
     if (!onValueChange) return;
 
     let value = e.target.value === "" ? 0 : parseInt(e.target.value);
-    if (isNaN(value)) value = 0; 
+    if (isNaN(value)) value = 0;
+    if (maxValue && value > maxValue) value = maxValue;
     onValueChange(value);
   };
 
@@ -66,7 +69,7 @@ const TableInput: React.FC<TableInputProps> = ({
         disabled={disabled}
         className={`w-full h-full bg-blue-100 text-center font-dg-main text-dg
         placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light 
-        disabled:bg-gray-200 ${through ? "line-through": ""}`}
+        disabled:bg-gray-200 ${through ? "line-through" : ""}`}
         placeholder={placeholder}
         value={value}
         onChange={isNumber ? onInputNumberChange : onTextChange}

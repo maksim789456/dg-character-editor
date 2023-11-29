@@ -73,6 +73,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
                   className="col-span-2"
                   isNumber={true}
                   value={bound.score}
+                  maxValue={dgCharacter.stats.cha.score}
                   onValueChange={(value) => {
                     dispatch(
                       editBound({
