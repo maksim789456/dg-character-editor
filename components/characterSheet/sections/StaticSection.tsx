@@ -101,21 +101,26 @@ const StaticSection: React.FC<StaticSectionProps> = ({
                   isHeader={true}
                   fontSize="text-base"
                 />
-                <TableInput
-                  className="col-span-3"
-                  disabled={!isExceptional || !dgCharacter.editMode}
-                  placeholder={sectionLocale?.statsDescriptionPlaceholder}
-                  value={
-                    isExceptional
-                      ? statValue.description ?? ''
-                      : sectionLocale?.bpStatMax
-                  }
-                  onValueChange={(value) =>
-                    dispatch(
-                      setBaseStatDescription({ field: stat.name, value })
-                    )
-                  }
-                />
+                {isExceptional ? (
+                  <TableInput
+                    className="col-span-3"
+                    disabled={!dgCharacter.editMode}
+                    placeholder={sectionLocale?.statsDescriptionPlaceholder}
+                    value={statValue.description ?? ""}
+                    onValueChange={(value) =>
+                      dispatch(
+                        setBaseStatDescription({ field: stat.name, value })
+                      )
+                    }
+                  />
+                ) : (
+                  <TableItem
+                    className="col-span-3"
+                    isHeader={true}
+                    fontSize="text-base"
+                    title={sectionLocale?.bpStatMax}
+                  />
+                )}
               </div>
             );
           })}
@@ -221,7 +226,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
           title={sectionLocale?.description}
           multiline={true}
           disabled={!dgCharacter.editMode}
-          value={dgCharacter.stats.description ?? ''}
+          value={dgCharacter.stats.description ?? ""}
           onValueChange={(value) =>
             dispatch(setStat({ field: "description", value }))
           }
