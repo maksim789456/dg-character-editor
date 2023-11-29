@@ -1,7 +1,11 @@
 import fieldDescriptions, {
   FieldType,
 } from "@/app/api/pdfExport/[lang]/exportFields";
-import { getPdfFieldsDictionary } from "@/res/dictionaries";
+import {
+  getPdfFieldsDictionary,
+  getSkillsDictionary,
+} from "@/res/dictionaries";
+import fontkit from "@pdf-lib/fontkit";
 import { DgCharacter } from "@/src/model/character";
 import { promises as fs } from "fs";
 import { NextResponse } from "next/server";
@@ -35,13 +39,30 @@ export async function POST(
       const file = await fs.readFile(pdfPath);
       const pdfDoc = await PDFDocument.load(file);
       const pdfForm = ((await getPdfFieldsDictionary(lang)) as any).pdfForm;
+      const typalSkillVariants = ((await getSkillsDictionary(lang)) as any)
+        .typalSkillVariants;
+
+      const fontPath = path.join(
+        process.cwd(),
+        "public",
+        "OpenSans-Medium.ttf"
+      );
+      const openSansFontBytes = await fs.readFile(fontPath);
+      pdfDoc.registerFontkit(fontkit);
+      const openSansFont = await pdfDoc.embedFont(openSansFontBytes);
 
       const form = pdfDoc.getForm();
+
+      const setTextField = (fieldName: string, value?: string) => {
+        const field = form.getTextField(fieldName);
+        field.setText(value);
+        field.updateAppearances(openSansFont);
+      };
+
       fieldDescriptions(pdfForm, dgCharacter).forEach((description) => {
         switch (description.fieldType) {
           case FieldType.Text:
-            const textField = form.getTextField(description.fieldName);
-            textField.setText(description.value.toString());
+            setTextField(description.fieldName, description.value.toString());
             break;
           case FieldType.Checkbox:
             const checkbox = form.getCheckBox(description.fieldName);
@@ -53,10 +74,8 @@ export async function POST(
 
       dgCharacter.bounds.forEach((bound, i) => {
         const boundDescription = pdfForm.psychologicalSection.bounds[i];
-        form.getTextField(boundDescription.name).setText(bound.name);
-        form
-          .getTextField(boundDescription.score)
-          .setText(bound.score.toString());
+        setTextField(boundDescription.name, bound.name);
+        setTextField(boundDescription.score, bound.score.toString());
         if (boundDescription.damageCheck !== "" && bound.damaged)
           form.getCheckBox(boundDescription.damageCheck).check();
       });
@@ -65,46 +84,37 @@ export async function POST(
         const skillDescription = pdfForm.skillsSection.find(
           (pdfFormSkill: any) => pdfFormSkill.id === skill.id
         );
-        form
-          .getTextField(skillDescription.valueFormName)
-          .setText(
-            skill.characterSkillRate ? skill.characterSkillRate.toString() : ""
+        setTextField(
+          skillDescription.valueFormName,
+          skill.characterSkillRate ? skill.characterSkillRate.toString() : ""
+        );
+        if (skill.isTypal) {
+          const typalSkill = typalSkillVariants[skill.id].find(
+            (typal: any) => typal.id == skill.type
           );
-        if (skill.isTypal)
-          form.getTextField(skillDescription.typalFormName).setText(skill.type);
+          setTextField(skillDescription.typalFormName, typalSkill.name);
+        }
         if (skill.isOther)
-          form.getTextField(skillDescription.nameFormName).setText(skill.name);
+          setTextField(skillDescription.nameFormName, skill.name);
       });
 
       dgCharacter.weapons.forEach((weapon, i) => {
         const weaponDescription = pdfForm.equipmentSection.weapons[i];
-        form.getTextField(weaponDescription.weapon).setText(weapon.name);
-        form.getTextField(weaponDescription.skill).setText(weapon.skill);
-        form
-          .getTextField(weaponDescription.baseRange)
-          .setText(weapon.baseRange);
-        form.getTextField(weaponDescription.damage).setText(weapon.damage);
-        form
-          .getTextField(weaponDescription.armorPiercing)
-          .setText(weapon.armorPiercing);
-        form
-          .getTextField(weaponDescription.killDamage)
-          .setText(weapon.lethality);
-        form
-          .getTextField(weaponDescription.killRadius)
-          .setText(weapon.killRadius);
-        form.getTextField(weaponDescription.ammo).setText(weapon.ammo);
+        setTextField(weaponDescription.weapon, weapon.name);
+        setTextField(weaponDescription.skill, weapon.skill);
+        setTextField(weaponDescription.baseRange, weapon.baseRange);
+        setTextField(weaponDescription.damage, weapon.damage);
+        setTextField(weaponDescription.armorPiercing, weapon.armorPiercing);
+        setTextField(weaponDescription.killDamage, weapon.lethality);
+        setTextField(weaponDescription.killRadius, weapon.killRadius);
+        setTextField(weaponDescription.ammo, weapon.ammo);
       });
 
       dgCharacter.specialTrainings.forEach((specTraining, i) => {
         const specTrainingDescription =
           pdfForm.remarksSection.specialTrainings[i];
-        form
-          .getTextField(specTrainingDescription.name)
-          .setText(specTraining.name);
-        form
-          .getTextField(specTrainingDescription.value)
-          .setText(specTraining.skill);
+        setTextField(specTrainingDescription.name, specTraining.name);
+        setTextField(specTrainingDescription.value, specTraining.skill);
       });
 
       const resultBytes = await pdfDoc.save();

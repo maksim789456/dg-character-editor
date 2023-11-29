@@ -21,7 +21,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
     const dgCharacterReduced = {
       ...dgCharacter,
       skills: dgCharacter.skills
-        .filter((skill) => skill.characterSkillRate !== undefined)
+        .filter((skill) => skill.characterSkillRate !== undefined || skill.type)
         .map((skill) => {
           return { ...skill, baseSkillRate: undefined };
         }),
