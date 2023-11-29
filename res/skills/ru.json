@@ -45,8 +45,8 @@
   ],
   "typalSkillVariants": {
     "art": [
-      { "id": "acting", "name": "Актерское мастерство," },
-      { "id": "creative_writing", "name": "Писательство," },
+      { "id": "acting", "name": "Актерское мастерство" },
+      { "id": "creative_writing", "name": "Писательство" },
       { "id": "dance", "name": "Танец" },
       { "id": "flute", "name": "Флейта" },
       { "id": "forgery", "name": "Подделка документов" },
