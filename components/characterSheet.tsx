@@ -44,7 +44,7 @@ export default function CharacterSheet({
     >
       <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
-          <SettingsSection className="col-span-2" lang={lang} />
+          <SettingsSection sectionLocale={langDict.characterList.settingsSection} className="col-span-2" lang={lang} />
           <div className="col-span-2 h-16 bg-dg flex items-center justify-center">
             <Image
               alt="delta green logo"

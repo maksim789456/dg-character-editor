@@ -132,7 +132,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
                 dispatch(addOtherSkill(`other${otherSkills.length}`))
               }
             >
-              Add other skill
+              {sectionLocale?.addOtherSkills}
             </button>
           </div>
         ) : (

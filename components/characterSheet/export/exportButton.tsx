@@ -51,7 +51,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
         className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
         onClick={exportButton}
       >
-        Export PDF
+        {props.children}
       </button>
     </div>
   );
