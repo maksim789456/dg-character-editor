@@ -29,6 +29,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
     (state: any) => state.dgCharacter
   ) as DgCharacter;
   const dispatch = useDispatch();
+  const { editMode } = dgCharacter;
 
   const baseStats = [
     {
@@ -79,17 +80,17 @@ const StaticSection: React.FC<StaticSectionProps> = ({
               isHeader={true}
             />
           </div>
-          {baseStats.map((stat: any, i: number) => {
+          {baseStats.map((stat: any) => {
             const statValue = dgCharacter.stats[
               stat.name as keyof DgCharacterStats
             ] as DgCharacterBaseStat;
             const isExceptional = statValue.score < 9 || statValue.score > 12;
             return (
-              <div className="grid grid-cols-9" key={i}>
+              <div className="grid grid-cols-9" key={stat.name}>
                 <TableItem className="col-span-3" title={stat.title} />
                 <TableInput
                   className="col-span-2"
-                  disabled={!dgCharacter.editMode}
+                  disabled={!editMode}
                   value={statValue.score}
                   isNumber={true}
                   onValueChange={(value) =>
@@ -104,7 +105,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
                 {isExceptional ? (
                   <TableInput
                     className="col-span-3"
-                    disabled={!dgCharacter.editMode}
+                    disabled={!editMode}
                     placeholder={sectionLocale?.statsDescriptionPlaceholder}
                     value={statValue.description ?? ""}
                     onValueChange={(value) =>
@@ -225,7 +226,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
         <TextInput
           title={sectionLocale?.description}
           multiline={true}
-          disabled={!dgCharacter.editMode}
+          disabled={!editMode}
           value={dgCharacter.stats.description ?? ""}
           onValueChange={(value) =>
             dispatch(setStat({ field: "description", value }))

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ExportButton from "../export/exportButton";
 import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { DgCharacter } from "@/src/model/character";
+import React from "react";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;

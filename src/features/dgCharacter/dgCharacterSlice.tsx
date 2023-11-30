@@ -217,7 +217,7 @@ export const dgCharacterSlice = createSlice({
       }
       return state;
     },
-    clear: (state: DgCharacter) => (state = initialState),
+    clear: () => initialState,
   },
 });
 

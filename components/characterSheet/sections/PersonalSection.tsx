@@ -5,7 +5,6 @@ import Category from "../category";
 import GenderInput from "../genderInput";
 import TextInput from "../textInput";
 import { useDispatch, useSelector } from "react-redux";
-import { DgCharacter } from "@/src/model/character";
 import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
 
 interface PersonalSectionProps extends React.HTMLAttributes<HTMLDivElement> {

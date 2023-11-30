@@ -153,12 +153,12 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
             <input
               type="checkbox"
               checked={dgCharacter.violence >= 2}
-              onChange={(e) => dispatch(set({ field: "violence", value: 2 }))}
+              onChange={() => dispatch(set({ field: "violence", value: 2 }))}
             />
             <input
               type="checkbox"
               checked={dgCharacter.violence === 3}
-              onChange={(e) => dispatch(set({ field: "violence", value: 3 }))}
+              onChange={() => dispatch(set({ field: "violence", value: 3 }))}
             />
             <i className="font-dg-main text-dg text-sm">
               {sectionLocale?.sanLossAdapted}
@@ -181,14 +181,14 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
             <input
               type="checkbox"
               checked={dgCharacter.helplessness >= 2}
-              onChange={(e) =>
+              onChange={() =>
                 dispatch(set({ field: "helplessness", value: 2 }))
               }
             />
             <input
               type="checkbox"
               checked={dgCharacter.helplessness === 3}
-              onChange={(e) =>
+              onChange={() =>
                 dispatch(set({ field: "helplessness", value: 3 }))
               }
             />

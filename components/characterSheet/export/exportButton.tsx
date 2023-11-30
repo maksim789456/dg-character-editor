@@ -17,7 +17,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
     (state: any) => state.dgCharacter
   ) as DgCharacter;
 
-  const exportButton = async (e: React.MouseEvent<HTMLElement>) => {
+  const exportButton = async () => {
     const dgCharacterReduced = {
       ...dgCharacter,
       skills: dgCharacter.skills
