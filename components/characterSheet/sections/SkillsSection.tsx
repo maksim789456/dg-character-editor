@@ -125,7 +125,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
           );
         })}
         {otherSkills.length != 6 && dgCharacter.editMode ? (
-          <div className="border-b border-dg flex items-center justify-center">
+          <div className="border-b border-dg flex items-center justify-center gap-2">
             <button
               className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
               onClick={() =>

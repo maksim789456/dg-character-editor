@@ -77,7 +77,7 @@ const TableSkill = memo(function TableSkillInternal({
           />
         </div>
       )}
-      <p className="font-dg-main text-dg text-sm col-span-9 py-1.5">{`${skill.name} (${skill.baseSkillRate}%)`}</p>
+      <p className="font-dg-main text-dg text-sm col-span-9 py-1.5 flex items-center">{`${skill.name} (${skill.baseSkillRate}%)`}</p>
       <input
         type="text"
         inputMode="numeric"

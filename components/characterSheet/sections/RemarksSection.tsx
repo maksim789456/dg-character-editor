@@ -35,7 +35,7 @@ const RemarksSection: React.FC<RemarksSectionProps> = ({
             title={sectionLocale?.personalInfoRemarks}
             multiline={true}
             rows={15}
-            value={dgCharacter.personalDetails ?? ''}
+            value={dgCharacter.personalDetails ?? ""}
             onValueChange={(value) =>
               dispatch(set({ field: "personalDetails", value }))
             }
@@ -45,13 +45,19 @@ const RemarksSection: React.FC<RemarksSectionProps> = ({
             title={sectionLocale?.homeFamilyEvents}
             multiline={true}
             rows={7}
-            value={dgCharacter.developmentsFamily ?? ''}
+            value={dgCharacter.developmentsFamily ?? ""}
             onValueChange={(value) =>
               dispatch(set({ field: "developmentsFamily", value }))
             }
           />
-          <div className="grid grid-cols-1 grid-rows-7">
-            <div className="grid grid-cols-2">
+          <div
+            className={`grid grid-cols-1 ${
+              dgCharacter.specialTrainings.length <= 5
+                ? "auto-rows-min"
+                : "auto-rows-auto"
+            }`}
+          >
+            <div className="grid grid-cols-2 h-10">
               <TableItem
                 title={sectionLocale?.specialTraining}
                 isHeader={true}
