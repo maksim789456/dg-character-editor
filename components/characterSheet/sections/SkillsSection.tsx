@@ -129,7 +129,22 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
             <button
               className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
               onClick={() =>
-                dispatch(addOtherSkill(`other${otherSkills.length}`))
+                dispatch(
+                  addOtherSkill({
+                    id: `foreignLanguage${otherSkills.length}`,
+                    isForeignLanguage: true,
+                  })
+                )
+              }
+            >
+              {sectionLocale?.addForeignLanguage}
+            </button>
+            <button
+              className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
+              onClick={() =>
+                dispatch(
+                  addOtherSkill({ id: `other${otherSkills.length}` })
+                )
               }
             >
               {sectionLocale?.addOtherSkills}

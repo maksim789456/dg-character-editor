@@ -102,6 +102,11 @@ export interface EditSkillProps {
   skill: DgCharacterSkill;
 }
 
+export interface AddOtherSkillProps {
+  id: string;
+  isForeignLanguage?: boolean;
+}
+
 export interface EditWeaponProps {
   id: number;
   weapon: DgCharacterWeapon;
@@ -163,13 +168,14 @@ export const dgCharacterSlice = createSlice({
       }
       return state;
     },
-    addOtherSkill: (state: DgCharacter, action: PayloadAction<string>) => {
+    addOtherSkill: (state: DgCharacter, action: PayloadAction<AddOtherSkillProps>) => {
       state.skills.push({
-        id: action.payload,
+        id: action.payload.id,
         name: "",
         baseSkillRate: 0,
         isOther: true,
         characterSkillRate: 0,
+        isForeignLanguage: action.payload.isForeignLanguage ?? false,
       } as DgCharacterSkill);
     },
     editSkill: (state: DgCharacter, action: PayloadAction<EditSkillProps>) => {
