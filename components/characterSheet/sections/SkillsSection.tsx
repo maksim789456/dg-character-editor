@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Category from "../category";
 import TableInput from "../table/tableInput";
 import TableItem from "../table/tableItem";
@@ -27,6 +27,17 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   ) as DgCharacter;
   const otherSkills = dgCharacter.skills.filter((skill) => skill.isOther);
   const dispatch = useDispatch();
+
+  const types = useMemo(
+    () =>
+      skillsDict.typalSkillVariants["foreign_language"].map((type: any) => {
+        return {
+          ...type,
+          name: `${sectionLocale?.foreignLangShort} (${type.name})`,
+        };
+      }),
+    [sectionLocale?.foreignLangShort, skillsDict.typalSkillVariants]
+  );
 
   return (
     <Category
@@ -80,7 +91,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
         <TableItem title={sectionLocale?.otherSkills} />
         {otherSkills.map((skill, i) => {
           const skillId = dgCharacter.skills.findIndex(
-            (pred) => pred.id === `other${i}`
+            (pred) =>
+              pred.id === `other${i}` || pred.id === `foreignLanguage${i}`
           );
           return (
             <div className="grid grid-cols-12" key={i}>
@@ -88,6 +100,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
                 className="col-span-10"
                 disabled={!dgCharacter.editMode}
                 value={skill.name}
+                select={skill.isForeignLanguage}
+                types={types}
                 onValueChange={(value) =>
                   dispatch(
                     editSkill({
@@ -142,9 +156,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
             <button
               className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
               onClick={() =>
-                dispatch(
-                  addOtherSkill({ id: `other${otherSkills.length}` })
-                )
+                dispatch(addOtherSkill({ id: `other${otherSkills.length}` }))
               }
             >
               {sectionLocale?.addOtherSkills}
