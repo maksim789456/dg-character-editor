@@ -1,5 +1,7 @@
 "use client";
 
+import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
+import { useAppDispatch, useAppSelector } from "@/src/hooks";
 import { DgGender } from "@/src/model/character";
 import React from "react";
 
@@ -7,39 +9,34 @@ interface GenderInputProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   mTitle: string;
   fTitle: string;
-  disabled?: boolean;
-
-  gender?: DgGender;
-  onGenderChange?: (value: DgGender) => void;
-
-  customGender?: string;
-  onCustomGenderChange?: (value: string) => void;
 }
 
 const GenderInput: React.FC<GenderInputProps> = ({
   title,
   mTitle,
   fTitle,
-  disabled,
-  gender,
-  onGenderChange,
-  customGender,
-  onCustomGenderChange,
   ...props
 }) => {
+  const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
+  const gender = useAppSelector((state) => state.dgCharacter.gender);
+  const customGender = useAppSelector(
+    (state) => state.dgCharacter.customGender
+  );
+
+  const dispatch = useAppDispatch();
+
   const onCheckboxChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     valueToSet: DgGender
   ) => {
-    if (onGenderChange)
-      onGenderChange(e.target.checked ? valueToSet : DgGender.None);
+    const value = e.target.checked ? valueToSet : DgGender.None;
+    dispatch(set({ field: "gender", value }));
   };
 
   const onCustomGenderInputChange = (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
-    if (onCustomGenderChange) 
-      onCustomGenderChange(e.target.value);
+    dispatch(set({ field: "customGender", value: e.target.value }));
   };
 
   return (
@@ -75,7 +72,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
           type="text"
           className="w-full bg-blue-100 disabled:bg-gray-200"
           disabled={gender !== DgGender.Custom || disabled}
-          value={customGender}
+          value={customGender ?? ''}
           onChange={onCustomGenderInputChange}
         ></input>
       </div>

@@ -62,13 +62,6 @@ const PersonalSection: React.FC<PersonalSectionProps> = ({
           title={sectionLocale?.gender}
           mTitle={sectionLocale?.genderM}
           fTitle={sectionLocale?.genderF}
-          disabled={!dgCharacter.editMode}
-          gender={dgCharacter.gender}
-          onGenderChange={(value) => dispatch(set({ field: "gender", value }))}
-          customGender={dgCharacter.customGender ?? ''}
-          onCustomGenderChange={(value) =>
-            dispatch(set({ field: "customGender", value }))
-          }
         />
         <TextInput
           className="col-span-1"
