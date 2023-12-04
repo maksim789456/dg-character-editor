@@ -83,7 +83,6 @@ const TableSkill = memo(function TableSkillInternal({
         inputMode="numeric"
         pattern="[0-9]*"
         disabled={disabled}
-        min={skill.baseSkillRate}
         value={characterSkillRate ?? skill.baseSkillRate}
         onChange={onCharacterSkillRateInputChange}
         className={
