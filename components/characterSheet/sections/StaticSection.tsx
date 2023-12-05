@@ -16,6 +16,7 @@ import {
   setBaseStatDescription,
   setStat,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
+import BaseStat from "../baseStat";
 
 interface StaticSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -30,34 +31,6 @@ const StaticSection: React.FC<StaticSectionProps> = ({
   ) as DgCharacter;
   const dispatch = useDispatch();
   const { editMode } = dgCharacter;
-
-  const baseStats = [
-    {
-      title: sectionLocale?.strStat,
-      name: "str",
-    },
-    {
-      title: sectionLocale?.conStat,
-      name: "con",
-    },
-    {
-      title: sectionLocale?.dexStat,
-      name: "dex",
-    },
-    {
-      title: sectionLocale?.intStat,
-      name: "int",
-    },
-    {
-      title: sectionLocale?.powStat,
-      name: "pow",
-    },
-    {
-      title: sectionLocale?.chaStat,
-      name: "cha",
-    },
-  ];
-
   return (
     <Category name={sectionLocale?.categoryName} {...props}>
       <div className="grid grid-cols-1 grid-rows-5">
@@ -80,51 +53,36 @@ const StaticSection: React.FC<StaticSectionProps> = ({
               isHeader={true}
             />
           </div>
-          {baseStats.map((stat: any) => {
-            const statValue = dgCharacter.stats[
-              stat.name as keyof DgCharacterStats
-            ] as DgCharacterBaseStat;
-            const isExceptional = statValue.score < 9 || statValue.score > 12;
-            return (
-              <div className="grid grid-cols-9" key={stat.name}>
-                <TableItem className="col-span-3" title={stat.title} />
-                <TableInput
-                  className="col-span-2"
-                  disabled={!editMode}
-                  value={statValue.score}
-                  isNumber={true}
-                  onValueChange={(value) => {
-                    dispatch(setBaseStat({ field: stat.name, value }));
-                  }}
-                />
-                <TableItem
-                  title={`${statValue.score * 5}`}
-                  isHeader={true}
-                  fontSize="text-base"
-                />
-                {isExceptional ? (
-                  <TableInput
-                    className="col-span-3"
-                    disabled={!editMode}
-                    placeholder={sectionLocale?.statsDescriptionPlaceholder}
-                    value={statValue.description ?? ""}
-                    onValueChange={(value) =>
-                      dispatch(
-                        setBaseStatDescription({ field: stat.name, value })
-                      )
-                    }
-                  />
-                ) : (
-                  <TableItem
-                    className="col-span-3"
-                    isHeader={true}
-                    fontSize="text-base"
-                    title={sectionLocale?.bpStatMax}
-                  />
-                )}
-              </div>
-            );
-          })}
+          <BaseStat
+            sectionLocale={sectionLocale}
+            title={sectionLocale?.strStat}
+            name={"str"}
+          />
+          <BaseStat
+            sectionLocale={sectionLocale}
+            title={sectionLocale?.conStat}
+            name={"con"}
+          />
+          <BaseStat
+            sectionLocale={sectionLocale}
+            title={sectionLocale?.dexStat}
+            name={"dex"}
+          />
+          <BaseStat
+            sectionLocale={sectionLocale}
+            title={sectionLocale?.intStat}
+            name={"int"}
+          />
+          <BaseStat
+            sectionLocale={sectionLocale}
+            title={sectionLocale?.powStat}
+            name={"pow"}
+          />
+          <BaseStat
+            sectionLocale={sectionLocale}
+            title={sectionLocale?.chaStat}
+            name={"cha"}
+          />
         </div>
         <div className="grid grid-cols-1 grid-rows-5 row-span-2">
           <div className="grid grid-cols-4">
