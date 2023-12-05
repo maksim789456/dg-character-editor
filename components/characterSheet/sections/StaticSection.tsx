@@ -93,9 +93,9 @@ const StaticSection: React.FC<StaticSectionProps> = ({
                   disabled={!editMode}
                   value={statValue.score}
                   isNumber={true}
-                  onValueChange={(value) =>
-                    dispatch(setBaseStat({ field: stat.name, value }))
-                  }
+                  onValueChange={(value) => {
+                    dispatch(setBaseStat({ field: stat.name, value }));
+                  }}
                 />
                 <TableItem
                   title={`${statValue.score * 5}`}
@@ -215,11 +215,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
             <TableItem
               isHeader={true}
               fontSize="text-base"
-              title={`${
-                dgCharacter.stats.san - dgCharacter.stats.pow.score < 0
-                  ? 0
-                  : dgCharacter.stats.san - dgCharacter.stats.pow.score
-              }`}
+              title={`${dgCharacter.stats.bp}`}
             />
           </div>
         </div>

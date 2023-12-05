@@ -130,6 +130,12 @@ export const dgCharacterSlice = createSlice({
           action.payload.field as keyof DgCharacterStats
         ] as DgCharacterBaseStat
       ).score = action.payload.value > 18 ? 18 : action.payload.value;
+
+      if (action.payload.field === "pow") {
+        const newBp =
+          action.payload.value >= 3 ? state.stats.san - action.payload.value : 0;
+        state.stats.bp = newBp > 0 ? newBp : 0;
+      }
       return state;
     },
     setBaseStatDescription: (
