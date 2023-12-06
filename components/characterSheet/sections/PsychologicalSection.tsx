@@ -12,6 +12,8 @@ import {
   set,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
 import SanityLoss from "../sanityLoss";
+import AddBound from "../bound/addBound";
+import BoundInstructions from "../bound/boundInstructions";
 
 interface PsychologicalSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -87,33 +89,8 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
               </div>
             );
           })}
-          {dgCharacter.bounds.length != 5 && dgCharacter.editMode ? (
-            <div className="border-b border-dg flex items-center justify-center">
-              <button
-                className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
-                onClick={() => dispatch(addBound())}
-              >
-                {sectionLocale?.addBound}
-              </button>
-            </div>
-          ) : dgCharacter.bounds.length === 0 ? (
-            <div className="border-b border-dg flex items-center justify-center">
-              <p className="font-dg-main text-base text-center py-1">
-                {sectionLocale?.noBounds}
-              </p>
-            </div>
-          ) : (
-            <></>
-          )}
-          {dgCharacter.bounds.length !== 0 ? (
-            <div className="border-b border-dg flex items-center justify-center">
-              <p className="font-dg-main text-xs text-center py-1">
-                {sectionLocale?.bondsInstruction}
-              </p>
-            </div>
-          ) : (
-            <></>
-          )}
+          <AddBound sectionLocale={sectionLocale} />
+          <BoundInstructions sectionLocale={sectionLocale} />
         </div>
         <div className="row-span-3">
           <div className="border-b border-dg flex items-center justify-center">
