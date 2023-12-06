@@ -1,17 +1,13 @@
 import { connect } from "react-redux";
 import TableInput from "./table/tableInput";
 import TableItem from "./table/tableItem";
-import {
-  DgCharacter,
-  DgCharacterBaseStat,
-  DgCharacterStats,
-} from "@/src/model/character";
 import { RootState } from "@/src/store/store";
-import { Dispatch, createSelector } from "@reduxjs/toolkit";
+import { Dispatch } from "@reduxjs/toolkit";
 import {
   setBaseStat,
   setBaseStatDescription,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
+import { makeBaseStatSelectorInstance } from "@/src/redux/selectors";
 
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -25,14 +21,6 @@ interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   description?: string;
   onDescriptionChange?: (description: string) => void;
 }
-
-const baseStatSelector = (dgCharacter: DgCharacter, statName: string) =>
-  dgCharacter.stats[statName as keyof DgCharacterStats] as DgCharacterBaseStat;
-const makeBaseStatSelectorInstance = (fieldName: string) =>
-  createSelector(
-    (state: RootState) => state.dgCharacter,
-    (dgCharacter) => baseStatSelector(dgCharacter, fieldName)
-  );
 
 const makeMapState = (_: RootState, ownProps: BaseStatProps) => {
   const baseStatSelector = makeBaseStatSelectorInstance(ownProps.name ?? "");

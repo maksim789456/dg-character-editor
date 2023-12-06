@@ -1,7 +1,7 @@
 "use client";
 
 import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
-import { useAppDispatch, useAppSelector } from "@/src/hooks";
+import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import { DgGender } from "@/src/model/character";
 import React from "react";
 
