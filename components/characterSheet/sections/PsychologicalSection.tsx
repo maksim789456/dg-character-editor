@@ -11,6 +11,7 @@ import {
   editBound,
   set,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
+import SanityLoss from "../sanityLoss";
 
 interface PsychologicalSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -123,7 +124,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
           <textarea
             className="bg-blue-100 resize-none w-full translate-y-3"
             rows={7}
-            value={dgCharacter.motivationDescription ?? ''}
+            value={dgCharacter.motivationDescription ?? ""}
             onChange={(e) =>
               dispatch(
                 set({ field: "motivationDescription", value: e.target.value })
@@ -131,72 +132,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
             }
           />
         </div>
-        <div className="row-span-2 flex flex-col justify-center">
-          <div className="border-t border-b border-dg flex items-center justify-center">
-            <p className="font-dg-main text-dg text-sm py-1 text-center">
-              {sectionLocale?.sanLoss}
-            </p>
-          </div>
-          <div className="flex flex-row justify-evenly items-center py-1">
-            <p className="font-dg-main text-dg text-sm">
-              {sectionLocale?.sanLossViolence}
-            </p>
-            <input
-              type="checkbox"
-              checked={dgCharacter.violence >= 1}
-              onChange={(e) =>
-                dispatch(
-                  set({ field: "violence", value: e.target.checked ? 1 : 0 })
-                )
-              }
-            />
-            <input
-              type="checkbox"
-              checked={dgCharacter.violence >= 2}
-              onChange={() => dispatch(set({ field: "violence", value: 2 }))}
-            />
-            <input
-              type="checkbox"
-              checked={dgCharacter.violence === 3}
-              onChange={() => dispatch(set({ field: "violence", value: 3 }))}
-            />
-            <i className="font-dg-main text-dg text-sm">
-              {sectionLocale?.sanLossAdapted}
-            </i>
-            <p className="font-dg-main text-dg text-sm">
-              {sectionLocale?.sanLossHelplessness}
-            </p>
-            <input
-              type="checkbox"
-              checked={dgCharacter.helplessness >= 1}
-              onChange={(e) =>
-                dispatch(
-                  set({
-                    field: "helplessness",
-                    value: e.target.checked ? 1 : 0,
-                  })
-                )
-              }
-            />
-            <input
-              type="checkbox"
-              checked={dgCharacter.helplessness >= 2}
-              onChange={() =>
-                dispatch(set({ field: "helplessness", value: 2 }))
-              }
-            />
-            <input
-              type="checkbox"
-              checked={dgCharacter.helplessness === 3}
-              onChange={() =>
-                dispatch(set({ field: "helplessness", value: 3 }))
-              }
-            />
-            <i className="font-dg-main text-dg text-sm">
-              {sectionLocale?.sanLossAdapted}
-            </i>
-          </div>
-        </div>
+        <SanityLoss sectionLocale={sectionLocale} />
       </div>
     </Category>
   );
