@@ -194,7 +194,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.physicalDescription,
       fieldType: FieldType.Text,
-      value: character.stats.description ?? '',
+      value: character.description ?? '',
     },
     {
       fieldName: pdfForm.psychologicalSection.motivation,

@@ -32,6 +32,7 @@ const initialState = {
     san: 15,
     bp: 12,
   } as DgCharacterStats,
+  description: '',
 
   bounds: [] as DgCharacterBound[],
   violence: 0,

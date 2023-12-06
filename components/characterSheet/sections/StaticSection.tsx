@@ -7,6 +7,7 @@ import BaseStat from "../baseStat";
 import { RootState } from "@/src/store/store";
 import CalcStat from "../calcStat";
 import { maxHpSelector, maxWpSelector, maxSanSelector } from "@/src/redux/selectors";
+import TextInput from "../textInput";
 
 interface StaticSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -107,15 +108,11 @@ const StaticSection: React.FC<StaticSectionProps> = ({
             maxSelector={maxBpSelector}
           />
         </div>
-        {/* <TextInput
+        <TextInput
           title={sectionLocale?.description}
           multiline={true}
-          disabled={!editMode}
-          value={dgCharacter.stats.description ?? ""}
-          onValueChange={(value) =>
-            dispatch(setStat({ field: "description", value }))
-          }
-        /> */}
+          name="description"
+        />
       </div>
     </Category>
   );
