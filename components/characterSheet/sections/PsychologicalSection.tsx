@@ -7,6 +7,7 @@ import SanityLoss from "../sanityLoss";
 import AddBound from "../bound/addBound";
 import BoundInstructions from "../bound/boundInstructions";
 import BoundsList from "../bound/boundsList";
+import MotivationDescription from "../motivationDescription";
 
 interface PsychologicalSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -43,16 +44,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
               {sectionLocale?.motivation}
             </p>
           </div>
-          {/* <textarea
-            className="bg-blue-100 resize-none w-full translate-y-3"
-            rows={7}
-            value={dgCharacter.motivationDescription ?? ""}
-            onChange={(e) =>
-              dispatch(
-                set({ field: "motivationDescription", value: e.target.value })
-              )
-            }
-          /> */}
+          <MotivationDescription />
         </div>
         <SanityLoss sectionLocale={sectionLocale} />
       </div>
