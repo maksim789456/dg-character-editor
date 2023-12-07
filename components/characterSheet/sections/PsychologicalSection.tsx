@@ -2,18 +2,11 @@
 
 import React from "react";
 import Category from "../category";
-import TableInput from "../table/tableInput";
 import TableItem from "../table/tableItem";
-import { useDispatch, useSelector } from "react-redux";
-import { DgCharacter, DgCharacterBound } from "@/src/model/character";
-import {
-  addBound,
-  editBound,
-  set,
-} from "@/src/features/dgCharacter/dgCharacterSlice";
 import SanityLoss from "../sanityLoss";
 import AddBound from "../bound/addBound";
 import BoundInstructions from "../bound/boundInstructions";
+import BoundsList from "../bound/boundsList";
 
 interface PsychologicalSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,11 +17,6 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
   sectionLocale,
   ...props
 }) => {
-  const dgCharacter = useSelector(
-    (state: any) => state.dgCharacter
-  ) as DgCharacter;
-  const dispatch = useDispatch();
-
   return (
     <Category name={sectionLocale?.categoryName} {...props}>
       <div className="grid grid-cols-1 grid-rows-8 h-full">
@@ -45,50 +33,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
               isHeader={true}
             />
           </div>
-          {dgCharacter.bounds.map((bound: DgCharacterBound, i: number) => {
-            return (
-              <div className="grid grid-cols-9" key={i}>
-                <TableInput
-                  className="col-span-7"
-                  checkable={true}
-                  disabled={!dgCharacter.editMode}
-                  through={bound.score === 0}
-                  value={bound.name}
-                  onValueChange={(value) => {
-                    dispatch(
-                      editBound({
-                        id: i,
-                        bound: { ...bound, name: value as string },
-                      })
-                    );
-                  }}
-                  checkboxValue={bound.damaged}
-                  onCheckboxValueChange={(value) => {
-                    dispatch(
-                      editBound({
-                        id: i,
-                        bound: { ...bound, damaged: value },
-                      })
-                    );
-                  }}
-                />
-                <TableInput
-                  className="col-span-2"
-                  isNumber={true}
-                  value={bound.score}
-                  maxValue={dgCharacter.stats.cha.score}
-                  onValueChange={(value) => {
-                    dispatch(
-                      editBound({
-                        id: i,
-                        bound: { ...bound, score: value as number },
-                      })
-                    );
-                  }}
-                />
-              </div>
-            );
-          })}
+          <BoundsList />
           <AddBound sectionLocale={sectionLocale} />
           <BoundInstructions sectionLocale={sectionLocale} />
         </div>
@@ -98,7 +43,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
               {sectionLocale?.motivation}
             </p>
           </div>
-          <textarea
+          {/* <textarea
             className="bg-blue-100 resize-none w-full translate-y-3"
             rows={7}
             value={dgCharacter.motivationDescription ?? ""}
@@ -107,7 +52,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
                 set({ field: "motivationDescription", value: e.target.value })
               )
             }
-          />
+          /> */}
         </div>
         <SanityLoss sectionLocale={sectionLocale} />
       </div>
