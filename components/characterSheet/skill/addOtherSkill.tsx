@@ -1,5 +1,6 @@
 import { addOtherSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import PropTypes from "prop-types";
 
 interface AddOtherSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -24,6 +25,10 @@ const AddOtherSkill: React.FC<AddOtherSkillProps> = ({ sectionLocale }) => {
   ) : (
     <></>
   );
+};
+
+AddOtherSkill.propTypes = {
+  sectionLocale: PropTypes.any.isRequired,
 };
 
 export default AddOtherSkill;

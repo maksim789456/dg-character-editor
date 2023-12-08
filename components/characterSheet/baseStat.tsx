@@ -8,6 +8,7 @@ import {
   setBaseStatDescription,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { makeBaseStatSelectorInstance } from "@/src/redux/selectors";
+import PropTypes from "prop-types";
 
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -88,6 +89,17 @@ const BaseStat: React.FC<BaseStatProps> = ({
       )}
     </div>
   );
+};
+
+BaseStat.propTypes = {
+  sectionLocale: PropTypes.any.isRequired,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
+  score: PropTypes.number,
+  onScoreChange: PropTypes.func,
+  description: PropTypes.string,
+  onDescriptionChange: PropTypes.func,
 };
 
 export default connect(makeMapState, makeDispatchState)(BaseStat);

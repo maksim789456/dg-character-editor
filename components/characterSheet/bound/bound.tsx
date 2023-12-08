@@ -4,6 +4,7 @@ import { editBound } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { RootState } from "@/src/store/store";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
+import PropTypes from "prop-types";
 
 interface BoundProps extends React.HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
@@ -72,5 +73,16 @@ const Bound: React.FC<BoundProps> = ({
     <></>
   );
 };
+
+Bound.propTypes = {
+  disabled: PropTypes.bool,
+  boundMaxScore: PropTypes.number,
+  bound: PropTypes.shape({
+    damaged: PropTypes.bool.isRequired,
+    score: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired
+  }),
+  onBoundChanged: PropTypes.func
+}
 
 export default connect(makeMapState, makeDispatchState)(Bound);

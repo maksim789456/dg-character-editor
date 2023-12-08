@@ -5,6 +5,7 @@ import { connect, useSelector } from "react-redux";
 import { setStat } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { Dispatch } from "@reduxjs/toolkit";
 import { makeCalcStatSelectorInstance } from "@/src/redux/selectors";
+import PropTypes from "prop-types";
 
 interface CalcStatProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -49,6 +50,13 @@ const CalcStat: React.FC<CalcStatProps> = ({
       />
     </div>
   );
+};
+
+CalcStat.propTypes = {
+  title: PropTypes.string.isRequired,
+  maxSelector: PropTypes.func.isRequired,
+  value: PropTypes.number,
+  onValueChange: PropTypes.func,
 };
 
 export default connect(makeMapState, makeDispatchState)(CalcStat);

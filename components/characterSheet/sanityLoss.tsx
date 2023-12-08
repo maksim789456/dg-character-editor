@@ -1,5 +1,6 @@
 import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import PropTypes from "prop-types";
 
 interface SanityLossProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -71,5 +72,9 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
     </div>
   );
 };
+
+SanityLoss.propTypes = {
+  sectionLocale: PropTypes.any.isRequired
+}
 
 export default SanityLoss;

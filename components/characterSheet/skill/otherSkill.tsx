@@ -1,6 +1,7 @@
 import { editSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import TableInput from "../table/tableInput";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import PropTypes from "prop-types";
 
 interface OtherSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   skillId: string;
@@ -54,5 +55,9 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId }) => {
     </div>
   );
 };
+
+OtherSkill.propTypes = {
+  skillId: PropTypes.string.isRequired
+}
 
 export default OtherSkill;

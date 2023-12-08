@@ -1,4 +1,5 @@
 import { useAppSelector } from "@/src/redux/hooks";
+import PropTypes from "prop-types";
 
 interface BoundInstructionsProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -20,5 +21,9 @@ const BoundInstructions: React.FC<BoundInstructionsProps> = ({
     <></>
   );
 };
+
+BoundInstructions.propTypes = {
+  sectionLocale: PropTypes.any.isRequired
+}
 
 export default BoundInstructions;

@@ -1,5 +1,6 @@
 import { addBound } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import PropTypes from "prop-types";
 
 interface AddBoundProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -34,5 +35,9 @@ const AddBound: React.FC<AddBoundProps> = ({ sectionLocale }) => {
     <></>
   );
 };
+
+AddBound.propTypes = {
+  sectionLocale: PropTypes.any.isRequired
+}
 
 export default AddBound;
