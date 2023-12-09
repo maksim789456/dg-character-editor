@@ -65,7 +65,7 @@ const TextInput: React.FC<TextInputProps> = ({
           name={name}
           disabled={disabled}
           rows={rows || 3}
-          value={value}
+          value={value ?? ''}
           onChange={(e) => (onValueChange ? onValueChange(e.target.value) : e)}
         />
       ) : (
@@ -74,7 +74,7 @@ const TextInput: React.FC<TextInputProps> = ({
           className="bg-blue-100 disabled:bg-gray-200"
           name={name}
           disabled={disabled}
-          value={value}
+          value={value ?? ''}
           onChange={(e) => (onValueChange ? onValueChange(e.target.value) : e)}
         ></input>
       )}
