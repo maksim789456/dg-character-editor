@@ -3,7 +3,7 @@ import { shallowEqual } from "react-redux";
 import PropTypes from "prop-types";
 import TableItem from "../table/tableItem";
 import SpecialTraining from "./specialTraining";
-import AddSpecialTraining from "./addBound";
+import AddSpecialTraining from "./addSpecialTraining";
 
 interface SpecialTrainingsListProps
   extends React.HTMLAttributes<HTMLDivElement> {
