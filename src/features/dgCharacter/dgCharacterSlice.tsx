@@ -32,6 +32,7 @@ const initialState = {
     san: 15,
     bp: 12,
   } as DgCharacterStats,
+  description: '',
 
   bounds: [] as DgCharacterBound[],
   violence: 0,
@@ -98,7 +99,7 @@ export interface EditBoundProps {
 }
 
 export interface EditSkillProps {
-  id: number;
+  skillId: string;
   skill: DgCharacterSkill;
 }
 
@@ -179,8 +180,9 @@ export const dgCharacterSlice = createSlice({
       } as DgCharacterSkill);
     },
     editSkill: (state: DgCharacter, action: PayloadAction<EditSkillProps>) => {
-      if (state.skills[action.payload.id]) {
-        state.skills[action.payload.id] = action.payload.skill;
+      let skillIdx = state.skills.findIndex(skill => skill.id === action.payload.skillId);
+      if (skillIdx !== -1) {
+        state.skills[skillIdx] = action.payload.skill;
       }
       return state;
     },

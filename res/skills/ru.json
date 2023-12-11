@@ -35,7 +35,7 @@
     { "id": "disguise", "name": "Смена внешности" },
     { "id": "forensics", "name": "Судмедэкспертиза" },
     { "id": "heavy_machinery", "name": "Тяжелая техника" },
-    { "id": "heavy_machinery", "name": "Тяжелое вооружение" },
+    { "id": "heavy_weapons", "name": "Тяжелое вооружение" },
     { "id": "persuade", "name": "Убеждение" },
     { "id": "dodge", "name": "Уклонение" },
     { "id": "pharmacy", "name": "Фармацевтика" },

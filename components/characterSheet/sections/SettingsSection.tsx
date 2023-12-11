@@ -1,8 +1,7 @@
-import { useDispatch, useSelector } from "react-redux";
 import ExportButton from "../export/exportButton";
 import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
-import { DgCharacter } from "@/src/model/character";
 import React from "react";
+import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -14,10 +13,8 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
   lang,
   ...props
 }) => {
-  const dgCharacter = useSelector(
-    (state: any) => state.dgCharacter
-  ) as DgCharacter;
-  const dispatch = useDispatch();
+  const editMode = useAppSelector((state) => state.dgCharacter.editMode);
+  const dispatch = useAppDispatch();
 
   return (
     <div
@@ -27,7 +24,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
         <p className="font-dg-main text-dg">{sectionLocale?.editMode}</p>
         <input
           type="checkbox"
-          checked={dgCharacter.editMode}
+          checked={editMode}
           onChange={(e) =>
             dispatch(set({ field: "editMode", value: e.target.checked }))
           }
