@@ -12,14 +12,16 @@ import MotivationDescription from "../motivationDescription";
 interface PsychologicalSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
+  viewMode?: boolean;
 }
 
 const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
   sectionLocale,
+  viewMode,
   ...props
 }) => {
   return (
-    <Category name={sectionLocale?.categoryName} {...props}>
+    <Category name={sectionLocale?.categoryName} vertical={viewMode} {...props}>
       <div className="grid grid-cols-1 grid-rows-8 h-full">
         <div className="grid grid-cols-1 row-span-3 grid-rows-7">
           <div className="grid grid-cols-9">
@@ -44,7 +46,7 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
               {sectionLocale?.motivation}
             </p>
           </div>
-          <MotivationDescription />
+          <MotivationDescription viewMode={viewMode} />
         </div>
         <SanityLoss sectionLocale={sectionLocale} />
       </div>

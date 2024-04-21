@@ -10,23 +10,27 @@ import OtherSkillsList from "../skill/otherSkillsList";
 interface SkillsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
   skillsDict: any;
+  viewMode?: boolean;
 }
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({
   sectionLocale,
   skillsDict,
+  viewMode,
   ...props
 }) => {
   return (
     <Category
       className="col-span-2"
       name={sectionLocale?.categoryName}
+      vertical={viewMode}
       {...props}
     >
       <div className="grid grid-flow-col skills-grid">
         <SkillsList
           baseSkills={skillsDict.baseSkills}
           typalSkillVariants={skillsDict.typalSkillVariants}
+          viewMode={viewMode}
         />
         <TableItem title={sectionLocale?.otherSkills} />
         <OtherSkillsList />

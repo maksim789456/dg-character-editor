@@ -9,6 +9,7 @@ import {
 } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { makeBaseStatSelectorInstance } from "@/src/redux/selectors";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -16,6 +17,7 @@ interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   name: string;
   disabled?: boolean;
+  viewMode?: boolean;
 
   score?: number;
   onScoreChange?: (score: number) => void;
@@ -47,13 +49,14 @@ const BaseStat: React.FC<BaseStatProps> = ({
   title,
   name,
   disabled,
+  viewMode,
   score,
   onScoreChange,
   description,
   onDescriptionChange,
 }) => {
   return (
-    <div className="grid grid-cols-9">
+    <div className={clsx("grid", {"grid-cols-9": !viewMode, "grid-cols-6": viewMode})}>
       <TableItem className="col-span-3" title={title} />
       <TableInput
         className="col-span-2"
@@ -69,23 +72,27 @@ const BaseStat: React.FC<BaseStatProps> = ({
         isHeader={true}
         fontSize="text-base"
       />
-      {(score ?? 0) < 9 || (score ?? 0) > 12 ? (
-        <TableInput
-          className="col-span-3"
-          disabled={disabled}
-          placeholder={sectionLocale?.statsDescriptionPlaceholder}
-          value={description ?? ""}
-          onValueChange={(value) =>
-            onDescriptionChange ? onDescriptionChange(value as string) : value
-          }
-        />
+      {!viewMode ? (
+        (score ?? 0) < 9 || (score ?? 0) > 12 ? (
+          <TableInput
+            className="col-span-3"
+            disabled={disabled}
+            placeholder={sectionLocale?.statsDescriptionPlaceholder}
+            value={description ?? ""}
+            onValueChange={(value) =>
+              onDescriptionChange ? onDescriptionChange(value as string) : value
+            }
+          />
+        ) : (
+          <TableItem
+            className="col-span-3"
+            isHeader={true}
+            fontSize="text-base"
+            title={sectionLocale?.bpStatMax}
+          />
+        )
       ) : (
-        <TableItem
-          className="col-span-3"
-          isHeader={true}
-          fontSize="text-base"
-          title={sectionLocale?.bpStatMax}
-        />
+        <></>
       )}
     </div>
   );
@@ -96,6 +103,7 @@ BaseStat.propTypes = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  viewMode: PropTypes.bool,
   score: PropTypes.number,
   onScoreChange: PropTypes.func,
   description: PropTypes.string,

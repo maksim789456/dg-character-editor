@@ -4,11 +4,13 @@ import TableSkill from "./tableSkill";
 interface SkillsListProps extends React.HTMLAttributes<HTMLDivElement> {
   baseSkills: DgCharacterSkill[];
   typalSkillVariants: any[];
+  viewMode?: boolean;
 }
 
 const SkillsList: React.FC<SkillsListProps> = ({
   baseSkills,
   typalSkillVariants,
+  viewMode,
 }) => {
   return baseSkills.map((skill) => (
     <TableSkill
@@ -16,6 +18,7 @@ const SkillsList: React.FC<SkillsListProps> = ({
       skillName={skill.name}
       types={typalSkillVariants[skill.id as keyof object]}
       key={skill.id}
+      viewMode={viewMode}
     />
   ));
 };

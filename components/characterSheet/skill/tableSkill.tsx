@@ -10,12 +10,14 @@ interface TableSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   skillId: string;
   skillName: string;
   types?: any[];
+  viewMode?: boolean;
 }
 
 const TableSkill = memo(function TableSkillInternal({
   skillId,
   skillName,
   types,
+  viewMode,
   ...props
 }: TableSkillProps) {
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
@@ -71,8 +73,8 @@ const TableSkill = memo(function TableSkillInternal({
         "h-full"
       )}
     >
-      {skill.hideDamage ? (
-        <div></div>
+      {skill.hideDamage || viewMode ? (
+        <></>
       ) : (
         <div className="flex items-center justify-center">
           <input
@@ -83,7 +85,14 @@ const TableSkill = memo(function TableSkillInternal({
           />
         </div>
       )}
-      <p className="font-dg-main text-dg text-sm col-span-9 py-1.5 flex items-center">{`${skillName} (${skill.baseSkillRate}%)`}</p>
+      <p
+        className={clsx(
+          "font-dg-main text-dg text-sm flex items-center",
+          { "py-1.5 col-span-9": !viewMode, "col-span-10 pl-1": skill.hideDamage || viewMode }
+        )}
+      >
+        {!viewMode ? `${skillName} (${skill.baseSkillRate}%)` : `${skillName}`}
+      </p>
       <input
         type="text"
         inputMode="numeric"
@@ -92,13 +101,13 @@ const TableSkill = memo(function TableSkillInternal({
         value={skill.characterSkillRate ?? skill.baseSkillRate}
         onChange={onCharacterSkillRateInputChange}
         className={
-          "w-full h-ful text-center col-span-2 row-span-2 border-l border-dg disabled:bg-gray-200 " +
+          "w-full h-full text-center col-span-2 row-span-2 border-l border-dg disabled:bg-gray-200 " +
           (error ? "bg-red-200" : "bg-blue-100")
         }
       ></input>
       {skill.isTypal ? (
         <select
-          className="w-full h-full bg-blue-100 col-span-10 py-1.5 disabled:bg-gray-200"
+          className="w-full h-full bg-blue-100 col-span-10 disabled:bg-gray-200"
           disabled={disabled}
           value={skill.type ?? ""}
           onChange={onTypeSelectChange}
