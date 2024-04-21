@@ -15,6 +15,7 @@ const WoundsSection: React.FC<WoundsSectionProps> = ({ sectionLocale }) => {
       <div className="flex flex-col">
         <TextInput
           title={sectionLocale?.wounds}
+          enabledInView={true}
           multiline={true}
           rows={6}
           name="wounds"

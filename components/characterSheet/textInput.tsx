@@ -13,6 +13,7 @@ interface TextInputProps extends React.HTMLAttributes<HTMLDivElement> {
   rows?: number;
   name?: string;
 
+  enabledInView?: boolean;
   disabled?: boolean;
   value?: string;
   onValueChange?: (value: string) => void;
@@ -32,7 +33,7 @@ const makeMapState = (_: RootState, ownProps: TextInputProps) => {
     const fieldValue = fieldSelect(state);
     return {
       value: fieldValue,
-      disabled: !state.dgCharacter.editMode,
+      disabled: ownProps.enabledInView ? false : !state.dgCharacter.editMode,
     };
   };
 };
