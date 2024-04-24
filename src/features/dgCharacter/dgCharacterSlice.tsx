@@ -133,6 +133,9 @@ export const dgCharacterSlice = createSlice({
       ).score = action.payload.value > 18 ? 18 : action.payload.value;
 
       if (action.payload.field === "pow") {
+        const newSan = action.payload.value * 5;
+        state.stats.san = newSan > 0 ? newSan : 0;
+
         const newBp =
           action.payload.value >= 3 ? state.stats.san - action.payload.value : 0;
         state.stats.bp = newBp > 0 ? newBp : 0;
