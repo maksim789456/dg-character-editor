@@ -65,7 +65,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
         }}
       />
       <TableItem
-        title={`${score ?? 0 * 5}`}
+        title={`${(score ?? 0) * 5}`}
         isHeader={true}
         fontSize="text-base"
       />
