@@ -1,6 +1,8 @@
 export interface DgCharacter {
   fullName: string;
-  profession: string;
+  professionId?: string;
+  useCustomProfession: boolean;
+  customProfession: string;
   employer?: string;
   nationality?: string;
 

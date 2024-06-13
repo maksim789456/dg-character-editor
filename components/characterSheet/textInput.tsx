@@ -67,7 +67,7 @@ const TextInput: React.FC<TextInputProps> = ({
           aria-label={title}
           disabled={disabled}
           rows={rows || 3}
-          value={value ?? ''}
+          value={value ?? ""}
           onChange={(e) => (onValueChange ? onValueChange(e.target.value) : e)}
         />
       ) : (
@@ -77,7 +77,7 @@ const TextInput: React.FC<TextInputProps> = ({
           name={name}
           aria-label={title}
           disabled={disabled}
-          value={value ?? ''}
+          value={value ?? ""}
           onChange={(e) => (onValueChange ? onValueChange(e.target.value) : e)}
         ></input>
       )}

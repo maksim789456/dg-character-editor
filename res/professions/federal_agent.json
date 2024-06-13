@@ -1,0 +1,29 @@
+{
+  "id": "federal_agent",
+  "name": {
+    "en": "Federal Agent",
+    "ru": "Федеральный агент"
+  },
+  "baseSkills": [
+    { "id": "alertness", "skillRate": 50 },
+    { "id": "bureaucracy", "skillRate": 40 },
+    { "id": "criminology", "skillRate": 50 },
+    { "id": "drive", "skillRate": 50 },
+    { "id": "firearms", "skillRate": 50 },
+    { "id": "forensics", "skillRate": 30 },
+    { "id": "humint", "skillRate": 60 },
+    { "id": "law", "skillRate": 30 },
+    { "id": "persuade", "skillRate": 50 },
+    { "id": "search", "skillRate": 50 },
+    { "id": "unarmed_combat", "skillRate": 60 }
+  ],
+  "additionalCount": 1,
+  "additionalSkills": [
+    { "id": "accounting", "skillRate": 60 },
+    { "id": "computer_science", "skillRate": 50 },
+    { "id": "heavy_weapons", "skillRate": 50 },
+    { "id": "pharmacy", "skillRate": 50 }
+  ],
+  "stats": ["con", "pow", "cha"],
+  "bounds": 3
+}

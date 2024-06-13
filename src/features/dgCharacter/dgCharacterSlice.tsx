@@ -12,7 +12,9 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   fullName: "",
-  profession: "",
+  professionId: "",
+  useCustomProfession: true,
+  customProfession: "",
   employer: "",
   nationality: "",
 
@@ -107,6 +109,10 @@ export interface AddOtherSkillProps {
   id: string;
   isForeignLanguage?: boolean;
 }
+export interface EditSkillRateProps {
+  skillId: string;
+  rate: number;
+}
 
 export interface EditWeaponProps {
   id: number;
@@ -199,6 +205,13 @@ export const dgCharacterSlice = createSlice({
       }
       return state;
     },
+    editSkillRate: (state: DgCharacter, action: PayloadAction<EditSkillRateProps>) => {
+      let skillIdx = state.skills.findIndex(skill => skill.id === action.payload.skillId);
+      if (skillIdx !== -1) {
+        state.skills[skillIdx].characterSkillRate = action.payload.rate;
+      }
+      return state;
+    },
     addWeapon: (state: DgCharacter) => {
       const firearms = state.skills.find((s) => s.id === "firearms");
       state.weapons.push({
@@ -252,6 +265,7 @@ export const {
   editBound,
   addOtherSkill,
   editSkill,
+  editSkillRate,
   addWeapon,
   editWeapon,
   addSpecialTraining,

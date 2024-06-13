@@ -1,0 +1,24 @@
+{
+  "id": "physician",
+  "name": {
+    "en": "Physician",
+    "ru": "Психолог"
+  },
+  "baseSkills": [
+    { "id": "bureaucracy", "skillRate": 50 },
+    { "id": "first_aid", "skillRate": 60 },
+    { "id": "medicine", "skillRate": 60 },
+    { "id": "persuade", "skillRate": 40 },
+    { "id": "pharmacy", "skillRate": 50 },
+    { "id": "science", "skillRate": 60, "isTypal": true, "type": "biology" }
+  ],
+  "additionalCount": 2,
+  "additionalSkills": [
+    { "id": "forensics", "skillRate": 50 },
+    { "id": "psychotherapy", "skillRate": 60 },
+    { "id": "science", "skillRate": 50, "isTypal": true, "anyType": true },
+    { "id": "surgery", "skillRate": 50 }
+  ],
+  "stats": ["int", "pow", "dex"],
+  "bounds": 3
+}

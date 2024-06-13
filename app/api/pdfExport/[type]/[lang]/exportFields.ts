@@ -21,7 +21,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.personalSection.profession,
       fieldType: FieldType.Text,
-      value: character.profession ?? '',
+      value: character.useCustomProfession ? character.customProfession : character.professionId ?? '',
     },
     {
       fieldName: pdfForm.personalSection.employer,

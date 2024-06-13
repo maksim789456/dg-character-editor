@@ -22,6 +22,7 @@
       "categoryName": "PERSONAL DATA",
       "fullName": "1. LAST NAME, FIRST NAME, MIDDLE INITIAL",
       "profession": "2. PROFESSION (RANK IF APPLICABLE)",
+      "customProfession": "CUSTOM:",
       "employer": "3. EMPLOYER",
       "nationality": "4. NATIONALITY",
       "gender": "5. SEX",

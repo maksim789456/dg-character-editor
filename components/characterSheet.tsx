@@ -13,15 +13,18 @@ import { Provider } from "react-redux";
 import SettingsSection from "./characterSheet/sections/SettingsSection";
 import DownloadJsonButton from "./characterSheet/export/downloadJsonButton";
 import ThemeProvider from "@/app/contexts/themeContext";
+import { DgProfession } from "@/src/model/profession";
 
 export default function CharacterSheet({
   lang,
   langDict,
   skillsDict,
+  professions
 }: {
   lang: string;
   langDict: any;
   skillsDict: any;
+  professions: DgProfession[];
 }) {
   return (
     <main
@@ -37,48 +40,30 @@ export default function CharacterSheet({
               className="col-span-2"
               lang={lang}
             />
-            <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
-              <Image
-                alt="delta green logo"
-                src="/Delta-Green-Logo-Horizontal-Tran.png"
-                className="w-[224px] h-16"
-                width="468"
-                height="134"
-                priority
-              />
-            </div>
-            <PersonalSection
-              sectionLocale={langDict.characterSheet.personalSection}
-            />
-            <StaticSection
-              sectionLocale={langDict.characterSheet.staticSection}
-              className="col-span-2 md:col-span-1"
-            />
-            <PsychologicalSection
-              sectionLocale={langDict.characterSheet.psychologicalSection}
-              className="col-span-2 md:col-span-1"
-            />
-            <SkillsSection
-              sectionLocale={langDict.characterSheet.skillsSection}
-              skillsDict={skillsDict}
-            />
-            <WoundsSection
-              sectionLocale={langDict.characterSheet.woundsSection}
-            />
-            <EquipmentSection
-              sectionLocale={langDict.characterSheet.equipmentSection}
-            />
-            <div className="col-span-2 relative">
-              <RemarksSection
-                sectionLocale={langDict.characterSheet.remarksSection}
-              />
-              <div className="absolute bottom-0 -right-4 hidden lg:block">
-                <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 dark:text-neutral-200 select-none w-fit">
-                  {langDict.characterSheet.other.pieceOfArt}
-                </h1>
-              </div>
-            </div>
-          </ThemeProvider>
+          </div>
+          <PersonalSection
+            sectionLocale={langDict.characterList.personalSection}
+            professions={professions}
+          />
+          <StaticSection
+            sectionLocale={langDict.characterList.staticSection}
+            className="col-span-2 lg:col-span-1"
+          />
+          <PsychologicalSection
+            sectionLocale={langDict.characterList.psychologicalSection}
+            className="col-span-2 lg:col-span-1"
+          />
+          <SkillsSection
+            sectionLocale={langDict.characterList.skillsSection}
+            skillsDict={skillsDict}
+          />
+          <WoundsSection sectionLocale={langDict.characterList.woundsSection} />
+          <EquipmentSection
+            sectionLocale={langDict.characterList.equipmentSection}
+          />
+          <RemarksSection
+            sectionLocale={langDict.characterList.remarksSection}
+          />
         </Provider>
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">

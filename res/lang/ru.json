@@ -22,6 +22,7 @@
       "categoryName": "ЛИЧНЫЕ ДАННЫЕ",
       "fullName": "1. ФАМИЛИЯ, ИМЯ, ОТЧЕСТВО",
       "profession": "2. ПРОФЕССИЯ (ЗВАНИЕ ПРИ НАЛИЧИИ)",
+      "customProfession": "КАСТОМНАЯ:",
       "employer": "3. МЕСТО РАБОТЫ",
       "nationality": "4. НАЦИОНАЛЬНОСТЬ",
       "gender": "5. ПОЛ",
