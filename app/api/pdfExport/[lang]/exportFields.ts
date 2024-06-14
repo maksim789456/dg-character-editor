@@ -161,7 +161,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.hpCurr,
       fieldType: FieldType.Text,
-      value: character.stats.hp,
+      value: Math.round((character.stats.str.score + character.stats.con.score) / 2),
     },
     {
       fieldName: pdfForm.staticSection.wpMax,
@@ -171,7 +171,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.wpCurr,
       fieldType: FieldType.Text,
-      value: character.stats.wp,
+      value: character.stats.pow.score,
     },
     {
       fieldName: pdfForm.staticSection.sanMax,
@@ -184,7 +184,7 @@ const fieldDescriptions = (pdfForm: any, character: DgCharacter) =>
     {
       fieldName: pdfForm.staticSection.sanCurr,
       fieldType: FieldType.Text,
-      value: character.stats.wp,
+      value: character.stats.san,
     },
     {
       fieldName: pdfForm.staticSection.bpCurr,
