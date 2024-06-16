@@ -8,6 +8,7 @@ const MotivationDescription: React.FC = ({}) => {
 
   return (
     <textarea
+      name="motivationDescription"
       className="bg-blue-100 resize-none w-full translate-y-3"
       rows={7}
       value={motivationDescription}

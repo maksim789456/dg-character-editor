@@ -54,6 +54,7 @@ const TableInput: React.FC<TableInputProps> = ({
     >
       {checkable ? (
         <input
+          name="tableItemCheck"
           type="checkbox"
           className="m-1.5"
           checked={checkboxValue}
@@ -63,6 +64,7 @@ const TableInput: React.FC<TableInputProps> = ({
         <></>
       )}
       <input
+        name="tableItemValue"
         type="text"
         inputMode={isNumber ? "numeric" : "text"}
         pattern={isNumber ? "[0-9]*" : ""}

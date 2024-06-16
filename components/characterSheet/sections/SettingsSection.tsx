@@ -23,6 +23,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
         <div className="flex flex-row gap-1">
           <p className="font-dg-main text-dg">{sectionLocale?.editMode}</p>
           <input
+            name="editModeCheck"
             type="checkbox"
             checked={editMode}
             onChange={(e) =>

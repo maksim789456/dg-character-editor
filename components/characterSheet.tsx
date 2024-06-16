@@ -41,6 +41,7 @@ export default function CharacterSheet({
               className="w-[224px] h-16"
               width="468"
               height="134"
+              priority
             />
           </div>
           <PersonalSection

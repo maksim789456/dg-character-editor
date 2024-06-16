@@ -10,6 +10,7 @@ const FirstHelpAttemptedCheckbox: React.FC<
   const dispatch = useAppDispatch();
   return (
     <input
+      name="firstHelpAttempted"
       type="checkbox"
       checked={firstHelpAttempted}
       onChange={(e) =>
