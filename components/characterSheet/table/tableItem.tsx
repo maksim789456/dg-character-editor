@@ -1,14 +1,16 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import clsx from "clsx";
 
 interface TableItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
+  title?: string;
+  customTitle?: ReactNode;
   isHeader?: boolean;
   fontSize?: string;
 }
 
 const TableItem: React.FC<TableItemProps> = ({
   title,
+  customTitle,
   isHeader: center,
   fontSize,
   ...props
@@ -33,7 +35,7 @@ const TableItem: React.FC<TableItemProps> = ({
             (fontSize || false ? fontSize : "text-xs")
           }
         >
-          {title}
+          {title ?? customTitle}
         </div>
       </div>
     </div>

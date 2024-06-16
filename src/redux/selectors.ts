@@ -32,3 +32,11 @@ export const makeCalcStatSelectorInstance = (fieldName: string) =>
     (state: RootState) => state.dgCharacter,
     (dgCharacter) => calcStatSelector(dgCharacter, fieldName)
   );
+
+export const baseStatSumSelector = (state: RootState) =>
+  state.dgCharacter.stats.str.score +
+  state.dgCharacter.stats.con.score +
+  state.dgCharacter.stats.dex.score +
+  state.dgCharacter.stats.int.score +
+  state.dgCharacter.stats.pow.score +
+  state.dgCharacter.stats.cha.score;

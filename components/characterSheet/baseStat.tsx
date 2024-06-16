@@ -1,4 +1,4 @@
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import TableInput from "./table/tableInput";
 import TableItem from "./table/tableItem";
 import { RootState } from "@/src/store/store";
@@ -7,8 +7,9 @@ import {
   setBaseStat,
   setBaseStatDescription,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
-import { makeBaseStatSelectorInstance } from "@/src/redux/selectors";
+import { baseStatSumSelector, makeBaseStatSelectorInstance } from "@/src/redux/selectors";
 import PropTypes from "prop-types";
+import clsx from "clsx";
 
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -52,11 +53,14 @@ const BaseStat: React.FC<BaseStatProps> = ({
   description,
   onDescriptionChange,
 }) => {
+  const baseStatSumIsToBig = useSelector(baseStatSumSelector) > 72;
+
   return (
     <div className="grid grid-cols-9">
       <TableItem className="col-span-3" title={title} />
       <TableInput
-        className="col-span-2"
+        className={clsx("col-span-2")}
+        inputClassName={clsx(baseStatSumIsToBig && "bg-yellow-100")}
         disabled={disabled}
         value={score}
         isNumber={true}

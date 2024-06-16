@@ -29,6 +29,8 @@
       "intStat": "Intelligence (INT)",
       "powStat": "Power (POW)",
       "chaStat": "Charisma (CHA)",
+      "statsTooMuch": "The statistics is higher than recommended!",
+      "statsTooMuch2": "It is recommended to assign no more than 72 points, current",
 
       "calcStats": "9. DERIVED ATTRIBUTES",
       "calcStatsMax": "MAXIMUM",

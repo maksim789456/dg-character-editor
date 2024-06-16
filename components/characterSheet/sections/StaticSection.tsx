@@ -6,8 +6,14 @@ import TableItem from "../table/tableItem";
 import BaseStat from "../baseStat";
 import { RootState } from "@/src/store/store";
 import CalcStat from "../calcStat";
-import { maxHpSelector, maxWpSelector, maxSanSelector } from "@/src/redux/selectors";
+import {
+  maxHpSelector,
+  maxWpSelector,
+  maxSanSelector,
+  baseStatSumSelector,
+} from "@/src/redux/selectors";
 import TextInput from "../textInput";
+import { useSelector } from "react-redux";
 
 interface StaticSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -18,10 +24,11 @@ const StaticSection: React.FC<StaticSectionProps> = ({
   ...props
 }) => {
   const maxBpSelector = (_: RootState) => sectionLocale?.bpStatMax;
+  const baseStatSum = useSelector(baseStatSumSelector);
   return (
     <Category name={sectionLocale?.categoryName} {...props}>
       <div className="grid grid-cols-1 grid-rows-5">
-        <div className="grid grid-cols-1 grid-rows-7 row-span-3">
+        <div className="grid grid-cols-1 grid-rows-8 row-span-3">
           <div className="grid grid-cols-9">
             <TableItem
               className="col-span-3 tracking-tight"
@@ -70,6 +77,22 @@ const StaticSection: React.FC<StaticSectionProps> = ({
             title={sectionLocale?.chaStat}
             name="cha"
           />
+          {baseStatSum > 72 ? (
+            <TableItem
+              className="grid-cols-9"
+              customTitle={
+                <>
+                  {sectionLocale?.statsTooMuch}
+                  <br />
+                  {sectionLocale?.statsTooMuch2}
+                  {` ${baseStatSum}`}
+                </>
+              }
+              isHeader={true}
+            />
+          ) : (
+            <></>
+          )}
         </div>
         <div className="grid grid-cols-1 grid-rows-5 row-span-2">
           <div className="grid grid-cols-4">
