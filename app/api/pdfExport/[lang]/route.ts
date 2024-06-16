@@ -101,13 +101,13 @@ export async function POST(
       dgCharacter.weapons.forEach((weapon, i) => {
         const weaponDescription = pdfForm.equipmentSection.weapons[i];
         setTextField(weaponDescription.weapon, weapon.name);
-        setTextField(weaponDescription.skill, weapon.skill);
-        setTextField(weaponDescription.baseRange, weapon.baseRange);
-        setTextField(weaponDescription.damage, weapon.damage);
-        setTextField(weaponDescription.armorPiercing, weapon.armorPiercing);
-        setTextField(weaponDescription.killDamage, weapon.lethality);
-        setTextField(weaponDescription.killRadius, weapon.killRadius);
-        setTextField(weaponDescription.ammo, weapon.ammo);
+        setTextField(weaponDescription.skill, weapon.skill.toString());
+        setTextField(weaponDescription.baseRange, weapon.baseRange?.toString());
+        setTextField(weaponDescription.damage, weapon.damage?.toString());
+        setTextField(weaponDescription.armorPiercing, weapon.armorPiercing?.toString());
+        setTextField(weaponDescription.killDamage, weapon.lethality?.toString());
+        setTextField(weaponDescription.killRadius, weapon.killRadius?.toString());
+        setTextField(weaponDescription.ammo, weapon.ammo?.toString());
       });
 
       dgCharacter.specialTrainings.forEach((specTraining, i) => {
