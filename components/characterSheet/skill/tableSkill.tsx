@@ -1,39 +1,33 @@
 "use client";
 
-import { DgCharacterSkill } from "@/src/model/character";
+import { editSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
+import { useAppSelector } from "@/src/redux/hooks";
 import clsx from "clsx";
 import React, { memo, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 interface TableSkillProps extends React.HTMLAttributes<HTMLDivElement> {
-  skill: DgCharacterSkill;
-  disabled?: boolean;
-
-  damaged?: boolean;
-  onDamagedChange?: (damage: boolean) => void;
-  characterSkillRate: number;
-  onCharacterSkillRateChange: (skillRate: number) => void;
-  types: any[];
-  type?: string;
-  onTypeChange?: (type: string) => void;
+  skillId: string;
+  skillName: string;
+  types?: any[];
 }
 
 const TableSkill = memo(function TableSkillInternal({
-  disabled,
-  skill,
-  damaged,
-  onDamagedChange,
-  characterSkillRate,
-  onCharacterSkillRateChange,
+  skillId,
+  skillName,
   types,
-  type,
-  onTypeChange,
   ...props
 }: TableSkillProps) {
+  const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
+  const skill = useAppSelector(
+    (state) => state.dgCharacter.skills.find((skill) => skill.id === skillId)!
+  );
+  const dispatch = useDispatch();
   const [error, setError] = useState(false);
 
   useEffect(
-    () => setError(characterSkillRate < skill.baseSkillRate),
-    [skill, characterSkillRate]
+    () => setError(skill.characterSkillRate < skill.baseSkillRate),
+    [skill]
   );
 
   const onCharacterSkillRateInputChange = (
@@ -42,15 +36,27 @@ const TableSkill = memo(function TableSkillInternal({
     let value = e.target.value === "" ? 0 : parseInt(e.target.value);
     if (isNaN(value)) value = 0;
     if (value > 99) value = 99;
-    if (onCharacterSkillRateChange) onCharacterSkillRateChange(value);
+    dispatch(
+      editSkill({
+        skillId: skillId,
+        skill: { ...skill, characterSkillRate: value },
+      })
+    );
   };
 
   const onTypeSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (onTypeChange) onTypeChange(e.target.value);
+    dispatch(
+      editSkill({ skillId: skillId, skill: { ...skill, type: e.target.value } })
+    );
   };
 
   const onDamagedInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (onDamagedChange) onDamagedChange(e.target.checked);
+    dispatch(
+      editSkill({
+        skillId: skillId,
+        skill: { ...skill, damaged: e.target.checked },
+      })
+    );
   };
 
   return (
@@ -70,21 +76,22 @@ const TableSkill = memo(function TableSkillInternal({
       ) : (
         <div className="flex items-center justify-center">
           <input
+            name={`${skill.id}Damaged`}
             type="checkbox"
             className="w-4 h-4"
-            checked={damaged ?? false}
+            checked={skill.damaged ?? false}
             onChange={onDamagedInputChange}
           />
         </div>
       )}
-      <p className="font-dg-main text-dg text-sm col-span-9 py-1.5 flex items-center">{`${skill.name} (${skill.baseSkillRate}%)`}</p>
+      <p className="font-dg-main text-dg text-sm col-span-9 py-1.5 flex items-center">{`${skillName} (${skill.baseSkillRate}%)`}</p>
       <input
+        name={`${skill.id}Rate`}
         type="text"
         inputMode="numeric"
         pattern="[0-9]*"
         disabled={disabled}
-        min={skill.baseSkillRate}
-        value={characterSkillRate ?? skill.baseSkillRate}
+        value={skill.characterSkillRate ?? skill.baseSkillRate}
         onChange={onCharacterSkillRateInputChange}
         className={
           "w-full h-ful text-center col-span-2 row-span-2 border-l border-dg disabled:bg-gray-200 " +
@@ -93,13 +100,14 @@ const TableSkill = memo(function TableSkillInternal({
       ></input>
       {skill.isTypal ? (
         <select
+          name={`${skill.id}TypalSelect`}
           className="w-full h-full bg-blue-100 col-span-10 py-1.5 disabled:bg-gray-200"
           disabled={disabled}
           value={skill.type ?? ""}
           onChange={onTypeSelectChange}
         >
           <option value={""}></option>
-          {types.map((skill: any, i: number) => (
+          {types?.map((skill: any, i: number) => (
             <option key={i} value={skill.id}>
               {skill.name}
             </option>

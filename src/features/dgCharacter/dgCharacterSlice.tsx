@@ -32,6 +32,7 @@ const initialState = {
     san: 15,
     bp: 12,
   } as DgCharacterStats,
+  description: "",
 
   bounds: [] as DgCharacterBound[],
   violence: 0,
@@ -98,7 +99,7 @@ export interface EditBoundProps {
 }
 
 export interface EditSkillProps {
-  id: number;
+  skillId: string;
   skill: DgCharacterSkill;
 }
 
@@ -135,6 +136,17 @@ export const dgCharacterSlice = createSlice({
           action.payload.field as keyof DgCharacterStats
         ] as DgCharacterBaseStat
       ).score = action.payload.value > 18 ? 18 : action.payload.value;
+
+      if (action.payload.field === "pow") {
+        const newSan = action.payload.value * 5;
+        state.stats.san = newSan > 0 ? newSan : 0;
+
+        const newBp =
+          action.payload.value >= 3
+            ? state.stats.san - action.payload.value
+            : 0;
+        state.stats.bp = newBp > 0 ? newBp : 0;
+      }
       return state;
     },
     setBaseStatDescription: (
@@ -179,15 +191,19 @@ export const dgCharacterSlice = createSlice({
       } as DgCharacterSkill);
     },
     editSkill: (state: DgCharacter, action: PayloadAction<EditSkillProps>) => {
-      if (state.skills[action.payload.id]) {
-        state.skills[action.payload.id] = action.payload.skill;
+      let skillIdx = state.skills.findIndex(
+        (skill) => skill.id === action.payload.skillId
+      );
+      if (skillIdx !== -1) {
+        state.skills[skillIdx] = action.payload.skill;
       }
       return state;
     },
     addWeapon: (state: DgCharacter) => {
+      const firearms = state.skills.find((s) => s.id === "firearms");
       state.weapons.push({
         name: "",
-        skill: "",
+        skill: firearms?.characterSkillRate ?? firearms?.baseSkillRate ?? "",
         baseRange: "",
         damage: "",
         armorPiercing: "",

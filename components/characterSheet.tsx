@@ -11,6 +11,7 @@ import EquipmentSection from "./characterSheet/sections/EquipmentSection";
 import RemarksSection from "./characterSheet/sections/RemarksSection";
 import { Provider } from "react-redux";
 import SettingsSection from "./characterSheet/sections/SettingsSection";
+import DownloadJsonButton from "./characterSheet/export/downloadJsonButton";
 
 export default function CharacterSheet({
   lang,
@@ -21,22 +22,6 @@ export default function CharacterSheet({
   langDict: any;
   skillsDict: any;
 }) {
-  const downloadJson = () => {
-    const dgCharacter = store.getState().dgCharacter;
-    const dataStr =
-      "data:text/json;charset=utf-8," +
-      encodeURIComponent(JSON.stringify(dgCharacter));
-    const downloadAnchorNode = document.createElement("a");
-    downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute(
-      "download",
-      "DG_Character_" + dgCharacter.fullName + ".json"
-    );
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
-  };
-
   return (
     <main
       id="dgCharacter"
@@ -44,7 +29,11 @@ export default function CharacterSheet({
     >
       <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
-          <SettingsSection sectionLocale={langDict.characterList.settingsSection} className="col-span-2" lang={lang} />
+          <SettingsSection
+            sectionLocale={langDict.characterList.settingsSection}
+            className="col-span-2"
+            lang={lang}
+          />
           <div className="col-span-2 h-16 bg-dg flex items-center justify-center">
             <Image
               alt="delta green logo"
@@ -52,6 +41,7 @@ export default function CharacterSheet({
               className="w-[224px] h-16"
               width="468"
               height="134"
+              priority
             />
           </div>
           <PersonalSection
@@ -84,12 +74,7 @@ export default function CharacterSheet({
         </div>
         <div className="col-span-2 flex flex-row items-center justify-center">
           <p className="font-dg-main text-dg pr-3">Debug:</p>
-          <button
-            className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
-            onClick={downloadJson}
-          >
-            Download JSON
-          </button>
+          <DownloadJsonButton />
         </div>
       </div>
     </main>

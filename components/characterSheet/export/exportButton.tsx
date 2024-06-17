@@ -1,7 +1,6 @@
-import { DgCharacter } from "@/src/model/character";
 import React from "react";
-import { useSelector } from "react-redux";
 import axios from "axios";
+import store from "@/src/store/store";
 
 interface ExportButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
@@ -13,18 +12,22 @@ const pdfFiles = {
 } as any;
 
 const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
-  const dgCharacter = useSelector(
-    (state: any) => state.dgCharacter
-  ) as DgCharacter;
-
   const exportButton = async () => {
+    const dgCharacter = store.getState().dgCharacter;
     const dgCharacterReduced = {
       ...dgCharacter,
       skills: dgCharacter.skills
-        .filter((skill) => skill.characterSkillRate !== undefined || skill.type)
         .map((skill) => {
-          return { ...skill, baseSkillRate: undefined };
-        }),
+          return {
+            ...skill,
+            baseSkillRate: undefined,
+            characterSkillRate:
+              skill.characterSkillRate === skill.baseSkillRate
+                ? undefined
+                : skill.characterSkillRate,
+          };
+        })
+        .filter((skill) => skill.characterSkillRate || skill.type),
     };
 
     axios

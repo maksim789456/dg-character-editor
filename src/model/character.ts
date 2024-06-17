@@ -10,6 +10,7 @@ export interface DgCharacter {
   education?: string;
 
   stats: DgCharacterStats;
+  description?: string;
 
   bounds: DgCharacterBound[];
   motivationDescription?: string;
@@ -43,8 +44,6 @@ export interface DgCharacterStats {
   wp: number;
   san: number;
   bp: number;
-
-  description?: string;
 }
 
 export interface DgCharacterBaseStat {
