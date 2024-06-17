@@ -50,6 +50,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
       <div className="flex flex-row items-center gap-1 px-1">
         <input
           name="genderMale"
+          aria-label="Gender Male"
           type="checkbox"
           disabled={disabled}
           checked={gender === DgGender.Male}
@@ -58,6 +59,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
         <p className="font-dg-main text-xs">{mTitle}</p>
         <input
           name="genderFemale"
+          aria-label="Gender Female"
           type="checkbox"
           disabled={disabled}
           checked={gender === DgGender.Female}
@@ -66,6 +68,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
         <p className="font-dg-main text-xs mr-0.5">{fTitle}</p>
         <input
           name="genderCustomCheck"
+          aria-label="Gender Custom On/Off"
           type="checkbox"
           disabled={disabled}
           checked={gender === DgGender.Custom}
@@ -73,6 +76,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
         />
         <input
           name="genderCustom"
+          aria-label="Gender Custom"
           type="text"
           className="w-full bg-blue-100 disabled:bg-gray-200"
           disabled={gender !== DgGender.Custom || disabled}

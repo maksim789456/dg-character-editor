@@ -11,6 +11,7 @@ interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
   select?: boolean;
   types?: any;
   inputClassName?: string;
+  ariaLabel?: string;
   value?: number | string;
   maxValue?: number;
   onValueChange?: (value: number | string) => void;
@@ -27,6 +28,7 @@ const TableInput: React.FC<TableInputProps> = ({
   select,
   types,
   inputClassName,
+  ariaLabel,
   value,
   maxValue,
   onValueChange,
@@ -65,6 +67,7 @@ const TableInput: React.FC<TableInputProps> = ({
       {checkable ? (
         <input
           name="tableItemCheck"
+          aria-label={`${ariaLabel} Damage`}
           type="checkbox"
           className="m-1.5"
           checked={checkboxValue ?? false}
@@ -76,6 +79,7 @@ const TableInput: React.FC<TableInputProps> = ({
       {!select ? (
         <input
           name="tableItemValue"
+          aria-label={ariaLabel}
           type="text"
           inputMode={isNumber ? "numeric" : "text"}
           pattern={isNumber ? "[0-9]*" : ""}
@@ -90,6 +94,7 @@ const TableInput: React.FC<TableInputProps> = ({
       ) : (
         <select
           name="tableItemSelect"
+          aria-label={`${ariaLabel} Select`}
           disabled={disabled}
           className={`w-full h-full bg-blue-100 text-center font-dg-main tracking-tight text-dg disabled:bg-gray-200 ${inputClassName ?? ""}`}
           placeholder={placeholder}

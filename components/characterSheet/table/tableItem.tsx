@@ -4,6 +4,7 @@ import clsx from "clsx";
 interface TableItemProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string;
   customTitle?: ReactNode;
+  ariaLabel?: string;
   isHeader?: boolean;
   fontSize?: string;
 }
@@ -11,6 +12,7 @@ interface TableItemProps extends React.HTMLAttributes<HTMLDivElement> {
 const TableItem: React.FC<TableItemProps> = ({
   title,
   customTitle,
+  ariaLabel,
   isHeader: center,
   fontSize,
   ...props
@@ -34,6 +36,7 @@ const TableItem: React.FC<TableItemProps> = ({
             (center || false ? "text-center " : " ") +
             (fontSize || false ? fontSize : "text-xs")
           }
+          aria-label={ariaLabel}
         >
           {title ?? customTitle}
         </div>
