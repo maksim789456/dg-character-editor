@@ -5,9 +5,10 @@ import PropTypes from "prop-types";
 
 interface OtherSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   skillId: string;
+  foreignLanguages: any;
 }
 
-const OtherSkill: React.FC<OtherSkillProps> = ({ skillId }) => {
+const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) => {
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
   const skill = useAppSelector(
     (state) => state.dgCharacter.skills.find((skill) => skill.id === skillId)!
@@ -19,6 +20,8 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId }) => {
         className="col-span-10"
         disabled={disabled}
         value={skill.name}
+        select={skill.isForeignLanguage}
+        types={foreignLanguages}
         onValueChange={(value) =>
           dispatch(
             editSkill({
@@ -57,7 +60,8 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId }) => {
 };
 
 OtherSkill.propTypes = {
-  skillId: PropTypes.string.isRequired
+  skillId: PropTypes.string.isRequired,
+  foreignLanguages: PropTypes.any.isRequired,
 }
 
 export default OtherSkill;

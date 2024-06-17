@@ -2,9 +2,11 @@ import { useAppSelector } from "@/src/redux/hooks";
 import OtherSkill from "./otherSkill";
 import { shallowEqual } from "react-redux";
 
-interface SkillsListProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface SkillsListProps extends React.HTMLAttributes<HTMLDivElement> {
+  foreignLanguages: any;
+}
 
-const OtherSkillsList: React.FC<SkillsListProps> = ({}) => {
+const OtherSkillsList: React.FC<SkillsListProps> = ({ foreignLanguages }) => {
   const otherSkillsIds = useAppSelector(
     (state) =>
       state.dgCharacter.skills
@@ -12,8 +14,13 @@ const OtherSkillsList: React.FC<SkillsListProps> = ({}) => {
         .map((skill) => skill.id),
     shallowEqual
   );
+
   return otherSkillsIds.map((skillId) => (
-    <OtherSkill skillId={skillId} key={skillId} />
+    <OtherSkill
+      skillId={skillId}
+      key={skillId}
+      foreignLanguages={foreignLanguages}
+    />
   ));
 };
 

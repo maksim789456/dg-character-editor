@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import Category from "../category";
 import TableItem from "../table/tableItem";
 import AddOtherSkill from "../skill/addOtherSkill";
@@ -17,6 +17,17 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   skillsDict,
   ...props
 }) => {
+  const foreignLanguages = useMemo(
+    () =>
+      skillsDict.typalSkillVariants["foreign_language"].map((type: any) => {
+        return {
+          ...type,
+          name: `${sectionLocale?.foreignLangShort} (${type.name})`,
+        };
+      }),
+    [sectionLocale?.foreignLangShort, skillsDict.typalSkillVariants]
+  );
+
   return (
     <Category
       className="col-span-2"
@@ -29,7 +40,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
           typalSkillVariants={skillsDict.typalSkillVariants}
         />
         <TableItem title={sectionLocale?.otherSkills} />
-        <OtherSkillsList />
+        <OtherSkillsList foreignLanguages={foreignLanguages} />
         <AddOtherSkill sectionLocale={sectionLocale} />
       </div>
       <div className="flex items-center justify-center">

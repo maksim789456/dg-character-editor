@@ -64,7 +64,9 @@
     "skillsSection": {
       "categoryName": "APPLICABLE SKILL SETS",
       "otherSkills": "Foreign Languages and Other Skills:",
-      "addOtherSkills": "Add other skill",
+      "addOtherSkills": "Other skill",
+      "addForeignLanguage": "Foreign Language",
+      "foreignLangShort": "Foreign Language",
       "skillsInstruction": "Check a box when you attempt to use a skill and fail. After the session, add 1D4 to each checked skill and erase all checks."
     },
     "woundsSection": {

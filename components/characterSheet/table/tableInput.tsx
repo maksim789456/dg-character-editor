@@ -8,6 +8,8 @@ interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
   isNumber?: boolean;
   disabled?: boolean;
   through?: boolean;
+  select?: boolean;
+  types?: any;
   inputClassName?: string;
   value?: number | string;
   maxValue?: number;
@@ -22,6 +24,8 @@ const TableInput: React.FC<TableInputProps> = ({
   isNumber,
   disabled,
   through,
+  select,
+  types,
   inputClassName,
   value,
   maxValue,
@@ -47,6 +51,10 @@ const TableInput: React.FC<TableInputProps> = ({
     if (onCheckboxValueChange) onCheckboxValueChange(e.target.checked);
   };
 
+  const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (onValueChange) onValueChange(e.target.value);
+  };
+
   return (
     <div
       className={
@@ -59,25 +67,43 @@ const TableInput: React.FC<TableInputProps> = ({
           name="tableItemCheck"
           type="checkbox"
           className="m-1.5"
-          checked={checkboxValue}
+          checked={checkboxValue ?? false}
           onChange={onCheckboxChange}
         />
       ) : (
         <></>
       )}
-      <input
-        name="tableItemValue"
-        type="text"
-        inputMode={isNumber ? "numeric" : "text"}
-        pattern={isNumber ? "[0-9]*" : ""}
-        disabled={disabled}
-        className={`w-full h-full bg-blue-100 text-center font-dg-main text-dg
+      {!select ? (
+        <input
+          name="tableItemValue"
+          type="text"
+          inputMode={isNumber ? "numeric" : "text"}
+          pattern={isNumber ? "[0-9]*" : ""}
+          disabled={disabled}
+          className={`w-full h-full bg-blue-100 text-center font-dg-main text-dg
         placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light 
         disabled:bg-gray-200 ${through ? "line-through" : ""} ${inputClassName ?? ""}`}
-        placeholder={placeholder}
-        value={value}
-        onChange={isNumber ? onInputNumberChange : onTextChange}
-      ></input>
+          placeholder={placeholder}
+          value={value}
+          onChange={isNumber ? onInputNumberChange : onTextChange}
+        ></input>
+      ) : (
+        <select
+          name="tableItemSelect"
+          disabled={disabled}
+          className={`w-full h-full bg-blue-100 text-center font-dg-main tracking-tight text-dg disabled:bg-gray-200 ${inputClassName ?? ""}`}
+          placeholder={placeholder}
+          value={value ?? ""}
+          onChange={onSelectChange}
+        >
+          <option value={""}></option>
+          {types.map((skill: any, i: number) => (
+            <option key={i} value={skill.id}>
+              {skill.name}
+            </option>
+          ))}
+        </select>
+      )}
     </div>
   );
 };
