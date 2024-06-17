@@ -27,7 +27,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
                 : skill.characterSkillRate,
           };
         })
-        .filter((skill) => skill.characterSkillRate || skill.type),
+        .filter((skill) => skill.characterSkillRate || skill.type || skill.isOther),
     };
 
     axios

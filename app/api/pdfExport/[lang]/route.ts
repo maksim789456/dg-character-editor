@@ -82,8 +82,11 @@ export async function POST(
 
       dgCharacter.skills.forEach((skill) => {
         const skillDescription = pdfForm.skillsSection.find(
-          (pdfFormSkill: any) => pdfFormSkill.id === skill.id
+          (pdfFormSkill: any) =>
+            pdfFormSkill.id === skill.id.replace("foreignLanguage", "other")
         );
+        if (skill.isOther) console.log(skillDescription, skill);
+
         setTextField(
           skillDescription.valueFormName,
           skill.characterSkillRate ? skill.characterSkillRate.toString() : ""
@@ -94,8 +97,19 @@ export async function POST(
           );
           setTextField(skillDescription.typalFormName, typalSkill.name);
         }
-        if (skill.isOther)
-          setTextField(skillDescription.nameFormName, skill.name);
+        if (skill.isOther) {
+          if (skill.isForeignLanguage) {
+            const langName = typalSkillVariants.foreign_language.find(
+              (fl: any) => fl.id == skill.name
+            )?.name;
+            setTextField(
+              skillDescription.nameFormName,
+              `Foreign Language (${langName})`
+            );
+          } else {
+            setTextField(skillDescription.nameFormName, skill.name);
+          }
+        }
       });
 
       dgCharacter.weapons.forEach((weapon, i) => {
@@ -104,9 +118,18 @@ export async function POST(
         setTextField(weaponDescription.skill, weapon.skill.toString());
         setTextField(weaponDescription.baseRange, weapon.baseRange?.toString());
         setTextField(weaponDescription.damage, weapon.damage?.toString());
-        setTextField(weaponDescription.armorPiercing, weapon.armorPiercing?.toString());
-        setTextField(weaponDescription.killDamage, weapon.lethality?.toString());
-        setTextField(weaponDescription.killRadius, weapon.killRadius?.toString());
+        setTextField(
+          weaponDescription.armorPiercing,
+          weapon.armorPiercing?.toString()
+        );
+        setTextField(
+          weaponDescription.killDamage,
+          weapon.lethality?.toString()
+        );
+        setTextField(
+          weaponDescription.killRadius,
+          weapon.killRadius?.toString()
+        );
         setTextField(weaponDescription.ammo, weapon.ammo?.toString());
       });
 
