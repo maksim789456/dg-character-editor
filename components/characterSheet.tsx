@@ -47,7 +47,7 @@ function InnerCharacterSheet({
   const editMode = useAppSelector((state) => state.dgCharacter.editMode);
   const editColSpanRule = {
     "col-span-2": editMode,
-    "col-span-3": !editMode,
+    "col-span-5": !editMode,
   };
 
   return (
@@ -58,7 +58,7 @@ function InnerCharacterSheet({
       <div
         className={clsx("grid gap-0.5 gap-x-1", {
           "w-[40rem] lg:w-[60rem] grid-cols-2": editMode,
-          "w-[80rem] grid-cols-3": !editMode,
+          "w-[80rem] grid-cols-5": !editMode,
         })}
       >
         <SettingsSection
@@ -109,7 +109,7 @@ function InnerCharacterSheet({
           </>
         ) : (
           <>
-            <div className="col-span-2 grid gap-1 auto-rows-fr">
+            <div className="col-span-3 grid gap-1 auto-rows-fr">
               <PersonalSection
                 sectionLocale={langDict.characterList.personalSection}
               />
@@ -123,7 +123,7 @@ function InnerCharacterSheet({
                 sectionLocale={langDict.characterList.woundsSection}
               />
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="col-span-2 flex flex-col gap-1">
               <StaticSection
                 sectionLocale={langDict.characterList.staticSection}
                 viewMode={true}
@@ -144,7 +144,7 @@ function InnerCharacterSheet({
         <div
           className={clsx(
             "flex flex-row items-center justify-center px-16 py-3",
-            { "col-span-2": editMode, "col-span-3": !editMode }
+            { "col-span-2": editMode, "col-span-5": !editMode }
           )}
         >
           <div className="font-dg-main text-dg text-sm text-center">
