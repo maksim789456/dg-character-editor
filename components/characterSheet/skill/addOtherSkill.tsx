@@ -17,7 +17,22 @@ const AddOtherSkill: React.FC<AddOtherSkillProps> = ({ sectionLocale }) => {
     <div className="border-b border-dg flex items-center justify-center gap-2">
       <button
         className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
-        onClick={() => dispatch(addOtherSkill(`other${otherSkillsCount}`))}
+        onClick={() =>
+          dispatch(
+            addOtherSkill({
+              id: `foreignLanguage${otherSkillsCount}`,
+              isForeignLanguage: true,
+            })
+          )
+        }
+      >
+        {sectionLocale?.addForeignLanguage}
+      </button>
+      <button
+        className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
+        onClick={() =>
+          dispatch(addOtherSkill({ id: `other${otherSkillsCount}` }))
+        }
       >
         {sectionLocale?.addOtherSkills}
       </button>

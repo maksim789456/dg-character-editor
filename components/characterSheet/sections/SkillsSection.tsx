@@ -17,13 +17,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
   skillsDict,
   ...props
 }) => {
-  const dgCharacter = useSelector(
-    (state: any) => state.dgCharacter
-  ) as DgCharacter;
-  const otherSkills = dgCharacter.skills.filter((skill) => skill.isOther);
-  const dispatch = useDispatch();
-
-  const types = useMemo(
+  const foreignLanguages = useMemo(
     () =>
       skillsDict.typalSkillVariants["foreign_language"].map((type: any) => {
         return {
@@ -46,7 +40,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
           typalSkillVariants={skillsDict.typalSkillVariants}
         />
         <TableItem title={sectionLocale?.otherSkills} />
-        <OtherSkillsList />
+        <OtherSkillsList foreignLanguages={foreignLanguages} />
         <AddOtherSkill sectionLocale={sectionLocale} />
       </div>
       <div className="flex items-center justify-center">
