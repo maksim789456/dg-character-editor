@@ -25,24 +25,27 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
           {sectionLocale?.sanLoss}
         </p>
       </div>
-      <div className="flex flex-row justify-evenly items-center py-1">
+      <div className="flex flex-row justify-center items-center py-1 gap-2">
         <p className="font-dg-main text-dg text-sm">
           {sectionLocale?.sanLossViolence}
         </p>
         <input
+          className="w-4 h-4"
           name="violence1"
           type="checkbox"
           checked={violence >= 1}
           onChange={(e) => onViolenceChanged(e.target.checked ? 1 : 0)}
         />
         <input
-        name="violence2"
+          className="w-4 h-4"
+          name="violence2"
           type="checkbox"
           checked={violence >= 2}
           onChange={() => onViolenceChanged(2)}
         />
         <input
-        name="violence3"
+          className="w-4 h-4"
+          name="violence3"
           type="checkbox"
           checked={violence === 3}
           onChange={() => onViolenceChanged(3)}
@@ -50,23 +53,28 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
         <i className="font-dg-main text-dg text-sm">
           {sectionLocale?.sanLossAdapted}
         </i>
+      </div>
+      <div className="flex flex-row justify-center items-center py-1 gap-2">
         <p className="font-dg-main text-dg text-sm">
           {sectionLocale?.sanLossHelplessness}
         </p>
         <input
-        name="helplessness1"
+          className="w-4 h-4"
+          name="helplessness1"
           type="checkbox"
           checked={helplessness >= 1}
           onChange={(e) => onHelplessnessChanged(e.target.checked ? 1 : 0)}
         />
         <input
-        name="helplessness2"
+          className="w-4 h-4"
+          name="helplessness2"
           type="checkbox"
           checked={helplessness >= 2}
           onChange={() => onHelplessnessChanged(2)}
         />
         <input
-        name="helplessness3"
+          className="w-4 h-4"
+          name="helplessness3"
           type="checkbox"
           checked={helplessness === 3}
           onChange={() => onHelplessnessChanged(3)}
