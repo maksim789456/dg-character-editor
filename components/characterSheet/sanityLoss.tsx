@@ -31,6 +31,7 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
         </p>
         <input
           className="w-4 h-4"
+          aria-label="Violence Level 1"
           name="violence1"
           type="checkbox"
           checked={violence >= 1}
@@ -39,6 +40,7 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
         <input
           className="w-4 h-4"
           name="violence2"
+          aria-label="Violence Level 2"
           type="checkbox"
           checked={violence >= 2}
           onChange={() => onViolenceChanged(2)}
@@ -46,6 +48,7 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
         <input
           className="w-4 h-4"
           name="violence3"
+          aria-label="Violence Level 3 (Adapted)"
           type="checkbox"
           checked={violence === 3}
           onChange={() => onViolenceChanged(3)}
@@ -61,6 +64,7 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
         <input
           className="w-4 h-4"
           name="helplessness1"
+          aria-label="Helplessness Level 1"
           type="checkbox"
           checked={helplessness >= 1}
           onChange={(e) => onHelplessnessChanged(e.target.checked ? 1 : 0)}
@@ -68,6 +72,7 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
         <input
           className="w-4 h-4"
           name="helplessness2"
+          aria-label="Helplessness Level 2"
           type="checkbox"
           checked={helplessness >= 2}
           onChange={() => onHelplessnessChanged(2)}
@@ -75,6 +80,7 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
         <input
           className="w-4 h-4"
           name="helplessness3"
+          aria-label="Helplessness Level 3 (Adapted)"
           type="checkbox"
           checked={helplessness === 3}
           onChange={() => onHelplessnessChanged(3)}

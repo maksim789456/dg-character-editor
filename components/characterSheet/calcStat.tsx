@@ -39,9 +39,10 @@ const CalcStat: React.FC<CalcStatProps> = ({
   const max = useSelector(maxSelector);
   return (
     <div className="grid grid-cols-4">
-      <TableItem className="col-span-2 py-1" title={title} />
-      <TableItem title={max ?? ""} isHeader={true} fontSize="text-base" />
+      <TableItem ariaLabel={title} className="col-span-2 py-1" title={title} />
+      <TableItem ariaLabel={`${title} Max Value`} title={max ?? ""} isHeader={true} fontSize="text-base" />
       <TableInput
+        ariaLabel={`${title} Current Value`}
         isNumber={true}
         value={value ?? 0}
         onValueChange={(value) =>
