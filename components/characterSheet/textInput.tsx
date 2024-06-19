@@ -64,6 +64,7 @@ const TextInput: React.FC<TextInputProps> = ({
         <textarea
           className="bg-blue-100 resize-none disabled:bg-gray-200"
           name={name}
+          aria-label={title}
           disabled={disabled}
           rows={rows || 3}
           value={value ?? ''}
@@ -74,6 +75,7 @@ const TextInput: React.FC<TextInputProps> = ({
           type="text"
           className="bg-blue-100 disabled:bg-gray-200"
           name={name}
+          aria-label={title}
           disabled={disabled}
           value={value ?? ''}
           onChange={(e) => (onValueChange ? onValueChange(e.target.value) : e)}

@@ -29,6 +29,7 @@ const Bound: React.FC<BoundProps> = ({
   disabled,
   boundMaxScore,
   bound,
+  boundId,
   onBoundChanged,
 }) => {
   const onNameChanged = (name: string | number) => {
@@ -52,6 +53,7 @@ const Bound: React.FC<BoundProps> = ({
   return bound ? (
     <div className="grid grid-cols-9">
       <TableInput
+        ariaLabel={`Bound ${boundId} name`}
         className="col-span-7"
         checkable={true}
         disabled={disabled}
@@ -62,6 +64,7 @@ const Bound: React.FC<BoundProps> = ({
         onCheckboxValueChange={onDamageChanged}
       />
       <TableInput
+        ariaLabel={`Bound ${boundId} value`}
         className="col-span-2"
         isNumber={true}
         value={bound.score}
@@ -77,6 +80,7 @@ const Bound: React.FC<BoundProps> = ({
 Bound.propTypes = {
   disabled: PropTypes.bool,
   boundMaxScore: PropTypes.number,
+  boundId: PropTypes.number.isRequired,
   bound: PropTypes.shape({
     damaged: PropTypes.bool.isRequired,
     score: PropTypes.number.isRequired,

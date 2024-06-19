@@ -24,6 +24,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
           <p className="font-dg-main text-dg">{sectionLocale?.editMode}</p>
           <input
             name="editModeCheck"
+            aria-label="Enable Edit Mode"
             type="checkbox"
             checked={editMode}
             onChange={(e) =>

@@ -60,6 +60,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
       <TableItem className="col-span-3" title={title} />
       <TableInput
         className={clsx("col-span-2")}
+        ariaLabel={`${title} Value`}
         inputClassName={clsx(baseStatSumIsToBig && "bg-yellow-100")}
         disabled={disabled}
         value={score}
@@ -69,6 +70,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
         }}
       />
       <TableItem
+        ariaLabel={`${title} Value x5`}
         title={`${(score ?? 0) * 5}`}
         isHeader={true}
         fontSize="text-base"
@@ -76,6 +78,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
       {(score ?? 0) < 9 || (score ?? 0) > 12 ? (
         <TableInput
           className="col-span-3"
+          ariaLabel={`${title} Description`}
           disabled={disabled}
           placeholder={sectionLocale?.statsDescriptionPlaceholder}
           value={description ?? ""}
@@ -89,6 +92,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
           isHeader={true}
           fontSize="text-base"
           title={sectionLocale?.bpStatMax}
+          ariaLabel={`${title} No Description`}
         />
       )}
     </div>

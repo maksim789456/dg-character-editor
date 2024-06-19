@@ -11,6 +11,7 @@ const FirstHelpAttemptedCheckbox: React.FC<
   return (
     <input
       name="firstHelpAttempted"
+      aria-label="First Help Attemted"
       type="checkbox"
       checked={firstHelpAttempted}
       onChange={(e) =>

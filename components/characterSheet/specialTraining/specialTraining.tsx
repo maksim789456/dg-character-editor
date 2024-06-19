@@ -19,6 +19,7 @@ const SpecialTraining: React.FC<SpecialTrainingListProps> = ({
   return (
     <div className="grid grid-cols-2">
       <TableInput
+        ariaLabel={`Special Training ${specialTrainingId} Name`}
         disabled={disabled}
         value={training.name}
         onValueChange={(value) =>
@@ -34,6 +35,7 @@ const SpecialTraining: React.FC<SpecialTrainingListProps> = ({
         }
       />
       <TableInput
+        ariaLabel={`Special Training ${specialTrainingId} Skills`}
         disabled={disabled}
         value={training.skill}
         onValueChange={(value) =>

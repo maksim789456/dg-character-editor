@@ -17,7 +17,7 @@ const LangSelect: React.FC<LangSelectProps> = ({ lang, ...props }) => {
       {langs.map((value, key) => {
         if (value.id === lang) return;
         return (
-          <a key={key} href={value.id}>
+          <a key={key} href={value.id} aria-label={`Change lang to ${value.id}`}>
             {value.icon}
           </a>
         );
