@@ -11,6 +11,7 @@ interface CalcStatProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   name: string;
   maxSelector: (state: RootState) => any;
+  max?: number | string;
   value?: number;
   onValueChange?: (value: number) => void;
 }
@@ -19,7 +20,9 @@ const makeMapState = (_: RootState, ownProps: CalcStatProps) => {
   const calcStatSelector = makeCalcStatSelectorInstance(ownProps.name ?? "");
   return function realMapState(state: RootState) {
     const calcStat = calcStatSelector(state);
+    const maxStat = ownProps.maxSelector(state);
     return {
+      max: maxStat,
       value: calcStat,
     };
   };
@@ -32,15 +35,19 @@ const makeDispatchState = (dispatch: Dispatch, ownProps: CalcStatProps) => ({
 
 const CalcStat: React.FC<CalcStatProps> = ({
   title,
-  maxSelector,
+  max,
   value,
   onValueChange,
 }) => {
-  const max = useSelector(maxSelector);
   return (
     <div className="grid grid-cols-4">
       <TableItem ariaLabel={title} className="col-span-2 py-1" title={title} />
-      <TableItem ariaLabel={`${title} Max Value`} title={max ?? ""} isHeader={true} fontSize="text-base" />
+      <TableItem
+        ariaLabel={`${title} Max Value`}
+        title={max?.toString() ?? ""}
+        isHeader={true}
+        fontSize="text-base"
+      />
       <TableInput
         ariaLabel={`${title} Current Value`}
         isNumber={true}
@@ -48,6 +55,7 @@ const CalcStat: React.FC<CalcStatProps> = ({
         onValueChange={(value) =>
           onValueChange ? onValueChange(value as number) : value
         }
+        maxValue={typeof max === "string" ? 99 : max}
       />
     </div>
   );
@@ -55,7 +63,7 @@ const CalcStat: React.FC<CalcStatProps> = ({
 
 CalcStat.propTypes = {
   title: PropTypes.string.isRequired,
-  maxSelector: PropTypes.func.isRequired,
+  max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   value: PropTypes.number,
   onValueChange: PropTypes.func,
 };
