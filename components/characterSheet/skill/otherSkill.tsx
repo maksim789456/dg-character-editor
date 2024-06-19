@@ -17,6 +17,7 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) =>
   return (
     <div className="grid grid-cols-12">
       <TableInput
+        ariaLabel={`Other skill ${skillId} Name`}
         className="col-span-10"
         disabled={disabled}
         value={skill.name}
@@ -43,6 +44,7 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) =>
       />
       <TableInput
         className="col-span-2"
+        ariaLabel={`Other skill ${skillId} Value`}
         isNumber={true}
         disabled={disabled}
         value={skill.characterSkillRate}
