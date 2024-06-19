@@ -8,7 +8,7 @@ interface AddOtherSkillProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const AddOtherSkill: React.FC<AddOtherSkillProps> = ({ sectionLocale }) => {
   const otherSkillsCount = useAppSelector(
-    (state) => state.dgCharacter.skills.filter((skill) => skill.isOther).length
+    (state: any) => state.dgCharacter.skills.filter((skill: any) => skill.isOther).length
   );
   const editMode = useAppSelector((state) => state.dgCharacter.editMode);
   const dispatch = useAppDispatch();
