@@ -10,7 +10,7 @@ import {
 } from "@/src/model/character";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export const initialState = {
   fullName: "",
   profession: "",
   employer: "",

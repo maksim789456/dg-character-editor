@@ -1,6 +1,5 @@
 "use client";
 
-import store from "@/src/store/store";
 import PersonalSection from "./characterSheet/sections/PersonalSection";
 import StaticSection from "./characterSheet/sections/StaticSection";
 import PsychologicalSection from "./characterSheet/sections/PsychologicalSection";
@@ -9,26 +8,30 @@ import SkillsSection from "./characterSheet/sections/SkillsSection";
 import WoundsSection from "./characterSheet/sections/WoundsSection";
 import EquipmentSection from "./characterSheet/sections/EquipmentSection";
 import RemarksSection from "./characterSheet/sections/RemarksSection";
-import { Provider } from "react-redux";
 import SettingsSection from "./characterSheet/sections/SettingsSection";
 import DownloadJsonButton from "./characterSheet/export/downloadJsonButton";
+import ReduxProvider from "./reduxProvider";
 
 export default function CharacterSheet({
   lang,
+  id,
   langDict,
   skillsDict,
 }: {
   lang: string;
+  id: string;
   langDict: any;
   skillsDict: any;
 }) {
+  console.log(id);
+  
   return (
     <main
       id="dgCharacter"
       className="min-h-screen px-0 py-1 bg-white lg:flex lg:flex-col lg:items-center lg:justify-between lg:px-24"
     >
-      <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
-        <Provider store={store}>
+      <ReduxProvider>
+        <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
           <SettingsSection
             sectionLocale={langDict.characterList.settingsSection}
             className="col-span-2"
@@ -66,17 +69,17 @@ export default function CharacterSheet({
           <RemarksSection
             sectionLocale={langDict.characterList.remarksSection}
           />
-        </Provider>
-        <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
-          <div className="font-dg-main text-dg text-sm text-center">
-            {langDict.characterList.other.topSecret}
+          <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
+            <div className="font-dg-main text-dg text-sm text-center">
+              {langDict.characterList.other.topSecret}
+            </div>
+          </div>
+          <div className="col-span-2 flex flex-row items-center justify-center">
+            <p className="font-dg-main text-dg pr-3">Debug:</p>
+            <DownloadJsonButton />
           </div>
         </div>
-        <div className="col-span-2 flex flex-row items-center justify-center">
-          <p className="font-dg-main text-dg pr-3">Debug:</p>
-          <DownloadJsonButton />
-        </div>
-      </div>
+      </ReduxProvider>
     </main>
   );
 }

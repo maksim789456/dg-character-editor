@@ -1,24 +1,16 @@
-import CharacterSheet from "@/components/characterSheet";
-import {
-  getLocaleDictionary,
-  getSkillsDictionary,
-} from "@/res/dictionaries";
+"use client";
 
-export default async function CharacterSheetPage({
+import CharactersList from "@/components/characters/charactersList";
+import ReduxProvider from "@/components/reduxProvider";
+
+export default function CharactersListPage({
   params,
 }: {
   params: { lang: string };
 }) {
-  const langDict = await getLocaleDictionary(params.lang);
-  const skillsDict = await getSkillsDictionary(params.lang);
-
   return (
-    <>
-      <CharacterSheet
-        lang={params.lang}
-        langDict={langDict}
-        skillsDict={skillsDict}
-      />
-    </>
+    <ReduxProvider>
+      <CharactersList lang={params.lang} />
+    </ReduxProvider>
   );
 }
