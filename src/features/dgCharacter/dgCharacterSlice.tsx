@@ -11,12 +11,13 @@ import {
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
-  fullName: "",
-  profession: "",
+  fullName: "Энрик Кэмпбелл",
+  profession: "Маршал",
   employer: "",
   nationality: "",
 
   gender: DgGender.None,
+  customGender: "",
   age: "",
   education: "",
 
@@ -86,6 +87,7 @@ export const initialState = {
   specialTrainings: [] as DgCharacterSpecialTraining[],
 
   editMode: true,
+  writable: true
 } as DgCharacter;
 
 export interface SetReducerProps {

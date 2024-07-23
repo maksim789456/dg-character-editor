@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { GB, RU } from "country-flag-icons/react/1x1";
 import clsx from "clsx";
+import Link from "next/link";
 
 interface LangSelectProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
@@ -17,9 +18,9 @@ const LangSelect: React.FC<LangSelectProps> = ({ lang, ...props }) => {
       {langs.map((value, key) => {
         if (value.id === lang) return;
         return (
-          <a key={key} href={value.id} aria-label={`Change lang to ${value.id}`}>
+          <Link key={key} href={`/${value.id}/id`} aria-label={`Change lang to ${value.id}`}>
             {value.icon}
-          </a>
+          </Link>
         );
       })}
     </div>
