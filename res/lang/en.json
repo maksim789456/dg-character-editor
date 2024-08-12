@@ -1,5 +1,12 @@
 {
-  "characterList": {
+  "charactersList": {
+    "buttons": {
+      "edit": "Edit",
+      "delete": "Delete",
+      "create": "Create new character"
+    }
+  },
+  "characterSheet": {
     "settingsSection": {
       "editMode": "Edit Mode:",
       "exportPdf": "Export PDF"
@@ -102,8 +109,6 @@
     },
     "other": {
       "pieceOfArt": "THIS IS A WORK OF FICTION",
-      "executive": "20. AUTHORIZING OFFICER",
-      "sign": "21. AGENT SIGNATURE",
       "topSecret": "TOP SECRET//ORCON//SPECIAL ACCESS REQUIRED—DELTA GREEN AGENT DOCUMENTATION SHEET"
     }
   }

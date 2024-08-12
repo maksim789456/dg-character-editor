@@ -23,8 +23,6 @@ export default function CharacterSheet({
   langDict: any;
   skillsDict: any;
 }) {
-  console.log(id);
-  
   return (
     <main
       id="dgCharacter"
@@ -33,7 +31,7 @@ export default function CharacterSheet({
       <ReduxProvider>
         <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
           <SettingsSection
-            sectionLocale={langDict.characterList.settingsSection}
+            sectionLocale={langDict.characterSheet.settingsSection}
             className="col-span-2"
             lang={lang}
           />
@@ -48,30 +46,39 @@ export default function CharacterSheet({
             />
           </div>
           <PersonalSection
-            sectionLocale={langDict.characterList.personalSection}
+            sectionLocale={langDict.characterSheet.personalSection}
           />
           <StaticSection
-            sectionLocale={langDict.characterList.staticSection}
+            sectionLocale={langDict.characterSheet.staticSection}
             className="col-span-2 lg:col-span-1"
           />
           <PsychologicalSection
-            sectionLocale={langDict.characterList.psychologicalSection}
+            sectionLocale={langDict.characterSheet.psychologicalSection}
             className="col-span-2 lg:col-span-1"
           />
           <SkillsSection
-            sectionLocale={langDict.characterList.skillsSection}
+            sectionLocale={langDict.characterSheet.skillsSection}
             skillsDict={skillsDict}
           />
-          <WoundsSection sectionLocale={langDict.characterList.woundsSection} />
+          <WoundsSection
+            sectionLocale={langDict.characterSheet.woundsSection}
+          />
           <EquipmentSection
-            sectionLocale={langDict.characterList.equipmentSection}
+            sectionLocale={langDict.characterSheet.equipmentSection}
           />
-          <RemarksSection
-            sectionLocale={langDict.characterList.remarksSection}
-          />
+          <div className="col-span-2 relative">
+            <RemarksSection
+              sectionLocale={langDict.characterSheet.remarksSection}
+            />
+            <div className="absolute bottom-0 -right-8">
+              <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 select-none px-3 w-fit">
+                {langDict.characterSheet.other.pieceOfArt}
+              </h1>
+            </div>
+          </div>
           <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
             <div className="font-dg-main text-dg text-sm text-center">
-              {langDict.characterList.other.topSecret}
+              {langDict.characterSheet.other.topSecret}
             </div>
           </div>
           <div className="col-span-2 flex flex-row items-center justify-center">
