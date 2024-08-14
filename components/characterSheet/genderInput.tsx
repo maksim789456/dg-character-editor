@@ -42,11 +42,11 @@ const GenderInput: React.FC<GenderInputProps> = ({
   return (
     <div
       className={
-        "border border-dg border-t-0 border-l-0 w-full h-full " +
+        "border border-dg dark:border-neutral-600 border-t-0 border-l-0 w-full h-full " +
         (props.className || "")
       }
     >
-      <p className="font-dg-main text-xs p-1">{title}</p>
+      <p className="font-dg-main text-xs dark:text-neutral-200 p-1">{title}</p>
       <div className="flex flex-row items-center gap-1 px-1">
         <input
           name="genderMale"
@@ -56,7 +56,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
           checked={gender === DgGender.Male}
           onChange={(e) => onCheckboxChange(e, DgGender.Male)}
         />
-        <p className="font-dg-main text-xs">{mTitle}</p>
+        <p className="font-dg-main text-xs dark:text-neutral-200">{mTitle}</p>
         <input
           name="genderFemale"
           aria-label="Gender Female"
@@ -65,7 +65,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
           checked={gender === DgGender.Female}
           onChange={(e) => onCheckboxChange(e, DgGender.Female)}
         />
-        <p className="font-dg-main text-xs mr-0.5">{fTitle}</p>
+        <p className="font-dg-main text-xs dark:text-neutral-200 mr-0.5">{fTitle}</p>
         <input
           name="genderCustomCheck"
           aria-label="Gender Custom On/Off"
@@ -78,7 +78,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
           name="genderCustom"
           aria-label="Gender Custom"
           type="text"
-          className="w-full bg-blue-100 disabled:bg-gray-200"
+          className="w-full bg-blue-100 dark:bg-neutral-700 disabled:bg-gray-200 dark:disabled:bg-neutral-400"
           disabled={gender !== DgGender.Custom || disabled}
           value={customGender ?? ""}
           onChange={onCustomGenderInputChange}

@@ -17,17 +17,17 @@ const AddBound: React.FC<AddBoundProps> = ({ sectionLocale }) => {
   const dispatch = useAppDispatch();
 
   return canAdd ? (
-    <div className="border-b border-dg flex items-center justify-center">
+    <div className="border-b border-dg dark:border-neutral-600 flex items-center justify-center">
       <button
-        className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
+        className="font-dg-main text-dg outline outline-dg dark:outline-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 rounded my-1 px-3 bg-blue-100"
         onClick={() => dispatch(addBound())}
       >
         {sectionLocale?.addBound}
       </button>
     </div>
   ) : noBounds ? (
-    <div className="border-b border-dg flex items-center justify-center">
-      <p className="font-dg-main text-base text-center py-1">
+    <div className="border-b border-dg dark:border-neutral-600 flex items-center justify-center">
+      <p className="font-dg-main dark:text-neutral-200 text-base text-center py-1">
         {sectionLocale?.noBounds}
       </p>
     </div>

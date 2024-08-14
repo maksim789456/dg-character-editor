@@ -60,7 +60,7 @@ const TableInput: React.FC<TableInputProps> = ({
   return (
     <div
       className={
-        "border-b border-r border-dg last:border-r-0 w-full h-full flex flex-row " +
+        "border-b border-r border-dg dark:border-neutral-600 last:border-r-0 w-full h-full flex flex-row " +
         (props.className || "")
       }
     >
@@ -84,8 +84,8 @@ const TableInput: React.FC<TableInputProps> = ({
           inputMode={isNumber ? "numeric" : "text"}
           pattern={isNumber ? "[0-9]*" : ""}
           disabled={disabled}
-          className={`w-full h-full bg-blue-100 text-center font-dg-main text-dg
-        placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light 
+          className={`w-full h-full bg-blue-100 dark:bg-neutral-700 text-center font-dg-main text-dg dark:text-neutral-200
+        placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light dark:placeholder:text-neutral-200
         disabled:bg-gray-200 ${through ? "line-through" : ""} ${inputClassName ?? ""}`}
           placeholder={placeholder}
           value={value}
@@ -96,7 +96,7 @@ const TableInput: React.FC<TableInputProps> = ({
           name="tableItemSelect"
           aria-label={`${ariaLabel} Select`}
           disabled={disabled}
-          className={`w-full h-full bg-blue-100 text-center font-dg-main tracking-tight text-dg disabled:bg-gray-200 ${inputClassName ?? ""}`}
+          className={`w-full h-full bg-blue-100 dark:bg-neutral-700 text-center font-dg-main tracking-tight text-dg dark:text-neutral-200 disabled:bg-gray-200 ${inputClassName ?? ""}`}
           placeholder={placeholder}
           value={value ?? ""}
           onChange={onSelectChange}

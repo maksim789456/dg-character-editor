@@ -101,7 +101,6 @@ const StaticSection: React.FC<StaticSectionProps> = ({
               title={sectionLocale?.calcStats}
             />
             <TableItem
-              className=""
               title={sectionLocale?.calcStatsMax}
               isHeader={true}
             />

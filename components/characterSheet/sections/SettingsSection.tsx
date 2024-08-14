@@ -21,7 +21,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
     <div className={`grid grid-cols-5 items-center gap-3 ${props.className}`}>
       <div className="flex flex-row items-center justify-center gap-3 col-start-2 col-span-3">
         <div className="flex flex-row gap-1">
-          <p className="font-dg-main text-dg">{sectionLocale?.editMode}</p>
+          <p className="font-dg-main text-dg dark:text-neutral-200">{sectionLocale?.editMode}</p>
           <input
             name="editModeCheck"
             aria-label="Enable Edit Mode"
@@ -34,7 +34,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
         </div>
         <ExportButton lang={lang}>{sectionLocale?.exportPdf}</ExportButton>
       </div>
-      <div className="ml-auto bg-dg/90 rounded p-1.5">
+      <div className="ml-auto bg-dg/90 dark:bg-neutral-800 rounded p-1.5">
         <LangSelect lang={lang} />
       </div>
     </div>

@@ -51,7 +51,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
   return (
     <div className="flex flex-row items-center justify-center">
       <button
-        className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
+        className="font-dg-main text-dg outline outline-dg dark:outline-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 rounded my-1 px-3 bg-blue-100"
         onClick={exportButton}
       >
         {props.children}

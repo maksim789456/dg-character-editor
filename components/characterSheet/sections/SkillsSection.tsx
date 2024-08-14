@@ -43,8 +43,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
         <OtherSkillsList foreignLanguages={foreignLanguages} />
         <AddOtherSkill sectionLocale={sectionLocale} />
       </div>
-      <div className="flex items-center justify-center border-dg border-t">
-        <p className="font-dg-main text-xs text-center py-1">
+      <div className="flex items-center justify-center border-dg dark:border-neutral-800 border-t">
+        <p className="font-dg-main text-xs text-dg dark:text-neutral-200 text-center py-1">
           {sectionLocale?.skillsInstruction}
         </p>
       </div>

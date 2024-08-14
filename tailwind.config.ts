@@ -14,6 +14,7 @@ const config: Config = {
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
+      neutral: colors.neutral,
       emerald: colors.emerald,
       indigo: colors.indigo,
       yellow: colors.yellow,

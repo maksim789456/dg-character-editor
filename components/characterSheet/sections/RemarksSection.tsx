@@ -30,8 +30,8 @@ const RemarksSection: React.FC<RemarksSectionProps> = ({ sectionLocale }) => {
           />
           <SpecialTrainingsList sectionLocale={sectionLocale} />
         </div>
-        <div className="border-t border-dg flex items-center justify-center gap-3 px-1">
-          <p className="font-dg-main text-dg text-xs py-1 text-center">
+        <div className="border-t border-dg dark:border-neutral-800 flex items-center justify-center gap-3 px-1">
+          <p className="font-dg-main text-dg dark:text-neutral-200 text-xs py-1 text-center">
             {sectionLocale?.remarksDescription}
           </p>
         </div>

@@ -25,7 +25,7 @@ export default function CharacterSheet({
   return (
     <main
       id="dgCharacter"
-      className="min-h-screen px-0 py-1 bg-white lg:flex lg:flex-col lg:items-center lg:justify-between lg:px-24"
+      className="min-h-screen px-0 py-1 bg-white dark:bg-neutral-900 lg:flex lg:flex-col lg:items-center lg:justify-between lg:px-24"
     >
       <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
@@ -34,7 +34,7 @@ export default function CharacterSheet({
             className="col-span-2"
             lang={lang}
           />
-          <div className="col-span-2 h-16 bg-dg flex items-center justify-center">
+          <div className="col-span-2 h-16 bg-dg dark:bg-neutral-800 flex items-center justify-center">
             <Image
               alt="delta green logo"
               src="/Delta-Green-Logo-Horizontal-Tran.png"
@@ -70,19 +70,19 @@ export default function CharacterSheet({
               sectionLocale={langDict.characterSheet.remarksSection}
             />
             <div className="absolute bottom-0 -right-8">
-              <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 select-none px-3 w-fit">
+              <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 dark:text-neutral-200/20 select-none px-3 w-fit">
                 {langDict.characterSheet.other.pieceOfArt}
               </h1>
             </div>
           </div>
         </Provider>
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
-          <div className="font-dg-main text-dg text-sm text-center">
+          <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
             {langDict.characterSheet.other.topSecret}
           </div>
         </div>
         <div className="col-span-2 flex flex-row items-center justify-center">
-          <p className="font-dg-main text-dg pr-3">Debug:</p>
+          <p className="font-dg-main text-dg dark:text-neutral-200 pr-3">Debug:</p>
           <DownloadJsonButton />
         </div>
       </div>
