@@ -8,11 +8,13 @@ import Link from "next/link";
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
   lang: string;
+  id: string;
 }
 
 const SettingsSection: React.FC<SettingsSectionProps> = ({
   sectionLocale,
   lang,
+  id,
   ...props
 }) => {
   const editMode = useAppSelector((state) => state.dgCharacter.editMode);
@@ -52,7 +54,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
         <ExportButton lang={lang}>{sectionLocale?.exportPdf}</ExportButton>
       </div>
       <div className="ml-auto bg-dg/90 rounded p-1.5">
-        <LangSelect lang={lang} />
+        <LangSelect lang={lang} id={id} />
       </div>
     </div>
   );

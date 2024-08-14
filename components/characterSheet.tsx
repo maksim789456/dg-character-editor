@@ -34,6 +34,7 @@ export default function CharacterSheet({
             sectionLocale={langDict.characterSheet.settingsSection}
             className="col-span-2"
             lang={lang}
+            id={id}
           />
           <div className="col-span-2 h-16 bg-dg flex items-center justify-center">
             <Image

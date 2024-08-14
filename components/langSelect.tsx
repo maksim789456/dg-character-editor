@@ -5,9 +5,10 @@ import Link from "next/link";
 
 interface LangSelectProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
+  id: string;
 }
 
-const LangSelect: React.FC<LangSelectProps> = ({ lang, ...props }) => {
+const LangSelect: React.FC<LangSelectProps> = ({ lang, id, ...props }) => {
   const langs = [
     { id: "en", icon: <GB className="w-7 h-5" /> },
     { id: "ru", icon: <RU className="w-7 h-5" /> },
@@ -20,7 +21,7 @@ const LangSelect: React.FC<LangSelectProps> = ({ lang, ...props }) => {
         return (
           <Link
             key={key}
-            href={`/${value.id}/id`}
+            href={`/${value.id}/${id}`}
             aria-label={`Change lang to ${value.id}`}
             title={`Change lang to ${value.id}`}
           >
@@ -35,6 +36,7 @@ const LangSelect: React.FC<LangSelectProps> = ({ lang, ...props }) => {
 LangSelect.propTypes = {
   className: PropTypes.string,
   lang: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default LangSelect;
