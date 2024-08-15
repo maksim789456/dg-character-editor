@@ -31,6 +31,10 @@ const config: Config = {
       gridTemplateColumns: {
         "15": "repeat(15, minmax(0, 1fr))",
       },
+      screens: {
+        'sm': '660px',
+        'lg': '1000px',
+      },
     },
   },
   plugins: [],

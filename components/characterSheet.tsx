@@ -27,9 +27,9 @@ export default function CharacterSheet({
     <main
       id="dgCharacter"
       role="main"
-      className="min-h-screen px-0 py-1 bg-white dark:bg-neutral-900 lg:flex lg:flex-col lg:items-center lg:justify-between lg:px-24"
+      className="min-h-screen px-0 py-1 bg-white dark:bg-neutral-900 min-w-max sm:flex sm:flex-col sm:items-center sm:justify-between lg:px-24"
     >
-      <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
+      <div className="w-[40rem] md:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
           <ThemeProvider>
             <SettingsSection
@@ -52,11 +52,11 @@ export default function CharacterSheet({
             />
             <StaticSection
               sectionLocale={langDict.characterSheet.staticSection}
-              className="col-span-2 lg:col-span-1"
+              className="col-span-2 md:col-span-1"
             />
             <PsychologicalSection
               sectionLocale={langDict.characterSheet.psychologicalSection}
-              className="col-span-2 lg:col-span-1"
+              className="col-span-2 md:col-span-1"
             />
             <SkillsSection
               sectionLocale={langDict.characterSheet.skillsSection}
@@ -72,8 +72,8 @@ export default function CharacterSheet({
               <RemarksSection
                 sectionLocale={langDict.characterSheet.remarksSection}
               />
-              <div className="absolute bottom-0 -right-8">
-                <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 dark:text-neutral-200 select-none px-3 w-fit">
+              <div className="absolute bottom-0 -right-4 hidden lg:block">
+                <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 dark:text-neutral-200 select-none w-fit">
                   {langDict.characterSheet.other.pieceOfArt}
                 </h1>
               </div>
