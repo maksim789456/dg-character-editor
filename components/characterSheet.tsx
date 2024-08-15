@@ -12,6 +12,7 @@ import RemarksSection from "./characterSheet/sections/RemarksSection";
 import { Provider } from "react-redux";
 import SettingsSection from "./characterSheet/sections/SettingsSection";
 import DownloadJsonButton from "./characterSheet/export/downloadJsonButton";
+import ThemeProvider from "@/app/contexts/themeContext";
 
 export default function CharacterSheet({
   lang,
@@ -29,52 +30,54 @@ export default function CharacterSheet({
     >
       <div className="w-[40rem] lg:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
-          <SettingsSection
-            sectionLocale={langDict.characterSheet.settingsSection}
-            className="col-span-2"
-            lang={lang}
-          />
-          <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
-            <Image
-              alt="delta green logo"
-              src="/Delta-Green-Logo-Horizontal-Tran.png"
-              className="w-[224px] h-16"
-              width="468"
-              height="134"
-              priority
+          <ThemeProvider>
+            <SettingsSection
+              sectionLocale={langDict.characterSheet.settingsSection}
+              className="col-span-2"
+              lang={lang}
             />
-          </div>
-          <PersonalSection
-            sectionLocale={langDict.characterSheet.personalSection}
-          />
-          <StaticSection
-            sectionLocale={langDict.characterSheet.staticSection}
-            className="col-span-2 lg:col-span-1"
-          />
-          <PsychologicalSection
-            sectionLocale={langDict.characterSheet.psychologicalSection}
-            className="col-span-2 lg:col-span-1"
-          />
-          <SkillsSection
-            sectionLocale={langDict.characterSheet.skillsSection}
-            skillsDict={skillsDict}
-          />
-          <WoundsSection
-            sectionLocale={langDict.characterSheet.woundsSection}
-          />
-          <EquipmentSection
-            sectionLocale={langDict.characterSheet.equipmentSection}
-          />
-          <div className="col-span-2 relative">
-            <RemarksSection
-              sectionLocale={langDict.characterSheet.remarksSection}
-            />
-            <div className="absolute bottom-0 -right-8">
-              <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 dark:text-neutral-200/20 select-none px-3 w-fit">
-                {langDict.characterSheet.other.pieceOfArt}
-              </h1>
+            <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
+              <Image
+                alt="delta green logo"
+                src="/Delta-Green-Logo-Horizontal-Tran.png"
+                className="w-[224px] h-16"
+                width="468"
+                height="134"
+                priority
+              />
             </div>
-          </div>
+            <PersonalSection
+              sectionLocale={langDict.characterSheet.personalSection}
+            />
+            <StaticSection
+              sectionLocale={langDict.characterSheet.staticSection}
+              className="col-span-2 lg:col-span-1"
+            />
+            <PsychologicalSection
+              sectionLocale={langDict.characterSheet.psychologicalSection}
+              className="col-span-2 lg:col-span-1"
+            />
+            <SkillsSection
+              sectionLocale={langDict.characterSheet.skillsSection}
+              skillsDict={skillsDict}
+            />
+            <WoundsSection
+              sectionLocale={langDict.characterSheet.woundsSection}
+            />
+            <EquipmentSection
+              sectionLocale={langDict.characterSheet.equipmentSection}
+            />
+            <div className="col-span-2 relative">
+              <RemarksSection
+                sectionLocale={langDict.characterSheet.remarksSection}
+              />
+              <div className="absolute bottom-0 -right-8">
+                <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 dark:text-neutral-200/20 select-none px-3 w-fit">
+                  {langDict.characterSheet.other.pieceOfArt}
+                </h1>
+              </div>
+            </div>
+          </ThemeProvider>
         </Provider>
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
@@ -82,7 +85,9 @@ export default function CharacterSheet({
           </div>
         </div>
         <div className="col-span-2 flex flex-row items-center justify-center">
-          <p className="font-dg-main text-dg dark:text-neutral-200 pr-3">Debug:</p>
+          <p className="font-dg-main text-dg dark:text-neutral-200 pr-3">
+            Debug:
+          </p>
           <DownloadJsonButton />
         </div>
       </div>
