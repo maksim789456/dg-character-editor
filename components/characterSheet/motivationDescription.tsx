@@ -10,7 +10,7 @@ const MotivationDescription: React.FC = ({}) => {
     <textarea
       name="motivationDescription"
       aria-label="Motivation Description"
-      className="bg-blue-100 dark:bg-neutral-700 resize-none w-full translate-y-1"
+      className="bg-blue-100 dark:bg-neutral-700 dark:text-neutral-200 resize-none w-full translate-y-1"
       rows={7}
       value={motivationDescription}
       onChange={(e) =>
