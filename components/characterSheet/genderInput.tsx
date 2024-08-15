@@ -78,7 +78,7 @@ const GenderInput: React.FC<GenderInputProps> = ({
           name="genderCustom"
           aria-label="Gender Custom"
           type="text"
-          className="w-full bg-blue-100 dark:bg-neutral-800 disabled:bg-gray-200 dark:disabled:bg-neutral-700 dark:disabled:bg-neutral-700"
+          className="w-full bg-blue-100 dark:bg-neutral-800 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
           disabled={gender !== DgGender.Custom || disabled}
           value={customGender ?? ""}
           onChange={onCustomGenderInputChange}

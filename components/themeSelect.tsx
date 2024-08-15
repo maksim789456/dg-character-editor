@@ -13,7 +13,7 @@ const ThemeSelect: React.FC<LangSelectProps> = ({ ...props }) => {
       icon: (
         <svg
           className="w-5 h-5 text-white dark:text-neutral-200"
-          aria-hidden="true"
+          aria-label="Sun icon"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
@@ -26,7 +26,7 @@ const ThemeSelect: React.FC<LangSelectProps> = ({ ...props }) => {
       icon: (
         <svg
           className="w-5 h-5 text-white dark:text-neutral-200"
-          aria-hidden="true"
+          aria-label="Moon icon"
           fill="currentColor"
           viewBox="0 0 24 24"
         >
