@@ -96,15 +96,15 @@ const TableSkill = memo(function TableSkillInternal({
         value={skill.characterSkillRate ?? skill.baseSkillRate}
         onChange={onCharacterSkillRateInputChange}
         className={
-          "w-full h-ful text-center dark:text-neutral-200 col-span-2 row-span-2 border-l border-dg dark:border-neutral-800 disabled:bg-gray-200 " +
-          (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-700")
+          "w-full h-ful text-center dark:text-neutral-200 col-span-2 row-span-2 border-l border-dg dark:border-neutral-800 disabled:bg-gray-200 dark:disabled:bg-neutral-700 " +
+          (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-800")
         }
       ></input>
       {skill.isTypal ? (
         <select
           name={`${skill.id}TypalSelect`}
           aria-label={`${skill.name} Type Select`}
-          className="w-full h-full bg-blue-100 dark:bg-neutral-700 dark:text-neutral-200 col-span-10 py-1.5 disabled:bg-gray-200"
+          className="w-full h-full bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 col-span-10 py-1.5 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
           disabled={disabled}
           value={skill.type ?? ""}
           onChange={onTypeSelectChange}
@@ -122,7 +122,7 @@ const TableSkill = memo(function TableSkillInternal({
         //   disabled={disabled}
         //   value={type ?? ""}
         //   onChange={onTypeInputChange}
-        //   className="w-full h-full bg-blue-100 text-center col-span-10 py-1.5 disabled:bg-gray-200"
+        //   className="w-full h-full bg-blue-100 text-center col-span-10 py-1.5 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
         // ></input>
         <></>
       )}

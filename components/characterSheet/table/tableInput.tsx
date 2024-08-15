@@ -84,9 +84,9 @@ const TableInput: React.FC<TableInputProps> = ({
           inputMode={isNumber ? "numeric" : "text"}
           pattern={isNumber ? "[0-9]*" : ""}
           disabled={disabled}
-          className={`w-full h-full bg-blue-100 dark:bg-neutral-700 text-center font-dg-main text-dg dark:text-neutral-200
+          className={`w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main text-dg dark:text-neutral-200
         placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light dark:placeholder:text-neutral-200
-        disabled:bg-gray-200 ${through ? "line-through" : ""} ${inputClassName ?? ""}`}
+        disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${through ? "line-through" : ""} ${inputClassName ?? ""}`}
           placeholder={placeholder}
           value={value}
           onChange={isNumber ? onInputNumberChange : onTextChange}
@@ -96,7 +96,7 @@ const TableInput: React.FC<TableInputProps> = ({
           name="tableItemSelect"
           aria-label={`${ariaLabel} Select`}
           disabled={disabled}
-          className={`w-full h-full bg-blue-100 dark:bg-neutral-700 text-center font-dg-main tracking-tight text-dg dark:text-neutral-200 disabled:bg-gray-200 ${inputClassName ?? ""}`}
+          className={`w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main tracking-tight text-dg dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${inputClassName ?? ""}`}
           placeholder={placeholder}
           value={value ?? ""}
           onChange={onSelectChange}

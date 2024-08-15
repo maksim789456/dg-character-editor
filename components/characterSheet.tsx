@@ -34,7 +34,7 @@ export default function CharacterSheet({
             className="col-span-2"
             lang={lang}
           />
-          <div className="col-span-2 h-16 bg-dg dark:bg-neutral-800 flex items-center justify-center">
+          <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
             <Image
               alt="delta green logo"
               src="/Delta-Green-Logo-Horizontal-Tran.png"
