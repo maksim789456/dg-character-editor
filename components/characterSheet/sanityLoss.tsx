@@ -20,13 +20,13 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
 
   return (
     <div className="row-span-2 flex flex-col justify-center">
-      <div className="border-t border-b border-dg flex items-center justify-center">
-        <p className="font-dg-main text-dg text-sm py-1 text-center">
+      <div className="border-t border-b border-dg dark:border-neutral-600 flex items-center justify-center">
+        <p className="font-dg-main text-dg dark:text-neutral-200 text-sm py-1 text-center">
           {sectionLocale?.sanLoss}
         </p>
       </div>
       <div className="flex flex-row justify-center items-center py-1 gap-2">
-        <p className="font-dg-main text-dg text-sm">
+        <p className="font-dg-main text-dg dark:text-neutral-200 text-sm">
           {sectionLocale?.sanLossViolence}
         </p>
         <input
@@ -53,12 +53,12 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
           checked={violence === 3}
           onChange={() => onViolenceChanged(3)}
         />
-        <i className="font-dg-main text-dg text-sm">
+        <i className="font-dg-main text-dg dark:text-neutral-200 text-sm">
           {sectionLocale?.sanLossAdapted}
         </i>
       </div>
       <div className="flex flex-row justify-center items-center py-1 gap-2">
-        <p className="font-dg-main text-dg text-sm">
+        <p className="font-dg-main text-dg dark:text-neutral-200 text-sm">
           {sectionLocale?.sanLossHelplessness}
         </p>
         <input
@@ -85,7 +85,7 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
           checked={helplessness === 3}
           onChange={() => onHelplessnessChanged(3)}
         />
-        <i className="font-dg-main text-dg text-sm">
+        <i className="font-dg-main text-dg dark:text-neutral-200 text-sm">
           {sectionLocale?.sanLossAdapted}
         </i>
       </div>

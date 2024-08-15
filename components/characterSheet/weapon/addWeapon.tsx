@@ -15,7 +15,7 @@ const AddWeapon: React.FC<AddWeaponProps> = ({ sectionLocale }) => {
   return canAdd ? (
     <div className="border-b border-dg flex items-center justify-center">
       <button
-        className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
+        className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100 dark:outline-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
         onClick={() => dispatch(addWeapon())}
       >
         {sectionLocale?.addWeapon}

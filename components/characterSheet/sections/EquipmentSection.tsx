@@ -22,12 +22,12 @@ const EquipmentSection: React.FC<EquipmentSectionProps> = ({
           rows={6}
           name="armorAndGear"
         />
-        <div className="border-t border-dg flex items-center justify-center gap-3 px-1">
-          <p className="font-dg-main text-dg text-xs py-1 text-center">
+        <div className="border-t border-dg dark:border-neutral-600 flex items-center justify-center gap-3 px-1">
+          <p className="font-dg-main text-dg dark:text-neutral-200 text-xs py-1 text-center">
             {sectionLocale?.armorDescription}
           </p>
         </div>
-        <div className="border-t border-dg grid grid-rows-8">
+        <div className="border-t border-dg dark:border-neutral-600 grid grid-rows-8">
           <div className="grid grid-cols-15">
             <TableItem
               className="col-span-3"

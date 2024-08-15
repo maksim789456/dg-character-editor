@@ -9,8 +9,8 @@ const MotivationDescription: React.FC = ({}) => {
   return (
     <textarea
       name="motivationDescription"
-      aria-label="Motiovation Description"
-      className="bg-blue-100 resize-none w-full translate-y-1"
+      aria-label="Motivation Description"
+      className="bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 resize-none w-full translate-y-1"
       rows={7}
       value={motivationDescription}
       onChange={(e) =>

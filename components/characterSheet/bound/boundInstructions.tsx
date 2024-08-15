@@ -12,8 +12,8 @@ const BoundInstructions: React.FC<BoundInstructionsProps> = ({
     (state) => state.dgCharacter.bounds.length !== 0
   );
   return boundsExists ? (
-    <div className="border-b border-dg flex items-center justify-center">
-      <p className="font-dg-main text-xs text-center py-1">
+    <div className="border-b border-dg dark:border-neutral-600 flex items-center justify-center">
+      <p className="font-dg-main text-xs dark:text-neutral-200 text-center py-1">
         {sectionLocale?.bondsInstruction}
       </p>
     </div>

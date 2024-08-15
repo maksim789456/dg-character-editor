@@ -21,12 +21,12 @@ const WoundsSection: React.FC<WoundsSectionProps> = ({ sectionLocale }) => {
           name="wounds"
         />
         <div className="border-t border-dg flex items-center justify-center gap-3 px-1">
-          <p className="font-dg-main text-dg text-xs py-1 text-center">
+          <p className="font-dg-main text-dg dark:text-neutral-200 text-xs py-1 text-center">
             {sectionLocale?.firstHelp}
           </p>
           <div className="flex flex-row">
             <FirstHelpAttemptedCheckbox className="mr-1" />
-            <p className="font-dg-main text-dg text-xs py-1 text-center">
+            <p className="font-dg-main text-dg dark:text-neutral-200 text-xs py-1 text-center">
               {sectionLocale?.firstHelpYes}
             </p>
           </div>

@@ -39,8 +39,8 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
           <BoundInstructions sectionLocale={sectionLocale} />
         </div>
         <div className="row-span-3">
-          <div className="border-b border-dg flex items-center justify-center">
-            <p className="font-dg-main text-dg text-sm py-1 text-center">
+          <div className="border-b border-dg dark:border-neutral-600 flex items-center justify-center">
+            <p className="font-dg-main dark:text-neutral-200 text-dg text-sm py-1 text-center">
               {sectionLocale?.motivation}
             </p>
           </div>

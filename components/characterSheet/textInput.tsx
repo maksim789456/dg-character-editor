@@ -55,14 +55,14 @@ const TextInput: React.FC<TextInputProps> = ({
 }) => {
   return (
     <div
-      className={`border border-dg ${
+      className={`border border-dg dark:border-neutral-600 ${
         multiline ? "border-0" : "border-t-0 border-l-0"
       } ${props.className || ""} flex flex-col w-full`}
     >
-      <p className="font-dg-main text-xs p-1">{title}</p>
+      <p className="font-dg-main dark:text-neutral-200 text-xs p-1">{title}</p>
       {multiline ? (
         <textarea
-          className="bg-blue-100 resize-none disabled:bg-gray-200"
+          className="bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 resize-none disabled:bg-gray-200 dark:disabled:bg-neutral-700"
           name={name}
           aria-label={title}
           disabled={disabled}
@@ -73,7 +73,7 @@ const TextInput: React.FC<TextInputProps> = ({
       ) : (
         <input
           type="text"
-          className="bg-blue-100 disabled:bg-gray-200"
+          className="bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
           name={name}
           aria-label={title}
           disabled={disabled}

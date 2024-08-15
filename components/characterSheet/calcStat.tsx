@@ -46,7 +46,7 @@ const CalcStat: React.FC<CalcStatProps> = ({
         ariaLabel={`${title} Max Value`}
         title={max?.toString() ?? ""}
         isHeader={true}
-        fontSize="text-base"
+        fontSize="text-base dark:text-neutral-200"
       />
       <TableInput
         ariaLabel={`${title} Current Value`}

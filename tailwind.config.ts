@@ -7,6 +7,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     colors: {
       transparent: "transparent",
@@ -14,6 +15,8 @@ const config: Config = {
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
+      zinc: colors.zinc,
+      neutral: colors.neutral,
       emerald: colors.emerald,
       indigo: colors.indigo,
       yellow: colors.yellow,

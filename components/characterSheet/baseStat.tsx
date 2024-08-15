@@ -73,7 +73,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
         ariaLabel={`${title} Value x5`}
         title={`${(score ?? 0) * 5}`}
         isHeader={true}
-        fontSize="text-base"
+        fontSize="text-base dark:text-neutral-200"
       />
       {(score ?? 0) < 9 || (score ?? 0) > 12 ? (
         <TableInput
