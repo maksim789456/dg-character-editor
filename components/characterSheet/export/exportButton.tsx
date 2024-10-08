@@ -3,15 +3,22 @@ import axios from "axios";
 import store from "@/src/store/store";
 
 interface ExportButtonProps extends React.HTMLAttributes<HTMLDivElement> {
+  type: string;
   lang: string;
 }
 
 const pdfFiles = {
-  en: "Character_Sheet_ENG.pdf",
-  ru: "Character_Sheet_RUS.pdf",
+  white: {
+    en: "Character_Sheet_ENG_White.pdf",
+    ru: "Character_Sheet_RUS_White.pdf",
+  },
+  old: {
+    en: "Character_Sheet_ENG_Old.pdf",
+    ru: "Character_Sheet_RUS_Old.pdf",
+  }
 } as any;
 
-const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
+const ExportButton: React.FC<ExportButtonProps> = ({ type, lang, ...props }) => {
   const exportButton = async () => {
     const dgCharacter = store.getState().dgCharacter;
     const dgCharacterReduced = {
@@ -31,7 +38,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
     };
 
     axios
-      .post("api/pdfExport/" + lang, dgCharacterReduced, {
+      .post("api/pdfExport/" + type + '/' + lang, dgCharacterReduced, {
         responseType: "blob",
       })
       .then((blob) => {
@@ -40,7 +47,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
         downloadAnchorNode.setAttribute("href", url);
         downloadAnchorNode.setAttribute(
           "download",
-          dgCharacter.fullName + "_" + pdfFiles[lang].split(".")[0] + ".pdf"
+          dgCharacter.fullName + "_" + pdfFiles[type][lang].split(".")[0] + ".pdf"
         );
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();

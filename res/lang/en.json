@@ -9,6 +9,13 @@
   "characterSheet": {
     "settingsSection": {
       "editMode": "Edit Mode:",
+      "sheetThemeSelect": {
+        "pdfTheme": "PDF Theme:",
+        "themes": {
+          "white": "Classic",
+          "old": "As 'Old'"
+        }
+      },
       "exportPdf": "Export PDF"
     },
     "personalSection": {
@@ -105,7 +112,7 @@
       "addSpecialTraining": "Add Special Training",
       "noSpecialTrainings": "No Special Trainings",
       "specialTrainingSkill": "SKILL OR STAT USED",
-      "remarksDescription": "Please indicate why this agent was recruited and why the agent agreed to be recruited." 
+      "remarksDescription": "Please indicate why this agent was recruited and why the agent agreed to be recruited."
     },
     "other": {
       "pieceOfArt": "THIS IS A WORK OF FICTION",

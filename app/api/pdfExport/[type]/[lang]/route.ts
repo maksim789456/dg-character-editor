@@ -1,6 +1,6 @@
 import fieldDescriptions, {
   FieldType,
-} from "@/app/api/pdfExport/[lang]/exportFields";
+} from "@/app/api/pdfExport/[type]/[lang]/exportFields";
 import {
   getPdfFieldsDictionary,
   getSkillsDictionary,
@@ -13,18 +13,31 @@ import path from "path";
 import { PDFDocument } from "pdf-lib";
 
 const pdfFiles = {
-  en: "Character_Sheet_ENG.pdf",
-  ru: "Character_Sheet_RUS.pdf",
+  white: {
+    en: "Character_Sheet_ENG.pdf",
+    ru: "Character_Sheet_RUS.pdf",
+  },
+  old: {
+    en: "Character_Sheet_ENG_OLD.pdf",
+    ru: "Character_Sheet_RUS_OLD.pdf",
+  }
 } as any;
 
 export async function POST(
   req: Request,
-  { params }: { params: { lang: string } }
+  { params }: { params: { lang: string; type: string; } }
 ) {
+  const type = params.type;
   const lang = params.lang;
-  if (!pdfFiles[lang]) {
+  if (!pdfFiles[type]) {
     return NextResponse.json(
-      { error: `Lang ${lang} don't supported` },
+      { error: `Type ${type} don't supported` },
+      { status: 500 }
+    );
+  }
+  if (!pdfFiles[type][lang]) {
+    return NextResponse.json(
+      { error: `Lang ${lang} at '${type}' type don't supported` },
       { status: 500 }
     );
   }
@@ -34,7 +47,7 @@ export async function POST(
     .then(async (data) => {
       const dgCharacter = data as DgCharacter;
 
-      const pdfFilename = pdfFiles[lang];
+      const pdfFilename = pdfFiles[type][lang];
       const pdfPath = path.join(process.cwd(), "public", pdfFilename);
       const file = await fs.readFile(pdfPath);
       const pdfDoc = await PDFDocument.load(file);

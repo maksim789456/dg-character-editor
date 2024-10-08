@@ -8,7 +8,14 @@
   },
   "characterSheet": {
     "settingsSection": {
-      "editMode": "Режим редактирования:",
+      "editMode": "Редактирование:",
+      "sheetThemeSelect": {
+        "pdfTheme": "Тема PDF:",
+        "themes": {
+          "white": "Классическая",
+          "old": "Под старину"
+        }
+      },
       "exportPdf": "Экспорт в PDF"
     },
     "personalSection": {
