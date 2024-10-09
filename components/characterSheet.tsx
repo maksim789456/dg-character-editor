@@ -82,7 +82,9 @@ export default function CharacterSheet({
         </Provider>
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
-            {langDict.characterSheet.other.topSecret}
+            {langDict.characterSheet.other.topSecret}<br/><br/>
+            Copyright © 2023-2024 <a href="https://github.com/maksim789456">maksim789456</a><br/>
+            {langDict.characterSheet.other.copyright}
           </div>
         </div>
         <div className="col-span-2 flex flex-row items-center justify-center">
