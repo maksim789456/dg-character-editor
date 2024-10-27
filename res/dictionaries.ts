@@ -1,6 +1,7 @@
 import "server-only";
 import { promises as fs } from "fs";
 import { DgProfession } from "@/src/model/profession";
+import path from "path";
 
 const localeDictionary = {
   en: () => import("./lang/en.json").then((module) => module.default),
@@ -25,13 +26,13 @@ export const getPdfFieldsDictionary = async (locale: string) =>
   pdfFieldsDictionary[locale]();
 
 export async function getProfessions(): Promise<DgProfession[]> {
-  const files = await fs.readdir("res/professions/");
+  const professionsPath = path.resolve(process.cwd(), "res", "professions");
+  const files = await fs.readdir(professionsPath);
   let professions = [] as DgProfession[];
   for (const file of files) {
-    const content = await import("res/professions/" + file).then(
-      (module) => module.default
-    );
-    professions.push(content);
+    const content = await fs.readFile(path.resolve(professionsPath, file), 'utf8');
+    const data = JSON.parse(content);
+    professions.push(data);
   }
   return professions;
 }
