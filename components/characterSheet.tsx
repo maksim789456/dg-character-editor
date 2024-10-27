@@ -19,7 +19,7 @@ export default function CharacterSheet({
   lang,
   langDict,
   skillsDict,
-  professions
+  professions,
 }: {
   lang: string;
   langDict: any;
@@ -40,35 +40,51 @@ export default function CharacterSheet({
               className="col-span-2"
               lang={lang}
             />
-          </div>
-          <PersonalSection
-            sectionLocale={langDict.characterList.personalSection}
-            professions={professions}
-          />
-          <StaticSection
-            sectionLocale={langDict.characterList.staticSection}
-            className="col-span-2 lg:col-span-1"
-          />
-          <PsychologicalSection
-            sectionLocale={langDict.characterList.psychologicalSection}
-            className="col-span-2 lg:col-span-1"
-          />
-          <SkillsSection
-            sectionLocale={langDict.characterList.skillsSection}
-            skillsDict={skillsDict}
-          />
-          <WoundsSection sectionLocale={langDict.characterList.woundsSection} />
-          <EquipmentSection
-            sectionLocale={langDict.characterList.equipmentSection}
-          />
-          <RemarksSection
-            sectionLocale={langDict.characterList.remarksSection}
-          />
+            <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
+              <Image
+                alt="delta green logo"
+                src="/Delta-Green-Logo-Horizontal-Tran.png"
+                className="w-[224px] h-16"
+                width="468"
+                height="134"
+                priority
+              />
+            </div>
+            <PersonalSection
+              sectionLocale={langDict.characterSheet.personalSection}
+              professions={professions}
+            />
+            <StaticSection
+              sectionLocale={langDict.characterSheet.staticSection}
+              className="col-span-2 lg:col-span-1"
+            />
+            <PsychologicalSection
+              sectionLocale={langDict.characterSheet.psychologicalSection}
+              className="col-span-2 lg:col-span-1"
+            />
+            <SkillsSection
+              sectionLocale={langDict.characterSheet.skillsSection}
+              skillsDict={skillsDict}
+            />
+            <WoundsSection
+              sectionLocale={langDict.characterSheet.woundsSection}
+            />
+            <EquipmentSection
+              sectionLocale={langDict.characterSheet.equipmentSection}
+            />
+            <RemarksSection
+              sectionLocale={langDict.characterSheet.remarksSection}
+            />
+          </ThemeProvider>
         </Provider>
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
-            {langDict.characterSheet.other.topSecret}<br/><br/>
-            Copyright © 2023-2024 <a href="https://github.com/maksim789456">maksim789456</a><br/>
+            {langDict.characterSheet.other.topSecret}
+            <br />
+            <br />
+            Copyright © 2023-2024{" "}
+            <a href="https://github.com/maksim789456">maksim789456</a>
+            <br />
             {langDict.characterSheet.other.copyright}
           </div>
         </div>
