@@ -1,6 +1,10 @@
+export interface Dictionary<T> {
+  [Key: string]: T;
+}
+
 export interface DgProfession {
   id: string;
-  name: string;
+  name: Dictionary<string>;
   baseSkills: DgProfessionSkill[];
   additionalCount: number;
   additionalSkills: DgProfessionSkill[];
