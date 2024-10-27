@@ -97,7 +97,7 @@ const TableSkill = memo(function TableSkillInternal({
         onChange={onCharacterSkillRateInputChange}
         className={
           "w-full h-ful text-center dark:text-neutral-200 col-span-2 row-span-2 border-l border-dg dark:border-neutral-800 disabled:bg-gray-200 dark:disabled:bg-neutral-700 " +
-          (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-800")
+          (error ? "bg-red-200 dark:bg-red-600" : "bg-blue-100 dark:bg-neutral-800")
         }
       ></input>
       {skill.isTypal ? (

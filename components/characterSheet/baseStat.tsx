@@ -61,7 +61,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
       <TableInput
         className={clsx("col-span-2")}
         ariaLabel={`${title} Value`}
-        inputClassName={clsx(baseStatSumIsToBig && "bg-yellow-100")}
+        inputClassName={clsx(baseStatSumIsToBig && "bg-yellow-100 dark:bg-yellow-600")}
         disabled={disabled}
         value={score}
         isNumber={true}
