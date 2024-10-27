@@ -11,9 +11,11 @@ import {
   maxWpSelector,
   maxSanSelector,
   baseStatSumSelector,
+  currentProfessionSelector,
 } from "@/src/redux/selectors";
 import TextInput from "../textInput";
 import { useSelector } from "react-redux";
+import { useAppSelector } from "@/src/redux/hooks";
 
 interface StaticSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -23,8 +25,10 @@ const StaticSection: React.FC<StaticSectionProps> = ({
   sectionLocale,
   ...props
 }) => {
+  const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
   const maxBpSelector = (_: RootState) => sectionLocale?.bpStatMax;
   const baseStatSum = useSelector(baseStatSumSelector);
+  const currentCustomProfession = useSelector(currentProfessionSelector);
   return (
     <Category name={sectionLocale?.categoryName} {...props}>
       <div className="grid grid-cols-1 grid-rows-5">
@@ -77,7 +81,18 @@ const StaticSection: React.FC<StaticSectionProps> = ({
             title={sectionLocale?.chaStat}
             name="cha"
           />
-          {baseStatSum > 72 ? (
+          {currentCustomProfession &&
+          currentCustomProfession.stats.length !== 0 &&
+          !disabled ? (
+            <TableItem
+              className="grid-cols-9"
+              title={sectionLocale?.recommendedStats}
+              isHeader={true}
+            />
+          ) : (
+            <></>
+          )}
+          {baseStatSum > 72 && !disabled ? (
             <TableItem
               className="grid-cols-9"
               customTitle={
@@ -100,10 +115,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
               className="col-span-2"
               title={sectionLocale?.calcStats}
             />
-            <TableItem
-              title={sectionLocale?.calcStatsMax}
-              isHeader={true}
-            />
+            <TableItem title={sectionLocale?.calcStatsMax} isHeader={true} />
             <TableItem
               title={sectionLocale?.calcStatsCurrent}
               isHeader={true}

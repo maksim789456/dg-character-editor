@@ -46,6 +46,7 @@
       "chaStat": "Charisma (CHA)",
       "statsTooMuch": "The statistics is higher than recommended!",
       "statsTooMuch2": "It is recommended to assign no more than 72 points, current",
+      "recommendedStats": "⚠ — recommended stats for current profession",
 
       "calcStats": "9. DERIVED ATTRIBUTES",
       "calcStatsMax": "MAXIMUM",

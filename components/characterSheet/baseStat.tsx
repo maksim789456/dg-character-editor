@@ -7,7 +7,11 @@ import {
   setBaseStat,
   setBaseStatDescription,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
-import { baseStatSumSelector, makeBaseStatSelectorInstance } from "@/src/redux/selectors";
+import {
+  baseStatSumSelector,
+  currentProfessionSelector,
+  makeBaseStatSelectorInstance,
+} from "@/src/redux/selectors";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 
@@ -22,6 +26,8 @@ interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   onScoreChange?: (score: number) => void;
   description?: string;
   onDescriptionChange?: (description: string) => void;
+
+  recommended?: boolean;
 }
 
 const makeMapState = (_: RootState, ownProps: BaseStatProps) => {
@@ -32,6 +38,9 @@ const makeMapState = (_: RootState, ownProps: BaseStatProps) => {
       score: baseStat.score,
       description: baseStat.description,
       disabled: !state.dgCharacter.editMode,
+      recommended: currentProfessionSelector(state)?.stats.includes(
+        ownProps.name
+      ),
     };
   };
 };
@@ -52,16 +61,28 @@ const BaseStat: React.FC<BaseStatProps> = ({
   onScoreChange,
   description,
   onDescriptionChange,
+  recommended,
 }) => {
   const baseStatSumIsToBig = useSelector(baseStatSumSelector) > 72;
 
   return (
     <div className="grid grid-cols-9">
-      <TableItem className="col-span-3" title={title} />
+      <TableItem
+        className={clsx({ hidden: !recommended || disabled })}
+        isHeader={true}
+        title="⚠"
+        fontSize="text-base"
+      />
+      <TableItem
+        className={recommended && !disabled ? "col-span-2" : "col-span-3"}
+        title={title}
+      />
       <TableInput
         className={clsx("col-span-2")}
         ariaLabel={`${title} Value`}
-        inputClassName={clsx(baseStatSumIsToBig && "bg-yellow-100 dark:bg-yellow-600")}
+        inputClassName={clsx(
+          baseStatSumIsToBig && "bg-yellow-100 dark:bg-yellow-600"
+        )}
         disabled={disabled}
         value={score}
         isNumber={true}
@@ -108,6 +129,7 @@ BaseStat.propTypes = {
   onScoreChange: PropTypes.func,
   description: PropTypes.string,
   onDescriptionChange: PropTypes.func,
+  recommended: PropTypes.bool,
 };
 
 export default connect(makeMapState, makeDispatchState)(BaseStat);

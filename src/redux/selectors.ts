@@ -33,6 +33,9 @@ export const makeCalcStatSelectorInstance = (fieldName: string) =>
     (dgCharacter) => calcStatSelector(dgCharacter, fieldName)
   );
 
+export const currentProfessionSelector = (state: RootState) => !state.dgCharacter.useCustomProfession ?
+  state.dgProfessions.find((x) => x.id === state.dgCharacter.professionId) : null;
+
 export const baseStatSumSelector = (state: RootState) =>
   state.dgCharacter.stats.str.score +
   state.dgCharacter.stats.con.score +
