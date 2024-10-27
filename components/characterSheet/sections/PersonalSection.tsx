@@ -33,7 +33,7 @@ const PersonalSection: React.FC<PersonalSectionProps> = ({
           className="col-span-2"
           sectionLocale={sectionLocale}
           professions={professions}
-        ></ProfessionSelect>
+        />
         <TextInput
           className="col-span-3"
           title={sectionLocale?.employer}

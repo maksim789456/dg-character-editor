@@ -42,9 +42,9 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
       } flex flex-col w-full`}
     >
       <div className="flex flex-row justify-between">
-        <p className="font-dg-main text-xs p-1">{sectionLocale.profession}</p>
+        <p className="font-dg-main dark:text-neutral-200 text-xs p-1">{sectionLocale.profession}</p>
         <div className="flex flex-row gap-1 items-center pr-1">
-          <p className="font-dg-main text-xs">
+          <p className="font-dg-main dark:text-neutral-200 text-xs">
             {sectionLocale.customProfession}
           </p>
           <input
@@ -61,7 +61,7 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
       {useCustomProfession ? (
         <input
           type="text"
-          className="bg-blue-100 disabled:bg-gray-200"
+          className="bg-blue-100 dark:bg-neutral-800 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
           name={"pro"}
           disabled={false}
           value={customProfession ?? ""}
@@ -71,7 +71,7 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
         ></input>
       ) : (
         <select
-          className="w-full h-full bg-blue-100 col-span-10 disabled:bg-gray-200"
+          className="w-full h-full bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 col-span-10 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
           disabled={false}
           value={professionId ?? ""}
           onChange={onTypeSelectChange}
