@@ -208,6 +208,11 @@ export const dgCharacterSlice = createSlice({
     editSkillRate: (state: DgCharacter, action: PayloadAction<EditSkillRateProps>) => {
       let skillIdx = state.skills.findIndex(skill => skill.id === action.payload.skillId);
       if (skillIdx !== -1) {
+        if (action.payload.rate === -1) {
+          delete state.skills[skillIdx].characterSkillRate;
+          return state;
+        }
+
         state.skills[skillIdx].characterSkillRate = action.payload.rate;
       }
       return state;

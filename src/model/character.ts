@@ -71,7 +71,7 @@ export interface DgCharacterSkill extends DgCharacterBaseSkill {
   isOther?: boolean;
   isForeignLanguage?: boolean;
   damaged?: boolean;
-  characterSkillRate: number;
+  characterSkillRate?: number;
   type?: string;
 }
 
