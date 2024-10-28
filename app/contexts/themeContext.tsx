@@ -2,16 +2,20 @@ import { useState, useEffect, createContext } from "react";
 
 const useThemeStorage = (
   key: string = "color-theme",
-  initialValue: string = "light"
+  initialValue: string = "dark"
 ) => {
   const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined"){
+      return initialValue;
+    }
+
     const persistedValue = localStorage.getItem(key);
-    const userMedia = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const userMedia = window.matchMedia("(prefers-color-scheme: light)").matches;
 
     return persistedValue !== null
       ? persistedValue
       : userMedia
-      ? "dark"
+      ? "light"
       : initialValue;
   });
 
