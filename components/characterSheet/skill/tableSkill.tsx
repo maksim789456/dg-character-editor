@@ -26,7 +26,7 @@ const TableSkill = memo(function TableSkillInternal({
   const [error, setError] = useState(false);
 
   useEffect(
-    () => setError(skill.characterSkillRate < skill.baseSkillRate),
+    () => setError((skill.characterSkillRate ?? 99) < skill.baseSkillRate),
     [skill]
   );
 
