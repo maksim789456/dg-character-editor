@@ -3,8 +3,10 @@
 import { editSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppSelector } from "@/src/redux/hooks";
 import clsx from "clsx";
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect, useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
+import DgSelect, { OptionType } from "../select";
+import { SingleValue } from "react-select";
 
 interface TableSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   skillId: string;
@@ -25,6 +27,20 @@ const TableSkill = memo(function TableSkillInternal({
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
 
+  const typeOptions = useMemo(() => {
+    if (!skill.isTypal) return [];
+
+    let options =
+      types?.map((type) => {
+        return {
+          value: type.id,
+          label: type.name,
+        } as OptionType;
+      }) ?? [];
+    options.unshift({ label: "None" });
+    return options;
+  }, [skill.isTypal, types]);
+
   useEffect(
     () => setError((skill.characterSkillRate ?? 99) < skill.baseSkillRate),
     [skill]
@@ -44,9 +60,9 @@ const TableSkill = memo(function TableSkillInternal({
     );
   };
 
-  const onTypeSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const onTypeSelectChange = (value: SingleValue<OptionType>) => {
     dispatch(
-      editSkill({ skillId: skillId, skill: { ...skill, type: e.target.value } })
+      editSkill({ skillId: skillId, skill: { ...skill, type: value?.value } })
     );
   };
 
@@ -58,6 +74,11 @@ const TableSkill = memo(function TableSkillInternal({
       })
     );
   };
+
+  const getTypeValue = (opts: OptionType[], val: string | null) =>
+    opts.filter((o) =>
+      !o.value ? false : val?.includes(o.value) ?? typeof val === "undefined"
+    );
 
   return (
     <div
@@ -95,27 +116,23 @@ const TableSkill = memo(function TableSkillInternal({
         disabled={disabled}
         value={skill.characterSkillRate ?? skill.baseSkillRate}
         onChange={onCharacterSkillRateInputChange}
-        className={
-          "w-full h-ful text-center dark:text-neutral-200 col-span-2 row-span-2 border-l border-dg dark:border-neutral-800 disabled:bg-gray-200 dark:disabled:bg-neutral-700 " +
-          (error ? "bg-red-200 dark:bg-red-600" : "bg-blue-100 dark:bg-neutral-800")
-        }
+        className={clsx(
+          "w-full h-ful text-center dark:text-neutral-200 col-span-2 row-span-2 border-l border-dg dark:border-neutral-700 disabled:bg-gray-200 dark:disabled:bg-neutral-700",
+          error
+            ? "bg-red-200 dark:bg-red-600"
+            : "bg-blue-100 dark:bg-neutral-800"
+        )}
       ></input>
       {skill.isTypal ? (
-        <select
+        <DgSelect
+          isDisabled={disabled}
+          instanceId={`${skill.id}TypalSelect`}
           name={`${skill.id}TypalSelect`}
-          aria-label={`${skill.name} Type Select`}
-          className="w-full h-full bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 col-span-10 py-1.5 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
-          disabled={disabled}
-          value={skill.type ?? ""}
+          value={getTypeValue(typeOptions, skill.type ?? null)}
+          options={typeOptions}
           onChange={onTypeSelectChange}
-        >
-          <option value={""}></option>
-          {types?.map((skill: any, i: number) => (
-            <option key={i} value={skill.id}>
-              {skill.name}
-            </option>
-          ))}
-        </select>
+          className="w-full h-full col-span-10"
+        ></DgSelect>
       ) : (
         // <input
         //   type="text"
