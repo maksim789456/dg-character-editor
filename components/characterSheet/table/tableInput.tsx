@@ -1,6 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
+import DgSelect, { OptionType } from "../select";
+import { SingleValue } from "react-select";
 
 interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
   placeholder?: string;
@@ -36,6 +38,20 @@ const TableInput: React.FC<TableInputProps> = ({
   onCheckboxValueChange,
   ...props
 }) => {
+  const typeOptions = useMemo(() => {
+    if (!select || !types) return [];
+
+    let options =
+      types?.map((type: any) => {
+        return {
+          value: type.id,
+          label: type.name,
+        } as OptionType;
+      }) ?? [];
+    options.unshift({ label: "None" });
+    return options;
+  }, [select, types]);
+
   const onInputNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!onValueChange) return;
 
@@ -53,9 +69,14 @@ const TableInput: React.FC<TableInputProps> = ({
     if (onCheckboxValueChange) onCheckboxValueChange(e.target.checked);
   };
 
-  const onSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (onValueChange) onValueChange(e.target.value);
+  const onSelectChange = (value: SingleValue<OptionType>) => {
+    if (onValueChange) onValueChange(value?.value ?? "");
   };
+
+  const getTypeValue = (opts: OptionType[], val: string | null) =>
+    opts.filter((o) =>
+      !o.value ? false : val?.includes(o.value) ?? typeof val === "undefined"
+    );
 
   return (
     <div
@@ -86,28 +107,23 @@ const TableInput: React.FC<TableInputProps> = ({
           disabled={disabled}
           className={`w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main text-dg dark:text-neutral-200
         placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light dark:placeholder:text-neutral-200
-        disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${through ? "line-through" : ""} ${inputClassName ?? ""}`}
+        disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${
+          through ? "line-through" : ""
+        } ${inputClassName ?? ""}`}
           placeholder={placeholder}
           value={value}
           onChange={isNumber ? onInputNumberChange : onTextChange}
         ></input>
       ) : (
-        <select
-          name="tableItemSelect"
-          aria-label={`${ariaLabel} Select`}
-          disabled={disabled}
-          className={`w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main tracking-tight text-dg dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${inputClassName ?? ""}`}
-          placeholder={placeholder}
-          value={value ?? ""}
+        <DgSelect
+          isDisabled={disabled}
+          instanceId={`${ariaLabel}TableSelect`}
+          name={`${ariaLabel}TableSelect`}
+          value={getTypeValue(typeOptions, (value as string) ?? null)}
+          options={typeOptions}
           onChange={onSelectChange}
-        >
-          <option value={""}></option>
-          {types.map((skill: any, i: number) => (
-            <option key={i} value={skill.id}>
-              {skill.name}
-            </option>
-          ))}
-        </select>
+          className="w-full h-full"
+        ></DgSelect>
       )}
     </div>
   );
