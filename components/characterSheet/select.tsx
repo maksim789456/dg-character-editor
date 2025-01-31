@@ -7,19 +7,22 @@ export type OptionType = { value?: string; label: string };
 
 type CustomSelectProps<Option> = Props<Option, false, any> & {};
 
-const DgSelect = (props: CustomSelectProps<OptionType>) => {
+const DgSelect = ({...props}: CustomSelectProps<OptionType>) => {
   return (
     <Select
       {...props}
       isMulti={false}
       instanceId={`dgSelect-${props.instanceId}`}
       name={`$dgSelect-${props.name}`}
+      placeholder={props.isDisabled ? "None" : props.placeholder}
       classNames={{
         control: () =>
           clsx(
-            "!bg-blue-100 dark:!bg-neutral-800 !border-0 !rounded-none !shadow-none",
-            props.isDisabled && "!bg-gray-200 dark:!bg-neutral-700"
+            "!border-0 !rounded-none !shadow-none",
+            !props.isDisabled ? "!bg-blue-100 dark:!bg-neutral-800" : "!bg-gray-200 dark:!bg-neutral-700",
           ),
+        indicatorsContainer: () => clsx( props.isDisabled && "!hidden"),
+        indicatorSeparator: () => clsx( props.isDisabled && "!hidden"),
         placeholder: () => "font-dg-main text-dg dark:text-neutral-200 text-md",
         singleValue: () => "font-dg-main text-dg dark:text-neutral-200 text-md",
         menu: () => "dark:bg-neutral-800",
