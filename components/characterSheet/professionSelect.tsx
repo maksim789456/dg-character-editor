@@ -4,7 +4,10 @@ import { DgProfession } from "@/src/model/profession";
 import { useAppSelector, useAppDispatch } from "@/src/redux/hooks";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
+import DgSelect, { OptionType } from "./select";
+import { SingleValue } from "react-select";
+import { getTypeValue } from "@/src/utils/selectUtils";
 
 interface ProfessionSelectProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -28,13 +31,27 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
   const dispatch = useAppDispatch();
 
-  const onTypeSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    dispatch(set({ field: "professionId", value: e.target.value }));
+  const onTypeSelectChange = (value: SingleValue<OptionType>) => {
+    dispatch(set({ field: "professionId", value: value?.value }));
   };
 
   useEffect(() => {
     dispatch(setProfessions(professions));
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [professions]);
+
+  const typeOptions = useMemo(() => {
+    if (!professions) return [];
+
+    let options =
+      professions?.map((type: DgProfession) => {
+        return {
+          value: type.id,
+          label: type.name.en,
+        } as OptionType;
+      }) ?? [];
+    options.unshift({ label: "None" });
+    return options;
   }, [professions]);
 
   return (
@@ -78,19 +95,15 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
           }
         ></input>
       ) : (
-        <select
-          className="w-full h-full bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 col-span-10 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
-          disabled={disabled}
-          value={professionId ?? ""}
+        <DgSelect
+          isDisabled={disabled}
+          instanceId="ProfessionSelect"
+          name="ProfessionSelect"
+          value={getTypeValue(typeOptions, professionId ?? null)}
+          options={typeOptions}
           onChange={onTypeSelectChange}
-        >
-          <option value={""}></option>
-          {professions?.map((profession: any, i: number) => (
-            <option key={i} value={profession.id}>
-              {profession.name.en}
-            </option>
-          ))}
-        </select>
+          className="w-full col-span-10"
+        ></DgSelect>
       )}
     </div>
   );
