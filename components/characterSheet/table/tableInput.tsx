@@ -3,6 +3,7 @@
 import React, { useMemo } from "react";
 import DgSelect, { OptionType } from "../select";
 import { SingleValue } from "react-select";
+import { getTypeValue } from "@/src/utils/selectUtils";
 
 interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
   placeholder?: string;
@@ -72,11 +73,6 @@ const TableInput: React.FC<TableInputProps> = ({
   const onSelectChange = (value: SingleValue<OptionType>) => {
     if (onValueChange) onValueChange(value?.value ?? "");
   };
-
-  const getTypeValue = (opts: OptionType[], val: string | null) =>
-    opts.filter((o) =>
-      !o.value ? false : val?.includes(o.value) ?? typeof val === "undefined"
-    );
 
   return (
     <div

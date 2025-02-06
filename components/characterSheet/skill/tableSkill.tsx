@@ -7,6 +7,7 @@ import React, { memo, useEffect, useState, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import DgSelect, { OptionType } from "../select";
 import { SingleValue } from "react-select";
+import { getTypeValue } from "@/src/utils/selectUtils";
 
 interface TableSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   skillId: string;
@@ -74,11 +75,6 @@ const TableSkill = memo(function TableSkillInternal({
       })
     );
   };
-
-  const getTypeValue = (opts: OptionType[], val: string | null) =>
-    opts.filter((o) =>
-      !o.value ? false : val?.includes(o.value) ?? typeof val === "undefined"
-    );
 
   return (
     <div
