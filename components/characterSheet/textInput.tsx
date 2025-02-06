@@ -73,7 +73,7 @@ const TextInput: React.FC<TextInputProps> = ({
       ) : (
         <input
           type="text"
-          className="bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
+          className="h-full bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
           name={name}
           aria-label={title}
           disabled={disabled}
