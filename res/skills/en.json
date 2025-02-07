@@ -53,6 +53,7 @@
       { "id": "guitar", "name": "Guitar" },
       { "id": "painting", "name": "Painting" },
       { "id": "poetry", "name": "Poetry" },
+      { "id": "journalism", "name": "Journalism" },
       { "id": "scriptwriting", "name": "Scriptwriting" },
       { "id": "sculpture", "name": "Sculpture" },
       { "id": "singing", "name": "Singing" },

@@ -53,6 +53,7 @@
       { "id": "guitar", "name": "Гитара" },
       { "id": "painting", "name": "Живопись" },
       { "id": "poetry", "name": "Поэзия" },
+      { "id": "journalism", "name": "Журналистика" },
       { "id": "scriptwriting", "name": "Написание сценариев" },
       { "id": "sculpture", "name": "Скульптура" },
       { "id": "singing", "name": "Пение" },
