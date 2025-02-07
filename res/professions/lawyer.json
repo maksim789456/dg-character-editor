@@ -1,0 +1,24 @@
+{
+    "id": "lawyer",
+    "name": {
+      "en": "Lawyer Or Business Executive",
+      "ru": "Юрист/Предприниматель/Топ-Менеджер"
+    },
+    "baseSkills": [
+        { "id": "humint", "skillRate": 40 },
+        { "id": "accounting", "skillRate": 50 },
+        { "id": "bureaucracy", "skillRate": 50 },
+        { "id": "persuade", "skillrate": 60}
+    ],
+    "additionalCount": 4,
+    "additionalSkills": [
+        { "id": "foreign_language", "skillRate": 50, "isTypal": true, "anyType": true },
+        { "id": "computer_science", "skillRate": 50 },
+        { "id": "criminology", "skillRate": 60 },
+        { "id": "pharmacy", "skillRate": 50 },
+        { "id": "law", "skillRate": 50 }
+    ],
+    "stats": [ "int", "cha" ],
+    "bounds": 4
+  }
+  

@@ -1,0 +1,26 @@
+{
+    "id": "intelligence_analyst",
+    "name": {
+      "en": "Intelligence Analyst",
+      "ru": "Аналитик Разведки"
+    },
+    "baseSkills": [
+      { "id": "humint", "skillRate": 50 },
+      { "id": "athletics", "skillRate": 60 },
+      { "id": "drive", "skillRate": 50},
+      { "id": "navigate", "skillRate": 50},
+      { "id": "first_aid", "skillRate": 50},
+      { "id": "demolitions", "skillRate": 50},
+      { "id": "search", "skillRate": 40},
+      { "id": "craft", "skillRate": 40, "isTypal": true, "type": "electrician" },
+      { "id": "craft", "skillRate": 40, "isTypal": true, "type": "mechanic" },
+      { "id": "forensics", "skillRate": 40},
+      { "id": "heavy_machinery", "skillRate": 50}
+    ],
+    "additionalCount": 0,
+    "additionalSkills": [
+    ],
+    "stats": ["con", "int", "dex"],
+    "bounds": 3
+  }
+  

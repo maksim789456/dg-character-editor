@@ -1,0 +1,35 @@
+{
+    "id": "criminal",
+    "name": {
+      "en": "Criminal",
+      "ru": "Уголовник"
+    },
+    "baseSkills": [
+      { "id": "athletics", "skillRate": 50 },
+      { "id": "alertness", "skillRate": 50 },
+      { "id": "drive", "skillRate": 50 },
+      { "id": "criminology", "skillRate": 60 },
+      { "id": "firearms", "skillRate": 40 },
+      { "id": "melee_weapons", "skillRate": 40 },
+      { "id": "unarmed_combat", "skillRate": 50 },
+      { "id": "stealth", "skillRate": 50 },
+      { "id": "persuade", "skillRate": 50 },
+      { "id": "dodge", "skillRate": 40 },
+      { "id": "law", "skillRate": 20 }
+    ],
+    "additionalCount": 2,
+    "additionalSkills": [
+      { "id": "humint", "skillRate": 50 },
+      { "id": "foreing_language", "skillRate": 40, "isTypal": true, "anyType": true },
+      { "id": "navigate", "skillRate": 50 },
+      { "id": "occult", "skillRate": 50 },
+      { "id": "demolitions", "skillRate": 40 },
+      { "id": "craft", "skillRate": 50, "isTypal": true, "anyType": "locksmith" },
+      { "id": "disguise", "skillRate": 50 },
+      { "id": "forensics", "skillRate": 40 },
+      { "id": "pharmacy", "skillRate": 40 }
+    ],
+    "stats": ["pow", "dex"],
+    "bounds": 4
+  }
+  

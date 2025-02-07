@@ -1,0 +1,26 @@
+{
+    "id": "scientist",
+    "name": {
+      "en": "Scientist",
+      "ru": "Ученый"
+    },
+    "baseSkills": [
+      { "id": "ride", "skillRate": 40 },
+      { "id": "computer_science", "skillRate": 40 },
+      { "id": "science", "skillRate": 60, "isTypal": true, "anyType": true },
+      { "id": "science", "skillRate": 50, "isTypal": true, "anyType": true },
+      { "id": "science", "skillRate": 50, "isTypal": true, "anyType": true }
+    ],
+    "additionalCount": 3,
+    "additionalSkills": [
+      { "id": "accounting", "skillRate": 50 },
+      { "id": "foreign_language", "skillRate": 60, "isTypal": true, "anyType": true},
+      { "id": "craft", "skillRate": 40, "isTypal": true, "anyType": true },
+      { "id": "forensics", "skillRate": 40},
+      { "id": "pharmacy", "skillRate": 40},
+      { "id": "law", "skillRate": 40}
+    ],
+    "stats": ["int"],
+    "bounds": 4
+  }
+  

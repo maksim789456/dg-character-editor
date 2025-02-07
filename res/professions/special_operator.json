@@ -1,0 +1,27 @@
+{
+    "id": "special_operator",
+    "name": {
+      "en": "Special_operator",
+      "ru": "Оперативник"
+    },
+    "baseSkills": [
+      { "id": "athletics", "skillRate": 60},
+      { "id": "alertness", "skillRate": 60},
+      { "id": "military_science", "skillRate": 50, "isTypal": true, "Type": "land" },
+      { "id": "survival", "skillRate": 50 },
+      { "id": "navigate", "skillRate": 50 },
+      { "id": "firearms", "skillRate": 60},
+      { "id": "melee_weapons", "skillRate": 50 },
+      { "id": "swim", "skillRate": 50 },
+      { "id": "demolitions", "skillRate": 40 },
+      { "id": "unarmed_combat", "skillRate": 60 },
+      { "id": "stealth", "skillRate": 50 },
+      { "id": "heavy_weapons", "skillRate": 50}
+    ],
+    "additionalCount": 0,
+    "additionalSkills": [
+    ],
+    "stats": ["str", "pow", "con"],
+    "bounds": 2
+  }
+  

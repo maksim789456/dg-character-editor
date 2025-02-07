@@ -1,0 +1,25 @@
+{
+    "id": "foreing_service_officer",
+    "name": {
+      "en": "Foreign Servie Officer",
+      "ru": "Сотрудник дипслужбы"
+    },
+    "baseSkills": [
+      { "id": "humint", "skillRate": 50 },
+      { "id": "anthropology", "skillRate": 40 },
+      { "id": "accounting", "skillRate": 40 },
+      { "id": "bureaucracy", "skillRate": 60 },
+      { "id": "foreing_language", "skillRate": 50, "isTypal": true, "anyType": true },
+      { "id": "foreing_language", "skillRate": 50,  "isTypal": true, "anyType": true },
+      { "id": "foreing_language", "skillRate": 40, "isTypal": true, "anyType": true },
+      { "id": "history", "skillRate": 40 },
+      { "id": "persuade", "skillRate": 50 },
+      { "id": "law", "skillRate": 40 }
+    ],
+    "additionalCount": 0,
+    "additionalSkills": [
+    ],
+    "stats": ["int", "cha"],
+    "bounds": 3
+  }
+  

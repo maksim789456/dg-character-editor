@@ -1,0 +1,25 @@
+{
+    "id": "firefighter",
+    "name": {
+      "en": "Firefighter",
+      "ru": "Пожарный"
+    },
+    "baseSkills": [
+        { "id": "humint", "skillRate": 50 },
+        { "id": "anthropology", "skillRate": 40 },
+        { "id": "bureaucracy", "skillRate": 50 },
+        { "id": "foreing_language", "skillRate": 50, "isTypal": true, "anyType": true },
+        { "id": "foreing_language", "skillRate": 50,  "isTypal": true, "anyType": true },
+        { "id": "foreing_language", "skillRate": 40, "isTypal": true, "anyType": true },
+        { "id": "computer_science", "skillRate": 40},
+        { "id": "history", "skillRate": 40 },
+        { "id": "criminology", "skillRate": 40 },
+        { "id": "sigint", "skillrate": 40}
+    ],
+    "additionalCount": 0,
+    "additionalSkills": [
+    ],
+    "stats": [ "int" ],
+    "bounds": 3
+  }
+  
