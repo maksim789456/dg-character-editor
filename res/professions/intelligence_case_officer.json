@@ -9,19 +9,18 @@
         { "id": "alertness", "skillRate": 50 },
         { "id": "bureaucracy", "skillRate": 40 },
         { "id": "drive", "skillRate": 40 },
-        { "id": "foreing_language", "skillRate": 50, "isTypal": true, "anyType": true },
-        { "id": "foreing_language", "skillRate": 40, "isTypal": true, "anyType": true },
+        { "id": "foreign_language", "skillRate": 50, "isTypal": true, "anyType": true },
+        { "id": "foreign_language", "skillRate": 40, "isTypal": true, "anyType": true },
         { "id": "criminology", "skillRate": 50 },
-        { "id": "firearms", "skillrate": 40},
-        { "id": "sigint", "skillrate": 40},
-        { "id": "unarmed_combat", "skillrate": 50},
-        { "id": "stealth", "skillrate": 50},
-        { "id": "disguise", "skillrate": 50},
-        { "id": "persuade", "skillrate": 60}
+        { "id": "firearms", "skillRate": 40},
+        { "id": "sigint", "skillRate": 40},
+        { "id": "unarmed_combat", "skillRate": 50},
+        { "id": "stealth", "skillRate": 50},
+        { "id": "disguise", "skillRate": 50},
+        { "id": "persuade", "skillRate": 60}
     ],
     "additionalCount": 0,
-    "additionalSkills": [
-    ],
+    "additionalSkills": [],
     "stats": [ "int", "pow", "cha" ],
     "bounds": 2
   }

@@ -5,21 +5,21 @@
       "ru": "Пожарный"
     },
     "baseSkills": [
-        { "id": "humint", "skillRate": 50 },
-        { "id": "anthropology", "skillRate": 40 },
-        { "id": "bureaucracy", "skillRate": 50 },
-        { "id": "foreing_language", "skillRate": 50, "isTypal": true, "anyType": true },
-        { "id": "foreing_language", "skillRate": 50,  "isTypal": true, "anyType": true },
-        { "id": "foreing_language", "skillRate": 40, "isTypal": true, "anyType": true },
-        { "id": "computer_science", "skillRate": 40},
-        { "id": "history", "skillRate": 40 },
-        { "id": "criminology", "skillRate": 40 },
-        { "id": "sigint", "skillrate": 40}
+        { "id": "athletics", "skillRate": 60 },
+        { "id": "alertness", "skillRate": 50 },
+        { "id": "drive", "skillRate": 50 },
+        { "id": "navigate", "skillRate": 50 },
+        { "id": "first_aid", "skillRate": 50 },
+        { "id": "demolitions", "skillRate": 50 },
+        { "id": "search", "skillRate": 40 },
+        { "id": "craft", "skillRate": 40, "isTypal": true, "type": "electrician" },
+        { "id": "craft", "skillRate": 40, "isTypal": true, "type": "locksmith" },
+        { "id": "forensics", "skillRate": 40 },
+        { "id": "heavy_machinery", "skillRate": 50 }
     ],
     "additionalCount": 0,
-    "additionalSkills": [
-    ],
-    "stats": [ "int" ],
+    "additionalSkills": [],
+    "stats": [ "str", "dex", "con" ],
     "bounds": 3
   }
   

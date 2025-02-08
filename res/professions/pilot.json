@@ -1,0 +1,27 @@
+{
+    "id": "pilot",
+    "name": {
+      "en": "Pilot / Sailor",
+      "ru": "Пилот / матрос"
+    },
+    "baseSkills": [
+      { "id": "alertness", "skillRate": 60 },
+      { "id": "bureaucracy", "skillRate": 30 },
+      { "id": "navigate", "skillRate": 50 },
+      { "id": "science", "skillRate": 40, "isTypal": true, "type": "meteorology" },
+      { "id": "pilot", "skillRate": 60, "isTypal": true, "anyType": true },
+      { "id": "swim", "skillRate": 40 },
+      { "id": "craft", "skillRate": 40, "isTypal": true, "type": "electrician" },
+      { "id": "craft", "skillRate": 40, "isTypal": true, "type": "mechanic" }
+    ],
+    "additionalCount": 2,
+    "additionalSkills": [
+      { "id": "military_science", "skillRate": 50, "isTypal": true, "anyType": true },
+      { "id": "foreign_language", "skillRate": 50, "isTypal": true, "anyType": true },
+      { "id": "pilot", "skillRate": 50, "isTypal": true, "anyType": true },
+      { "id": "heavy_weapons", "skillRate": 50 }
+    ],
+    "stats": ["dex", "int"],
+    "bounds": 3
+  }
+  

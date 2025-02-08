@@ -1,0 +1,35 @@
+{
+    "id": "solder",
+    "name": {
+      "en": "Soldier / Marine",
+      "ru": "Солдат / Морской пехотинец"
+    },
+    "baseSkills": [
+      { "id": "athletics", "skillRate": 50 },
+      { "id": "alertness", "skillRate": 50 },
+      { "id": "bureaucracy", "skillRate": 30 },
+      { "id": "military_science", "skillRate": 40, "isTypal": true, "type": "land" },
+      { "id": "drive", "skillRate": 40 },
+      { "id": "navigate", "skillRate": 40 },
+      { "id": "firearms", "skillRate": 40 },
+      { "id": "first_aid", "skillRate": 40 },
+      { "id": "unarmed_combat", "skillRate": 50 },
+      { "id": "persuade", "skillRate": 30 }
+    ],
+    "additionalCount": 3,
+    "additionalSkills": [
+      { "id": "artillery", "skillRate": 40 },
+      { "id": "foreign_language", "skillRate": 40, "isTypal": true, "anyType": true },
+      { "id": "computer_science", "skillRate": 40 },
+      { "id": "swim", "skillRate": 60 },
+      { "id": "demolitions", "skillRate": 40 },
+      { "id": "search", "skillRate": 60 },
+      { "id": "sigint", "skillRate": 40 },
+      { "id": "craft", "skillRate": 40, "isTypal": true, "anyType": true },
+      { "id": "heavy_machinery", "skillRate": 50 },
+      { "id": "heavy_weapons", "skillRate": 40 }
+    ],
+    "stats": ["str", "con"],
+    "bounds": 4
+  }
+  

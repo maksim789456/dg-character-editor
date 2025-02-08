@@ -1,0 +1,30 @@
+{
+    "id": "media_specialist",
+    "name": {
+      "en": "Media Specialist",
+      "ru": "Специалист по СМИ"
+    },
+    "baseSkills": [
+      { "id": "humint", "skillRate": 40 },
+      { "id": "art", "skillRate": 60, "isTypal": true, "anyType": true },
+      { "id": "history", "skillRate": 40 },
+      { "id": "persuade", "skillRate": 50 }
+    ],
+    "additionalCount": 5,
+    "additionalSkills": [
+      { "id": "anthropology", "skillRate": 40 },
+      { "id": "archeology", "skillRate": 40 },
+      { "id": "bureaucracy", "skillRate": 50 },
+      { "id": "military_science", "skillRate": 40, "isTypal": true, "anyType": true },
+      { "id": "foreign_language", "skillRate": 40, "isTypal": true, "anyType": true  },
+      { "id": "computer_science", "skillRate": 40 },
+      { "id": "art", "skillRate": 40, "isTypal": true, "anyType": true  },
+      { "id": "criminology", "skillRate": 50 },
+      { "id": "science", "skillRate": 40, "isTypal": true, "anyType": true  },
+      { "id": "occult", "skillRate": 50 },
+      { "id": "law", "skillRate": 40 }
+    ],
+    "stats": ["int", "cha"],
+    "bounds": 4
+  }
+  

@@ -20,7 +20,7 @@
     "additionalCount": 2,
     "additionalSkills": [
       { "id": "humint", "skillRate": 50 },
-      { "id": "foreing_language", "skillRate": 40, "isTypal": true, "anyType": true },
+      { "id": "foreign_language", "skillRate": 40, "isTypal": true, "anyType": true },
       { "id": "navigate", "skillRate": 50 },
       { "id": "occult", "skillRate": 50 },
       { "id": "demolitions", "skillRate": 40 },

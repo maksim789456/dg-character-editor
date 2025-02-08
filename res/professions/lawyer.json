@@ -8,7 +8,7 @@
         { "id": "humint", "skillRate": 40 },
         { "id": "accounting", "skillRate": 50 },
         { "id": "bureaucracy", "skillRate": 50 },
-        { "id": "persuade", "skillrate": 60}
+        { "id": "persuade", "skillRate": 60}
     ],
     "additionalCount": 4,
     "additionalSkills": [

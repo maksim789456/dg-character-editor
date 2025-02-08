@@ -18,8 +18,7 @@
       { "id": "heavy_machinery", "skillRate": 50}
     ],
     "additionalCount": 0,
-    "additionalSkills": [
-    ],
+    "additionalSkills": [],
     "stats": ["con", "int", "dex"],
     "bounds": 3
   }

@@ -14,13 +14,13 @@
     ],
     "additionalCount": 4,
     "additionalSkills": [
-      { "id": "foreing_language", "skillRate": 40, "isTypal": true, "anyType": true },
+      { "id": "foreign_language", "skillRate": 40, "isTypal": true, "anyType": true },
       { "id": "bureaucracy", "skillRate": 50 },
       { "id": "accounting", "skillRate": 50 },
       { "id": "science", "skillRate": 50, "isTypal": true, "anyType": true },
       { "id": "heavy_machinery", "skillRate": 50 },
       { "id": "law", "skillRate": 40 },
-      { "id": "craft", "skillrate": 40, "isTypal": true, "anyType": true }
+      { "id": "craft", "skillRate": 40, "isTypal": true, "anyType": true }
     ],
     "stats": ["int"],
     "bounds": 3

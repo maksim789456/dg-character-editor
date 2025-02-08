@@ -1,0 +1,27 @@
+{
+    "id": "program_manager",
+    "name": {
+      "en": "Program Manager",
+      "ru": "Программный менеджер"
+    },
+    "baseSkills": [
+      { "id": "accounting", "skillRate": 60 },
+      { "id": "bureaucracy", "skillRate": 60 },
+      { "id": "foreign_language", "skillRate": 50, "isTypal": true, "anyType": true },
+      { "id": "computer_science", "skillRate": 50 },
+      { "id": "history", "skillRate": 40 },
+      { "id": "criminology", "skillRate": 30 },
+      { "id": "persuade", "skillRate": 50 },
+      { "id": "law", "skillRate": 40 }
+    ],
+    "additionalCount": 1,
+    "additionalSkills": [
+      { "id": "anthropology", "skillRate": 30 },
+      { "id": "art", "skillRate": 30, "isTypal": true, "anyType": true },
+      { "id": "science", "skillRate": 30, "isTypal": true, "anyType": true },
+      { "id": "craft", "skillRate": 30, "isTypal": true, "anyType": true }
+    ],
+    "stats": ["int", "cha"],
+    "bounds": 4
+  }
+  

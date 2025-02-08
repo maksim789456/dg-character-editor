@@ -1,0 +1,28 @@
+{
+    "id": "nurse",
+    "name": {
+      "en": "Nurse or Paramedic",
+      "ru": "Медсестра / фельдшер"
+    },
+    "baseSkills": [
+      { "id": "humint", "skillRate": 40 },
+      { "id": "athletics", "skillRate": 40 },
+      { "id": "bureaucracy", "skillRate": 40 },
+      { "id": "medicine", "skillRate": 40 },
+      { "id": "science", "skillRate": 40, "isTypal": true, "type": "biology" },
+      { "id": "first_aid", "skillRate": 60 },
+      { "id": "persuade", "skillRate": 40 },
+      { "id": "pharmacy", "skillRate": 40 }
+    ],
+    "additionalCount": 2,
+    "additionalSkills": [
+      { "id": "drive", "skillRate": 60 },
+      { "id": "navigate", "skillRate": 50 },
+      { "id": "search", "skillRate": 60 },
+      { "id": "psychotherapy", "skillRate": 50 },
+      { "id": "forensics", "skillRate": 40 }
+    ],
+    "stats": ["int", "pow", "cha"],
+    "bounds": 4
+  }
+  

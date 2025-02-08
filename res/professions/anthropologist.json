@@ -1,0 +1,26 @@
+{
+  "id": "anthropologist",
+  "name": {
+    "en": "Anthropologist / Historian",
+    "ru": "Антрополог / Историк"
+  },
+  "baseSkills": [
+    { "id": "bureaucracy", "skillRate": 40 },
+    { "id": "foreign_language", "skillRate": 50, "isTypal": true, "anyType": true },
+    { "id": "history", "skillRate": 60 },
+    { "id": "occult", "skillRate": 40 },
+    { "id": "persuade", "skillRate": 40 }
+  ],
+  "additionalCount": 2,
+  "additionalSkills": [
+    { "id": "humint", "skillRate": 50 },
+    { "id": "anthropology", "skillRate": 50 },
+    { "id": "archeology", "skillRate": 50 },
+    { "id": "ride", "skillRate": 50 },
+    { "id": "survival", "skillRate": 50 },
+    { "id": "navigate", "skillRate": 50 },
+    { "id": "search", "skillRate": 60 }
+  ],
+  "stats": ["int"],
+  "bounds": 4
+}
