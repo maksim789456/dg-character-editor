@@ -7,6 +7,7 @@ import {
   set,
   editSkillRate,
   addBound,
+  addOtherSkill,
 } from "../features/dgCharacter/dgCharacterSlice";
 import { DgProfession } from "../model/profession";
 import { RootState } from "../store/store";
@@ -53,14 +54,35 @@ professionMiddleware.startListening({
     const selectedProfession = state.dgProfessions.find(
       (p) => p.id == professionId
     );
-    if (!selectedProfession) return;
+    if (!selectedProfession) {
+      console.warn("Selected profession don't found at professions list");
+      return;
+    }
 
     if (state.dgCharacter.professionId !== "") {
       resetCharacterSkills(state, listenerApi.dispatch);
     }
-    for (const baseSkill of selectedProfession.baseSkills) {
+    for (const baseSkill of selectedProfession.baseSkills.filter(
+      (s) => s.id !== "foreign_language"
+    )) {
       listenerApi.dispatch(
         editSkillRate({ skillId: baseSkill.id, rate: baseSkill.skillRate })
+      );
+    }
+    for (const baseForeignLang of selectedProfession.baseSkills.filter(
+      (s) => s.id === "foreign_language"
+    )) {
+      const otherSkillsCount = state.dgCharacter.skills.filter(
+        (skill: any) => skill.isOther
+      ).length;
+
+      if (otherSkillsCount == 6) return;
+
+      listenerApi.dispatch(
+        addOtherSkill({
+          id: `foreignLanguage${otherSkillsCount}`,
+          isForeignLanguage: true,
+        })
       );
     }
 
