@@ -9,12 +9,10 @@ import clsx from "clsx";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
-  lang: string;
 }
 
 const SettingsSection: React.FC<SettingsSectionProps> = ({
   sectionLocale,
-  lang,
   ...props
 }) => {
   const [theme, setTheme] = React.useState("white");
@@ -45,7 +43,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
           theme={theme}
           setTheme={setTheme}
         />
-        <ExportButton type={theme} lang={lang}>
+        <ExportButton type={theme}>
           {sectionLocale?.exportPdf}
         </ExportButton>
       </div>
@@ -54,7 +52,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
           <ThemeSelect />
         </div>
         <div className="bg-dg/90 dark:bg-neutral-800 rounded p-1.5">
-          <LangSelect lang={lang} />
+          <LangSelect />
         </div>
       </div>
     </div>

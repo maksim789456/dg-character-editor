@@ -14,11 +14,9 @@ import ThemeProvider from "@/app/contexts/themeContext";
 import clsx from "clsx";
 
 export default function CharacterSheet({
-  lang,
   langDict,
   skillsDict,
 }: {
-  lang: string;
   langDict: any;
   skillsDict: any;
 }) {
@@ -33,7 +31,6 @@ export default function CharacterSheet({
           <SettingsSection
             sectionLocale={langDict.characterSheet.settingsSection}
             className="col-span-2"
-            lang={lang}
           />
           <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
             <Image
@@ -47,7 +44,6 @@ export default function CharacterSheet({
           </div>
           <PersonalSection
             sectionLocale={langDict.characterSheet.personalSection}
-            lang={lang}
           />
           <StaticSection
             sectionLocale={langDict.characterSheet.staticSection}

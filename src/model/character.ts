@@ -47,6 +47,7 @@ export interface DgCharacter {
   specialTrainings: DgCharacterSpecialTraining[];
 
   editMode: boolean;
+  lang: string | 'en';
 }
 
 export interface DgCharacterStats {

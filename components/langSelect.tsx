@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import { GB, RU } from "country-flag-icons/react/1x1";
 import clsx from "clsx";
+import { useAppSelector } from "@/src/redux/hooks";
 
-interface LangSelectProps extends React.HTMLAttributes<HTMLDivElement> {
-  lang: string;
-}
-
-const LangSelect: React.FC<LangSelectProps> = ({ lang, ...props }) => {
+const LangSelect: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  ...props
+}) => {
+  const lang = useAppSelector((state) => state.dgCharacter.lang);
   const langs = [
     { id: "en", icon: <GB className="w-7 h-5" /> },
     { id: "ru", icon: <RU className="w-7 h-5" /> },
@@ -17,7 +17,11 @@ const LangSelect: React.FC<LangSelectProps> = ({ lang, ...props }) => {
       {langs.map((value, key) => {
         if (value.id === lang) return;
         return (
-          <a key={key} href={value.id} aria-label={`Change lang to ${value.id}`}>
+          <a
+            key={key}
+            href={value.id}
+            aria-label={`Change lang to ${value.id}`}
+          >
             {value.icon}
           </a>
         );

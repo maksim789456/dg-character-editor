@@ -10,7 +10,7 @@ import {
 } from "@/src/model/character";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export const initialState = {
   fullName: "",
   professionId: "",
   useCustomProfession: true,
@@ -88,6 +88,7 @@ const initialState = {
   specialTrainings: [] as DgCharacterSpecialTraining[],
 
   editMode: true,
+  lang: 'en'
 } as DgCharacter;
 
 export interface SetReducerProps {

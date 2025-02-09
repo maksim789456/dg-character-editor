@@ -3,8 +3,9 @@ import { ReduxProvider } from "@/components/reduxProvider";
 import {
   getLocaleDictionary,
   getSkillsDictionary,
-  getProfessions
+  getProfessions,
 } from "@/res/dictionaries";
+import { initialState } from "@/src/features/dgCharacter/dgCharacterSlice";
 
 export default async function CharacterSheetPage({
   params,
@@ -15,10 +16,13 @@ export default async function CharacterSheetPage({
   const skillsDict = await getSkillsDictionary(params.lang);
   const professions = await getProfessions();
 
+  const preloadedState = {
+    dgProfessions: professions,
+    dgCharacter: {...initialState, lang: params.lang},
+  };
   return (
-    <ReduxProvider preloadedState={{ dgProfessions: professions }}>
+    <ReduxProvider preloadedState={preloadedState}>
       <CharacterSheet
-        lang={params.lang}
         langDict={langDict}
         skillsDict={skillsDict}
       />

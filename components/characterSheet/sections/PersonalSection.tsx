@@ -8,12 +8,10 @@ import ProfessionSelect from "../professionSelect";
 
 interface PersonalSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
-  lang: string;
 }
 
 const PersonalSection: React.FC<PersonalSectionProps> = ({
   sectionLocale,
-  lang,
   ...props
 }) => {
   return (
@@ -31,7 +29,6 @@ const PersonalSection: React.FC<PersonalSectionProps> = ({
         <ProfessionSelect
           className="col-span-2"
           sectionLocale={sectionLocale}
-          lang={lang}
         />
         <TextInput
           className="col-span-3"

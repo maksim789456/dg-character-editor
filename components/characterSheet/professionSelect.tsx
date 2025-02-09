@@ -10,12 +10,10 @@ import { getTypeValue } from "@/src/utils/selectUtils";
 
 interface ProfessionSelectProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
-  lang: string;
 }
 
 const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
   sectionLocale,
-  lang,
   ...props
 }) => {
   const professionId = useAppSelector(
@@ -29,6 +27,7 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
   );
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
   const professions = useAppSelector((state) => state.dgProfessions);
+  const lang = useAppSelector((state) => state.dgCharacter.lang);
   const dispatch = useAppDispatch();
 
   const onTypeSelectChange = (value: SingleValue<OptionType>) => {
