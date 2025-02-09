@@ -1,8 +1,8 @@
 {
     "id": "lawyer",
     "name": {
-      "en": "Lawyer Or Business Executive",
-      "ru": "Юрист/Предприниматель/Топ-Менеджер"
+      "en": "Lawyer / Business Executive",
+      "ru": "Юрист / Предприниматель / Топ-Менеджер"
     },
     "baseSkills": [
         { "id": "humint", "skillRate": 40 },

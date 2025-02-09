@@ -1,8 +1,8 @@
 {
     "id": "computer_scientist",
     "name": {
-      "en": "Computer Scientist/Engineer",
-      "ru": "Программист/Инженер"
+      "en": "Computer Scientist / Engineer",
+      "ru": "Программист / Инженер"
     },
     "baseSkills": [
       { "id": "computer_science", "skillRate": 60 },
