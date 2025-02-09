@@ -5,18 +5,15 @@ import Category from "../category";
 import GenderInput from "../genderInput";
 import TextInput from "../textInput";
 import ProfessionSelect from "../professionSelect";
-import { DgProfession } from "@/src/model/profession";
 
 interface PersonalSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
   lang: string;
-  professions: DgProfession[];
 }
 
 const PersonalSection: React.FC<PersonalSectionProps> = ({
   sectionLocale,
   lang,
-  professions,
   ...props
 }) => {
   return (
@@ -34,7 +31,6 @@ const PersonalSection: React.FC<PersonalSectionProps> = ({
         <ProfessionSelect
           className="col-span-2"
           sectionLocale={sectionLocale}
-          professions={professions}
           lang={lang}
         />
         <TextInput

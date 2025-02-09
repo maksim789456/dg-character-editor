@@ -1,10 +1,9 @@
 import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
-import { setProfessions } from "@/src/features/dgCharacter/dgProfessionsSlice";
 import { DgProfession } from "@/src/model/profession";
 import { useAppSelector, useAppDispatch } from "@/src/redux/hooks";
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import DgSelect, { OptionType } from "./select";
 import { SingleValue } from "react-select";
 import { getTypeValue } from "@/src/utils/selectUtils";
@@ -12,13 +11,11 @@ import { getTypeValue } from "@/src/utils/selectUtils";
 interface ProfessionSelectProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
   lang: string;
-  professions: DgProfession[];
 }
 
 const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
   sectionLocale,
   lang,
-  professions,
   ...props
 }) => {
   const professionId = useAppSelector(
@@ -31,16 +28,12 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
     (state) => state.dgCharacter.customProfession
   );
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
+  const professions = useAppSelector((state) => state.dgProfessions);
   const dispatch = useAppDispatch();
 
   const onTypeSelectChange = (value: SingleValue<OptionType>) => {
     dispatch(set({ field: "professionId", value: value?.value }));
   };
-
-  useEffect(() => {
-    dispatch(setProfessions(professions));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [professions]);
 
   const typeOptions = useMemo(() => {
     if (!professions) return [];
@@ -116,7 +109,6 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
 ProfessionSelect.propTypes = {
   sectionLocale: PropTypes.any.isRequired,
   lang: PropTypes.string.isRequired,
-  professions: PropTypes.array.isRequired,
   className: PropTypes.string,
 };
 

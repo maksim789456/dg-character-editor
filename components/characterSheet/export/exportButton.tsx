@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import store from "@/src/store/store";
+import { useAppSelector } from "@/src/redux/hooks";
 
 interface ExportButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   type: string;
@@ -19,8 +19,9 @@ const pdfFiles = {
 } as any;
 
 const ExportButton: React.FC<ExportButtonProps> = ({ type, lang, ...props }) => {
+  const dgCharacter = useAppSelector(state => state.dgCharacter);
+
   const exportButton = async () => {
-    const dgCharacter = store.getState().dgCharacter;
     const dgCharacterReduced = {
       ...dgCharacter,
       skills: dgCharacter.skills

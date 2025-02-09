@@ -1,6 +1,5 @@
 "use client";
 
-import store from "@/src/store/store";
 import PersonalSection from "./characterSheet/sections/PersonalSection";
 import StaticSection from "./characterSheet/sections/StaticSection";
 import PsychologicalSection from "./characterSheet/sections/PsychologicalSection";
@@ -9,23 +8,19 @@ import SkillsSection from "./characterSheet/sections/SkillsSection";
 import WoundsSection from "./characterSheet/sections/WoundsSection";
 import EquipmentSection from "./characterSheet/sections/EquipmentSection";
 import RemarksSection from "./characterSheet/sections/RemarksSection";
-import { Provider } from "react-redux";
 import SettingsSection from "./characterSheet/sections/SettingsSection";
 import DownloadJsonButton from "./characterSheet/export/downloadJsonButton";
 import ThemeProvider from "@/app/contexts/themeContext";
-import { DgProfession } from "@/src/model/profession";
 import clsx from "clsx";
 
 export default function CharacterSheet({
   lang,
   langDict,
   skillsDict,
-  professions,
 }: {
   lang: string;
   langDict: any;
   skillsDict: any;
-  professions: DgProfession[];
 }) {
   return (
     <main
@@ -34,51 +29,48 @@ export default function CharacterSheet({
       className="min-h-screen px-0 py-1 bg-white dark:bg-neutral-900 min-w-max sm:flex sm:flex-col sm:items-center sm:justify-between lg:px-24"
     >
       <div className="w-[40rem] md:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
-        <Provider store={store}>
-          <ThemeProvider>
-            <SettingsSection
-              sectionLocale={langDict.characterSheet.settingsSection}
-              className="col-span-2"
-              lang={lang}
+        <ThemeProvider>
+          <SettingsSection
+            sectionLocale={langDict.characterSheet.settingsSection}
+            className="col-span-2"
+            lang={lang}
+          />
+          <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
+            <Image
+              alt="delta green logo"
+              src="/Delta-Green-Logo-Horizontal-Tran.png"
+              className="w-[224px] h-16"
+              width="468"
+              height="134"
+              priority
             />
-            <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
-              <Image
-                alt="delta green logo"
-                src="/Delta-Green-Logo-Horizontal-Tran.png"
-                className="w-[224px] h-16"
-                width="468"
-                height="134"
-                priority
-              />
-            </div>
-            <PersonalSection
-              sectionLocale={langDict.characterSheet.personalSection}
-              professions={professions}
-              lang={lang}
-            />
-            <StaticSection
-              sectionLocale={langDict.characterSheet.staticSection}
-              className="col-span-2 lg:col-span-1"
-            />
-            <PsychologicalSection
-              sectionLocale={langDict.characterSheet.psychologicalSection}
-              className="col-span-2 lg:col-span-1"
-            />
-            <SkillsSection
-              sectionLocale={langDict.characterSheet.skillsSection}
-              skillsDict={skillsDict}
-            />
-            <WoundsSection
-              sectionLocale={langDict.characterSheet.woundsSection}
-            />
-            <EquipmentSection
-              sectionLocale={langDict.characterSheet.equipmentSection}
-            />
-            <RemarksSection
-              sectionLocale={langDict.characterSheet.remarksSection}
-            />
-          </ThemeProvider>
-        </Provider>
+          </div>
+          <PersonalSection
+            sectionLocale={langDict.characterSheet.personalSection}
+            lang={lang}
+          />
+          <StaticSection
+            sectionLocale={langDict.characterSheet.staticSection}
+            className="col-span-2 lg:col-span-1"
+          />
+          <PsychologicalSection
+            sectionLocale={langDict.characterSheet.psychologicalSection}
+            className="col-span-2 lg:col-span-1"
+          />
+          <SkillsSection
+            sectionLocale={langDict.characterSheet.skillsSection}
+            skillsDict={skillsDict}
+          />
+          <WoundsSection
+            sectionLocale={langDict.characterSheet.woundsSection}
+          />
+          <EquipmentSection
+            sectionLocale={langDict.characterSheet.equipmentSection}
+          />
+          <RemarksSection
+            sectionLocale={langDict.characterSheet.remarksSection}
+          />
+        </ThemeProvider>
         <div className="mt-2 col-span-2 grid grid-cols-14">
           <div className="col-span-3 flex flex-row gap-3">
             <p className="row-span-2 flex items-center justify-center text-dg dark:text-neutral-200 text-3xl font-semibold">
@@ -107,7 +99,9 @@ export default function CharacterSheet({
         </div>
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
-            Copyright © 2023–2025 <a href="https://github.com/maksim789456">maksim789456</a><br />
+            Copyright © 2023–2025{" "}
+            <a href="https://github.com/maksim789456">maksim789456</a>
+            <br />
             {langDict.characterSheet.other.copyright}
           </div>
         </div>

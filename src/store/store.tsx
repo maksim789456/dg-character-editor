@@ -3,16 +3,17 @@ import dgCharacterReducer from "../features/dgCharacter/dgCharacterSlice";
 import { professionMiddleware } from "../middleware/professionMiddleware";
 import dgProfessionsReducer from "../features/dgCharacter/dgProfessionsSlice";
 
-const store = configureStore({
-  reducer: {
-    dgCharacter: dgCharacterReducer,
-    dgProfessions: dgProfessionsReducer
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(professionMiddleware.middleware),
-});
+export function makeStore(preloadedState?: Partial<any>) {
+  return configureStore({
+    reducer: {
+      dgCharacter: dgCharacterReducer,
+      dgProfessions: dgProfessionsReducer,
+    },
+    preloadedState,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(professionMiddleware.middleware),
+  });
+}
 
-export default store;
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<ReturnType<typeof makeStore>["getState"]>;
+export type AppDispatch = ReturnType<typeof makeStore>["dispatch"];
