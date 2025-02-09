@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import SettingsSection from "./characterSheet/sections/SettingsSection";
 import DownloadJsonButton from "./characterSheet/export/downloadJsonButton";
 import ThemeProvider from "@/app/contexts/themeContext";
+import clsx from "clsx";
 
 export default function CharacterSheet({
   lang,
@@ -83,11 +84,16 @@ export default function CharacterSheet({
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
             {langDict.characterSheet.other.topSecret}<br/><br/>
-            Copyright © 2023-2024 <a href="https://github.com/maksim789456">maksim789456</a><br/>
+            Copyright © 2023–2025 <a href="https://github.com/maksim789456">maksim789456</a><br />
             {langDict.characterSheet.other.copyright}
           </div>
         </div>
-        <div className="col-span-2 flex flex-row items-center justify-center">
+        <div
+          className={clsx(
+            "col-span-2 flex flex-row items-center justify-center",
+            process.env.NODE_ENV === "production" && "hidden"
+          )}
+        >
           <p className="font-dg-main text-dg dark:text-neutral-200 pr-3">
             Debug:
           </p>
