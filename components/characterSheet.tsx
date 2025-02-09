@@ -53,6 +53,7 @@ export default function CharacterSheet({
             <PersonalSection
               sectionLocale={langDict.characterSheet.personalSection}
               professions={professions}
+              lang={lang}
             />
             <StaticSection
               sectionLocale={langDict.characterSheet.staticSection}

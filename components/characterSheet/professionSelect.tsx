@@ -11,11 +11,13 @@ import { getTypeValue } from "@/src/utils/selectUtils";
 
 interface ProfessionSelectProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
+  lang: string;
   professions: DgProfession[];
 }
 
 const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
   sectionLocale,
+  lang,
   professions,
   ...props
 }) => {
@@ -47,12 +49,12 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
       professions?.map((type: DgProfession) => {
         return {
           value: type.id,
-          label: type.name.en,
+          label: type.name[lang],
         } as OptionType;
       }) ?? [];
     options.unshift({ label: "None" });
     return options;
-  }, [professions]);
+  }, [professions, lang]);
 
   return (
     <div
@@ -111,6 +113,7 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
 
 ProfessionSelect.propTypes = {
   sectionLocale: PropTypes.any.isRequired,
+  lang: PropTypes.string.isRequired,
   professions: PropTypes.array.isRequired,
   className: PropTypes.string,
 };
