@@ -1,10 +1,11 @@
 "use client";
 
-import store from "@/src/store/store";
+import { useAppSelector } from "@/src/redux/hooks";
 
 const DownloadJsonButton: React.FC = () => {
+  const dgCharacter = useAppSelector(state => state.dgCharacter);
+
   const downloadJson = () => {
-    const dgCharacter = store.getState().dgCharacter;
     const dataStr =
       "data:text/json;charset=utf-8," +
       encodeURIComponent(JSON.stringify(dgCharacter));
