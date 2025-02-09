@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import TableItem from "../table/tableItem";
 import SpecialTraining from "./specialTraining";
 import AddSpecialTraining from "./addSpecialTraining";
+import clsx from "clsx";
 
 interface SpecialTrainingsListProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -22,9 +23,10 @@ const SpecialTrainingsList: React.FC<SpecialTrainingsListProps> = ({
   );
   return (
     <div
-      className={`grid grid-cols-1 ${
+      className={clsx(
+        "grid grid-cols-1",
         haveAllSpecialTrainings ? "auto-rows-min" : "auto-rows-auto"
-      }`}
+      )}
     >
       <div className="grid grid-cols-2 h-10">
         <TableItem title={sectionLocale?.specialTraining} isHeader={true} />

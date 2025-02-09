@@ -58,9 +58,11 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
 
   return (
     <div
-      className={`border border-dg dark:border-neutral-600 border-t-0 border-l-0 ${
+      className={clsx(
+        "border border-dg dark:border-neutral-600 border-t-0 border-l-0",
+        "flex flex-col w-full",
         props.className || ""
-      } flex flex-col w-full`}
+      )}
     >
       <div className="flex flex-row justify-between">
         <p className="font-dg-main dark:text-neutral-200 text-xs p-1">

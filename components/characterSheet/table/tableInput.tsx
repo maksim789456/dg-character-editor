@@ -4,6 +4,7 @@ import React, { useMemo } from "react";
 import DgSelect, { OptionType } from "../select";
 import { SingleValue } from "react-select";
 import { getTypeValue } from "@/src/utils/selectUtils";
+import clsx from "clsx";
 
 interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
   placeholder?: string;
@@ -101,11 +102,13 @@ const TableInput: React.FC<TableInputProps> = ({
           inputMode={isNumber ? "numeric" : "text"}
           pattern={isNumber ? "[0-9]*" : ""}
           disabled={disabled}
-          className={`w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main text-dg dark:text-neutral-200
-        placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light dark:placeholder:text-neutral-200
-        disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${
-          through ? "line-through" : ""
-        } ${inputClassName ?? ""}`}
+          className={clsx(
+            "w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main text-dg dark:text-neutral-200",
+            "placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light dark:placeholder:text-neutral-200",
+            "disabled:bg-gray-200 dark:disabled:bg-neutral-700",
+            through ? "line-through" : "",
+            inputClassName ?? ""
+          )}
           placeholder={placeholder}
           value={value}
           onChange={isNumber ? onInputNumberChange : onTextChange}

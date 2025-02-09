@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import LangSelect from "@/components/langSelect";
 import ThemeSelect from "@/components/themeSelect";
 import { SheetThemeSelector } from "../export/sheetThemeSelector";
+import clsx from "clsx";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   sectionLocale: any;
@@ -21,7 +22,9 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
   const dispatch = useAppDispatch();
 
   return (
-    <div className={`grid grid-cols-5 items-center gap-3 ${props.className}`}>
+    <div
+      className={clsx("grid grid-cols-5 items-center gap-3", props.className)}
+    >
       <div className="mr-auto flex flex-row gap-1">
         <p className="font-dg-main text-dg dark:text-neutral-200">
           {sectionLocale?.editMode}

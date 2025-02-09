@@ -4,6 +4,7 @@ import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { DgCharacter } from "@/src/model/character";
 import { RootState } from "@/src/store/store";
 import { Dispatch, createSelector } from "@reduxjs/toolkit";
+import clsx from "clsx";
 import React from "react";
 import { connect } from "react-redux";
 
@@ -55,9 +56,12 @@ const TextInput: React.FC<TextInputProps> = ({
 }) => {
   return (
     <div
-      className={`border border-dg dark:border-neutral-600 ${
-        multiline ? "border-0" : "border-t-0 border-l-0"
-      } ${props.className || ""} flex flex-col w-full`}
+      className={clsx(
+        "border border-dg dark:border-neutral-600",
+        multiline ? "border-0" : "border-t-0 border-l-0",
+        props.className || "",
+        "flex flex-col w-full"
+      )}
     >
       <p className="font-dg-main dark:text-neutral-200 text-xs p-1">{title}</p>
       {multiline ? (
