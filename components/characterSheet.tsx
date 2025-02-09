@@ -81,9 +81,34 @@ export default function CharacterSheet({
             </div>
           </ThemeProvider>
         </Provider>
+        <div className="mt-2 col-span-2 grid grid-cols-14">
+          <div className="col-span-3 flex flex-row gap-3">
+            <p className="row-span-2 flex items-center justify-center text-dg dark:text-neutral-200 text-3xl font-semibold">
+              DD
+            </p>
+            <p className="flex items-center justify-center font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
+              {langDict.characterSheet.other.usa}
+              <br />
+              {langDict.characterSheet.other.form}
+            </p>
+            <p className="row-span-2 flex items-center justify-center text-dg dark:text-neutral-200 text-3xl font-semibold">
+              315
+            </p>
+          </div>
+          <p className="col-span-3"></p>
+          <div className="col-span-6 flex items-center justify-center">
+            <p className="font-dg-main text-dg dark:text-neutral-200 text-center text-xs">
+              {langDict.characterSheet.other.topSecret}
+            </p>
+          </div>
+          <div className="col-span-2 flex items-center justify-end">
+            <p className="text-dg dark:text-neutral-200 text-3xl font-semibold">
+              112382
+            </p>
+          </div>
+        </div>
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
-            {langDict.characterSheet.other.topSecret}<br/><br/>
             Copyright © 2023–2025 <a href="https://github.com/maksim789456">maksim789456</a><br />
             {langDict.characterSheet.other.copyright}
           </div>

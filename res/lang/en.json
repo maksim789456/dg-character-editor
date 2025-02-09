@@ -116,6 +116,8 @@
     },
     "other": {
       "pieceOfArt": "THIS IS A WORK OF FICTION",
+      "usa": "UNITED STATES",
+      "form": "FORM",
       "topSecret": "TOP SECRET//ORCON//SPECIAL ACCESS REQUIRED—DELTA GREEN AGENT DOCUMENTATION SHEET",
       "copyright": "The intellectual property known as Delta Green is a trademark and copyright owned by the Delta Green Partnership"
     }
