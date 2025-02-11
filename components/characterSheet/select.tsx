@@ -20,6 +20,7 @@ const DgSelect = ({...props}: CustomSelectProps<OptionType>) => {
           clsx(
             "!border-0 !rounded-none !shadow-none",
             !props.isDisabled ? "!bg-blue-100 dark:!bg-neutral-800" : "!bg-gray-200 dark:!bg-neutral-700",
+            props.className
           ),
         indicatorsContainer: () => clsx( props.isDisabled && "!hidden"),
         indicatorSeparator: () => clsx( props.isDisabled && "!hidden"),

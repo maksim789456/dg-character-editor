@@ -27,6 +27,7 @@ const TableSkill = memo(function TableSkillInternal({
   );
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
+  const [typalError, setTypalError] = useState(false);
 
   const typeOptions = useMemo(() => {
     if (!skill.isTypal) return [];
@@ -42,10 +43,18 @@ const TableSkill = memo(function TableSkillInternal({
     return options;
   }, [skill.isTypal, types]);
 
-  useEffect(
-    () => setError((skill.characterSkillRate ?? 99) < skill.baseSkillRate),
-    [skill]
-  );
+  useEffect(() => {
+    const isSkillRateSetted = (skill.characterSkillRate ?? -1) >= 0;
+    const isSkillTypeSetted = (skill.type ?? "") !== "";
+
+    setError(
+      (skill.characterSkillRate ?? 99) < skill.baseSkillRate ||
+        ((skill.isTypal ?? false) && !isSkillRateSetted && isSkillTypeSetted)
+    );
+    setTypalError(
+      (skill.isTypal ?? false) && isSkillRateSetted && !isSkillTypeSetted
+    );
+  }, [skill]);
 
   const onCharacterSkillRateInputChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -127,7 +136,10 @@ const TableSkill = memo(function TableSkillInternal({
           value={getTypeValue(typeOptions, skill.type ?? null)}
           options={typeOptions}
           onChange={onTypeSelectChange}
-          className="w-full h-full col-span-10"
+          className={clsx(
+            "w-full h-full col-span-10",
+            typalError && "!bg-red-200 dark:!bg-red-600"
+          )}
         ></DgSelect>
       ) : (
         // <input
