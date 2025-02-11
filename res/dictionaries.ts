@@ -1,22 +1,23 @@
 import "server-only";
 import { promises as fs } from "fs";
 import { DgProfession } from "@/src/model/profession";
+import { DgSkillsDict } from "@/src/model/skills";
 import path from "path";
 
 const localeDictionary = {
   en: () => import("./lang/en.json").then((module) => module.default),
   ru: () => import("./lang/ru.json").then((module) => module.default),
-} as any;
+} as Record<string, () => Promise<any>>;
 
 const skillsDictionary = {
   en: () => import("./skills/en.json").then((module) => module.default),
   ru: () => import("./skills/ru.json").then((module) => module.default),
-} as any;
+} as Record<string, () => Promise<DgSkillsDict>>;
 
 const pdfFieldsDictionary = {
   en: () => import("./pdf/en.json").then((module) => module.default),
   ru: () => import("./pdf/ru.json").then((module) => module.default),
-} as any;
+} as Record<string, () => Promise<any>>;
 
 export const getLocaleDictionary = async (locale: string) =>
   localeDictionary[locale]();

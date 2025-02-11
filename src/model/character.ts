@@ -78,7 +78,7 @@ export interface DgCharacterBound {
 export interface DgCharacterBaseSkill {
   id: string;
   name: string;
-  baseSkillRate: number;
+  baseSkillRate: number | 0;
   isTypal?: boolean;
   hideDamage?: boolean;
 }
