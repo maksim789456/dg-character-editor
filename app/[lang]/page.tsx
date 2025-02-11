@@ -17,14 +17,14 @@ export default async function CharacterSheetPage({
   const professions = await getProfessions();
 
   const preloadedState = {
-    dgProfessions: professions,
     dgCharacter: {...initialState, lang: params.lang},
+    dgProfessions: professions,
+    dgSkills: skillsDict
   };
   return (
     <ReduxProvider preloadedState={preloadedState}>
       <CharacterSheet
         langDict={langDict}
-        skillsDict={skillsDict}
       />
     </ReduxProvider>
   );

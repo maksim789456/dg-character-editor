@@ -15,10 +15,8 @@ import clsx from "clsx";
 
 export default function CharacterSheet({
   langDict,
-  skillsDict,
 }: {
   langDict: any;
-  skillsDict: any;
 }) {
   return (
     <main
@@ -55,7 +53,6 @@ export default function CharacterSheet({
           />
           <SkillsSection
             sectionLocale={langDict.characterSheet.skillsSection}
-            skillsDict={skillsDict}
           />
           <WoundsSection
             sectionLocale={langDict.characterSheet.woundsSection}

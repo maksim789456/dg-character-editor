@@ -1,15 +1,14 @@
-import { DgCharacterSkill } from "@/src/model/character";
 import TableSkill from "./tableSkill";
+import { useAppSelector } from "@/src/redux/hooks";
 
-interface SkillsListProps extends React.HTMLAttributes<HTMLDivElement> {
-  baseSkills: DgCharacterSkill[];
-  typalSkillVariants: any[];
-}
+interface SkillsListProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const SkillsList: React.FC<SkillsListProps> = ({
-  baseSkills,
-  typalSkillVariants,
-}) => {
+const SkillsList: React.FC<SkillsListProps> = ({}) => {
+  const baseSkills = useAppSelector((root) => root.dgSkills.baseSkills);
+  const typalSkillVariants = useAppSelector(
+    (root) => root.dgSkills.typalSkillVariants
+  );
+
   return baseSkills.map((skill) => (
     <TableSkill
       skillId={skill.id}
