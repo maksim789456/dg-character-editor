@@ -13,3 +13,15 @@
     grid-template: repeat(18, 1fr) / repeat(3, 1fr) !important;
   }
 }
+
+.text-dg-main {
+  @apply font-dg-main text-dg dark:text-neutral-200
+}
+
+.skill-bg-info {
+  @apply py-1 flex flex-row gap-1
+}
+
+.skill-bg-info > * {
+  @apply text-dg-main text-xs flex flex-row gap-1
+}

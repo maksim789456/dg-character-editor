@@ -4,10 +4,11 @@ import { editSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppSelector } from "@/src/redux/hooks";
 import clsx from "clsx";
 import React, { memo, useEffect, useState, useMemo } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import DgSelect, { OptionType } from "../select";
 import { SingleValue } from "react-select";
 import { getTypeValue } from "@/src/utils/selectUtils";
+import { currentProfessionSelector } from "@/src/redux/selectors";
 
 interface TableSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   skillId: string;
@@ -27,6 +28,9 @@ const TableSkill = memo(function TableSkillInternal({
   const skill = useAppSelector(
     (state) => state.dgCharacter.skills.find((skill) => skill.id === skillId)!
   );
+  const currentProfession = useSelector(currentProfessionSelector);
+  const profBaseSkill = currentProfession?.baseSkills.find(x => x.id == skill.id);
+  const profAdditionalSkill = currentProfession?.additionalSkills.find(x => x.id == skill.id);
   const dispatch = useDispatch();
   const [error, setError] = useState(false);
   const [typalError, setTypalError] = useState(false);
@@ -96,7 +100,9 @@ const TableSkill = memo(function TableSkillInternal({
         skill.isTypal ? "row-span-2 grid-rows-2" : "grid-rows-1",
         "grid",
         "grid-cols-12",
-        "h-full"
+        "h-full",
+        !disabled && profBaseSkill && "bg-blue-300 dark:bg-blue-400/50",
+        !disabled && profAdditionalSkill && "bg-indigo-200 dark:bg-indigo-400/50"
       )}
     >
       {skill.hideDamage ? (
@@ -126,7 +132,7 @@ const TableSkill = memo(function TableSkillInternal({
         className={clsx(
           "w-full h-ful text-center dark:text-neutral-200 col-span-2 row-span-2 border-l border-dg dark:border-neutral-700 disabled:bg-gray-200 dark:disabled:bg-neutral-700",
           error
-            ? "bg-red-200 dark:bg-red-600"
+            ? "bg-red-200 dark:bg-red-700"
             : "bg-blue-100 dark:bg-neutral-800"
         )}
       ></input>
@@ -140,7 +146,7 @@ const TableSkill = memo(function TableSkillInternal({
           onChange={onTypeSelectChange}
           className={clsx(
             "w-full h-full col-span-10",
-            typalError && "!bg-red-200 dark:!bg-red-600"
+            typalError && "!bg-red-200 dark:!bg-red-700"
           )}
         ></DgSelect>
       ) : (
