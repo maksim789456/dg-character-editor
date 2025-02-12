@@ -23,6 +23,7 @@
       "fullName": "1. ФАМИЛИЯ, ИМЯ, ОТЧЕСТВО",
       "profession": "2. ПРОФЕССИЯ (ЗВАНИЕ ПРИ НАЛИЧИИ)",
       "customProfession": "КАСТОМНАЯ:",
+      "typalNone": "Не выбрано",
       "employer": "3. МЕСТО РАБОТЫ",
       "nationality": "4. НАЦИОНАЛЬНОСТЬ",
       "gender": "5. ПОЛ",
@@ -79,6 +80,7 @@
     },
     "skillsSection": {
       "categoryName": "НАБОР ПРИКЛАДНЫХ НАВЫКОВ",
+      "typalNone": "Не выбрано",
       "otherSkills": "Иностранные языки и другие навыки:",
       "addOtherSkills": "Другой навык",
       "addForeignLanguage": "Иностранный язык",

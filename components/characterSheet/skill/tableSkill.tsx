@@ -13,12 +13,14 @@ interface TableSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   skillId: string;
   skillName: string;
   types?: any[];
+  typalNone: string;
 }
 
 const TableSkill = memo(function TableSkillInternal({
   skillId,
   skillName,
   types,
+  typalNone,
   ...props
 }: TableSkillProps) {
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
@@ -39,9 +41,9 @@ const TableSkill = memo(function TableSkillInternal({
           label: type.name,
         } as OptionType;
       }) ?? [];
-    options.unshift({ label: "None" });
+    options.unshift({ label: typalNone });
     return options;
-  }, [skill.isTypal, types]);
+  }, [skill.isTypal, types, typalNone]);
 
   useEffect(() => {
     const isSkillRateSetted = (skill.characterSkillRate ?? -1) >= 0;
@@ -142,13 +144,6 @@ const TableSkill = memo(function TableSkillInternal({
           )}
         ></DgSelect>
       ) : (
-        // <input
-        //   type="text"
-        //   disabled={disabled}
-        //   value={type ?? ""}
-        //   onChange={onTypeInputChange}
-        //   className="w-full h-full bg-blue-100 text-center col-span-10 py-1.5 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
-        // ></input>
         <></>
       )}
     </div>

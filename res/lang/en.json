@@ -23,6 +23,7 @@
       "fullName": "1. LAST NAME, FIRST NAME, MIDDLE INITIAL",
       "profession": "2. PROFESSION (RANK IF APPLICABLE)",
       "customProfession": "CUSTOM:",
+      "typalNone": "None",
       "employer": "3. EMPLOYER",
       "nationality": "4. NATIONALITY",
       "gender": "5. SEX",
@@ -79,6 +80,7 @@
     },
     "skillsSection": {
       "categoryName": "APPLICABLE SKILL SETS",
+      "typalNone": "None",
       "otherSkills": "Foreign Languages and Other Skills:",
       "addOtherSkills": "Other skill",
       "addForeignLanguage": "Foreign Language",

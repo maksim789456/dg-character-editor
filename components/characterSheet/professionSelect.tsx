@@ -44,9 +44,9 @@ const ProfessionSelect: React.FC<ProfessionSelectProps> = ({
           label: type.name[lang],
         } as OptionType;
       }) ?? [];
-    options.unshift({ label: "None" });
+    options.unshift({ label: sectionLocale?.typalNone });
     return options;
-  }, [professions, lang]);
+  }, [professions, sectionLocale?.typalNone, lang]);
 
   return (
     <div
