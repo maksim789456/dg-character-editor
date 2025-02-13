@@ -36,13 +36,13 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
           {sectionLocale?.skillsInstruction}
         </p>
         <div className={clsx("skill-bg-info", disabled && "hidden")}>
-          <p className={clsx(professionOff && "!hidden")}>
-            <p className="bg-blue-300 dark:bg-blue-400/50">&emsp;&emsp;&emsp;</p>– profession required skill,
-          </p>
-          <p className={clsx(professionOff && "!hidden")}>
-            <p className="bg-indigo-200 dark:bg-indigo-400/50">&emsp;&emsp;&emsp;</p>– profession additional skill,
-          </p>
-          <p><p className="bg-red-200 dark:bg-red-700">&emsp;&emsp;&emsp;</p>– bellow default or missing value</p>
+          <div className={clsx(professionOff && "!hidden")}>
+            <p className="bg-blue-300 dark:bg-blue-500/30">&emsp;&emsp;&emsp;</p>– profession required skill,
+          </div>
+          <div className={clsx(professionOff && "!hidden")}>
+            <p className="bg-fuchsia-200 dark:bg-fuchsia-500/30">&emsp;&emsp;&emsp;</p>– profession additional skill,
+          </div>
+          <div><p className="bg-red-200 dark:bg-red-700">&emsp;&emsp;&emsp;</p>– bellow default or missing value</div>
         </div>
       </div>
     </Category>

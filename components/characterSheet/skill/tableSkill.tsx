@@ -101,8 +101,8 @@ const TableSkill = memo(function TableSkillInternal({
         "grid",
         "grid-cols-12",
         "h-full",
-        !disabled && profBaseSkill && "bg-blue-300 dark:bg-blue-400/50",
-        !disabled && profAdditionalSkill && "bg-indigo-200 dark:bg-indigo-400/50"
+        !disabled && profBaseSkill && "bg-blue-300 dark:bg-blue-500/30",
+        !disabled && profAdditionalSkill && "bg-fuchsia-200 dark:bg-fuchsia-500/30"
       )}
     >
       {skill.hideDamage ? (

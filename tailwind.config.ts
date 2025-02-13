@@ -22,6 +22,7 @@ const config: Config = {
       yellow: colors.yellow,
       blue: colors.blue,
       red: colors.red,
+      fuchsia: colors.fuchsia,
       dg: "#231f20",
     },
     extend: {
