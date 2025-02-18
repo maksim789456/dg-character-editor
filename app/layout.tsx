@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Jost } from "next/font/google";
 import "./globals.css";
 
@@ -17,7 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${jost.variable}`}>{children}</body>
+      <body className={`${jost.variable}`}>
+        <SpeedInsights />
+        {children}
+      </body>
     </html>
   );
 }
