@@ -1,8 +1,8 @@
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 import PropTypes from "prop-types";
 
 interface SheetThemeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
-  locale: any;
   theme: string;
   setTheme: (theme: string) => void;
 }
@@ -10,20 +10,20 @@ interface SheetThemeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
 const themesIds = ["white", "old"];
 
 const SheetThemeSelector: React.FC<SheetThemeSelectorProps> = ({
-  locale,
   theme,
   setTheme,
   ...props
 }) => {
+  const t = useTranslations('characterSheet.settingsSection.sheetThemeSelect');
   const themes = themesIds.map((theme: string) => ({
     id: theme,
-    name: locale.themes[theme],
+    name: t(`themes.${theme}`),
   }));
 
   return (
     <div className={clsx("flex flex-row gap-1 items-center", props.className)}>
       <p className="font-dg-main text-dg dark:text-neutral-200">
-        {locale.pdfTheme}
+        {t("pdfTheme")}
       </p>
       <select
         className="h-full bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 col-span-10 py-1"
@@ -42,7 +42,6 @@ const SheetThemeSelector: React.FC<SheetThemeSelectorProps> = ({
 
 SheetThemeSelector.propTypes = {
   className: PropTypes.string,
-  locale: PropTypes.any.isRequired,
   theme: PropTypes.string.isRequired,
   setTheme: PropTypes.func.isRequired,
 };

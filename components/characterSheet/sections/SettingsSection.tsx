@@ -5,17 +5,17 @@ import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import LangSelect from "@/components/langSelect";
 import ThemeSelect from "@/components/themeSelect";
 import { SheetThemeSelector } from "../export/sheetThemeSelector";
+import { useTranslations } from "next-intl";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
-  sectionLocale: any;
   lang: string;
 }
 
 const SettingsSection: React.FC<SettingsSectionProps> = ({
-  sectionLocale,
   lang,
   ...props
 }) => {
+  const t = useTranslations('characterSheet.settingsSection');
   const [theme, setTheme] = React.useState("white");
   const editMode = useAppSelector((state) => state.dgCharacter.editMode);
   const dispatch = useAppDispatch();
@@ -24,7 +24,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
     <div className={`grid grid-cols-5 items-center gap-3 ${props.className}`}>
       <div className="mr-auto flex flex-row gap-1">
         <p className="font-dg-main text-dg dark:text-neutral-200">
-          {sectionLocale?.editMode}
+          {t("editMode")}
         </p>
         <input
           name="editModeCheck"
@@ -38,12 +38,12 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
       </div>
       <div className="flex flex-row gap-3 col-span-3 justify-center">
         <SheetThemeSelector
-          locale={sectionLocale?.sheetThemeSelect}
+          //locale={sectionLocale?.sheetThemeSelect}
           theme={theme}
           setTheme={setTheme}
         />
         <ExportButton type={theme} lang={lang}>
-          {sectionLocale?.exportPdf}
+          {t("exportPdf")}
         </ExportButton>
       </div>
       <div className="ml-auto flex flex-row gap-2">

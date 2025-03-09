@@ -1,12 +1,11 @@
 import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import PropTypes from "prop-types";
+import { useTranslations } from "next-intl";
 
-interface SanityLossProps extends React.HTMLAttributes<HTMLDivElement> {
-  sectionLocale: any;
-}
+interface SanityLossProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
+const SanityLoss: React.FC<SanityLossProps> = ({ ...props }) => {
+  const t = useTranslations("characterSheet.psychologicalSection");
   const violence = useAppSelector((state) => state.dgCharacter.violence);
   const helplessness = useAppSelector(
     (state) => state.dgCharacter.helplessness
@@ -22,12 +21,12 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
     <div className="row-span-2 flex flex-col justify-center">
       <div className="border-t border-b border-dg dark:border-neutral-600 flex items-center justify-center">
         <p className="font-dg-main text-dg dark:text-neutral-200 text-sm py-1 text-center">
-          {sectionLocale?.sanLoss}
+          {t("sanLoss")}
         </p>
       </div>
       <div className="flex flex-row justify-center items-center py-1 gap-2">
         <p className="font-dg-main text-dg dark:text-neutral-200 text-sm">
-          {sectionLocale?.sanLossViolence}
+          {t("sanLossViolence")}
         </p>
         <input
           className="w-4 h-4"
@@ -54,12 +53,12 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
           onChange={() => onViolenceChanged(3)}
         />
         <i className="font-dg-main text-dg dark:text-neutral-200 text-sm">
-          {sectionLocale?.sanLossAdapted}
+          {t("sanLossAdapted")}
         </i>
       </div>
       <div className="flex flex-row justify-center items-center py-1 gap-2">
         <p className="font-dg-main text-dg dark:text-neutral-200 text-sm">
-          {sectionLocale?.sanLossHelplessness}
+          {t("sanLossHelplessness")}
         </p>
         <input
           className="w-4 h-4"
@@ -86,15 +85,11 @@ const SanityLoss: React.FC<SanityLossProps> = ({ sectionLocale, ...props }) => {
           onChange={() => onHelplessnessChanged(3)}
         />
         <i className="font-dg-main text-dg dark:text-neutral-200 text-sm">
-          {sectionLocale?.sanLossAdapted}
+          {t("sanLossAdapted")}
         </i>
       </div>
     </div>
   );
 };
-
-SanityLoss.propTypes = {
-  sectionLocale: PropTypes.any.isRequired
-}
 
 export default SanityLoss;
