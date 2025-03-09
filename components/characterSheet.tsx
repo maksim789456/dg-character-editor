@@ -14,6 +14,7 @@ import SettingsSection from "./characterSheet/sections/SettingsSection";
 import DownloadJsonButton from "./characterSheet/export/downloadJsonButton";
 import ThemeProvider from "@/app/contexts/themeContext";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 
 export default function CharacterSheet({
   lang,
@@ -24,6 +25,8 @@ export default function CharacterSheet({
   langDict: any;
   skillsDict: any;
 }) {
+  const t = useTranslations('characterSheet');
+
   return (
     <main
       id="dgCharacter"
@@ -75,7 +78,7 @@ export default function CharacterSheet({
               />
               <div className="absolute bottom-0 -right-4 hidden lg:block">
                 <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 dark:text-neutral-200 select-none w-fit">
-                  {langDict.characterSheet.other.pieceOfArt}
+                  {t("other.pieceOfArt")}
                 </h1>
               </div>
             </div>
