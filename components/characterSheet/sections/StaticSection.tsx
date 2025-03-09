@@ -14,67 +14,60 @@ import {
 } from "@/src/redux/selectors";
 import TextInput from "../textInput";
 import { useSelector } from "react-redux";
+import { useTranslations } from "next-intl";
 
-interface StaticSectionProps extends React.HTMLAttributes<HTMLDivElement> {
-  sectionLocale: any;
-}
+interface StaticSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const StaticSection: React.FC<StaticSectionProps> = ({
-  sectionLocale,
   ...props
 }) => {
-  const maxBpSelector = (_: RootState) => sectionLocale?.bpStatMax;
+  const t = useTranslations('characterSheet.staticSection');
+  const maxBpSelector = (_: RootState) => t("bpStatMax");
   const baseStatSum = useSelector(baseStatSumSelector);
   return (
-    <Category name={sectionLocale?.categoryName} {...props}>
+    <Category name={t("categoryName")} {...props}>
       <div className="grid grid-cols-1 grid-rows-5">
         <div className="grid grid-cols-1 grid-rows-8 row-span-3">
           <div className="grid grid-cols-9">
             <TableItem
               className="col-span-3 tracking-tight"
-              title={sectionLocale?.stats}
+              title={t("stats")}
               isHeader={true}
             />
             <TableItem
               className="col-span-2 tracking-tighter"
-              title={sectionLocale?.statsValue}
+              title={t("statsValue")}
               isHeader={true}
             />
-            <TableItem title={sectionLocale?.statsValueX5} isHeader={true} />
+            <TableItem title={t("statsValueX5")} isHeader={true} />
             <TableItem
               className="col-span-3"
-              title={sectionLocale?.statsDescription}
+              title={t("statsDescription")}
               isHeader={true}
             />
           </div>
           <BaseStat
-            sectionLocale={sectionLocale}
-            title={sectionLocale?.strStat}
+            title={t("strStat")}
             name="str"
           />
           <BaseStat
-            sectionLocale={sectionLocale}
-            title={sectionLocale?.conStat}
+            title={t("conStat")}
             name="con"
           />
           <BaseStat
-            sectionLocale={sectionLocale}
-            title={sectionLocale?.dexStat}
+            title={t("dexStat")}
             name="dex"
           />
           <BaseStat
-            sectionLocale={sectionLocale}
-            title={sectionLocale?.intStat}
+            title={t("intStat")}
             name="int"
           />
           <BaseStat
-            sectionLocale={sectionLocale}
-            title={sectionLocale?.powStat}
+            title={t("powStat")}
             name="pow"
           />
           <BaseStat
-            sectionLocale={sectionLocale}
-            title={sectionLocale?.chaStat}
+            title={t("chaStat")}
             name="cha"
           />
           {baseStatSum > 72 ? (
@@ -82,9 +75,9 @@ const StaticSection: React.FC<StaticSectionProps> = ({
               className="grid-cols-9"
               customTitle={
                 <>
-                  {sectionLocale?.statsTooMuch}
+                  {t("statsTooMuch")}
                   <br />
-                  {sectionLocale?.statsTooMuch2}
+                  {t("statsTooMuch2")}
                   {` ${baseStatSum}`}
                 </>
               }
@@ -98,40 +91,40 @@ const StaticSection: React.FC<StaticSectionProps> = ({
           <div className="grid grid-cols-4">
             <TableItem
               className="col-span-2"
-              title={sectionLocale?.calcStats}
+              title={t("calcStats")}
             />
             <TableItem
-              title={sectionLocale?.calcStatsMax}
+              title={t("calcStatsMax")}
               isHeader={true}
             />
             <TableItem
-              title={sectionLocale?.calcStatsCurrent}
+              title={t("calcStatsCurrent")}
               isHeader={true}
             />
           </div>
           <CalcStat
-            title={sectionLocale?.hpStat}
+            title={t("hpStat")}
             name="hp"
             maxSelector={maxHpSelector}
           />
           <CalcStat
-            title={sectionLocale?.wpStat}
+            title={t("wpStat")}
             name="wp"
             maxSelector={maxWpSelector}
           />
           <CalcStat
-            title={sectionLocale?.sanStat}
+            title={t("sanStat")}
             name="san"
             maxSelector={maxSanSelector}
           />
           <CalcStat
-            title={sectionLocale?.bpStat}
+            title={t("bpStat")}
             name="bp"
             maxSelector={maxBpSelector}
           />
         </div>
         <TextInput
-          title={sectionLocale?.description}
+          title={t("description")}
           multiline={true}
           name="description"
         />
