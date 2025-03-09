@@ -1,14 +1,14 @@
 import { addOtherSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import PropTypes from "prop-types";
+import { useTranslations } from "next-intl";
 
-interface AddOtherSkillProps extends React.HTMLAttributes<HTMLDivElement> {
-  sectionLocale: any;
-}
+interface AddOtherSkillProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const AddOtherSkill: React.FC<AddOtherSkillProps> = ({ sectionLocale }) => {
+const AddOtherSkill: React.FC<AddOtherSkillProps> = () => {
+  const t = useTranslations("characterSheet.skillsSection");
   const otherSkillsCount = useAppSelector(
-    (state: any) => state.dgCharacter.skills.filter((skill: any) => skill.isOther).length
+    (state: any) =>
+      state.dgCharacter.skills.filter((skill: any) => skill.isOther).length
   );
   const editMode = useAppSelector((state) => state.dgCharacter.editMode);
   const dispatch = useAppDispatch();
@@ -26,7 +26,7 @@ const AddOtherSkill: React.FC<AddOtherSkillProps> = ({ sectionLocale }) => {
           )
         }
       >
-        {sectionLocale?.addForeignLanguage}
+        {t("addForeignLanguage")}
       </button>
       <button
         className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100 dark:outline-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
@@ -34,16 +34,12 @@ const AddOtherSkill: React.FC<AddOtherSkillProps> = ({ sectionLocale }) => {
           dispatch(addOtherSkill({ id: `other${otherSkillsCount}` }))
         }
       >
-        {sectionLocale?.addOtherSkills}
+        {t("addOtherSkills")}
       </button>
     </div>
   ) : (
     <></>
   );
-};
-
-AddOtherSkill.propTypes = {
-  sectionLocale: PropTypes.any.isRequired,
 };
 
 export default AddOtherSkill;
