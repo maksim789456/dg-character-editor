@@ -8,118 +8,115 @@
   },
   "characterSheet": {
     "settingsSection": {
-      "editMode": "Редактирование:",
+      "exportPdf": "Экспортировать PDF",
       "sheetThemeSelect": {
-        "pdfTheme": "Тема PDF:",
         "themes": {
-          "white": "Классическая",
-          "old": "Под старину"
-        }
+          "white": "Классический",
+          "old": "Как 'Старый'"
+        },
+        "pdfTheme": "Тема PDF:"
       },
-      "exportPdf": "Экспорт в PDF"
+      "editMode": "Режим редактирования:"
     },
     "personalSection": {
-      "categoryName": "ЛИЧНЫЕ ДАННЫЕ",
-      "fullName": "1. ФАМИЛИЯ, ИМЯ, ОТЧЕСТВО",
-      "profession": "2. ПРОФЕССИЯ (ЗВАНИЕ ПРИ НАЛИЧИИ)",
-      "employer": "3. МЕСТО РАБОТЫ",
+      "genderF": "Ф",
       "nationality": "4. НАЦИОНАЛЬНОСТЬ",
-      "gender": "5. ПОЛ",
+      "categoryName": "ЛИЧНЫЕ ДАННЫЕ",
+      "employer": "3. РАБОТОДАТЕЛЬ",
       "genderM": "М",
-      "genderF": "Ж",
-      "age": "6. ВОЗРАСТ, Д. Р.",
-      "education": "7. ОБРАЗОВАНИЕ, ОПЫТ РАБОТЫ"
+      "age": "6. ВОЗРАСТ И ДАТА РОЖДЕНИЯ.",
+      "profession": "2. ПРОФЕССИЯ (ЗВАНИЕ, ЕСЛИ ПРИМЕНИМО)",
+      "fullName": "1. ФАМИЛИЯ, ИМЯ, ОТЧЕСТВО",
+      "education": "7. ОБРАЗОВАНИЕ И ПРОФЕССИОНАЛЬНАЯ ИСТОРИЯ",
+      "gender": "5. ПОЛ"
     },
     "staticSection": {
-      "categoryName": "СТАТИСТИЧЕСКИЕ ДАННЫЕ",
-      "stats": "8. ХАРАКТЕРИСТИКИ",
-      "statsValue": "ЗНАЧЕНИЕ",
+      "bpStatCurrentPlaceholder": "",
       "statsValueX5": "x5",
-      "statsDescription": "ОТЛИЧИТЕЛЬНАЯ ЧЕРТА",
       "statsDescriptionPlaceholder": "<9 или >12",
-      "strStat": "Сила (СИЛ)",
-      "conStat": "Телосложение (ТЕЛ)",
-      "dexStat": "Ловкость (ЛОВ)",
-      "intStat": "Интеллект (ИНТ)",
-      "powStat": "Воля (ВОЛ)",
+      "statsValue": "ОЦЕНКА",
       "chaStat": "Харизма (ХАР)",
-      "statsTooMuch": "Характеристики выше рекомендуемых!",
-      "statsTooMuch2": "Рекомендуется назначать не больше 72 очков, назначено",
-
-      "calcStats": "9. ПРОИЗВОДНЫЕ АТРИБУТЫ",
-      "calcStatsMax": "МАКСИМАЛЬНОЕ",
-      "calcStatsCurrent": "ТЕКУЩЕЕ",
-
-      "hpStat": "Очки Здоровья (ОЗ)",
-      "hpStatMaxPlaceholder": "(СИЛ + ТЕЛ)/2",
-      "wpStat": "Очки Воли (ОВ)",
-      "wpStatMaxPlaceholder": "ВОЛ",
-      "sanStat": "Очки Рассудка (ОР)",
-      "sanStatMaxPlaceholder": "99 - Сверхъестественное",
-      "bpStat": "Точка Надлома (ТН)",
-      "bpStatMax": "НЕТ",
-      "bpStatCurrentPlaceholder": "ОР - ОВ",
-
-      "description": "10. ВНЕШНИЙ ВИД"
+      "wpStatMaxPlaceholder": "СИЛА",
+      "intStat": "Интеллект (ИНТ)",
+      "calcStatsCurrent": "ТЕКУЩИЙ",
+      "hpStatMaxPlaceholder": "(СУМ + КОН)/2",
+      "sanStat": "Очки здравомыслия (SAN)",
+      "bpStat": "Критическая точка (КТ)",
+      "calcStats": "9. ПРОИЗВЕДЕННЫЕ АТРИБУТЫ",
+      "dexStat": "Ловкость (DEX)",
+      "stats": "8. СТАТИСТИКА",
+      "statsTooMuch2": "Рекомендуется назначать не более 72 баллов, текущий",
+      "conStat": "Конституция (КОН)",
+      "hpStat": "Очки здоровья (HP)",
+      "statsDescription": "ОТЛИЧИТЕЛЬНЫЕ ОСОБЕННОСТИ",
+      "bpStatMax": "Недоступно",
+      "sanStatMaxPlaceholder": "99 - Ненормальный",
+      "powStat": "Мощность (POW)",
+      "statsTooMuch": "Статистика выше рекомендованного!",
+      "description": "10. ФИЗИЧЕСКОЕ ОПИСАНИЕ",
+      "wpStat": "Очки воли (ОВ)",
+      "strStat": "Сила (STR)",
+      "calcStatsMax": "МАКСИМУМ",
+      "categoryName": "СТАТИСТИЧЕСКИЕ ДАННЫЕ"
     },
     "psychologicalSection": {
-      "categoryName": "ПСИХОЛОГИЧЕСКИЕ ДАННЫЕ",
-      "bonds": "11. СВЯЗИ",
-      "bondsValue": "ЗНАЧЕНИЕ",
-      "addBound": "Добавить связь",
-      "noBounds": "Нет связей",
-      "bondsInstruction": "Отметьте урон в Связям, до конца следующей Домашней сцены",
-      "motivation": "12. МОТИВАЦИИ И ПСИХОЛОГИЧЕСКИЕ РАССТРОЙСТВА",
-      "sanLoss": "13. СЛУЧАИ ПОТЕРИ ОР БЕЗ УМОПОМЕШАТЕЛЬСТВА",
-      "sanLossAdapted": "адаптир.",
+      "bondsValue": "ОЦЕНКА",
+      "noBounds": "Нет границ",
+      "addBound": "Добавить границу",
+      "bondsInstruction": "Проверьте поврежденную коробку Облигации до окончания следующей сцены Дома.",
+      "sanLossHelplessness": "Беспомощность",
+      "motivation": "12. МОТИВАЦИИ И ПСИХИЧЕСКИЕ РАСТРОЙСТВА",
       "sanLossViolence": "Насилие",
-      "sanLossHelplessness": "Беспомощность"
+      "categoryName": "ПСИХОЛОГИЧЕСКИЕ ДАННЫЕ",
+      "sanLoss": "13. СЛУЧАИ ПОТЕРИ SAN БЕЗ СУМАШЕДШЕСТВА",
+      "bonds": "11. ОБЛИГАЦИИ",
+      "sanLossAdapted": "адаптированный"
     },
     "skillsSection": {
-      "categoryName": "НАБОР ПРИКЛАДНЫХ НАВЫКОВ",
-      "otherSkills": "Иностранные языки и другие навыки:",
+      "foreignLangShort": "Иностранный язык",
+      "categoryName": "ПРИМЕНИМЫЕ НАВЫКИ",
       "addOtherSkills": "Другой навык",
-      "addForeignLanguage": "Иностранный язык",
-      "foreignLangShort": "Ин. язык",
-      "skillsInstruction": "Отметьте квадратик при провале проверки навыка. В конце сессии добавь 1D4 к каждому отмеченному навыку и сотри все отметки."
+      "otherSkills": "Иностранные языки и другие навыки:",
+      "skillsInstruction": "Отметьте поле, когда вы пытаетесь использовать навык и терпите неудачу. После сессии добавьте 1D4 к каждому отмеченному навыку и удалите все отметки.",
+      "addForeignLanguage": "Иностранный язык"
     },
     "woundsSection": {
+      "firstHelpYes": "Да: Только медицина, хирургия или длительный отдых могут помочь дальше.",
       "categoryName": "ТРАВМЫ",
-      "wounds": "14. РАНЫ И НЕДУГИ",
-      "firstHelp": "Оказывалась ли Первая Помощь после последнего ранения?",
-      "firstHelpYes": "Да: дальнейшее восстановление только при помощи Медицины, Хирургии или долгий отдых"
+      "firstHelp": "Была ли оказана первая помощь с момента последней травмы?",
+      "wounds": "14. РАНЫ И БОЛЕЗНИ"
     },
     "equipmentSection": {
-      "categoryName": "ЭКИПИРОВКА",
-      "armor": "15. БРОНЯ И СНАРЯЖЕНИЕ",
-      "armorDescription": "Броня снижает значение урона от всех атак, кроме Прицельных Выстрелов и удачных проверок Летальности",
-      "weapons": "16. ОРУЖИЕ",
-      "addWeapon": "Добавить оружие",
       "noWeapons": "Нет оружия",
-      "weaponsSkill": "% НАВЫКА",
-      "weaponsRange": "ДАЛЬНОСТЬ",
-      "weaponsDamage": "УРОН",
-      "weaponsArmorPiecing": "БРОНЕБОЙНОСТЬ",
-      "weaponsLethality": "ЛЕТАЛЬНОСТЬ",
-      "weaponsKillRadius": "РАДИУС ПОРАЖ.",
-      "weaponsAmmo": "БОЕЗАПАС"
+      "weaponsArmorPiecing": "ПРОБИВАЮЩИЙ БРОНЮ",
+      "weaponsSkill": "НАВЫК %",
+      "addWeapon": "Добавить оружие",
+      "weapons": "16. ОРУЖИЕ",
+      "weaponsRange": "БАЗОВЫЙ ДИАПАЗОН",
+      "armor": "15. БРОНЯ И СНАБЖЕНИЕ",
+      "armorDescription": "Броня снижает урон от всех атак, кроме прицельных выстрелов и успешных бросков на летальность.",
+      "weaponsAmmo": "ПАТРОН",
+      "weaponsLethality": "СМЕРТНОСТЬ",
+      "categoryName": "ОБОРУДОВАНИЕ",
+      "weaponsDamage": "УЩЕРБ",
+      "weaponsKillRadius": "Радиус убийства"
     },
     "remarksSection": {
-      "categoryName": "ПРИМЕЧАНИЯ",
-      "personalInfoRemarks": "17. ЛИЧНЫЕ ДАННЫЕ И ПРИМЕЧАНИЯ",
-      "homeFamilyEvents": "18. СОБЫТИЯ ЗАТРАГИВАЮЩИЕ ДОМ И СЕМЬЮ",
-      "specialTraining": "19. СПЕЦ. ПОДГОТОВКА",
-      "addSpecialTraining": "Добавить спец. подготовку",
-      "noSpecialTrainings": "No спец. подготовок",
-      "specialTrainingSkill": "ИСПОЛЬЗ. НАВЫК ИЛИ ХАРАКТЕРИСТИКА",
-      "remarksDescription": "Пожалуйста, укажите, причины вербовки и согласия на работу агента." 
+      "noSpecialTrainings": "Нет специальных тренировок",
+      "personalInfoRemarks": "17. ЛИЧНЫЕ ДАННЫЕ И ЗАМЕТКИ",
+      "addSpecialTraining": "Добавить специальное обучение",
+      "categoryName": "ЗАМЕТКИ",
+      "homeFamilyEvents": "18. РАЗВИТИЯ, КОТОРЫЕ ВЛИЯЮТ НА ДОМАШНЮЮ И СЕМЕЙНУЮ ЖИЗНЬ",
+      "remarksDescription": "Пожалуйста, укажите, почему этот агент был привлечен и почему агент согласился быть привлеченным.",
+      "specialTraining": "19. СПЕЦИАЛЬНОЕ ОБУЧЕНИЕ",
+      "specialTrainingSkill": "ИСПОЛЬЗУЕМОЕ УМЕНИЕ ИЛИ СТАТИСТИКА"
     },
     "other": {
-      "pieceOfArt": "ЭТО ХУДОЖЕСТВЕННОЕ ПРОИЗВЕДЕНИЕ",
-      "usa": "ФОРМА",
-      "form": "США",
-      "topSecret": "СОВЕРШЕННО СЕКРЕТНО // СОСТАВИТЕЛЬ КОНТРОЛИРУЕТ РАСПРОСТРАНЕНИЕ // ТРЕБУЕТСЯ СПЕЦИАЛЬНЫЙ ДОСТУП - ЛИСТ ДОКУМЕНТАЦИИ ДЛЯ АГЕНТОВ ДЕЛЬТЫ ГРИН",
-      "copyright": "Интеллектуальная собственность, известная как Delta Green, является торговой маркой и авторским правом, принадлежащим Delta Green Partnership"
+      "form": "ФОРМА",
+      "usa": "СОЕДИНЕННЫЕ ШТАТЫ",
+      "pieceOfArt": "ЭТО ПРОИЗВЕДЕНИЕ ЯВЛЯЕТСЯ ВЫМЫСЛОМ",
+      "copyright": "Интеллектуальная собственность, известная как Delta Green, является товарным знаком и авторским правом, принадлежащим Партнёрству Delta Green",
+      "topSecret": "СОВЕРШЕННО СЕКРЕТНО//ORCON//ТРЕБУЕТСЯ СПЕЦИАЛЬНЫЙ ДОСТУП—ДОКУМЕНТАЦИЯ АГЕНТА DELTA GREEN"
     }
   }
 }
