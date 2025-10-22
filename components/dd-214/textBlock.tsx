@@ -11,8 +11,7 @@ interface TextBlockProps extends React.HTMLAttributes<HTMLDivElement> {
 const TextBlock: React.FC<TextBlockProps> = ({ title, titleClassName, name, ...props }) => {
   return (
     <div
-      className={`border border-dg dark:border-neutral-600 border-t-0 border-l-0
-  } ${props.className || ""} flex flex-col w-full`}
+      className={`border border-dg dark:border-neutral-600 border-t-0 border-l-0 ${props.className || ""} flex flex-col w-full`}
     >
       {title ? <p className={`font-dg-main dark:text-neutral-200 text-xs px-1 pt-1 ${titleClassName}`}>{title}</p> : <></>}
       <div className="h-full flex flex-row justify-center items-center py-0.5">
