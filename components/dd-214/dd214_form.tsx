@@ -64,13 +64,20 @@ export default function DD214Form() {
         <Category name="SELECTIVE SERVICE DATA" className="h-16" titleClassName="!text-xs/[10px]">
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
-              <TextInput className="col-span-3 border-b-0 h-16" title="10a. SELECTIVE SERVICE NUMBER" />
+              <div className="col-span-3 border-b-0 h-16 grid grid-cols-4 grid-rows-3">
+                <TextBlock className="col-span-4" title="10a. SELECTIVE SERVICE NUMBER"/>
+                <TextInput className="row-span-2 col-span-1" title="" />
+                <TextInput className="row-span-2 col-span-1" title="" />
+                <TextInput className="row-span-2 col-span-1" title="" />
+                <TextInput className="row-span-2 col-span-1" title="" />
+              </div>
               <TextInput className="col-span-6 border-b-0 h-16" title="b. SELECTIVE SERVICE LOCAL BOARD NUMBER, CITY, COUNTY, STATE AND ZIP CODE" />
             </div>
             <div className="grid grid-cols-3">
-              <TextInput className="col-span-1 border-b-0" title="DAY" />
-              <TextInput className="col-span-1 border-b-0" title="MONTH" />
-              <TextInput className="col-span-1 border-b-0 border-r-0" title="YEAR" />
+              <TextBlock className="col-span-4 border-r-0" title="c.&emsp;&emsp;&emsp;&emsp;DATE INDUCTED"/>
+              <TextInput className="row-span-2 col-span-1 border-b-0" title="DAY" />
+              <TextInput className="row-span-2 col-span-1 border-b-0" title="MONTH" />
+              <TextInput className="row-span-2 col-span-1 border-b-0 border-r-0" title="YEAR" />
             </div>
           </div>
         </Category>
@@ -105,8 +112,13 @@ export default function DD214Form() {
         <Category name="SERVICE DATA" className="">
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
-              <TextInput className="col-span-3 h-16" title="16. TERMINAL DATE OF RESERVE UMT&S OBLIGATION" />
-              <TextBlock className="col-span-5 h-16" title="17. CURRENT ACTIVE SERVICE OTHER THAN BY INDUCTION (a. SOURCE OF ENTRY)">
+              <div className="col-span-3 border-b-0 h-20 grid grid-cols-3 grid-rows-4">
+                <TextBlock className="row-span-2 col-span-4" titleClassName="text-center" title="16. TERMINAL DATE OF RESERVE UMT&S OBLIGATION"/>
+                <TextInput className="row-span-2 col-span-1" title="DAY" />
+                <TextInput className="row-span-2 col-span-1" title="MONTH" />
+                <TextInput className="row-span-2 col-span-1" title="YEAR" />
+              </div>
+              <TextBlock className="col-span-5 h-20" title="17. CURRENT ACTIVE SERVICE OTHER THAN BY INDUCTION (a. SOURCE OF ENTRY)">
                 <div className="flex flex-row gap-4">
                   <BoolInput title="ENLISTED" textClassName="text-xs"/>
                   <BoolInput title="REENLISTED" textClassName="text-xs"/>
@@ -115,7 +127,7 @@ export default function DD214Form() {
               </TextBlock>
               <TextBlock className="col-span-1" title="b." name="TERM OF SERVICE"/>
             </div>
-            <div className="h-16 grid grid-cols-3 grid-rows-3">
+            <div className="h-20 grid grid-cols-3 grid-rows-3">
               <TextBlock className="col-span-3 border-r-0" title="c.&emsp;&emsp;&emsp;&emsp;DATE OF ENTRY"/>
               <TextInput className="row-span-2 col-span-1" title="DAY" />
               <TextInput className="row-span-2 col-span-1" title="MONTH" />
