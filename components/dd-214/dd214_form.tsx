@@ -12,6 +12,9 @@ export default function DD214Form() {
     >
       <div className="w-[40rem] md:w-full md:max-w-screen-lg md:px-4 grid gap-x-1">
         <div className="flex flex-col items-center justify-center">
+          <p className="font-dg-main text-red-600 text-lg dark:text-red-200 print:hidden">
+            THIS DOCUMENT IS A WORK OF FICTION AND IS NOT AN OFFICIAL GOVERNMENT FORM!
+          </p>
           <p className="font-dg-main text-dg text-sm dark:text-neutral-200">
             THIS IS AN IMPORTANT RECORD
           </p>
@@ -226,6 +229,11 @@ export default function DD214Form() {
           <div className="flex justify-end">
             <p className="font-dg text-2xl font-bold">2</p>
           </div>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          <p className="font-dg-main text-red-600 text-lg dark:text-red-200 print:hidden">
+            THIS DOCUMENT IS A WORK OF FICTION AND IS NOT AN OFFICIAL GOVERNMENT FORM!
+          </p>
         </div>
       </div>
     </main>
