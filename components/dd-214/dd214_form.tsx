@@ -185,19 +185,19 @@ export default function DD214Form() {
           </div>
         </Category>
         <Category name={<>VA AND EMP.<br/>SERVICE DATA</>} titleClassName="!text-sm/[14px]">
-          <div className="h-full grid grid-cols-6 grid-rows-2">
-            <TextInput className="row-span-2 border-b-0" title="26a. NON-PAY PERIODS TIME LOST"/>
-            <TextInput className="" title="b. DAYS ACCRUED LEAVE PAID"/>
-            <TextBlock className="" title="27a. INSURANCE IN FORCE (TRICARE OR USGLI)">
+          <div className="h-full grid grid-cols-12 grid-rows-2">
+            <TextInput className="col-span-3 row-span-2 border-b-0" title="26a. NON-PAY PERIODS TIME LOST"/>
+            <TextInput className="col-span-2" title="b. DAYS ACCRUED LEAVE PAID"/>
+            <TextBlock className="col-span-2" title="27a. INSURANCE IN FORCE (TRICARE OR USGLI)">
               <div className="flex flex-row gap-5">
                 <BoolInput title="YES"/>
                 <BoolInput title="NO"/>
               </div>
             </TextBlock>
-            <TextInput className="col-span-2" title="b. AMOUNT OF ALLOTMENT"/>
-            <TextInput className="border-r-0" title="c. MONTH ALLOTMENT DISCONTINUED"/>
-            <TextInput className="border-b-0" title="28. VA CLAIM NUMBER"/>
-            <TextBlock className="col-span-4 border-b-0 border-r-0" title="29. SERVICEMEN`S GROUP LIFE INSURANCE COVERAGE">
+            <TextInput className="col-span-3" title="b. AMOUNT OF ALLOTMENT"/>
+            <TextInput className="col-span-2 border-r-0" title="c. MONTH ALLOTMENT DISCONTINUED"/>
+            <TextInput className="col-span-2 border-b-0" title="28. VA CLAIM NUMBER"/>
+            <TextBlock className="col-span-7 border-b-0 border-r-0" title="29. SERVICEMEN`S GROUP LIFE INSURANCE COVERAGE">
               <div className="flex flex-row gap-5">
                 <BoolInput title="$10,000"/>
                 <BoolInput title="$5,000"/>
