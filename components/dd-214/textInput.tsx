@@ -24,12 +24,12 @@ const TextInput: React.FC<TextInputProps> = ({
     <div
       className={`border border-dg dark:border-neutral-600 ${
         multiline ? "border-0" : "border-t-0 border-l-0"
-      } ${props.className || ""} flex flex-col w-full h-full`}
+      } ${props.className || ""} flex flex-col w-full`}
     >
       {title || title === "" ? <p className="font-dg-main dark:text-neutral-200 text-xs px-1">{title}</p> : <></>}
       {multiline ? (
         <textarea
-          className="dark:text-neutral-200 resize-none disabled:bg-gray-200 dark:disabled:bg-neutral-700"
+          className="dark:text-neutral-200 resize-none disabled:bg-gray-200 dark:disabled:bg-neutral-700 print:opacity-0"
           name={name}
           aria-label={title}
           disabled={disabled}
@@ -38,7 +38,7 @@ const TextInput: React.FC<TextInputProps> = ({
       ) : (
         <input
           type="text"
-          className="h-full dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
+          className="h-full dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700 print:opacity-0"
           name={name}
           aria-label={title}
           disabled={disabled}

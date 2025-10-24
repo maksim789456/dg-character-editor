@@ -34,7 +34,7 @@ export default function CharacterSheet({
       <div className="w-[40rem] md:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
           <ThemeProvider>
-            <SettingsSection className="col-span-2" lang={lang} />
+            <SettingsSection className="col-span-2 print:hidden" lang={lang} />
             <div className="col-span-2 h-16 bg-dg dark:bg-zinc-800 flex items-center justify-center">
               <Image
                 alt="delta green logo"
@@ -87,7 +87,7 @@ export default function CharacterSheet({
             </p>
           </div>
         </div>
-        <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
+        <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3 print:hidden">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
             Copyright © 2023–2025{" "}
             <a href="https://github.com/maksim789456">maksim789456</a>
@@ -97,7 +97,7 @@ export default function CharacterSheet({
         </div>
         <div
           className={clsx(
-            "col-span-2 flex flex-row items-center justify-center",
+            "col-span-2 flex flex-row items-center justify-center print:hidden",
             process.env.NODE_ENV === "production" && "hidden"
           )}
         >
