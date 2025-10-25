@@ -72,7 +72,7 @@ export default function DD214Form({
             </div>
           </div>
         </Category>
-        <Category name={t("selectiveServiceData.title")} className="h-16" titleClassName="!text-xs/[10px]">
+        <Category name={t("selectiveServiceData.title")} className="h-16" titleClassName="!text-[0.6rem]/[10px]">
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
               <div className="col-span-3 border-b-0 h-16 grid grid-cols-4 grid-rows-3">
@@ -131,12 +131,12 @@ export default function DD214Form({
               </div>
               <TextBlock className="col-span-5 h-20" title={t("serviceData.currentService")}>
                 <div className="flex flex-row gap-4">
-                  <BoolInput title="ENLISTED" textClassName="text-xs"/>
-                  <BoolInput title="REENLISTED" textClassName="text-xs"/>
-                  <BoolInput title="OTHER" textClassName="text-xs"/>
+                  <BoolInput title={t("serviceData.enlisted")} textClassName="text-xs"/>
+                  <BoolInput title={t("serviceData.reenlisted")} textClassName="text-xs"/>
+                  <BoolInput title={t("serviceData.other")} textClassName="text-xs"/>
                 </div>
               </TextBlock>
-              <TextBlock className="col-span-1" title="b." name={t("serviceData.currentTerm")}/>
+              <TextInput className="col-span-1" title={t("serviceData.currentTerm")}/>
             </div>
             <div className="h-20 grid grid-cols-3 grid-rows-3">
               <TextBlock className="col-span-3 border-r-0" title={t("serviceData.currentDateOfEntry")}/>

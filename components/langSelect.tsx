@@ -15,7 +15,7 @@ const LangSelect: React.FC<LangSelectProps> = ({ lang, pageUrl, ...props }) => {
   pageUrl = pageUrl ?? "/"
 
   return (
-    <div className={clsx("flex flex-row gap-3", props.className)}>
+    <div className={clsx("flex flex-row gap-3 print:hidden", props.className)}>
       {langs.map((value, key) => {
         if (value.id === lang) return;
         return (
