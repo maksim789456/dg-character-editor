@@ -13,157 +13,157 @@ export default function DD214Form() {
       <div className="w-[40rem] md:w-full md:max-w-screen-lg md:px-4 grid gap-x-1">
         <div className="flex flex-col items-center justify-center">
           <p className="font-dg-main text-red-600 text-lg dark:text-red-200 print:hidden">
-            THIS DOCUMENT IS A WORK OF FICTION AND IS NOT AN OFFICIAL GOVERNMENT FORM!
+            {t("topSection.documentFiction")}
           </p>
           <p className="font-dg-main text-dg text-sm dark:text-neutral-200">
-            THIS IS AN IMPORTANT RECORD
+            {t("topSection.importantRecord")}
           </p>
           <p className="font-dg-main text-dg text-sm dark:text-neutral-200">
-            SAFEGUARD IT.
+            {t("topSection.safeguard")}
           </p>
         </div>
-        <Category name="PERSONAL DATA">
+        <Category name={t("personalData.title")}>
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-5">
-              <TextInput className="col-span-3" title="1. LAST NAME-FIRST NAME-MIDDLE NAME" />
-              <TextInput className="col-span-2" title="2. SERVICE NUMBER" />
+              <TextInput className="col-span-3" title={t("personalData.names")} />
+              <TextInput className="col-span-2" title={t("personalData.serviceNum")} />
             </div>
-            <TextInput className="col-span-1 border-r-0" title="3. SOCIAL SECURITY NUMBER" />
+            <TextInput className="col-span-1 border-r-0" title={t("personalData.ssn")} />
           </div>
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
-              <TextInput className="col-span-5" title="4. DEPARTMENT, COMPONENT AND BRANCH OR CLASS" />
-              <TextInput className="col-span-2" title="5a. GRADE, RATE OR RANK" />
-              <TextInput className="col-span-1" title="5b. PAY GRADE" />
-              <TextBlock className="col-span-1" title="6." name="DATE OF RANK"/>
+              <TextInput className="col-span-5" title={t("personalData.department")} />
+              <TextInput className="col-span-2" title={t("personalData.grade")} />
+              <TextInput className="col-span-1" title={t("personalData.payGrade")} />
+              <TextBlock className="col-span-1" title="6." name={t("personalData.dateOfRank")}/>
             </div>
             <div className="grid grid-cols-3">
-              <TextInput className="col-span-1" title="DAY" />
-              <TextInput className="col-span-1" title="MONTH" />
-              <TextInput className="col-span-1 border-r-0" title="YEAR" />
+              <TextInput className="col-span-1" title={t("general.day")} />
+              <TextInput className="col-span-1" title={t("general.month")} />
+              <TextInput className="col-span-1 border-r-0" title={t("general.year")} />
             </div>
           </div>
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
-              <TextBlock className="col-span-3 border-b-0" title="7. U. S. CITIZEN">
+              <TextBlock className="col-span-3 border-b-0" title={t("personalData.usCitizen")}>
                 <div className="flex flex-row gap-5">
-                  <BoolInput title="YES"/>
-                  <BoolInput title="NO"/>
+                  <BoolInput title={t("general.yes")}/>
+                  <BoolInput title={t("general.no")}/>
                 </div>
               </TextBlock>
-              <TextInput className="col-span-5 border-b-0" title="8. PLACE OF BIRTH (City and State or Country)" />
-              <TextBlock className="col-span-1 border-b-0" title="9." name="DATE OF BIRTH"/>
+              <TextInput className="col-span-5 border-b-0" title={t("personalData.placeBirth")} />
+              <TextBlock className="col-span-1 border-b-0" title="9." name={t("personalData.dateOfBirth")}/>
             </div>
             <div className="grid grid-cols-3">
-              <TextInput className="col-span-1 border-b-0" title="DAY" />
-              <TextInput className="col-span-1 border-b-0" title="MONTH" />
-              <TextInput className="col-span-1 border-b-0 border-r-0" title="YEAR" />
+              <TextInput className="col-span-1 border-b-0" title={t("general.day")} />
+              <TextInput className="col-span-1 border-b-0" title={t("general.month")} />
+              <TextInput className="col-span-1 border-b-0 border-r-0" title={t("general.year")} />
             </div>
           </div>
         </Category>
-        <Category name="SELECTIVE SERVICE DATA" className="h-16" titleClassName="!text-xs/[10px]">
+        <Category name={t("selectiveServiceData.title")} className="h-16" titleClassName="!text-xs/[10px]">
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
               <div className="col-span-3 border-b-0 h-16 grid grid-cols-4 grid-rows-3">
-                <TextBlock className="col-span-4" title="10a. SELECTIVE SERVICE NUMBER"/>
+                <TextBlock className="col-span-4" title={t("selectiveServiceData.selectiveSN")}/>
                 <TextInput className="row-span-2 col-span-1" title="" />
                 <TextInput className="row-span-2 col-span-1" title="" />
                 <TextInput className="row-span-2 col-span-1" title="" />
                 <TextInput className="row-span-2 col-span-1" title="" />
               </div>
-              <TextInput className="col-span-6 border-b-0 h-16" title="b. SELECTIVE SERVICE LOCAL BOARD NUMBER, CITY, COUNTY, STATE AND ZIP CODE" />
+              <TextInput className="col-span-6 border-b-0 h-16" title={t("selectiveServiceData.selectivePlace")} />
             </div>
             <div className="grid grid-cols-3">
-              <TextBlock className="col-span-4 border-r-0" title="c.&emsp;&emsp;&emsp;&emsp;DATE INDUCTED"/>
-              <TextInput className="row-span-2 col-span-1 border-b-0" title="DAY" />
-              <TextInput className="row-span-2 col-span-1 border-b-0" title="MONTH" />
-              <TextInput className="row-span-2 col-span-1 border-b-0 border-r-0" title="YEAR" />
+              <TextBlock className="col-span-4 border-r-0" title={t("selectiveServiceData.inductedDate")} />
+              <TextInput className="row-span-2 col-span-1 border-b-0" title={t("general.day")} />
+              <TextInput className="row-span-2 col-span-1 border-b-0" title={t("general.month")} />
+              <TextInput className="row-span-2 col-span-1 border-b-0 border-r-0" title={t("general.year")} />
             </div>
           </div>
         </Category>
-        <Category name={<>TRANSFER OR DISCHARGE<br/>DATA</>} titleClassName="!text-sm/[14px]">
+        <Category name={<>{t("transferDischarge.title")}<br/>{t("transferDischarge.title2")}</>} titleClassName="!text-sm/[14px]">
           <div className="grid grid-cols-12">
-              <TextInput className="col-span-5" title="11a. TYPE OF TRANSFER OR DISCHARGE"/>
-              <TextInput className="col-span-7 border-r-0" title="b. STATION OR INSTALLATION AT WITCH EFFECTED" />
+              <TextInput className="col-span-5" title={t("transferDischarge.transferType")}/>
+              <TextInput className="col-span-7 border-r-0" title={t("transferDischarge.transferStation")} />
           </div>
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
-              <TextInput className="col-span-8" title="c. REASON AND AUTHORITY" />
-              <TextBlock className="col-span-1" title="d." name="EFFECTIVE DATE"/>
+              <TextInput className="col-span-8" title={t("transferDischarge.transferReason")} />
+              <TextBlock className="col-span-1" title="d." name={t("transferDischarge.transferDate")}/>
             </div>
             <div className="grid grid-cols-3">
-              <TextInput className="col-span-1" title="DAY" />
-              <TextInput className="col-span-1" title="MONTH" />
-              <TextInput className="col-span-1 border-r-0" title="YEAR" />
+              <TextInput className="col-span-1" title={t("general.day")} />
+              <TextInput className="col-span-1" title={t("general.month")} />
+              <TextInput className="col-span-1 border-r-0" title={t("general.year")} />
             </div>
           </div>
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
-              <TextInput className="col-span-5" title="12. LAST DUTY ASSIGNMENT AND MAJOR COMMAND" />
-              <TextInput className="col-span-4" title="13a. CHARACTER OF SERVICE" />
+              <TextInput className="col-span-5" title={t("transferDischarge.lastDuty")} />
+              <TextInput className="col-span-4" title={t("transferDischarge.lastService")} />
             </div>
-            <TextInput className="col-span-1 border-r-0" title="b. TYPE OF CERTIFICATE ISSUED" />
+            <TextInput className="col-span-1 border-r-0" title={t("transferDischarge.lastType")} />
           </div>
           <div className="grid grid-cols-4">
-            <TextInput className="col-span-3 border-b-0" title="14. DISTRICT, AREA COMMAND OR CORPS TO WITCH RESERVIST TRANSFERRED" />
-            <TextInput className="col-span-1 border-b-0 border-r-0" title="15. REENLISTMENT CODE" />
+            <TextInput className="col-span-3 border-b-0" title={t("transferDischarge.district")} />
+            <TextInput className="col-span-1 border-b-0 border-r-0" title={t("transferDischarge.reenlistmentCode")} />
           </div>
         </Category>
-        <Category name="SERVICE DATA" className="">
+        <Category name={t("serviceData.title")} className="">
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
               <div className="col-span-3 border-b-0 h-20 grid grid-cols-3 grid-rows-4">
-                <TextBlock className="row-span-2 col-span-4" titleClassName="text-center" title="16. TERMINAL DATE OF RESERVE UMT&S OBLIGATION"/>
-                <TextInput className="row-span-2 col-span-1" title="DAY" />
-                <TextInput className="row-span-2 col-span-1" title="MONTH" />
-                <TextInput className="row-span-2 col-span-1" title="YEAR" />
+                <TextBlock className="row-span-2 col-span-4" titleClassName="text-center" title={t("serviceData.terminalDate")}/>
+                <TextInput className="row-span-2 col-span-1" title={t("general.day")} />
+                <TextInput className="row-span-2 col-span-1" title={t("general.month")} />
+                <TextInput className="row-span-2 col-span-1" title={t("general.year")} />
               </div>
-              <TextBlock className="col-span-5 h-20" title="17. CURRENT ACTIVE SERVICE OTHER THAN BY INDUCTION (a. SOURCE OF ENTRY)">
+              <TextBlock className="col-span-5 h-20" title={t("serviceData.currentService")}>
                 <div className="flex flex-row gap-4">
                   <BoolInput title="ENLISTED" textClassName="text-xs"/>
                   <BoolInput title="REENLISTED" textClassName="text-xs"/>
                   <BoolInput title="OTHER" textClassName="text-xs"/>
                 </div>
               </TextBlock>
-              <TextBlock className="col-span-1" title="b." name="TERM OF SERVICE"/>
+              <TextBlock className="col-span-1" title="b." name={t("serviceData.currentTerm")}/>
             </div>
             <div className="h-20 grid grid-cols-3 grid-rows-3">
-              <TextBlock className="col-span-3 border-r-0" title="c.&emsp;&emsp;&emsp;&emsp;DATE OF ENTRY"/>
-              <TextInput className="row-span-2 col-span-1" title="DAY" />
-              <TextInput className="row-span-2 col-span-1" title="MONTH" />
-              <TextInput className="row-span-2 col-span-1 border-r-0" title="YEAR" />
+              <TextBlock className="col-span-3 border-r-0" title={t("serviceData.currentDateOfEntry")}/>
+              <TextInput className="row-span-2 col-span-1" title={t("general.day")} />
+              <TextInput className="row-span-2 col-span-1" title={t("general.month")} />
+              <TextInput className="row-span-2 col-span-1 border-r-0" title={t("general.year")} />
             </div>
           </div>
           <div className="grid grid-cols-12">
             <div className="col-span-5 grid grid-cols-5">
-              <TextInput className="col-span-3" title="18. PRIOR REGULAR ENLISTMENTS" />
-              <TextInput className="col-span-2" title="19. GRADE, RATE OR RANK AT TIME OF ENTRY INTO CURRENT ACTIVE SVC"/>
+              <TextInput className="col-span-3" title={t("serviceData.priorEnlistments")} />
+              <TextInput className="col-span-2" title={t("serviceData.gradeRank")}/>
             </div>
-            <TextInput className="col-span-7 border-r-0" title="20. PLACE OF ENTRY INTO CURRENT ACTIVE SERVICE (City and State)"/>
+            <TextInput className="col-span-7 border-r-0" title={t("serviceData.placeOfEntryCurrent")}/>
           </div>
           <div className="grid grid-cols-4">
             <div className="col-span-3 grid grid-cols-9">
               <div className="col-span-5 grid grid-rows-2">
-                <TextInput className="" title="21. HOME OF RECORD AT TIME OF ENTRY INTO ACTIVE SERVICE (Street, RFD, City, Country and ZIP Code)" />
+                <TextInput className="" title={t("serviceData.homeRecord")} />
                 <div className="grid grid-cols-2">
-                  <TextInput title="23a. SPECIALTY NUMBER & TITLE"/>
-                  <TextInput title="b. RELATED CIVILIAN OCCUPATION AND D.O.T. NUMBER"/>
+                  <TextInput title={t("serviceData.specialtyNumber")}/>
+                  <TextInput title={t("serviceData.dotNumber")}/>
                 </div>
               </div>
               <div className="col-span-4 grid grid-cols-3">
-                <TextBlock className="col-span-4" title="22.&emsp;&emsp;&emsp;&emsp;STATEMENT OF SERVICE" />
-                <TextBlock className="col-span-1 row-span-3" title="a." name="CREDITABLE FOR BASIC PAY PURPOSES" />
-                <TextBlock className="col-span-2" title="(1) NET SERVICE THIS PERIOD" />
-                <TextBlock className="col-span-2" title="(2) OTHER SERVICE" />
-                <TextBlock className="col-span-2" title="(3) TOTAL" />
-                <TextBlock className="col-span-4" title="b. TOTAL ACTIVE SERVICE" />
-                <TextBlock className="col-span-4" title="c. FOREIGN AND/OR SEA SERVICE" />
+                <TextBlock className="col-span-4" title={t("serviceData.statement.title")} />
+                <TextBlock className="col-span-1 row-span-3" title="a." name={t("serviceData.statement.creditable")} />
+                <TextBlock className="col-span-2" title={t("serviceData.statement.netService")} />
+                <TextBlock className="col-span-2" title={t("serviceData.statement.other")} />
+                <TextBlock className="col-span-2" title={t("serviceData.statement.total")} />
+                <TextBlock className="col-span-4" title={t("serviceData.statement.totalActive")} />
+                <TextBlock className="col-span-4" title={t("serviceData.statement.foreign")} />
               </div>
             </div>
             <div className="grid grid-cols-3 grid-rows-6">
-              <TextBlock className="col-span-1" title="" name="YEARS" />
-              <TextBlock className="col-span-1" title="" name="MONTHS" />
-              <TextBlock className="col-span-1 border-r-0" title="" name="DAYS" />
+              <TextBlock className="col-span-1" title="" name={t("general.years")} />
+              <TextBlock className="col-span-1" title="" name={t("general.months")} />
+              <TextBlock className="col-span-1 border-r-0" title="" name={t("general.days")} />
               <TextBlock title=""/>
               <TextBlock title=""/>
               <TextBlock className="border-r-0" title=""/>
@@ -180,62 +180,62 @@ export default function DD214Form() {
               <TextBlock title=""/>
               <TextBlock className="border-r-0" title=""/>
             </div>
-            <TextInput className="col-span-4 h-20 border-r-0" title="24. DECORATIONS, MEDALS, BADGES, COMMENDATIONS, CITATIONS AND COMPANION RIBBONS AWARDED ON AUTHORIZED"/>
-            <TextInput className="col-span-4 h-32 border-r-0 border-b-0" title="25. EDUCATION AND TRAINING COMPLETED"/>
+            <TextInput className="col-span-4 h-20 border-r-0" title={t("serviceData.rewards")} />
+            <TextInput className="col-span-4 h-32 border-r-0 border-b-0" title={t("serviceData.education")} />
           </div>
         </Category>
-        <Category name={<>VA AND EMP.<br/>SERVICE DATA</>} titleClassName="!text-sm/[14px]">
+        <Category name={<>{t("vaServiceData.title")}<br/>{t("vaServiceData.title2")}</>} titleClassName="!text-sm/[14px]">
           <div className="h-full grid grid-cols-12 grid-rows-2">
-            <TextInput className="col-span-3 row-span-2 border-b-0" title="26a. NON-PAY PERIODS TIME LOST"/>
-            <TextInput className="col-span-2" title="b. DAYS ACCRUED LEAVE PAID"/>
-            <TextBlock className="col-span-2" title="27a. INSURANCE IN FORCE (TRICARE OR USGLI)">
+            <TextInput className="col-span-3 row-span-2 border-b-0" title={t("vaServiceData.nonPay")}/>
+            <TextInput className="col-span-2" title={t("vaServiceData.nonPayDays")}/>
+            <TextBlock className="col-span-2" title={t("vaServiceData.insurance")}>
               <div className="flex flex-row gap-5">
-                <BoolInput title="YES"/>
-                <BoolInput title="NO"/>
+                <BoolInput title={t("general.yes")}/>
+                <BoolInput title={t("general.no")}/>
               </div>
             </TextBlock>
-            <TextInput className="col-span-3" title="b. AMOUNT OF ALLOTMENT"/>
-            <TextInput className="col-span-2 border-r-0" title="c. MONTH ALLOTMENT DISCONTINUED"/>
-            <TextInput className="col-span-2 border-b-0" title="28. VA CLAIM NUMBER"/>
-            <TextBlock className="col-span-7 border-b-0 border-r-0" title="29. SERVICEMEN`S GROUP LIFE INSURANCE COVERAGE">
+            <TextInput className="col-span-3" title={t("vaServiceData.insuranceAmount")}/>
+            <TextInput className="col-span-2 border-r-0" title={t("vaServiceData.insuranceMonth")}/>
+            <TextInput className="col-span-2 border-b-0" title={t("vaServiceData.vaClaimNumber")}/>
+            <TextBlock className="col-span-7 border-b-0 border-r-0" title={t("vaServiceData.servicemanGroup")}>
               <div className="flex flex-row gap-5">
                 <BoolInput title="$10,000"/>
                 <BoolInput title="$5,000"/>
-                <BoolInput title="NONE"/>
+                <BoolInput title={t("general.none")}/>
               </div>
             </TextBlock>
           </div>
         </Category>
-        <Category name="REMARKS">
-          <TextInput className="border-r-0 border-b-0 h-24" title="30. REMARKS"/>
+        <Category name={t("remarks.title")}>
+          <TextInput className="border-r-0 border-b-0 h-24" title={t("remarks.input")}/>
         </Category>
-        <Category name="AUTHENTICATION" className="border-dg border-b-2" titleClassName="py-1.5">
+        <Category name={t("authentication.title")} className="border-dg border-b-2" titleClassName="py-1.5">
           <div className="h-full grid grid-cols-2 grid-rows-2">
-            <TextInput className="" title="31. PERMANENT ADDRESS FOR MAILING PURPOSES AFTER TRANSFER OR DISCHARGE (Street, RFD, City, Country and ZIP Code)"/>
-            <TextInput className="border-r-0" title="32. SIGNATURE OF PERSON BEING TRANSFERRED OR DISCHARGED"/>
-            <TextInput className="border-b-0" title="33. TYPED NAME, GRADE AND TITTLE OF AUTHORIZATING OFFICER"/>
-            <TextInput className="border-r-0 border-b-0" title="34. SIGNATURE OF OFFICER TRANSFERRED TO SIGN"/>
+            <TextInput className="" title={t("authentication.permanentAddress")}/>
+            <TextInput className="border-r-0" title={t("authentication.signaturePerson")}/>
+            <TextInput className="border-b-0" title={t("authentication.authOfficer")}/>
+            <TextInput className="border-r-0 border-b-0" title={t("authentication.authOfficerSign")}/>
           </div>
         </Category>
         <div className="grid grid-cols-14">
           <div className="col-span-3 flex flex-row gap-3">
             <p className="row-span-2 flex items-center justify-center font-dg text-2xl tracking-tighter font-bold">DD</p>
-            <p className="flex items-center justify-center font-dg text-sm text-center">FORM<br/>1 JUL 77</p>
+            <p className="flex items-center justify-center font-dg text-sm text-center">{t("bottomSection.form")}<br/>{t("bottomSection.date")}</p>
             <p className="row-span-2 flex items-center justify-center font-dg text-2xl tracking-tighter font-bold">214</p>
           </div>
           <div className="col-span-3 flex items-center justify-center">
             <div className="">
-              <p className="font-dg text-xs/[12px] text-center">PREVIOUS EDITIONS OF THIS FORM</p>
-              <p className="font-dg text-xs/[12px] text-center">ARE OBSOLETE EFFECTIVE 1 JAN 78</p>
+              <p className="font-dg text-xs/[12px] text-center">{t("bottomSection.previousEditions")}</p>
+              <p className="font-dg text-xs/[12px] text-center">{t("bottomSection.previousEditionsDate")}</p>
             </div>
           </div>
           <div className="col-span-3 flex pt-3 justify-center">
-            <p className="font-dg text-xs/[8px]">☆ GPO: 1 888-351-112</p>
+            <p className="font-dg text-xs/[8px]">{t("bottomSection.gpo")}</p>
           </div>
           <div className="col-span-4 flex items-center justify-center">
             <div className="">
-              <p className="font-dg text-xs/[12px]">ARMED FORCED OF THE UNITED STATES</p>
-              <p className="font-dg text-xs/[12px]">REPORT OF TRANSFER OR DISCHARGE</p>
+              <p className="font-dg text-xs/[12px]">{t("bottomSection.army")}</p>
+              <p className="font-dg text-xs/[12px]">{t("bottomSection.reportOf")}</p>
             </div>
           </div>
           <div className="flex justify-end">
@@ -244,7 +244,7 @@ export default function DD214Form() {
         </div>
         <div className="flex flex-col items-center justify-center">
           <p className="font-dg-main text-red-600 text-lg dark:text-red-200 print:hidden">
-            THIS DOCUMENT IS A WORK OF FICTION AND IS NOT AN OFFICIAL GOVERNMENT FORM!
+            {t("topSection.documentFiction")}
           </p>
         </div>
       </div>

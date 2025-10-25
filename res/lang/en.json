@@ -121,5 +121,110 @@
       "topSecret": "TOP SECRET//ORCON//SPECIAL ACCESS REQUIRED—DELTA GREEN AGENT DOCUMENTATION SHEET",
       "copyright": "The intellectual property known as Delta Green is a trademark and copyright owned by the Delta Green Partnership"
     }
+  },
+  "dd214": {
+    "general": {
+      "day": "DAY",
+      "month": "MONTH",
+      "year": "YEAR",
+      "days": "DAYS",
+      "months": "MONTHS",
+      "years": "YEARS",
+      "yes": "YES",
+      "no": "NO",
+      "none": "NONE"
+    },
+    "topSection": {
+      "documentFiction": "THIS DOCUMENT IS A WORK OF FICTION AND IS NOT AN OFFICIAL GOVERNMENT FORM!",
+      "importantRecord": "THIS IS AN IMPORTANT RECORD",
+      "safeguard": "SAFEGUARD IT."
+    },
+    "personalData": {
+      "title": "PERSONAL DATA",
+      "names": "1. LAST NAME-FIRST NAME-MIDDLE NAME",
+      "serviceNum": "2. SERVICE NUMBER",
+      "ssn": "3. SOCIAL SECURITY NUMBER",
+      "department": "4. DEPARTMENT, COMPONENT AND BRANCH OR CLASS",
+      "grade": "5a. GRADE, RATE OR RANK",
+      "payGrade": "5b. PAY GRADE",
+      "dateOfRank": "DATE OF RANK",
+      "usCitizen": "7. U. S. CITIZEN",
+      "placeBirth": "8. PLACE OF BIRTH (City and State or Country)",
+      "dateOfBirth": "DATE OF BIRTH"
+    },
+    "selectiveServiceData": {
+      "title": "SELECTIVE SERVICE DATA",
+      "selectiveSN": "10a. SELECTIVE SERVICE NUMBER",
+      "selectivePlace": "b. SELECTIVE SERVICE LOCAL BOARD NUMBER, CITY, COUNTY, STATE AND ZIP CODE",
+      "inductedDate": "c.    DATE INDUCTED"
+    },
+    "transferDischarge": {
+      "title": "TRANSFER OR DISCHARGE",
+      "title2": "DATA",
+      "transferType": "11a. TYPE OF TRANSFER OR DISCHARGE",
+      "transferStation": "b. STATION OR INSTALLATION AT WITCH EFFECTED",
+      "transferReason": "c. REASON AND AUTHORITY",
+      "transferDate": "EFFECTIVE DATE",
+      "lastDuty": "12. LAST DUTY ASSIGNMENT AND MAJOR COMMAND",
+      "lastService": "13a. CHARACTER OF SERVICE",
+      "lastType": "b. TYPE OF CERTIFICATE ISSUED",
+      "district": "14. DISTRICT, AREA COMMAND OR CORPS TO WITCH RESERVIST TRANSFERRED",
+      "reenlistmentCode": "15. REENLISTMENT CODE"
+    },
+    "serviceData": {
+      "title": "SERVICE DATA",
+      "terminalDate": "16. TERMINAL DATE OF RESERVE UMT&S OBLIGATION",
+      "currentService": "17. CURRENT ACTIVE SERVICE OTHER THAN BY INDUCTION (a. SOURCE OF ENTRY)",
+      "currentTerm": "TERM OF SERVICE",
+      "currentDateOfEntry": "c.    DATE OF ENTRY",
+      "priorEnlistments": "18. PRIOR REGULAR ENLISTMENTS",
+      "gradeRank": "19. GRADE, RATE OR RANK AT TIME OF ENTRY INTO CURRENT ACTIVE SVC",
+      "placeOfEntryCurrent": "20. PLACE OF ENTRY INTO CURRENT ACTIVE SERVICE (City and State)",
+      "homeRecord": "21. HOME OF RECORD AT TIME OF ENTRY INTO ACTIVE SERVICE (Street, RFD, City, Country and ZIP Code)",
+      "specialtyNumber": "23a. SPECIALTY NUMBER & TITLE",
+      "dotNumber": "b. RELATED CIVILIAN OCCUPATION AND D.O.T. NUMBER",
+      "statement": {
+        "title": "22.    STATEMENT OF SERVICE",
+        "creditable": "CREDITABLE FOR BASIC PAY PURPOSES",
+        "netService": "(1) NET SERVICE THIS PERIOD",
+        "other": "(2) OTHER SERVICE",
+        "total": "(3) TOTAL",
+        "totalActive": "b. TOTAL ACTIVE SERVICE",
+        "foreign": "c. FOREIGN AND/OR SEA SERVICE"
+      },
+      "rewards": "24. DECORATIONS, MEDALS, BADGES, COMMENDATIONS, CITATIONS AND COMPANION RIBBONS AWARDED ON AUTHORIZED",
+      "education": "25. EDUCATION AND TRAINING COMPLETED"
+    },
+    "vaServiceData": {
+      "title": "VA AND EMP.",
+      "title2": "SERVICE DATA",
+      "nonPay": "26a. NON-PAY PERIODS TIME LOST",
+      "nonPayDays": "b. DAYS ACCRUED LEAVE PAID",
+      "insurance": "27a. INSURANCE IN FORCE (TRICARE OR USGLI)",
+      "insuranceAmount": "b. AMOUNT OF ALLOTMENT",
+      "insuranceMonth": "c. MONTH ALLOTMENT DISCONTINUED",
+      "vaClaimNumber": "28. VA CLAIM NUMBER",
+      "servicemanGroup": "29. SERVICEMEN`S GROUP LIFE INSURANCE COVERAGE"
+    },
+    "remarks": {
+      "title": "REMARKS",
+      "input": "30. REMARKS"
+    },
+    "authentication": {
+      "title": "AUTHENTICATION",
+      "permanentAddress": "31. PERMANENT ADDRESS FOR MAILING PURPOSES AFTER TRANSFER OR DISCHARGE (Street, RFD, City, Country and ZIP Code)",
+      "signaturePerson": "32. SIGNATURE OF PERSON BEING TRANSFERRED OR DISCHARGED",
+      "authOfficer": "33. TYPED NAME, GRADE AND TITTLE OF AUTHORIZATING OFFICER",
+      "authOfficerSign": "34. SIGNATURE OF OFFICER TRANSFERRED TO SIGN"
+    },
+    "bottomSection": {
+      "form": "FORM",
+      "date": "1 JUL 77",
+      "previousEditions": "PREVIOUS EDITIONS OF THIS FORM",
+      "previousEditionsDate": "ARE OBSOLETE EFFECTIVE 1 JAN 78",
+      "gpo": "☆ GPO: 1 888-351-112",
+      "army": "ARMED FORCED OF THE UNITED STATES",
+      "reportOf": "REPORT OF TRANSFER OR DISCHARGE"
+    }
   }
 }
