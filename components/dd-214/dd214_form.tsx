@@ -1,9 +1,19 @@
+"use client";
+
 import TextInput from "./textInput";
 import Category from "./category";
 import TextBlock from "./textBlock";
 import BoolInput from "./boolInput";
+import { useTranslations } from "next-intl";
+import LangSelect from "../langSelect";
 
-export default function DD214Form() {
+export default function DD214Form({
+  lang
+}: {
+  lang: string;
+}) {
+  const t = useTranslations("dd214");
+
   return (
     <main
       id="dd214"
@@ -12,6 +22,7 @@ export default function DD214Form() {
     >
       <div className="w-[40rem] md:w-full md:max-w-screen-lg md:px-4 grid gap-x-1">
         <div className="flex flex-col items-center justify-center">
+          <LangSelect lang={lang} pageUrl="/dd214" />
           <p className="font-dg-main text-red-600 text-lg dark:text-red-200 print:hidden">
             {t("topSection.documentFiction")}
           </p>
