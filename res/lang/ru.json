@@ -135,96 +135,99 @@
       "none": "NONE"
     },
     "topSection": {
-      "documentFiction": "THIS DOCUMENT IS A WORK OF FICTION AND IS NOT AN OFFICIAL GOVERNMENT FORM!",
-      "importantRecord": "THIS IS AN IMPORTANT RECORD",
-      "safeguard": "SAFEGUARD IT."
+      "documentFiction": "ЭТО ХУДОЖЕСТВЕННОЕ ПРОИЗВЕДЕНИЕ И НЕ ЯВЛЯЕТСЯ ОФИЦИАЛЬНОЙ ГОСУДАРСТВЕННОЙ ФОРМОЙ!",
+      "importantRecord": "ЭТО ВАЖНЫЙ ДОКУМЕНТ",
+      "safeguard": "ХРАНИТЕ ЕГО В БЕЗОПАСНОСТИ"
     },
     "personalData": {
-      "title": "PERSONAL DATA",
-      "names": "1. LAST NAME-FIRST NAME-MIDDLE NAME",
-      "serviceNum": "2. SERVICE NUMBER",
-      "ssn": "3. SOCIAL SECURITY NUMBER",
-      "department": "4. DEPARTMENT, COMPONENT AND BRANCH OR CLASS",
-      "grade": "5a. GRADE, RATE OR RANK",
-      "payGrade": "5b. PAY GRADE",
-      "dateOfRank": "DATE OF RANK",
-      "usCitizen": "7. U. S. CITIZEN",
-      "placeBirth": "8. PLACE OF BIRTH (City and State or Country)",
-      "dateOfBirth": "DATE OF BIRTH"
+      "title": "ПЕРСОНАЛЬНЫЕ ДАННЫЕ",
+      "names": "1. ФАМИЛИЯ - ИМЯ - ОТЧЕСТВО",
+      "serviceNum": "2. ЛИЧНЫЙ НОМЕР",
+      "ssn": "3. НОМЕР СОЦИАЛЬНОГО СТРАХОВАНИЯ",
+      "department": "4. МИНИСТЕРСТВО, ПОДРАЗДЕЛЕНИЕ И РОД ВОЙСК",
+      "grade": "5a. ЗВАНИЕ, ДОЛЖНОСТЬ",
+      "payGrade": "5b. КЛАСС ОПЛАТЫ",
+      "dateOfRank": "ДАТА ВЫДАЧИ ЗВАНИЯ",
+      "usCitizen": "7. ГРАЖДАНИН США",
+      "placeBirth": "8. МЕСТО РОЖДЕНИЯ (Город и Штат/Страна)",
+      "dateOfBirth": "ДАТА РОЖДЕНИЯ"
     },
     "selectiveServiceData": {
-      "title": "SELECTIVE SERVICE DATA",
-      "selectiveSN": "10a. SELECTIVE SERVICE NUMBER",
-      "selectivePlace": "b. SELECTIVE SERVICE LOCAL BOARD NUMBER, CITY, COUNTY, STATE AND ZIP CODE",
-      "inductedDate": "c.    DATE INDUCTED"
+      "title": "ДАННЫЕ ВОИНСКОГО УЧЁТА",
+      "selectiveSN": "10a. НОМЕР ВОИНСКОГО УЧЁТА",
+      "selectivePlace": "b. НОМЕР И АДРЕС МЕСТНОЙ ПРИЗЫВНОЙ СЛУЖБЫ (Город, Штат, Страна и почтовый индекс)",
+      "inductedDate": "c.    ДАТА ПРИЗЫВА"
     },
     "transferDischarge": {
-      "title": "TRANSFER OR DISCHARGE",
-      "title2": "DATA",
-      "transferType": "11a. TYPE OF TRANSFER OR DISCHARGE",
-      "transferStation": "b. STATION OR INSTALLATION AT WITCH EFFECTED",
-      "transferReason": "c. REASON AND AUTHORITY",
-      "transferDate": "EFFECTIVE DATE",
-      "lastDuty": "12. LAST DUTY ASSIGNMENT AND MAJOR COMMAND",
-      "lastService": "13a. CHARACTER OF SERVICE",
-      "lastType": "b. TYPE OF CERTIFICATE ISSUED",
-      "district": "14. DISTRICT, AREA COMMAND OR CORPS TO WITCH RESERVIST TRANSFERRED",
-      "reenlistmentCode": "15. REENLISTMENT CODE"
+      "title": "ДАННЫЕ ОБ",
+      "title2": "ПЕРЕВОДЕ/УВОЛЬНЕНИИ",
+      "transferType": "11a. ТИП ПЕРЕВОДА ИЛИ УВОЛЬНЕНИЯ",
+      "transferStation": "b. ВОИНСКАЯ ЧАСТЬ ИЛИ БАЗА, ГДЕ ПРОИЗВЕДЕНО УВОЛЬНЕНИЕ ИЛИ ПЕРЕВОД",
+      "transferReason": "c. ОСНОВАНИЕ И ПРИКАЗ",
+      "transferDate": "ДАТА ПРИКАЗА",
+      "lastDuty": "12. ПОСЛЕДНЕЕ МЕСТО СЛУЖБЫ И ГЛАВНОЕ КОМАНДОВАНИЕ",
+      "lastService": "13a. ХАРАКТЕР СЛУЖБЫ",
+      "lastType": "b. ТИП ВЫДАННОГО СЕРТИФИКАТА",
+      "district": "14. ОКРУГ, КОМАНДОВАНИЕ ИЛИ КОРПУС, КУДА ПЕРЕВЕДЁН РЕЗЕРВИСТ",
+      "reenlistmentCode": "15. КОД ПОВТОРНОГО ЗАЧИСЛЕНИЯ"
     },
     "serviceData": {
-      "title": "SERVICE DATA",
-      "terminalDate": "16. TERMINAL DATE OF RESERVE UMT&S OBLIGATION",
-      "currentService": "17. CURRENT ACTIVE SERVICE OTHER THAN BY INDUCTION (a. SOURCE OF ENTRY)",
-      "currentTerm": "TERM OF SERVICE",
-      "currentDateOfEntry": "c.    DATE OF ENTRY",
-      "priorEnlistments": "18. PRIOR REGULAR ENLISTMENTS",
-      "gradeRank": "19. GRADE, RATE OR RANK AT TIME OF ENTRY INTO CURRENT ACTIVE SVC",
-      "placeOfEntryCurrent": "20. PLACE OF ENTRY INTO CURRENT ACTIVE SERVICE (City and State)",
-      "homeRecord": "21. HOME OF RECORD AT TIME OF ENTRY INTO ACTIVE SERVICE (Street, RFD, City, Country and ZIP Code)",
-      "specialtyNumber": "23a. SPECIALTY NUMBER & TITLE",
-      "dotNumber": "b. RELATED CIVILIAN OCCUPATION AND D.O.T. NUMBER",
+      "title": "ДАННЫЕ ОБ СЛУЖБЕ",
+      "terminalDate": "16. ДАТА ОКОНЧАНИЯ РЕЗЕРВНЫХ ОБЯЗАТЕЛЬСТВ",
+      "currentService": "17. ТЕКУЩАЯ АКТИВНАЯ СЛУЖБА, НЕ ПО ПРИЗЫВУ (a. ИСТОЧНИК ПОСТУПЛЕНИЯ)",
+      "enlisted": "ПРИЗВАН",
+      "reenlisted": "ПОВТОРНО ЗАЧИСЛЕН",
+      "other": "ДРУГОЕ",
+      "currentTerm": "b. СРОК СЛУЖБЫ",
+      "currentDateOfEntry": "c.    ДАТА ПОСТУПЛЕНИЯ",
+      "priorEnlistments": "18. ПРЕДЫДУЩИЕ РЕГУЛЯРНЫЕ ЗАЧИСЛЕНИЯ",
+      "gradeRank": "19. ЗВАНИЕ ПРИ ПОСТУПЛЕНИИ",
+      "placeOfEntryCurrent": "20. МЕСТО ПОСТУПЛЕНИЯ НА ТЕКУЩУЮ СЛУЖБУ (Город и Штат)",
+      "homeRecord": "21. АДРЕС ПО МЕСТУ ЖИТЕЛЬСТВА ПРИ ПОСТУПЛЕНИИ (Улица, город, Штат, Индекс)",
+      "specialtyNumber": "23a. НОМЕР И НАЗВАНИЕ СПЕЦИАЛЬНОСТИ",
+      "dotNumber": "b. ГРАЖДАНСКАЯ ПРОФЕССИЯ И НОМЕР D.O.T",
       "statement": {
-        "title": "22.    STATEMENT OF SERVICE",
-        "creditable": "CREDITABLE FOR BASIC PAY PURPOSES",
-        "netService": "(1) NET SERVICE THIS PERIOD",
-        "other": "(2) OTHER SERVICE",
-        "total": "(3) TOTAL",
-        "totalActive": "b. TOTAL ACTIVE SERVICE",
-        "foreign": "c. FOREIGN AND/OR SEA SERVICE"
+        "title": "22.    СВЕДЕНИЯ О СЛУЖБЕ",
+        "creditable": "ЗАЧТЕНО К БАЗОВОЙ ОПЛАТЕ",
+        "netService": "(1) СРОК СЛУЖБЫ",
+        "other": "(2) ДРУГАЯ СЛУЖБА",
+        "total": "(3) ВСЕГО",
+        "totalActive": "b. ОБЩАЯ АКТИВНАЯ СЛУЖБА",
+        "foreign": "c. СЛУЖБА ЗА ГРАНИЦЕЙ И/ИЛИ НА МОРЕ"
       },
-      "rewards": "24. DECORATIONS, MEDALS, BADGES, COMMENDATIONS, CITATIONS AND COMPANION RIBBONS AWARDED ON AUTHORIZED",
-      "education": "25. EDUCATION AND TRAINING COMPLETED"
+      "rewards": "24. НАГРАДЫ, МЕДАЛИ, ЗНАКИ ОТЛИЧИЯ, БЛАГОДАРНОСТИ И КОМПАНЬОНСКИЕ ЛЕНТЫ",
+      "education": "25. ПРОЙДЕННОЕ ОБРАЗОВАНИЕ И ПОДГОТОВКА"
     },
     "vaServiceData": {
-      "title": "VA AND EMP.",
-      "title2": "SERVICE DATA",
-      "nonPay": "26a. NON-PAY PERIODS TIME LOST",
-      "nonPayDays": "b. DAYS ACCRUED LEAVE PAID",
-      "insurance": "27a. INSURANCE IN FORCE (TRICARE OR USGLI)",
-      "insuranceAmount": "b. AMOUNT OF ALLOTMENT",
-      "insuranceMonth": "c. MONTH ALLOTMENT DISCONTINUED",
-      "vaClaimNumber": "28. VA CLAIM NUMBER",
-      "servicemanGroup": "29. SERVICEMEN`S GROUP LIFE INSURANCE COVERAGE"
+      "title": "ДАННЫЕ ДЕПАРТАМЕНТА",
+      "title2": "ПО ДЕЛАМ ВЕТЕРАНОВ",
+      "nonPay": "26a. ПЕРИОДЫ БЕЗ ОПЛАТЫ",
+      "nonPayDays": "b. ОПЛАЧЕННЫЕ ДНИ ОТПУСКА",
+      "insurance": "27a. НАЛИЧИЕ СТРАХОВАНИЯ (TRICARE ИЛИ USGLI)",
+      "insuranceAmount": "b. СУММА УДЕРЖАНИЙ",
+      "insuranceMonth": "c. МЕСЯЦ ПРЕКРАЩЕНИЯ ВЫПЛАТ",
+      "vaClaimNumber": "28. НОМЕР ДЕЛА В ДЕПАРТАМЕНТЕ ВЕТЕРАНОВ",
+      "servicemanGroup": "29. СУММА СТРАХОВАНИЯ SGLI"
     },
     "remarks": {
-      "title": "REMARKS",
-      "input": "30. REMARKS"
+      "title": "ПРИМЕЧАНИЯ",
+      "input": "30. ПРИМЕЧАНИЯ"
     },
     "authentication": {
-      "title": "AUTHENTICATION",
-      "permanentAddress": "31. PERMANENT ADDRESS FOR MAILING PURPOSES AFTER TRANSFER OR DISCHARGE (Street, RFD, City, Country and ZIP Code)",
-      "signaturePerson": "32. SIGNATURE OF PERSON BEING TRANSFERRED OR DISCHARGED",
-      "authOfficer": "33. TYPED NAME, GRADE AND TITTLE OF AUTHORIZATING OFFICER",
-      "authOfficerSign": "34. SIGNATURE OF OFFICER TRANSFERRED TO SIGN"
+      "title": "ПОДТВЕРЖДЕНИЕ",
+      "permanentAddress": "31. ПОСТОЯННЫЙ АДРЕС ДЛЯ КОРРЕСПОНДЕНЦИИ ПОСЛЕ ПЕРЕВОДА ИЛИ УВОЛЬНЕНИЯ",
+      "signaturePerson": "32. ПОДПИСЬ ЛИЦА, ПОДЛЕЖАЩЕГО ПЕРЕВОДУ ИЛИ УВОЛЬНЕНИЮ",
+      "authOfficer": "33. Ф.И.О., ЗВАНИЕ И ДОЛЖНОСТЬ УПОЛНОМОЧЕННОГО ОФИЦЕРА",
+      "authOfficerSign": "34. ПОДПИСЬ ОФИЦЕРА, ОСУЩЕСТВИВШЕГО ПЕРЕВОД ИЛИ УВОЛЬНЕНИЕ"
     },
     "bottomSection": {
-      "form": "FORM",
-      "date": "1 JUL 77",
-      "previousEditions": "PREVIOUS EDITIONS OF THIS FORM",
-      "previousEditionsDate": "ARE OBSOLETE EFFECTIVE 1 JAN 78",
+      "form": "ФОРМА",
+      "date": "1 ИЮЛ 77",
+      "previousEditions": "ПРЕДЫДУЩИЕ РЕДАКЦИИ ФОРМЫ",
+      "previousEditionsDate": "УТРАТИЛИ СИЛУ С 1 ЯНВ 78",
       "gpo": "☆ GPO: 1 888-351-112",
-      "army": "ARMED FORCED OF THE UNITED STATES",
-      "reportOf": "REPORT OF TRANSFER OR DISCHARGE"
+      "army": "ВООРУЖЁННЫЕ СИЛЫ СОЕДИНЁННЫХ ШТАТОВ",
+      "reportOf": "ОТЧЁТ ОБ ПЕРЕВОДЕ ИЛИ УВОЛЬНЕНИИ"
     }
   }
 }
