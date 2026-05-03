@@ -89,7 +89,7 @@ export default function CharacterSheet({
         </div>
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
-            Copyright © 2023–2025{" "}
+            Copyright © 2023-2026{" "}
             <a href="https://github.com/maksim789456" aria-label="Autor github link">maksim789456</a>
             <br />
             {t("other.copyright")}
