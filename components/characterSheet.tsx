@@ -54,7 +54,7 @@ export default function CharacterSheet({
             <div className="col-span-2 relative">
               <RemarksSection />
               <div className="absolute bottom-0 -right-4 hidden lg:block">
-                <h1 className="font-dg-main text-xs text-center text-vertical text-dg/20 dark:text-neutral-200 select-none w-fit">
+                <h1 className="font-dg-main text-xs text-center text-vertical text-dg dark:text-neutral-200 select-none w-fit">
                   {t("other.pieceOfArt")}
                 </h1>
               </div>
@@ -90,7 +90,7 @@ export default function CharacterSheet({
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
             Copyright © 2023–2025{" "}
-            <a href="https://github.com/maksim789456">maksim789456</a>
+            <a href="https://github.com/maksim789456" aria-label="Autor github link">maksim789456</a>
             <br />
             {t("other.copyright")}
           </div>
