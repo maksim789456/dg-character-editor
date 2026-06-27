@@ -15,6 +15,10 @@ const pdfFiles = {
   old: {
     en: "Character_Sheet_ENG_Old.pdf",
     ru: "Character_Sheet_RUS_Old.pdf",
+  },
+  ussr: {
+    en: "Character_Sheet_ENG.pdf",
+    ru: "Character_Sheet_RUS_USSR.pdf"
   }
 } as any;
 

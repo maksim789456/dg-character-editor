@@ -13,7 +13,8 @@
         "pdfTheme": "PDF Theme:",
         "themes": {
           "white": "Classic",
-          "old": "As 'Old'"
+          "old": "As 'Old'",
+          "ussr": "GRU SV-8"
         }
       },
       "exportPdf": "Export PDF"

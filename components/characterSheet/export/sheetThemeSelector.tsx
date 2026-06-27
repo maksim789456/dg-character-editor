@@ -7,7 +7,7 @@ interface SheetThemeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
   setTheme: (theme: string) => void;
 }
 
-const themesIds = ["white", "old"];
+const themesIds = ["white", "old", "ussr"];
 
 const SheetThemeSelector: React.FC<SheetThemeSelectorProps> = ({
   theme,

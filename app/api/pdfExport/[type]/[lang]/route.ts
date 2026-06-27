@@ -20,15 +20,18 @@ const pdfFiles = {
   old: {
     en: "Character_Sheet_ENG_OLD.pdf",
     ru: "Character_Sheet_RUS_OLD.pdf",
+  },
+  ussr: {
+    en: "Character_Sheet_ENG.pdf",
+    ru: "Character_Sheet_RUS_USSR.pdf"
   }
 } as any;
 
 export async function POST(
   req: Request,
-  { params }: { params: { lang: string; type: string; } }
+  { params }: { params: Promise<{ type: string; lang: string; }> }
 ) {
-  const type = params.type;
-  const lang = params.lang;
+  const { type, lang } = await params;
   if (!pdfFiles[type]) {
     return NextResponse.json(
       { error: `Type ${type} don't supported` },
@@ -67,9 +70,13 @@ export async function POST(
       const form = pdfDoc.getForm();
 
       const setTextField = (fieldName: string, value?: string) => {
-        const field = form.getTextField(fieldName);
-        field.setText(value);
-        field.updateAppearances(openSansFont);
+        try {
+          const field = form.getTextField(fieldName);
+          field.setText(value);
+          field.updateAppearances(openSansFont);
+        } catch (error) {
+          console.warn(error);
+        }
       };
 
       fieldDescriptions(pdfForm, dgCharacter).forEach((description) => {
@@ -78,9 +85,13 @@ export async function POST(
             setTextField(description.fieldName, description.value.toString());
             break;
           case FieldType.Checkbox:
-            const checkbox = form.getCheckBox(description.fieldName);
-            if (description.value as boolean) checkbox.check();
-            else checkbox.uncheck();
+            try {
+              const checkbox = form.getCheckBox(description.fieldName);
+              if (description.value as boolean) checkbox.check();
+              else checkbox.uncheck();
+            } catch (error) {
+              console.warn(error);
+            }
             break;
         }
       });
