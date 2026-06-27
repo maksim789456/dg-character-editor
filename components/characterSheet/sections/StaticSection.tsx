@@ -26,8 +26,8 @@ const StaticSection: React.FC<StaticSectionProps> = ({
   const baseStatSum = useSelector(baseStatSumSelector);
   return (
     <Category name={t("categoryName")} {...props}>
-      <div className="grid grid-cols-1 grid-rows-5">
-        <div className="grid grid-cols-1 grid-rows-8 row-span-3">
+      <div className="grid grid-cols-1">
+        <div className="grid grid-cols-1 row-span-3">
           <div className="grid grid-cols-9">
             <TableItem
               className="col-span-3 tracking-tight"

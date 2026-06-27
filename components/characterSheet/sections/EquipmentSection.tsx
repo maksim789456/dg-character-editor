@@ -26,7 +26,7 @@ const EquipmentSection: React.FC<EquipmentSectionProps> = () => {
             {t("armorDescription")}
           </p>
         </div>
-        <div className="border-t border-dg dark:border-neutral-600 grid grid-rows-8">
+        <div className="border-t border-dg dark:border-neutral-600 grid">
           <div className="grid grid-cols-15">
             <TableItem
               className="col-span-3"

@@ -20,8 +20,8 @@ const PsychologicalSection: React.FC<PsychologicalSectionProps> = ({
   const t = useTranslations("characterSheet.psychologicalSection");
   return (
     <Category name={t("categoryName")} {...props}>
-      <div className="grid grid-cols-1 grid-rows-8 h-full">
-        <div className="grid grid-cols-1 row-span-3 grid-rows-7">
+      <div className="grid grid-cols-1 h-full">
+        <div className="grid grid-cols-1 row-span-3">
           <div className="grid grid-cols-9">
             <TableItem
               className="col-span-7 tracking-tighter"
