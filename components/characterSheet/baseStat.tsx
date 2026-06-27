@@ -10,10 +10,9 @@ import {
 import { baseStatSumSelector, makeBaseStatSelectorInstance } from "@/src/redux/selectors";
 import PropTypes from "prop-types";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
-  sectionLocale: any;
-
   title: string;
   name: string;
   disabled?: boolean;
@@ -44,7 +43,6 @@ const makeDispatchState = (dispatch: Dispatch, ownProps: BaseStatProps) => ({
 });
 
 const BaseStat: React.FC<BaseStatProps> = ({
-  sectionLocale,
   title,
   name,
   disabled,
@@ -53,6 +51,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
   description,
   onDescriptionChange,
 }) => {
+  const t = useTranslations('characterSheet.staticSection');
   const baseStatSumIsToBig = useSelector(baseStatSumSelector) > 72;
 
   return (
@@ -73,14 +72,14 @@ const BaseStat: React.FC<BaseStatProps> = ({
         ariaLabel={`${title} Value x5`}
         title={`${(score ?? 0) * 5}`}
         isHeader={true}
-        fontSize="text-base"
+        fontSize="text-base dark:text-neutral-200"
       />
       {(score ?? 0) < 9 || (score ?? 0) > 12 ? (
         <TableInput
           className="col-span-3"
           ariaLabel={`${title} Description`}
           disabled={disabled}
-          placeholder={sectionLocale?.statsDescriptionPlaceholder}
+          placeholder={t("statsDescriptionPlaceholder")}
           value={description ?? ""}
           onValueChange={(value) =>
             onDescriptionChange ? onDescriptionChange(value as string) : value
@@ -91,7 +90,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
           className="col-span-3"
           isHeader={true}
           fontSize="text-base"
-          title={sectionLocale?.bpStatMax}
+          title={t("bpStatMax")}
           ariaLabel={`${title} No Description`}
         />
       )}
@@ -100,7 +99,6 @@ const BaseStat: React.FC<BaseStatProps> = ({
 };
 
 BaseStat.propTypes = {
-  sectionLocale: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   disabled: PropTypes.bool,

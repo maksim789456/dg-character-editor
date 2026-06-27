@@ -3,15 +3,26 @@ import axios from "axios";
 import store from "@/src/store/store";
 
 interface ExportButtonProps extends React.HTMLAttributes<HTMLDivElement> {
+  type: string;
   lang: string;
 }
 
 const pdfFiles = {
-  en: "Character_Sheet_ENG.pdf",
-  ru: "Character_Sheet_RUS.pdf",
+  white: {
+    en: "Character_Sheet_ENG_White.pdf",
+    ru: "Character_Sheet_RUS_White.pdf",
+  },
+  old: {
+    en: "Character_Sheet_ENG_Old.pdf",
+    ru: "Character_Sheet_RUS_Old.pdf",
+  },
+  ussr: {
+    en: "Character_Sheet_ENG.pdf",
+    ru: "Character_Sheet_RUS_USSR.pdf"
+  }
 } as any;
 
-const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
+const ExportButton: React.FC<ExportButtonProps> = ({ type, lang, ...props }) => {
   const exportButton = async () => {
     const dgCharacter = store.getState().dgCharacter;
     const dgCharacterReduced = {
@@ -31,7 +42,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
     };
 
     axios
-      .post("api/pdfExport/" + lang, dgCharacterReduced, {
+      .post("api/pdfExport/" + type + '/' + lang, dgCharacterReduced, {
         responseType: "blob",
       })
       .then((blob) => {
@@ -40,7 +51,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
         downloadAnchorNode.setAttribute("href", url);
         downloadAnchorNode.setAttribute(
           "download",
-          dgCharacter.fullName + "_" + pdfFiles[lang].split(".")[0] + ".pdf"
+          dgCharacter.fullName + "_" + pdfFiles[type][lang].split(".")[0] + ".pdf"
         );
         document.body.appendChild(downloadAnchorNode);
         downloadAnchorNode.click();
@@ -51,7 +62,7 @@ const ExportButton: React.FC<ExportButtonProps> = ({ lang, ...props }) => {
   return (
     <div className="flex flex-row items-center justify-center">
       <button
-        className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
+        className="font-dg-main text-dg outline outline-dg dark:outline-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 rounded my-1 px-3 bg-blue-100"
         onClick={exportButton}
       >
         {props.children}

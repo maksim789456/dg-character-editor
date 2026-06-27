@@ -3,14 +3,16 @@
 import CharactersList from "@/components/characters/charactersList";
 import ReduxProvider from "@/components/reduxProvider";
 
-export default function CharactersListPage({
+export default async function CharactersListPage({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
+  const { lang } = await params;
+
   return (
     <ReduxProvider>
-      <CharactersList lang={params.lang} />
+      <CharactersList lang={lang} />
     </ReduxProvider>
   );
 }

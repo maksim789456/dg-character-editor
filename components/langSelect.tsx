@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { GB, RU } from "country-flag-icons/react/1x1";
+import { RU, US } from "country-flag-icons/react/1x1";
 import clsx from "clsx";
 import Link from "next/link";
 
@@ -10,8 +10,8 @@ interface LangSelectProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const LangSelect: React.FC<LangSelectProps> = ({ lang, id, ...props }) => {
   const langs = [
-    { id: "en", icon: <GB className="w-7 h-5" /> },
-    { id: "ru", icon: <RU className="w-7 h-5" /> },
+    { id: "en", icon: <US className="w-7 h-5" aria-label="US flag" /> },
+    { id: "ru", icon: <RU className="w-7 h-5" aria-label="RU flag" /> },
   ];
 
   return (

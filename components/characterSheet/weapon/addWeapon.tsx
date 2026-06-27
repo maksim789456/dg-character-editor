@@ -1,12 +1,11 @@
 import { addWeapon } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import PropTypes from "prop-types";
+import { useTranslations } from "next-intl";
 
-interface AddWeaponProps extends React.HTMLAttributes<HTMLDivElement> {
-  sectionLocale: any;
-}
+interface AddWeaponProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const AddWeapon: React.FC<AddWeaponProps> = ({ sectionLocale }) => {
+const AddWeapon: React.FC<AddWeaponProps> = () => {
+  const t = useTranslations("characterSheet.equipmentSection");
   const canAdd = useAppSelector(
     (state) => state.dgCharacter.weapons.length !== 7
   );
@@ -15,19 +14,15 @@ const AddWeapon: React.FC<AddWeaponProps> = ({ sectionLocale }) => {
   return canAdd ? (
     <div className="border-b border-dg flex items-center justify-center">
       <button
-        className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100"
+        className="font-dg-main text-dg outline outline-dg rounded my-1 px-3 bg-blue-100 dark:outline-neutral-700 dark:bg-neutral-800 dark:text-neutral-200"
         onClick={() => dispatch(addWeapon())}
       >
-        {sectionLocale?.addWeapon}
+        {t("addWeapon")}
       </button>
     </div>
   ) : (
     <></>
   );
-};
-
-AddWeapon.propTypes = {
-  sectionLocale: PropTypes.any.isRequired,
 };
 
 export default AddWeapon;

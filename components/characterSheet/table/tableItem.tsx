@@ -20,7 +20,7 @@ const TableItem: React.FC<TableItemProps> = ({
   return (
     <div
       className={clsx(
-        "border-b border-r border-dg last:border-r-0 w-full h-full",
+        "border-b border-r border-dg dark:border-neutral-600 last:border-r-0 w-full h-full",
         props.className || ""
       )}
     >
@@ -32,7 +32,7 @@ const TableItem: React.FC<TableItemProps> = ({
       >
         <div
           className={
-            "font-dg-main " +
+            "font-dg-main dark:text-neutral-200 " +
             (center || false ? "text-center " : " ") +
             (fontSize || false ? fontSize : "text-xs")
           }

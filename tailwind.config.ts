@@ -7,6 +7,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     colors: {
       transparent: "transparent",
@@ -14,6 +15,8 @@ const config: Config = {
       black: colors.black,
       white: colors.white,
       gray: colors.gray,
+      zinc: colors.zinc,
+      neutral: colors.neutral,
       emerald: colors.emerald,
       indigo: colors.indigo,
       yellow: colors.yellow,
@@ -25,8 +28,16 @@ const config: Config = {
       fontFamily: {
         "dg-main": "var(--font-jost)",
       },
+      gridTemplateRows: {
+        "10": "repeat(10, minmax(0, 1fr))",
+      },
       gridTemplateColumns: {
+        "14": "repeat(14, minmax(0, 1fr))",
         "15": "repeat(15, minmax(0, 1fr))",
+      },
+      screens: {
+        'sm': '660px',
+        'lg': '1000px',
       },
     },
   },

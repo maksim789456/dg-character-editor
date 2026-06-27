@@ -15,6 +15,6 @@ const pdfFieldsDictionary = {
   "ru": () => import('./pdf/ru.json').then((module) => module.default),
 } as any;
 
-export const getLocaleDictionary = async (locale: string) => localeDictionary[locale]()
-export const getSkillsDictionary = async (locale: string) => skillsDictionary[locale]()
-export const getPdfFieldsDictionary = async (locale: string) => pdfFieldsDictionary[locale]()
+export const getLocaleDictionary = async (locale: string) => await localeDictionary[locale]()
+export const getSkillsDictionary = async (locale: string) => await skillsDictionary[locale]()
+export const getPdfFieldsDictionary = async (locale: string) => await pdfFieldsDictionary[locale]()

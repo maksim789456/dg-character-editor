@@ -4,56 +4,55 @@ import React from "react";
 import Category from "../category";
 import GenderInput from "../genderInput";
 import TextInput from "../textInput";
+import { useTranslations } from "next-intl";
 
-interface PersonalSectionProps extends React.HTMLAttributes<HTMLDivElement> {
-  sectionLocale: any;
-}
+interface PersonalSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const PersonalSection: React.FC<PersonalSectionProps> = ({
-  sectionLocale,
   ...props
 }) => {
+  const t = useTranslations('characterSheet.personalSection');
   return (
     <Category
       className="col-span-2"
-      name={sectionLocale?.categoryName}
+      name={t("categoryName")}
       {...props}
     >
       <div className="grid grid-cols-5">
         <TextInput
           className="col-span-3"
-          title={sectionLocale?.fullName}
+          title={t("fullName")}
           name="fullName"
         />
         <TextInput
           className="col-span-2"
-          title={sectionLocale?.profession}
+          title={t("profession")}
           name="profession"
         />
         <TextInput
           className="col-span-3"
-          title={sectionLocale?.employer}
+          title={t("employer")}
           name="employer"
         />
         <TextInput
           className="col-span-2"
-          title={sectionLocale?.nationality}
+          title={t("nationality")}
           name="nationality"
         />
         <GenderInput
           className="col-span-1"
-          title={sectionLocale?.gender}
-          mTitle={sectionLocale?.genderM}
-          fTitle={sectionLocale?.genderF}
+          title={t("gender")}
+          mTitle={t("genderM")}
+          fTitle={t("genderF")}
         />
         <TextInput
           className="col-span-1"
-          title={sectionLocale?.age}
+          title={t("age")}
           name="age"
         />
         <TextInput
           className="col-span-3"
-          title={sectionLocale?.education}
+          title={t("education")}
           name="education"
         />
       </div>
