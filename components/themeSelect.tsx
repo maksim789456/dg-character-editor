@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { ThemeContext } from "@/app/contexts/themeContext";
+import { Theme, ThemeContext } from "@/app/contexts/themeContext";
 import { useContext } from "react";
 
 interface LangSelectProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const ThemeSelect: React.FC<LangSelectProps> = ({ ...props }) => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext)!;
   const themes = [
     {
-      id: "light",
+      id: "light" as Theme,
       icon: (
         <svg
           className="w-5 h-5 text-white dark:text-neutral-200"
@@ -22,7 +22,7 @@ const ThemeSelect: React.FC<LangSelectProps> = ({ ...props }) => {
       ),
     },
     {
-      id: "dark",
+      id: "dark" as Theme,
       icon: (
         <svg
           className="w-5 h-5 text-white dark:text-neutral-200"

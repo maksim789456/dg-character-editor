@@ -29,7 +29,7 @@ export default function CharacterSheet({
     <main
       id="dgCharacter"
       role="main"
-      className="min-h-screen px-0 py-1 bg-white dark:bg-neutral-900 min-w-max sm:flex sm:flex-col sm:items-center sm:justify-between lg:px-24"
+      className="min-h-screen px-0 py-1 bg-white dark:bg-neutral-900 min-w-max sm:flex sm:flex-col sm:items-center sm:justify-between"
     >
       <div className="w-[40rem] md:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
@@ -90,7 +90,12 @@ export default function CharacterSheet({
         <div className="col-span-2 flex flex-row items-center justify-center px-16 py-3">
           <div className="font-dg-main text-dg dark:text-neutral-200 text-sm text-center">
             Copyright © 2023-2026{" "}
-            <a href="https://github.com/maksim789456" aria-label="Autor github link">maksim789456</a>
+            <a
+              href="https://github.com/maksim789456"
+              aria-label="Autor github link"
+            >
+              maksim789456
+            </a>
             <br />
             {t("other.copyright")}
           </div>
@@ -98,7 +103,7 @@ export default function CharacterSheet({
         <div
           className={clsx(
             "col-span-2 flex flex-row items-center justify-center",
-            process.env.NODE_ENV === "production" && "hidden"
+            process.env.NODE_ENV === "production" && "hidden",
           )}
         >
           <p className="font-dg-main text-dg dark:text-neutral-200 pr-3">
