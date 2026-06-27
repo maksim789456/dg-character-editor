@@ -6,14 +6,15 @@ import {
 export default async function CharacterSheetPage({
   params,
 }: {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
-  const skillsDict = await getSkillsDictionary(params.lang);
+  const { lang } = await params;
+  const skillsDict = await getSkillsDictionary(lang);
 
   return (
     <>
       <CharacterSheet
-        lang={params.lang}
+        lang={lang}
         skillsDict={skillsDict}
       />
     </>
