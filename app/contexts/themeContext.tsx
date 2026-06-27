@@ -1,40 +1,49 @@
 "use client";
-import { useState, useEffect, createContext } from "react";
 
-const useThemeStorage = (
-  key: string = "color-theme",
-  initialValue: string = "light"
-) => {
-  const [theme, setTheme] = useState(() => {
-    if (typeof window === "undefined") return initialValue;
-    const persistedValue = localStorage.getItem(key);
-    const userMedia = window.matchMedia("(prefers-color-scheme: dark)").matches;
+import { useState, useEffect, createContext, ReactNode } from "react";
 
-    return persistedValue !== null
-      ? persistedValue
-      : userMedia
-      ? "dark"
-      : initialValue;
-  });
+export type Theme = "light" | "dark";
 
-  useEffect(() => {
-    localStorage.setItem(key, theme);
-  }, [key, theme]);
-
-  return [theme, setTheme];
+type ThemeContextType = {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
 };
 
-export const ThemeContext = createContext(undefined as any);
+export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-export const ThemeProvider = ({ children }: any) => {
-  const [theme, setTheme] = useThemeStorage();
+export const ThemeProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
+  const [mounted, setMounted] = useState(false);
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
+    const stored = localStorage.getItem("color-theme") as Theme;
+
+    if (stored === "light" || stored === "dark") {
+      setTheme(stored);
+    } else {
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+
+      setTheme(prefersDark ? "dark" : "light");
+    }
+
+    setMounted(true);
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return;
     const root = window.document.documentElement;
 
     root.classList.remove(theme === "dark" ? "light" : "dark");
     root.classList.add(theme as string);
-  }, [theme]);
+
+    localStorage.setItem("color-theme", theme);
+  }, [theme, mounted]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
