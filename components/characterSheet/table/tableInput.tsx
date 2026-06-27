@@ -97,7 +97,7 @@ const TableInput: React.FC<TableInputProps> = ({
           aria-label={`${ariaLabel} Select`}
           disabled={disabled}
           className={`w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main tracking-tight text-dg dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${inputClassName ?? ""}`}
-          placeholder={placeholder}
+          // placeholder={placeholder}
           value={value ?? ""}
           onChange={onSelectChange}
         >

@@ -169,7 +169,8 @@ export async function POST(
       headers.set("Content-Type", "application/pdf");
       headers.set("Content-Transfer-Encoding", "binary");
       headers.set("Content-Disposition", "attachment; filename=" + pdfFilename);
-      return new NextResponse(resultBytes, {
+      headers.set('Content-Length', resultBytes.length.toString());
+      return new NextResponse(resultBytes as unknown as BodyInit, {
         status: 200,
         headers,
       });

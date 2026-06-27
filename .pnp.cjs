@@ -33,6 +33,7 @@ const RAW_RUNTIME_STATE =
           ["@reduxjs/toolkit", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:1.9.7"],\
           ["@types/negotiator", "npm:0.6.4"],\
           ["@types/node", "npm:20.19.43"],\
+          ["@types/prop-types", "npm:15.7.15"],\
           ["@types/react", "npm:18.3.31"],\
           ["@types/react-dom", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:18.3.7"],\
           ["@vercel/speed-insights", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:1.3.1"],\
@@ -2204,6 +2205,7 @@ const RAW_RUNTIME_STATE =
           ["@reduxjs/toolkit", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:1.9.7"],\
           ["@types/negotiator", "npm:0.6.4"],\
           ["@types/node", "npm:20.19.43"],\
+          ["@types/prop-types", "npm:15.7.15"],\
           ["@types/react", "npm:18.3.31"],\
           ["@types/react-dom", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:18.3.7"],\
           ["@vercel/speed-insights", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:1.3.1"],\
