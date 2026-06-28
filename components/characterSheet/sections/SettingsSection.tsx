@@ -9,12 +9,10 @@ import { useTranslations } from "next-intl";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
-  id: string;
 }
 
 const SettingsSection: React.FC<SettingsSectionProps> = ({
   lang,
-  id,
   ...props
 }) => {
   const t = useTranslations('characterSheet.settingsSection');
@@ -53,7 +51,7 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
           <ThemeSelect />
         </div>
         <div className="bg-dg/90 dark:bg-neutral-800 rounded p-1.5">
-          <LangSelect lang={lang} id={id} />
+          <LangSelect lang={lang} />
         </div>
       </div>
     </div>

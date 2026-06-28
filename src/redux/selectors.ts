@@ -48,3 +48,6 @@ export const baseStatSumSelector = (state: RootState) =>
  */
 export const selectCharactersIds = (state: RootState) =>
   Object.keys(state.characters).filter((id) => id !== "_persist");
+
+export const selectCurrentCharacterId = (state: RootState) =>
+  state.activeCharacterId
