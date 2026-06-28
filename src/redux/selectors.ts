@@ -47,4 +47,4 @@ export const baseStatSumSelector = (state: RootState) =>
  * @returns Array of uuids as string
  */
 export const selectCharactersIds = (state: RootState) =>
-  Array.from(Object.keys(state.characters as any).slice(0, -1));
+  Object.keys(state.characters).filter((id) => id !== "_persist");
