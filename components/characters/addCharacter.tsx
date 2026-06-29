@@ -13,7 +13,7 @@ const AddCharacter: React.FC<AddCharacterProps> = ({ lang, addText, className })
   const dispatch = useAppDispatch();
 
   const onAddClick = () => {
-    let characterId = dispatch(createCharacter("")).payload;
+    const characterId = dispatch(createCharacter()).payload;
     router.push(`/${lang}/${characterId}`)
   }
 

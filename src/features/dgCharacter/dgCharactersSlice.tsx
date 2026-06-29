@@ -1,5 +1,8 @@
 import { Dictionary, PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { initialState as defaultDgCharacter } from "./dgCharacterSlice";
+import dgCharacterReducer, {
+  createDefaultDgCharacter,
+} from "./dgCharacterSlice";
 import { v4 } from "uuid";
 import { DgCharacter } from "@/src/model/character";
 
@@ -9,13 +12,14 @@ export const dgCharactersSlice = createSlice({
   name: "characters",
   initialState,
   reducers: {
-    createCharacter: (
-      state: Dictionary<DgCharacter>,
-      action: PayloadAction<string>
-    ) => {
-      let uuid = v4();
-      state[uuid] = defaultDgCharacter;
-      action.payload = uuid;
+    createCharacter: {
+      reducer: (
+        state: Dictionary<DgCharacter>,
+        action: PayloadAction<string>
+      ) => {
+        state[action.payload] = createDefaultDgCharacter();
+      },
+      prepare: () => ({ payload: v4() }),
     },
     deleteCharacter: (
       state: Dictionary<DgCharacter>,

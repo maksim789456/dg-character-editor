@@ -90,6 +90,11 @@ export const initialState = {
   writable: true
 } as DgCharacter;
 
+export const createDefaultDgCharacter = (): DgCharacter =>
+  typeof structuredClone === "function"
+    ? structuredClone(initialState)
+    : JSON.parse(JSON.stringify(initialState));
+
 export interface SetReducerProps {
   field: string;
   value: any;
@@ -241,7 +246,7 @@ export const dgCharacterSlice = createSlice({
       }
       return state;
     },
-    clear: () => initialState,
+    clear: () => createDefaultDgCharacter(),
   },
 });
 
