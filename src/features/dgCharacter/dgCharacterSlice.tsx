@@ -10,13 +10,14 @@ import {
 } from "@/src/model/character";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  fullName: "",
-  profession: "",
+export const initialState = {
+  fullName: "Энрик Кэмпбелл",
+  profession: "Маршал",
   employer: "",
   nationality: "",
 
   gender: DgGender.None,
+  customGender: "",
   age: "",
   education: "",
 
@@ -86,7 +87,13 @@ const initialState = {
   specialTrainings: [] as DgCharacterSpecialTraining[],
 
   editMode: true,
+  writable: true
 } as DgCharacter;
+
+export const createDefaultDgCharacter = (): DgCharacter =>
+  typeof structuredClone === "function"
+    ? structuredClone(initialState)
+    : JSON.parse(JSON.stringify(initialState));
 
 export interface SetReducerProps {
   field: string;
@@ -239,7 +246,7 @@ export const dgCharacterSlice = createSlice({
       }
       return state;
     },
-    clear: () => initialState,
+    clear: () => createDefaultDgCharacter(),
   },
 });
 

@@ -40,3 +40,14 @@ export const baseStatSumSelector = (state: RootState) =>
   state.dgCharacter.stats.int.score +
   state.dgCharacter.stats.pow.score +
   state.dgCharacter.stats.cha.score;
+
+/**
+ * Selector for select all characters uuids
+ * @param state Redux state
+ * @returns Array of uuids as string
+ */
+export const selectCharactersIds = (state: RootState) =>
+  Object.keys(state.characters).filter((id) => id !== "_persist");
+
+export const selectCurrentCharacterId = (state: RootState) =>
+  state.activeCharacterId

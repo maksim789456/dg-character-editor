@@ -36,6 +36,7 @@ const RAW_RUNTIME_STATE =
           ["@types/prop-types", "npm:15.7.15"],\
           ["@types/react", "npm:18.3.31"],\
           ["@types/react-dom", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:18.3.7"],\
+          ["@types/uuid", "npm:9.0.8"],\
           ["@vercel/speed-insights", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:1.3.1"],\
           ["autoprefixer", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:10.5.2"],\
           ["axios", "npm:1.18.1"],\
@@ -54,8 +55,10 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:18.3.1"],\
           ["react-redux", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:8.1.3"],\
           ["redux", "npm:4.2.1"],\
+          ["redux-persist", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:6.0.0"],\
           ["tailwindcss", "npm:3.4.19"],\
-          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -950,6 +953,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/@types-use-sync-external-store-npm-0.0.3-875a91a914-10c0.zip/node_modules/@types/use-sync-external-store/",\
         "packageDependencies": [\
           ["@types/use-sync-external-store", "npm:0.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@types/uuid", [\
+      ["npm:9.0.8", {\
+        "packageLocation": "../../.yarn/berry/cache/@types-uuid-npm-9.0.8-3eeeaa5abb-10c0.zip/node_modules/@types/uuid/",\
+        "packageDependencies": [\
+          ["@types/uuid", "npm:9.0.8"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2208,6 +2220,7 @@ const RAW_RUNTIME_STATE =
           ["@types/prop-types", "npm:15.7.15"],\
           ["@types/react", "npm:18.3.31"],\
           ["@types/react-dom", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:18.3.7"],\
+          ["@types/uuid", "npm:9.0.8"],\
           ["@vercel/speed-insights", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:1.3.1"],\
           ["autoprefixer", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:10.5.2"],\
           ["axios", "npm:1.18.1"],\
@@ -2226,8 +2239,10 @@ const RAW_RUNTIME_STATE =
           ["react-dom", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:18.3.1"],\
           ["react-redux", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:8.1.3"],\
           ["redux", "npm:4.2.1"],\
+          ["redux-persist", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:6.0.0"],\
           ["tailwindcss", "npm:3.4.19"],\
-          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"]\
+          ["typescript", "patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"],\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -5087,6 +5102,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["redux-persist", [\
+      ["npm:6.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/redux-persist-npm-6.0.0-56dad69feb-10c0.zip/node_modules/redux-persist/",\
+        "packageDependencies": [\
+          ["redux-persist", "npm:6.0.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:6.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/redux-persist-virtual-d3f833e18c/3/.yarn/berry/cache/redux-persist-npm-6.0.0-56dad69feb-10c0.zip/node_modules/redux-persist/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:18.3.31"],\
+          ["@types/redux", null],\
+          ["react", "npm:18.3.1"],\
+          ["redux", "npm:4.2.1"],\
+          ["redux-persist", "virtual:bf691dcbded4246baecdf69ea36210b454f828e42f33937a7e5d79425b5d949b3771e2cb7a4ab2c5ddf07e49dddf409737a0207fc468ae6d897afb5b07930567#npm:6.0.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "@types/redux",\
+          "react",\
+          "redux"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["redux-thunk", [\
       ["npm:2.4.2", {\
         "packageLocation": "../../.yarn/berry/cache/redux-thunk-npm-2.4.2-3acdaaf7b0-10c0.zip/node_modules/redux-thunk/",\
@@ -6118,6 +6159,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../.yarn/berry/cache/util-deprecate-npm-1.0.2-e3fe1a219c-10c0.zip/node_modules/util-deprecate/",\
         "packageDependencies": [\
           ["util-deprecate", "npm:1.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["uuid", [\
+      ["npm:9.0.1", {\
+        "packageLocation": "../../.yarn/berry/cache/uuid-npm-9.0.1-39a8442bc6-10c0.zip/node_modules/uuid/",\
+        "packageDependencies": [\
+          ["uuid", "npm:9.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
