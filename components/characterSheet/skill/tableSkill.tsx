@@ -77,7 +77,7 @@ const TableSkill = memo(function TableSkillInternal({
         <div className="flex items-center justify-center">
           <input
             name={`${skill.id}Damaged`}
-            aria-label={`${skill.name} Skill Check Failed`}
+            aria-label={`${skillName} Skill Check Failed`}
             type="checkbox"
             className="w-4 h-4"
             checked={skill.damaged ?? false}
@@ -88,7 +88,7 @@ const TableSkill = memo(function TableSkillInternal({
       <p className="font-dg-main text-dg dark:text-neutral-200 text-sm col-span-9 py-1.5 flex items-center">{`${skillName} (${skill.baseSkillRate}%)`}</p>
       <input
         name={`${skill.id}Rate`}
-        aria-label={`${skill.name} Skill Rate`}
+        aria-label={`${skillName} Skill Rate`}
         type="text"
         inputMode="numeric"
         pattern="[0-9]*"
@@ -103,7 +103,7 @@ const TableSkill = memo(function TableSkillInternal({
       {skill.isTypal ? (
         <select
           name={`${skill.id}TypalSelect`}
-          aria-label={`${skill.name} Type Select`}
+          aria-label={`${skillName} Type Select`}
           className="w-full h-full bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 col-span-10 py-1.5 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
           disabled={disabled}
           value={skill.type ?? ""}
