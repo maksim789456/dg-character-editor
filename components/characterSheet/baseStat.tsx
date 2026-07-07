@@ -15,7 +15,7 @@ import { useTranslations } from "next-intl";
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   name: string;
-  disabled?: boolean;
+  playMode?: boolean;
 
   score?: number;
   onScoreChange?: (score: number) => void;
@@ -28,9 +28,9 @@ const makeMapState = (_: RootState, ownProps: BaseStatProps) => {
   return function realMapState(state: RootState) {
     const baseStat = baseStatSelector(state);
     return {
-      score: baseStat.score,
-      description: baseStat.description,
-      disabled: !state.dgCharacter.editMode,
+      score: baseStat.score ?? 0,
+      description: baseStat.description ?? "",
+      playMode: !state.dgCharacter.editMode,
     };
   };
 };
@@ -45,7 +45,7 @@ const makeDispatchState = (dispatch: Dispatch, ownProps: BaseStatProps) => ({
 const BaseStat: React.FC<BaseStatProps> = ({
   title,
   name,
-  disabled,
+  playMode,
   score,
   onScoreChange,
   description,
@@ -54,6 +54,9 @@ const BaseStat: React.FC<BaseStatProps> = ({
   const t = useTranslations('characterSheet.staticSection');
   const baseStatSumIsToBig = useSelector(baseStatSumSelector) > 72;
 
+  const scoreOutOfRange = score! < 9 || score! > 12;
+  const hasDescription = description!.trim() !== "";
+
   return (
     <div className="grid grid-cols-9">
       <TableItem className="col-span-3" title={title} />
@@ -61,7 +64,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
         className={clsx("col-span-2")}
         ariaLabel={`${title} Value`}
         inputClassName={clsx(baseStatSumIsToBig && "bg-yellow-100")}
-        disabled={disabled}
+        disabled={playMode}
         value={score}
         isNumber={true}
         onValueChange={(value) => {
@@ -70,15 +73,15 @@ const BaseStat: React.FC<BaseStatProps> = ({
       />
       <TableItem
         ariaLabel={`${title} Value x5`}
-        title={`${(score ?? 0) * 5}`}
+        title={`${score! * 5}`}
         isHeader={true}
         fontSize="text-base dark:text-neutral-200"
       />
-      {(score ?? 0) < 9 || (score ?? 0) > 12 ? (
+      {!playMode && scoreOutOfRange || hasDescription ? (
         <TableInput
           className="col-span-3"
           ariaLabel={`${title} Description`}
-          disabled={disabled}
+          disabled={playMode}
           placeholder={t("statsDescriptionPlaceholder")}
           value={description ?? ""}
           onValueChange={(value) =>
@@ -101,8 +104,8 @@ const BaseStat: React.FC<BaseStatProps> = ({
 BaseStat.propTypes = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  score: PropTypes.number,
+  playMode: PropTypes.bool,
+  score: PropTypes.number.isRequired,
   onScoreChange: PropTypes.func,
   description: PropTypes.string,
   onDescriptionChange: PropTypes.func,
