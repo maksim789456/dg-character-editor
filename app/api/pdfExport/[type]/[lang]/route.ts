@@ -119,7 +119,8 @@ export async function POST(
           const typalSkill = typalSkillVariants[skill.id].find(
             (typal: any) => typal.id == skill.type
           );
-          setTextField(skillDescription.typalFormName, typalSkill.name);
+          if (typalSkill)
+            setTextField(skillDescription.typalFormName, typalSkill.name);
         }
         if (skill.isOther) {
           if (skill.isForeignLanguage) {
