@@ -15,7 +15,7 @@ import DownloadJsonButton from "./characterSheet/export/downloadJsonButton";
 import ThemeProvider from "@/app/contexts/themeContext";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
-import { Toaster, toast, useSonner } from "sonner";
+import RollToaster from "./characterSheet/roll/toaster";
 
 export default function CharacterSheet({
   lang,
@@ -25,13 +25,6 @@ export default function CharacterSheet({
   skillsDict: any;
 }) {
   const t = useTranslations("characterSheet");
-  const { toasts } = useSonner();
-
-  const onRemoveToastsClick = (e: React.MouseEvent<any>) => {
-    function removeAllToasts() {
-      toasts.forEach((t) => toast.dismiss(t.id));
-    }
-  };
 
   return (
     <main
@@ -39,7 +32,7 @@ export default function CharacterSheet({
       role="main"
       className="min-h-screen px-0 py-1 bg-white dark:bg-neutral-900 min-w-max sm:flex sm:flex-col sm:items-center sm:justify-between"
     >
-      <Toaster position="bottom-left" expand={true} visibleToasts={5}/>
+      <RollToaster />
       <div className="w-[40rem] md:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
           <ThemeProvider>
