@@ -1,6 +1,7 @@
 "use client";
 
-import { editSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
+import Dices from "@/components/icons/dices";
+import { editSkill, rollSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppSelector } from "@/src/redux/hooks";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
@@ -61,6 +62,17 @@ const TableSkill = memo(function TableSkillInternal({
     );
   };
 
+  const onSkillRolled = (e: React.MouseEvent<any>) => {
+    if (disabled) {
+      dispatch(
+        rollSkill({
+          skillId,
+          skillName
+        })
+      );
+    }
+  }
+
   return (
     <div
       className={clsx(
@@ -90,22 +102,33 @@ const TableSkill = memo(function TableSkillInternal({
       <p className={clsx("font-dg-main text-dg dark:text-neutral-200 text-sm col-span-9 py-1.5 flex items-center", disabled && "!col-span-8")}>
         {`${skillName} (${skill.baseSkillRate}%)`}
       </p>
-      <input
-        name={`${skill.id}Rate`}
-        aria-label={`${skillName} Skill Rate`}
-        type="text"
-        inputMode="numeric"
-        pattern="[0-9]*"
-        disabled={disabled}
-        value={skill.characterSkillRate ?? skill.baseSkillRate}
-        onChange={onCharacterSkillRateInputChange}
+      <div
         className={clsx(
-          "w-full h-ful text-center dark:text-neutral-200 col-span-2 row-span-2 border-l border-dg dark:border-neutral-800",
-          "disabled:bg-white dark:disabled:bg-neutral-900",
-          (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-800"),
-          disabled && "!col-span-3"
+          "w-full h-full col-span-2 row-span-2",
+          "border-l border-dg dark:border-neutral-800",
+          "flex flex-row gap-0.5 items-center",
+          disabled && "pr-1 !col-span-3 cursor-pointer"
         )}
-      ></input>
+      >
+        <input
+          name={`${skill.id}Rate`}
+          aria-label={`${skillName} Skill Rate`}
+          type="text"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          disabled={disabled}
+          value={skill.characterSkillRate ?? skill.baseSkillRate}
+          onChange={onCharacterSkillRateInputChange}
+          onClick={onSkillRolled}
+          className={clsx(
+            "w-full h-full text-center dark:text-neutral-200",
+            "disabled:bg-white dark:disabled:bg-neutral-900",
+            (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-800"),
+            disabled && "cursor-pointer"
+          )}
+        ></input>
+        {disabled ? <Dices onClick={onSkillRolled}/> : <></>}
+      </div>
       {(!disabled && skill.isTypal) ? (
         <select
           name={`${skill.id}TypalSelect`}

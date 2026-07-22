@@ -124,6 +124,7 @@
     },
     "rollToast": {
       "roll": "Roll of",
+      "skill": "skill",
       "critical": "Crit",
       "success": "success",
       "fail": "failure"
