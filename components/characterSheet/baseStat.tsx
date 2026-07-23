@@ -4,6 +4,7 @@ import TableItem from "./table/tableItem";
 import { RootState } from "@/src/store/store";
 import { Dispatch } from "@reduxjs/toolkit";
 import {
+  rollStat,
   setBaseStat,
   setBaseStatDescription,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
@@ -11,6 +12,8 @@ import { baseStatSumSelector, makeBaseStatSelectorInstance } from "@/src/redux/s
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import Dices from "../icons/dices";
+import { useAppDispatch } from "@/src/redux/hooks";
 
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -53,12 +56,19 @@ const BaseStat: React.FC<BaseStatProps> = ({
 }) => {
   const t = useTranslations('characterSheet.staticSection');
   const baseStatSumIsToBig = useSelector(baseStatSumSelector) > 72;
+  const dispatch = useAppDispatch();
 
   const scoreOutOfRange = score! < 9 || score! > 12;
   const hasDescription = description!.trim() !== "";
 
+  const onSkillRolled = (e: React.MouseEvent<any>) => {
+    if (playMode) {
+      dispatch(rollStat(name));
+    }
+  }
+
   return (
-    <div className="grid grid-cols-9">
+    <div className="grid grid-cols-10">
       <TableItem className="col-span-3" title={title} />
       <TableInput
         className={clsx("col-span-2")}
@@ -71,12 +81,20 @@ const BaseStat: React.FC<BaseStatProps> = ({
           onScoreChange ? onScoreChange(value as number) : value;
         }}
       />
-      <TableItem
-        ariaLabel={`${title} Value x5`}
-        title={`${score! * 5}`}
-        isHeader={true}
-        fontSize="text-base dark:text-neutral-200"
-      />
+      <div className={clsx(
+        "col-span-2 flex flex-row gap-1 items-center",
+        "border-r border-b border-dg dark:border-neutral-800",
+        playMode && "pr-1 cursor-pointer"
+      )}>
+        <TableItem
+          className="!border-0"
+          ariaLabel={`${title} Value x5`}
+          title={`${score! * 5}`}
+          isHeader={true}
+          fontSize="text-base dark:text-neutral-200"
+        />
+        {playMode ? <Dices onClick={onSkillRolled} /> : <></>}
+      </div>
       {!playMode && scoreOutOfRange || hasDescription ? (
         <TableInput
           className="col-span-3"

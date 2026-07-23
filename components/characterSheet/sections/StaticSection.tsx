@@ -16,7 +16,7 @@ import TextInput from "../textInput";
 import { useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
 
-interface StaticSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface StaticSectionProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 const StaticSection: React.FC<StaticSectionProps> = ({
   ...props
@@ -28,7 +28,7 @@ const StaticSection: React.FC<StaticSectionProps> = ({
     <Category name={t("categoryName")} {...props}>
       <div className="grid grid-cols-1">
         <div className="grid grid-cols-1 row-span-3">
-          <div className="grid grid-cols-9">
+          <div className="grid grid-cols-10">
             <TableItem
               className="col-span-3 tracking-tight"
               title={t("stats")}
@@ -39,7 +39,11 @@ const StaticSection: React.FC<StaticSectionProps> = ({
               title={t("statsValue")}
               isHeader={true}
             />
-            <TableItem title={t("statsValueX5")} isHeader={true} />
+            <TableItem
+              className="col-span-2"
+              title={t("statsValueX5")}
+              isHeader={true}
+            />
             <TableItem
               className="col-span-3"
               title={t("statsDescription")}
