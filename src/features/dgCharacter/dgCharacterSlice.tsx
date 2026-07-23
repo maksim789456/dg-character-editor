@@ -7,6 +7,7 @@ import {
   DgCharacterWeapon,
   DgCharacterSpecialTraining,
   DgGender,
+  DgRollResult,
 } from "@/src/model/character";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { rollDgStat } from "./diceRolling";
@@ -254,6 +255,9 @@ export const dgCharacterSlice = createSlice({
       const skill = state.skills.find(it => it.id === action.payload.skillId);
       if (skill) {
         const roll = rollDgStat(skill.characterSkillRate ?? skill.baseSkillRate);
+        if (roll.result === DgRollResult.Fumble || roll.result === DgRollResult.Failure) {
+          skill.damaged = true;
+        }
         toast.custom((id) =>
           <DiceRollToast
             toastId={id}
