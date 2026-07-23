@@ -86,8 +86,11 @@ const CalcStat: React.FC<CalcStatProps> = ({
 CalcStat.propTypes = {
   title: PropTypes.string.isRequired,
   max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  allowRoll: PropTypes.bool,
+  disabled: PropTypes.bool,
   value: PropTypes.number,
   onValueChange: PropTypes.func,
+  onSkillRolled: PropTypes.func,
 };
 
 export default connect(makeMapState, makeDispatchState)(CalcStat);

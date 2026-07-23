@@ -1,4 +1,4 @@
-import { DgCharacterBaseStat, DgCharacterSkill, DgRoll, DgRollResult } from "@/src/model/character";
+import { DgRoll, DgRollResult } from "@/src/model/character";
 
 export function rollDice(sides: number): number {
   return Math.floor(Math.random() * sides) + 1;
