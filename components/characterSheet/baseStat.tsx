@@ -83,7 +83,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
       />
       <div className={clsx(
         "col-span-2 flex flex-row gap-1 items-center",
-        "border-r border-b border-dg dark:border-neutral-800",
+        "border-r border-b border-dg dark:border-neutral-600",
         playMode && "pr-1 cursor-pointer"
       )}>
         <TableItem

@@ -62,7 +62,7 @@ const CalcStat: React.FC<CalcStatProps> = ({
       <div
         className={clsx(
           "w-full h-full bg-blue-100 dark:bg-neutral-800",
-          "border-b border-dg dark:border-neutral-800",
+          "border-b border-dg dark:border-neutral-600",
           "flex flex-row gap-0.5 items-center",
           disabled && allowRoll && "pr-1 cursor-pointer"
         )}

@@ -65,7 +65,7 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) =>
       />
       <div className={clsx(
         "w-full h-full col-span-2",
-        "border-b border-r border-dg dark:border-neutral-800",
+        "border-b border-r border-dg dark:border-neutral-600",
         "flex flex-row gap-0.5 items-center",
         disabled && "pr-1 !col-span-3 cursor-pointer"
       )}>

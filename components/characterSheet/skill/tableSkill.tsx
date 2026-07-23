@@ -105,7 +105,7 @@ const TableSkill = memo(function TableSkillInternal({
       <div
         className={clsx(
           "w-full h-full col-span-2 row-span-2",
-          "border-l border-dg dark:border-neutral-800",
+          "border-l border-dg dark:border-neutral-600",
           "flex flex-row gap-0.5 items-center",
           disabled && "pr-1 !col-span-3 cursor-pointer"
         )}
