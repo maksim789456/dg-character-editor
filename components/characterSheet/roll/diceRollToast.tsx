@@ -7,7 +7,8 @@ import { useSonner } from "sonner";
 export interface DiceRollToastProps extends React.HTMLAttributes<HTMLDivElement> {
   toastId: string | number;
   statId: string;
-  statName: string;
+  statName?: string;
+  isStaticStat?: boolean;
   roll: DgRoll;
 }
 
@@ -27,10 +28,11 @@ const DiceRollToast = function DiceRollToastInternal({
   toastId,
   statId,
   statName,
+  isStaticStat,
   roll,
   ...props
 }: DiceRollToastProps) {
-  const t = useTranslations("characterSheet.rollToast");
+  const t = useTranslations("characterSheet");
   const isLast = true;
 
   const rateStr = useMemo(() =>
@@ -45,6 +47,8 @@ const DiceRollToast = function DiceRollToastInternal({
       || roll.result === DgRollResult.Fumble ? "!" : "")
     , [roll]);
 
+  const statNameMemo = useMemo(() => isStaticStat ? t("rollToast." + statId) : statName, [statName, isStaticStat]);
+
   return (
     <div className={clsx("w-full p-4 rounded-lg flex items-center",
       "ring-1 ring-black/5",
@@ -54,7 +58,7 @@ const DiceRollToast = function DiceRollToastInternal({
         {isLast ?
           <div className="w-full h-full flex flex-row justify-between gap-2">
             <div className="w-full">
-              <p className="text-md font-dg-main dark:text-neutral-200">{`${t("roll")} ${statName}`}</p>
+              <p className="text-md font-dg-main dark:text-neutral-200">{`${t("rollToast.roll")} ${statNameMemo}`}</p>
               <p className="mt-1 text-sm dark:text-neutral-200">{rateStr}</p>
             </div>
             <p className={clsx(
