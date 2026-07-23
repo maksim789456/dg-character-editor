@@ -7,8 +7,12 @@ import {
   DgCharacterWeapon,
   DgCharacterSpecialTraining,
   DgGender,
+  DgRollResult,
 } from "@/src/model/character";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { rollDgStat } from "./diceRolling";
+import { toast } from "sonner";
+import DiceRollToast from "@/components/characterSheet/roll/diceRollToast";
 
 const initialState = {
   fullName: "",
@@ -118,6 +122,11 @@ export interface EditSpecialTrainingProps {
   specialTraining: DgCharacterSpecialTraining;
 }
 
+export interface RollSkillProps {
+  skillId: string;
+  skillName: string;
+}
+
 export const dgCharacterSlice = createSlice({
   name: "dgCharacter",
   initialState,
@@ -133,7 +142,7 @@ export const dgCharacterSlice = createSlice({
     ) => {
       (
         state.stats[
-          action.payload.field as keyof DgCharacterStats
+        action.payload.field as keyof DgCharacterStats
         ] as DgCharacterBaseStat
       ).score = action.payload.value > 18 ? 18 : action.payload.value;
 
@@ -155,7 +164,7 @@ export const dgCharacterSlice = createSlice({
     ) => {
       (
         state.stats[
-          action.payload.field as keyof DgCharacterStats
+        action.payload.field as keyof DgCharacterStats
         ] as DgCharacterBaseStat
       ).description = action.payload.value;
       return state;
@@ -239,6 +248,49 @@ export const dgCharacterSlice = createSlice({
       }
       return state;
     },
+    rollSkill: (
+      state: DgCharacter,
+      action: PayloadAction<RollSkillProps>
+    ) => {
+      const skill = state.skills.find(it => it.id === action.payload.skillId);
+      if (skill) {
+        const roll = rollDgStat(skill.characterSkillRate ?? skill.baseSkillRate);
+        if (roll.result === DgRollResult.Fumble || roll.result === DgRollResult.Failure) {
+          skill.damaged = true;
+        }
+        toast.custom((id) =>
+          <DiceRollToast
+            toastId={id}
+            statId={action.payload.skillId}
+            statName={action.payload.skillName}
+            roll={roll}
+          />, { duration: Infinity });
+      }
+
+      return state;
+    },
+    rollStat: (
+      state: DgCharacter,
+      action: PayloadAction<string>
+    ) => {
+      const isSan = action.payload === "san";
+      const stat = state.stats[action.payload as keyof DgCharacterStats];
+      if (stat) {
+        const roll = rollDgStat(isSan
+          ? stat as number
+          : (stat as DgCharacterBaseStat).score * 5
+        );
+        toast.custom((id) =>
+          <DiceRollToast
+            toastId={id}
+            statId={action.payload}
+            isStaticStat={true}
+            roll={roll}
+          />, { duration: Infinity });
+      }
+
+      return state;
+    },
     clear: () => initialState,
   },
 });
@@ -256,6 +308,8 @@ export const {
   editWeapon,
   addSpecialTraining,
   editSpecialTraining,
+  rollSkill,
+  rollStat,
   clear,
 } = dgCharacterSlice.actions;
 

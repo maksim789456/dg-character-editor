@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import React from "react";
 
 interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -7,6 +8,7 @@ interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
   checkable?: boolean;
   isNumber?: boolean;
   disabled?: boolean;
+  readOnly?: boolean;
   through?: boolean;
   select?: boolean;
   types?: any;
@@ -17,6 +19,7 @@ interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
   onValueChange?: (value: number | string) => void;
   checkboxValue?: boolean;
   onCheckboxValueChange?: (value: boolean) => void;
+  onInputClick?: () => void;
 }
 
 const TableInput: React.FC<TableInputProps> = ({
@@ -24,6 +27,7 @@ const TableInput: React.FC<TableInputProps> = ({
   checkable,
   isNumber,
   disabled,
+  readOnly,
   through,
   select,
   types,
@@ -34,6 +38,7 @@ const TableInput: React.FC<TableInputProps> = ({
   onValueChange,
   checkboxValue,
   onCheckboxValueChange,
+  onInputClick,
   ...props
 }) => {
   const onInputNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,22 +89,30 @@ const TableInput: React.FC<TableInputProps> = ({
           inputMode={isNumber ? "numeric" : "text"}
           pattern={isNumber ? "[0-9]*" : ""}
           disabled={disabled}
-          className={`w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main text-dg dark:text-neutral-200
-        placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light dark:placeholder:text-neutral-200
-        disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${through ? "line-through" : ""} ${inputClassName ?? ""}`}
+          readOnly={readOnly}
+          className={clsx(
+            "w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main text-dg dark:text-neutral-200",
+            "placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light dark:placeholder:text-neutral-200",
+            "disabled:bg-white dark:disabled:bg-neutral-700 read-only:bg-white dark:read-only:bg-neutral-700", through && "line-through", inputClassName
+          )}
           placeholder={placeholder}
           value={value}
           onChange={isNumber ? onInputNumberChange : onTextChange}
+          onClick={onInputClick}
         ></input>
       ) : (
         <select
           name="tableItemSelect"
           aria-label={`${ariaLabel} Select`}
-          disabled={disabled}
-          className={`w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main tracking-tight text-dg dark:text-neutral-200 disabled:bg-gray-200 dark:disabled:bg-neutral-700 ${inputClassName ?? ""}`}
+          disabled={disabled || readOnly}
+          className={clsx(
+            "w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main tracking-tight text-dg dark:text-neutral-200",
+            "disabled:bg-gray-200 dark:disabled:bg-neutral-700", inputClassName
+          )}
           // placeholder={placeholder}
           value={value ?? ""}
           onChange={onSelectChange}
+          onClick={onInputClick}
         >
           <option value={""}></option>
           {types.map((skill: any, i: number) => (

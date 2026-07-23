@@ -121,6 +121,20 @@
       "form": "FORM",
       "topSecret": "TOP SECRET//ORCON//SPECIAL ACCESS REQUIRED—DELTA GREEN AGENT DOCUMENTATION SHEET",
       "copyright": "The intellectual property known as Delta Green is a trademark and copyright owned by the Delta Green Partnership"
+    },
+    "rollToast": {
+      "roll": "Roll for",
+      "skill": "skill",
+      "critical": "Crit",
+      "success": "success",
+      "fail": "failure",
+      "str": "Strength",
+      "con": "Constitution",
+      "dex": "Dexterity",
+      "int": "Intelligence",
+      "pow": "Power",
+      "cha": "Charisma",
+      "san": "Sanity"
     }
   }
 }
