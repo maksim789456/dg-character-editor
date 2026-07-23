@@ -9,7 +9,7 @@ import {
   DgGender,
 } from "@/src/model/character";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { rollDgSkill } from "./diceRolling";
+import { rollDgSkill, rollDgStat } from "./diceRolling";
 import { toast } from "sonner";
 import DiceRollToast from "@/components/characterSheet/roll/diceRollToast";
 
@@ -260,7 +260,29 @@ export const dgCharacterSlice = createSlice({
             statId={action.payload.skillId}
             statName={action.payload.skillName}
             roll={roll}
-          />, { duration: Infinity })
+          />, { duration: Infinity });
+      }
+
+      return state;
+    },
+    rollStat: (
+      state: DgCharacter,
+      action: PayloadAction<string>
+    ) => {
+      const isSan = action.payload === "san";
+      const stat = state.stats[action.payload as keyof DgCharacterStats];
+      if (stat) {
+        const roll = rollDgStat(isSan
+          ? stat as number
+          : (stat as DgCharacterBaseStat).score * 5
+        );
+        toast.custom((id) =>
+          <DiceRollToast
+            toastId={id}
+            statId={action.payload}
+            isStaticStat={true}
+            roll={roll}
+          />, { duration: Infinity });
       }
 
       return state;
@@ -283,6 +305,7 @@ export const {
   addSpecialTraining,
   editSpecialTraining,
   rollSkill,
+  rollStat,
   clear,
 } = dgCharacterSlice.actions;
 
