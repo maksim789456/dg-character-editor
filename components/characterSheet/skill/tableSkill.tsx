@@ -116,17 +116,16 @@ const TableSkill = memo(function TableSkillInternal({
           type="text"
           inputMode="numeric"
           pattern="[0-9]*"
-          disabled={disabled}
+          readOnly={disabled}
           value={skill.characterSkillRate ?? skill.baseSkillRate}
           onChange={onCharacterSkillRateInputChange}
           onClick={onSkillRolled}
           className={clsx(
             "w-full h-full text-center dark:text-neutral-200",
-            "disabled:bg-white dark:disabled:bg-neutral-900",
-            (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-800"),
-            disabled && "cursor-pointer"
+            "read-only:bg-white dark:read-only:bg-neutral-900 read-only:cursor-pointer",
+            (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-800")
           )}
-        ></input>
+        />
         {disabled ? <Dices onClick={onSkillRolled}/> : <></>}
       </div>
       {(!disabled && skill.isTypal) ? (

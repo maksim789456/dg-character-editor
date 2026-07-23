@@ -19,7 +19,7 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) =>
   );
   const dispatch = useAppDispatch();
 
-  const onSkillRolled = (e: React.MouseEvent<any>) => {
+  const onSkillRolled = () => {
     if (disabled) {
       dispatch(
         rollSkill({
@@ -73,8 +73,10 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) =>
           className="!border-0"
           ariaLabel={`Other skill ${skillId} Value`}
           isNumber={true}
-          disabled={disabled}
+          readOnly={disabled}
+          inputClassName={clsx(disabled && "cursor-pointer")}
           value={skill.characterSkillRate}
+          onInputClick={onSkillRolled}
           onValueChange={(value) =>
             dispatch(
               editSkill({
