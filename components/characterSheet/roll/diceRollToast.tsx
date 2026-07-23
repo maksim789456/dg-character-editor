@@ -52,7 +52,7 @@ const DiceRollToast = function DiceRollToastInternal({
   return (
     <div className={clsx("w-full p-4 rounded-lg flex items-center",
       "ring-1 ring-black/5",
-      "bg-white dark:bg-neutral-800 shadow-lg"
+      "bg-neutral-50 dark:bg-neutral-800 shadow-lg"
     )}>
       <div className="flex flex-1 items-center">
         {isLast ?
