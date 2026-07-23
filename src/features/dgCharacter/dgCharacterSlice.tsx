@@ -9,7 +9,7 @@ import {
   DgGender,
 } from "@/src/model/character";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { rollDgSkill, rollDgStat } from "./diceRolling";
+import { rollDgStat } from "./diceRolling";
 import { toast } from "sonner";
 import DiceRollToast from "@/components/characterSheet/roll/diceRollToast";
 
@@ -253,7 +253,7 @@ export const dgCharacterSlice = createSlice({
     ) => {
       const skill = state.skills.find(it => it.id === action.payload.skillId);
       if (skill) {
-        const roll = rollDgSkill(skill);
+        const roll = rollDgStat(skill.characterSkillRate ?? skill.baseSkillRate);
         toast.custom((id) =>
           <DiceRollToast
             toastId={id}

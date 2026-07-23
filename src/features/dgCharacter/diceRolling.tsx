@@ -4,19 +4,6 @@ export function rollDice(sides: number): number {
   return Math.floor(Math.random() * sides) + 1;
 }
 
-export function rollDgSkill(skill: DgCharacterSkill, modifier: number = 0): DgRoll {
-  const rate = skill.characterSkillRate ?? skill.baseSkillRate;
-  const roll = rollDice(100);
-  const result = calcRollResult(rate, roll, modifier);
-
-  return {
-    rate,
-    roll,
-    modifier,
-    result,
-  }
-}
-
 export function rollDgStat(rate: number, modifier: number = 0): DgRoll {
   const roll = rollDice(100);
   const result = calcRollResult(rate, roll, modifier);
