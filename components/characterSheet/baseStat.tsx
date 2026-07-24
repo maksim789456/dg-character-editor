@@ -1,8 +1,5 @@
-import { connect, useSelector } from "react-redux";
 import TableInput from "./table/tableInput";
 import TableItem from "./table/tableItem";
-import { RootState } from "@/src/store/store";
-import { Dispatch } from "@reduxjs/toolkit";
 import {
   setBaseStat,
   setBaseStatDescription,
@@ -11,48 +8,40 @@ import { baseStatSumSelector, makeBaseStatSelectorInstance } from "@/src/redux/s
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
+import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import { useCallback, useMemo } from "react";
 
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   name: string;
-  disabled?: boolean;
-
-  score?: number;
-  onScoreChange?: (score: number) => void;
-  description?: string;
-  onDescriptionChange?: (description: string) => void;
 }
-
-const makeMapState = (_: RootState, ownProps: BaseStatProps) => {
-  const baseStatSelector = makeBaseStatSelectorInstance(ownProps.name ?? "");
-  return function realMapState(state: RootState) {
-    const baseStat = baseStatSelector(state);
-    return {
-      score: baseStat.score,
-      description: baseStat.description,
-      disabled: !state.dgCharacter.editMode,
-    };
-  };
-};
-
-const makeDispatchState = (dispatch: Dispatch, ownProps: BaseStatProps) => ({
-  onScoreChange: (value: number) =>
-    dispatch(setBaseStat({ field: ownProps.name, value })),
-  onDescriptionChange: (value: string) =>
-    dispatch(setBaseStatDescription({ field: ownProps.name, value })),
-});
 
 const BaseStat: React.FC<BaseStatProps> = ({
   title,
   name,
-  disabled,
-  score,
-  onScoreChange,
-  description,
-  onDescriptionChange,
+  ...props
 }) => {
   const t = useTranslations('characterSheet.staticSection');
-  const baseStatSumIsToBig = useSelector(baseStatSumSelector) > 72;
+  const dispatch = useAppDispatch();
+
+  const baseStatSumIsToBig = useAppSelector(baseStatSumSelector) > 72;
+  const disabled = useAppSelector(s => !s.dgCharacter.editMode);
+
+  const baseStatSelector = useMemo(
+    () => makeBaseStatSelectorInstance(name ?? ""),
+    [name]
+  );
+  const {score, description} = useAppSelector(baseStatSelector);
+
+  const onScoreChange = useCallback(
+    (value: number) => dispatch(setBaseStat({ field: name, value })),
+    [dispatch, name]
+  );
+
+  const onDescriptionChange = useCallback(
+    (value: string) => dispatch(setBaseStatDescription({ field: name, value })),
+    [dispatch, name]
+  );
 
   return (
     <div className="grid grid-cols-9">
@@ -64,9 +53,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
         disabled={disabled}
         value={score}
         isNumber={true}
-        onValueChange={(value) => {
-          onScoreChange ? onScoreChange(value as number) : value;
-        }}
+        onValueChange={(value) => onScoreChange(value as number)}
       />
       <TableItem
         ariaLabel={`${title} Value x5`}
@@ -81,9 +68,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
           disabled={disabled}
           placeholder={t("statsDescriptionPlaceholder")}
           value={description ?? ""}
-          onValueChange={(value) =>
-            onDescriptionChange ? onDescriptionChange(value as string) : value
-          }
+          onValueChange={(value) => onDescriptionChange(value as string)}
         />
       ) : (
         <TableItem
@@ -100,12 +85,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
 
 BaseStat.propTypes = {
   title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  score: PropTypes.number,
-  onScoreChange: PropTypes.func,
-  description: PropTypes.string,
-  onDescriptionChange: PropTypes.func,
+  name: PropTypes.string.isRequired
 };
 
-export default connect(makeMapState, makeDispatchState)(BaseStat);
+export default BaseStat;

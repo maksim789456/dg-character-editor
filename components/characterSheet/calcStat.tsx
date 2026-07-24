@@ -1,11 +1,11 @@
 import { RootState } from "@/src/store/store";
 import TableInput from "./table/tableInput";
 import TableItem from "./table/tableItem";
-import { connect, useSelector } from "react-redux";
 import { setStat } from "@/src/features/dgCharacter/dgCharacterSlice";
-import { Dispatch } from "@reduxjs/toolkit";
 import { makeCalcStatSelectorInstance } from "@/src/redux/selectors";
 import PropTypes from "prop-types";
+import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import { useCallback, useMemo } from "react";
 
 interface CalcStatProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
@@ -16,29 +16,25 @@ interface CalcStatProps extends React.HTMLAttributes<HTMLDivElement> {
   onValueChange?: (value: number) => void;
 }
 
-const makeMapState = (_: RootState, ownProps: CalcStatProps) => {
-  const calcStatSelector = makeCalcStatSelectorInstance(ownProps.name ?? "");
-  return function realMapState(state: RootState) {
-    const calcStat = calcStatSelector(state);
-    const maxStat = ownProps.maxSelector(state);
-    return {
-      max: maxStat,
-      value: calcStat,
-    };
-  };
-};
-
-const makeDispatchState = (dispatch: Dispatch, ownProps: CalcStatProps) => ({
-  onValueChange: (value: number) =>
-    dispatch(setStat({ field: ownProps.name, value })),
-});
-
 const CalcStat: React.FC<CalcStatProps> = ({
   title,
-  max,
-  value,
-  onValueChange,
+  name,
+  maxSelector,
 }) => {
+  const dispatch = useAppDispatch();
+
+  const calcStatSelector = useMemo(
+    () => makeCalcStatSelectorInstance(name ?? ""),
+    [name]
+  );
+  const value = useAppSelector(calcStatSelector);
+  const max = useAppSelector(maxSelector);
+
+  const onValueChange = useCallback(
+    (value: number) => dispatch(setStat({ field: name, value })),
+    [dispatch, name]
+  );
+
   return (
     <div className="grid grid-cols-4">
       <TableItem ariaLabel={title} className="col-span-2 py-1" title={title} />
@@ -68,4 +64,4 @@ CalcStat.propTypes = {
   onValueChange: PropTypes.func,
 };
 
-export default connect(makeMapState, makeDispatchState)(CalcStat);
+export default CalcStat;
