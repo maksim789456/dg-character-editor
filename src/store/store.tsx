@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import dgCharacterReducer from "../features/dgCharacter/dgCharacterSlice";
 
-const store =  configureStore({
+const store = configureStore({
   reducer: {
     dgCharacter: dgCharacterReducer
   },
