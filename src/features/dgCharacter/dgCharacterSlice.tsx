@@ -20,7 +20,7 @@ const initialState = {
   employer: "",
   nationality: "",
 
-  gender: DgGender.None,
+  gender: DgGender.Male,
   age: "",
   education: "",
 
@@ -98,8 +98,8 @@ export interface SetReducerProps {
 }
 
 export interface EditBoundProps {
-  id: number;
-  bound: DgCharacterBound;
+  boundId: number;
+  bound: Partial<DgCharacterBound>;
 }
 
 export interface EditSkillProps {
@@ -184,9 +184,11 @@ export const dgCharacterSlice = createSlice({
       return state;
     },
     editBound: (state: DgCharacter, action: PayloadAction<EditBoundProps>) => {
-      if (state.bounds[action.payload.id]) {
-        state.bounds[action.payload.id] = action.payload.bound;
+      const bound = state.bounds[action.payload.boundId]
+      if (bound) {
+        Object.assign(bound, action.payload.bound)
       }
+
       return state;
     },
     addOtherSkill: (state: DgCharacter, action: PayloadAction<AddOtherSkillProps>) => {

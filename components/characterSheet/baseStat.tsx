@@ -1,71 +1,57 @@
-import { connect, useSelector } from "react-redux";
 import TableInput from "./table/tableInput";
 import TableItem from "./table/tableItem";
-import { RootState } from "@/src/store/store";
-import { Dispatch } from "@reduxjs/toolkit";
 import {
   rollStat,
   setBaseStat,
   setBaseStatDescription,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { baseStatSumSelector, makeBaseStatSelectorInstance } from "@/src/redux/selectors";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import Dices from "../icons/dices";
-import { useAppDispatch } from "@/src/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import { useCallback, useMemo } from "react";
 
 interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
   name: string;
-  playMode?: boolean;
-
-  score?: number;
-  onScoreChange?: (score: number) => void;
-  description?: string;
-  onDescriptionChange?: (description: string) => void;
 }
 
-const makeMapState = (_: RootState, ownProps: BaseStatProps) => {
-  const baseStatSelector = makeBaseStatSelectorInstance(ownProps.name ?? "");
-  return function realMapState(state: RootState) {
-    const baseStat = baseStatSelector(state);
-    return {
-      score: baseStat.score ?? 0,
-      description: baseStat.description ?? "",
-      playMode: !state.dgCharacter.editMode,
-    };
-  };
-};
-
-const makeDispatchState = (dispatch: Dispatch, ownProps: BaseStatProps) => ({
-  onScoreChange: (value: number) =>
-    dispatch(setBaseStat({ field: ownProps.name, value })),
-  onDescriptionChange: (value: string) =>
-    dispatch(setBaseStatDescription({ field: ownProps.name, value })),
-});
-
-const BaseStat: React.FC<BaseStatProps> = ({
+export default function BaseStat({
   title,
   name,
-  playMode,
-  score,
-  onScoreChange,
-  description,
-  onDescriptionChange,
-}) => {
+  ...props
+}: BaseStatProps) {
   const t = useTranslations('characterSheet.staticSection');
-  const baseStatSumIsToBig = useSelector(baseStatSumSelector) > 72;
   const dispatch = useAppDispatch();
+
+  const baseStatSumIsToBig = useAppSelector(baseStatSumSelector) > 72;
+  const playMode = useAppSelector(s => !s.dgCharacter.editMode);
+
+  const baseStatSelector = useMemo(
+    () => makeBaseStatSelectorInstance(name ?? ""),
+    [name]
+  );
+  const { score, description } = useAppSelector(baseStatSelector);
 
   const scoreOutOfRange = score! < 9 || score! > 12;
   const hasDescription = description!.trim() !== "";
 
-  const onSkillRolled = (e: React.MouseEvent<any>) => {
+  const onSkillRolled = useCallback(() => {
     if (playMode) {
       dispatch(rollStat(name));
     }
-  }
+  }, [dispatch, name]);
+
+  const onScoreChange = useCallback(
+    (value: number) => dispatch(setBaseStat({ field: name, value })),
+    [dispatch, name]
+  );
+
+  const onDescriptionChange = useCallback(
+    (value: string) => dispatch(setBaseStatDescription({ field: name, value })),
+    [dispatch, name]
+  );
 
   return (
     <div className="grid grid-cols-10">
@@ -77,9 +63,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
         disabled={playMode}
         value={score}
         isNumber={true}
-        onValueChange={(value) => {
-          onScoreChange ? onScoreChange(value as number) : value;
-        }}
+        onValueChange={(value) => onScoreChange(value as number)}
       />
       <div className={clsx(
         "col-span-2 flex flex-row gap-1 items-center",
@@ -102,9 +86,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
           disabled={playMode}
           placeholder={t("statsDescriptionPlaceholder")}
           value={description ?? ""}
-          onValueChange={(value) =>
-            onDescriptionChange ? onDescriptionChange(value as string) : value
-          }
+          onValueChange={(value) => onDescriptionChange(value as string)}
         />
       ) : (
         <TableItem
@@ -118,15 +100,3 @@ const BaseStat: React.FC<BaseStatProps> = ({
     </div>
   );
 };
-
-BaseStat.propTypes = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  playMode: PropTypes.bool,
-  score: PropTypes.number.isRequired,
-  onScoreChange: PropTypes.func,
-  description: PropTypes.string,
-  onDescriptionChange: PropTypes.func,
-};
-
-export default connect(makeMapState, makeDispatchState)(BaseStat);

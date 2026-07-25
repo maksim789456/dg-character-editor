@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import PropTypes from "prop-types";
 import TableInput from "../table/tableInput";
 import { editSpecialTraining } from "@/src/features/dgCharacter/dgCharacterSlice";
 
@@ -8,9 +7,9 @@ interface SpecialTrainingListProps
   specialTrainingId: number;
 }
 
-const SpecialTraining: React.FC<SpecialTrainingListProps> = ({
+export default function SpecialTraining({
   specialTrainingId,
-}) => {
+}: SpecialTrainingListProps) {
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
   const training = useAppSelector(
     (state) => state.dgCharacter.specialTrainings[specialTrainingId]
@@ -53,9 +52,3 @@ const SpecialTraining: React.FC<SpecialTrainingListProps> = ({
     </div>
   );
 };
-
-SpecialTraining.propTypes = {
-  specialTrainingId: PropTypes.number.isRequired,
-};
-
-export default SpecialTraining;

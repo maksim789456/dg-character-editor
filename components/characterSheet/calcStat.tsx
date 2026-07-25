@@ -1,11 +1,10 @@
 import { RootState } from "@/src/store/store";
 import TableInput from "./table/tableInput";
 import TableItem from "./table/tableItem";
-import { connect, useSelector } from "react-redux";
 import { rollStat, setStat } from "@/src/features/dgCharacter/dgCharacterSlice";
-import { Dispatch } from "@reduxjs/toolkit";
 import { makeCalcStatSelectorInstance } from "@/src/redux/selectors";
-import PropTypes from "prop-types";
+import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import { useCallback, useMemo } from "react";
 import clsx from "clsx";
 import Dices from "../icons/dices";
 
@@ -21,35 +20,32 @@ interface CalcStatProps extends React.HTMLAttributes<HTMLDivElement> {
   onSkillRolled?: () => void;
 }
 
-const makeMapState = (_: RootState, ownProps: CalcStatProps) => {
-  const calcStatSelector = makeCalcStatSelectorInstance(ownProps.name ?? "");
-  return function realMapState(state: RootState) {
-    const calcStat = calcStatSelector(state);
-    const maxStat = ownProps.maxSelector(state);
-    return {
-      max: maxStat,
-      value: calcStat,
-      disabled: !state.dgCharacter.editMode,
-      allowRoll: ownProps.name === "san"
-    };
-  };
-};
-
-const makeDispatchState = (dispatch: Dispatch, ownProps: CalcStatProps) => ({
-  onValueChange: (value: number) =>
-    dispatch(setStat({ field: ownProps.name, value })),
-  onSkillRolled: () => dispatch(rollStat(ownProps.name)),
-});
-
-const CalcStat: React.FC<CalcStatProps> = ({
+export default function CalcStat({
   title,
-  disabled,
-  allowRoll,
-  max,
-  value,
-  onValueChange,
-  onSkillRolled
-}) => {
+  name,
+  maxSelector,
+}: CalcStatProps) {
+  const dispatch = useAppDispatch();
+  const disabled = useAppSelector(s => !s.dgCharacter.editMode);
+  const allowRoll = useMemo(() => name === "san", [name]);
+
+  const calcStatSelector = useMemo(
+    () => makeCalcStatSelectorInstance(name ?? ""),
+    [name]
+  );
+  const value = useAppSelector(calcStatSelector);
+  const max = useAppSelector(maxSelector);
+
+  const onValueChange = useCallback(
+    (value: number) => dispatch(setStat({ field: name, value })),
+    [dispatch, name]
+  );
+
+  const onSkillRolled = useCallback(
+    () => dispatch(rollStat(name)),
+    [dispatch, name]
+  );
+
   return (
     <div className="grid grid-cols-4">
       <TableItem ariaLabel={title} className="col-span-2 py-1" title={title} />
@@ -82,15 +78,3 @@ const CalcStat: React.FC<CalcStatProps> = ({
     </div>
   );
 };
-
-CalcStat.propTypes = {
-  title: PropTypes.string.isRequired,
-  max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  allowRoll: PropTypes.bool,
-  disabled: PropTypes.bool,
-  value: PropTypes.number,
-  onValueChange: PropTypes.func,
-  onSkillRolled: PropTypes.func,
-};
-
-export default connect(makeMapState, makeDispatchState)(CalcStat);

@@ -1,7 +1,6 @@
 import { editSkill, rollSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import TableInput from "../table/tableInput";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import Dices from "@/components/icons/dices";
 import { useTranslations } from "next-intl";
@@ -11,7 +10,7 @@ interface OtherSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   foreignLanguages: any;
 }
 
-const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) => {
+export default function OtherSkill({ skillId, foreignLanguages }: OtherSkillProps) {
   const t = useTranslations('characterSheet');
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
   const skill = useAppSelector(
@@ -91,10 +90,3 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) =>
     </div>
   );
 };
-
-OtherSkill.propTypes = {
-  skillId: PropTypes.string.isRequired,
-  foreignLanguages: PropTypes.any.isRequired,
-}
-
-export default OtherSkill;
