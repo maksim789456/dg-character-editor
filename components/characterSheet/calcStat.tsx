@@ -3,7 +3,6 @@ import TableInput from "./table/tableInput";
 import TableItem from "./table/tableItem";
 import { setStat } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { makeCalcStatSelectorInstance } from "@/src/redux/selectors";
-import PropTypes from "prop-types";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import { useCallback, useMemo } from "react";
 
@@ -16,11 +15,11 @@ interface CalcStatProps extends React.HTMLAttributes<HTMLDivElement> {
   onValueChange?: (value: number) => void;
 }
 
-const CalcStat: React.FC<CalcStatProps> = ({
+export default function CalcStat({
   title,
   name,
   maxSelector,
-}) => {
+}: CalcStatProps) {
   const dispatch = useAppDispatch();
 
   const calcStatSelector = useMemo(
@@ -56,12 +55,3 @@ const CalcStat: React.FC<CalcStatProps> = ({
     </div>
   );
 };
-
-CalcStat.propTypes = {
-  title: PropTypes.string.isRequired,
-  max: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  value: PropTypes.number,
-  onValueChange: PropTypes.func,
-};
-
-export default CalcStat;

@@ -5,7 +5,6 @@ import {
   setBaseStatDescription,
 } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { baseStatSumSelector, makeBaseStatSelectorInstance } from "@/src/redux/selectors";
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
@@ -16,11 +15,11 @@ interface BaseStatProps extends React.HTMLAttributes<HTMLDivElement> {
   name: string;
 }
 
-const BaseStat: React.FC<BaseStatProps> = ({
+export default function BaseStat({
   title,
   name,
   ...props
-}) => {
+}: BaseStatProps) {
   const t = useTranslations('characterSheet.staticSection');
   const dispatch = useAppDispatch();
 
@@ -31,7 +30,7 @@ const BaseStat: React.FC<BaseStatProps> = ({
     () => makeBaseStatSelectorInstance(name ?? ""),
     [name]
   );
-  const {score, description} = useAppSelector(baseStatSelector);
+  const { score, description } = useAppSelector(baseStatSelector);
 
   const onScoreChange = useCallback(
     (value: number) => dispatch(setBaseStat({ field: name, value })),
@@ -82,10 +81,3 @@ const BaseStat: React.FC<BaseStatProps> = ({
     </div>
   );
 };
-
-BaseStat.propTypes = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired
-};
-
-export default BaseStat;

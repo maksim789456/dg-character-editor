@@ -4,7 +4,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import LangSelect from "@/components/langSelect";
 import ThemeSelect from "@/components/themeSelect";
-import { SheetThemeSelector } from "../export/sheetThemeSelector";
+import SheetThemeSelector from "../export/sheetThemeSelector";
 import { useTranslations } from "next-intl";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
