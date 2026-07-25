@@ -14,13 +14,14 @@ import SettingsSection from "./characterSheet/sections/SettingsSection";
 import ThemeProvider from "@/app/contexts/themeContext";
 import { useTranslations } from "next-intl";
 import Footer from "./characterSheet/sections/footer";
+import { SkillsSchema } from "@/res/dictionaries";
 
 export default function CharacterSheet({
   lang,
   skillsDict,
 }: {
   lang: string;
-  skillsDict: any;
+  skillsDict: SkillsSchema;
 }) {
   const t = useTranslations("characterSheet");
 
