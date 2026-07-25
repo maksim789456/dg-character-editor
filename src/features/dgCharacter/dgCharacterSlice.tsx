@@ -16,7 +16,7 @@ const initialState = {
   employer: "",
   nationality: "",
 
-  gender: DgGender.None,
+  gender: DgGender.Male,
   age: "",
   education: "",
 
