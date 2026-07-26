@@ -1,8 +1,10 @@
 "use client";
 
-import { editSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
+import Dices from "@/components/icons/dices";
+import { editSkill, rollSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import { useAppSelector } from "@/src/redux/hooks";
 import clsx from "clsx";
+import { useTranslations } from "next-intl";
 import React, { memo, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -18,6 +20,7 @@ const TableSkill = memo(function TableSkillInternal({
   types,
   ...props
 }: TableSkillProps) {
+  const t = useTranslations('characterSheet.staticSection');
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
   const skill = useAppSelector(
     (state) => state.dgCharacter.skills.find((skill) => skill.id === skillId)!
@@ -59,6 +62,17 @@ const TableSkill = memo(function TableSkillInternal({
     );
   };
 
+  const onSkillRolled = (e: React.MouseEvent<any>) => {
+    if (disabled) {
+      dispatch(
+        rollSkill({
+          skillId,
+          skillName
+        })
+      );
+    }
+  }
+
   return (
     <div
       className={clsx(
@@ -77,7 +91,7 @@ const TableSkill = memo(function TableSkillInternal({
         <div className="flex items-center justify-center">
           <input
             name={`${skill.id}Damaged`}
-            aria-label={`${skill.name} Skill Check Failed`}
+            aria-label={`${skillName} Skill Check Failed`}
             type="checkbox"
             className="w-4 h-4"
             checked={skill.damaged ?? false}
@@ -85,45 +99,59 @@ const TableSkill = memo(function TableSkillInternal({
           />
         </div>
       )}
-      <p className="font-dg-main text-dg dark:text-neutral-200 text-sm col-span-9 py-1.5 flex items-center">{`${skillName} (${skill.baseSkillRate}%)`}</p>
-      <input
-        name={`${skill.id}Rate`}
-        aria-label={`${skill.name} Skill Rate`}
-        type="text"
-        inputMode="numeric"
-        pattern="[0-9]*"
-        disabled={disabled}
-        value={skill.characterSkillRate ?? skill.baseSkillRate}
-        onChange={onCharacterSkillRateInputChange}
-        className={
-          "w-full h-ful text-center dark:text-neutral-200 col-span-2 row-span-2 border-l border-dg dark:border-neutral-800 disabled:bg-gray-200 dark:disabled:bg-neutral-700 " +
-          (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-800")
-        }
-      ></input>
-      {skill.isTypal ? (
+      <p className={clsx("font-dg-main text-dg dark:text-neutral-200 text-sm col-span-9 py-1.5 flex items-center", disabled && "!col-span-8")}>
+        {`${skillName} (${skill.baseSkillRate}%)`}
+      </p>
+      <div
+        className={clsx(
+          "w-full h-full col-span-2 row-span-2",
+          "border-l border-dg dark:border-neutral-600",
+          "flex flex-row gap-0.5 items-center",
+          disabled && "pr-1 !col-span-3 cursor-pointer"
+        )}
+      >
+        <input
+          name={`${skill.id}Rate`}
+          aria-label={`${skillName} Skill Rate`}
+          type="text"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          readOnly={disabled}
+          value={skill.characterSkillRate ?? skill.baseSkillRate}
+          onChange={onCharacterSkillRateInputChange}
+          onClick={onSkillRolled}
+          className={clsx(
+            "w-full h-full text-center dark:text-neutral-200",
+            "read-only:bg-white dark:read-only:bg-neutral-900 read-only:cursor-pointer",
+            (error ? "bg-red-200" : "bg-blue-100 dark:bg-neutral-800")
+          )}
+        />
+        {disabled ? <Dices onClick={onSkillRolled}/> : <></>}
+      </div>
+      {(!disabled && skill.isTypal) ? (
         <select
           name={`${skill.id}TypalSelect`}
-          aria-label={`${skill.name} Type Select`}
-          className="w-full h-full bg-blue-100 dark:bg-neutral-800 dark:text-neutral-200 col-span-10 py-1.5 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
+          aria-label={`${skillName} Type Select`}
+          className={clsx(
+            "w-full h-full bg-blue-100 dark:bg-neutral-800 font-dg-main dark:text-neutral-200 col-span-10 py-1.5",
+            "disabled:bg-white dark:disabled:bg-neutral-900"
+          )}
           disabled={disabled}
           value={skill.type ?? ""}
           onChange={onTypeSelectChange}
         >
           <option value={""}></option>
-          {types?.map((skill: any, i: number) => (
-            <option key={i} value={skill.id}>
-              {skill.name}
+          {types?.map((type: any, i: number) => (
+            <option key={i} value={type.id}>
+              {type.name}
             </option>
           ))}
         </select>
+      ) : (disabled && skill.isTypal) ? (
+        <p className="w-full h-full col-span-9 font-dg-main text-dg dark:text-neutral-200 py-1.5 flex items-center justify-center bg-gray-200 dark:bg-neutral-700">
+          {(types?.find(it => it.id === skill.type)?.name) ?? t("bpStatMax")}
+        </p>
       ) : (
-        // <input
-        //   type="text"
-        //   disabled={disabled}
-        //   value={type ?? ""}
-        //   onChange={onTypeInputChange}
-        //   className="w-full h-full bg-blue-100 text-center col-span-10 py-1.5 disabled:bg-gray-200 dark:disabled:bg-neutral-700"
-        // ></input>
         <></>
       )}
     </div>

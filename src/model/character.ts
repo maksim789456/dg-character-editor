@@ -110,3 +110,17 @@ export enum DgGender {
   Female,
   Custom,
 }
+
+export interface DgRoll {
+  rate: number,
+  roll: number,
+  modifier?: number,
+  result: DgRollResult
+}
+
+export enum DgRollResult {
+  Fumble,
+  Failure,
+  Success,
+  CriticalSuccess
+}

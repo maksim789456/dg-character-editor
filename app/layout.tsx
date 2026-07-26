@@ -23,8 +23,10 @@ export default async function RootLayout({
       ? "dark"
       : "light";
 
+  const lang = cookieStore.get("NEXT_LOCALE")?.value ?? 'en';
+
   return (
-    <html lang="en" className={theme}>
+    <html lang={lang} className={theme}>
       <body className={`${jost.variable}`}>
         <SpeedInsights />
         {children}
