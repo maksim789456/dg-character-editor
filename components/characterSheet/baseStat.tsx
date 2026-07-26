@@ -35,7 +35,7 @@ export default function BaseStat({
   const { score, description } = useAppSelector(baseStatSelector);
 
   const scoreOutOfRange = score! < 9 || score! > 12;
-  const hasDescription = description!.trim() !== "";
+  const hasDescription = (description as string)?.trim() ?? "" !== "";
 
   const onSkillRolled = useCallback(() => {
     if (playMode) {
