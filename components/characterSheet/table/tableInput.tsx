@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { read } from "fs";
 import React from "react";
 
 interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -93,7 +94,7 @@ const TableInput: React.FC<TableInputProps> = ({
           className={clsx(
             "w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main text-dg dark:text-neutral-200",
             "placeholder:font-dg-main placeholder:text-[0.6rem] placeholder:text-dg placeholder:font-light dark:placeholder:text-neutral-200",
-            "disabled:bg-white dark:disabled:bg-neutral-700 read-only:bg-white dark:read-only:bg-neutral-700", through && "line-through", inputClassName
+            "disabled:bg-white dark:disabled:bg-neutral-900 read-only:bg-white dark:read-only:bg-neutral-900", through && "line-through", inputClassName
           )}
           placeholder={placeholder}
           value={value}
@@ -107,7 +108,8 @@ const TableInput: React.FC<TableInputProps> = ({
           disabled={disabled || readOnly}
           className={clsx(
             "w-full h-full bg-blue-100 dark:bg-neutral-800 text-center font-dg-main tracking-tight text-dg dark:text-neutral-200",
-            "disabled:bg-gray-200 dark:disabled:bg-neutral-700", inputClassName
+            "disabled:bg-white dark:disabled:bg-neutral-900", inputClassName,
+            disabled && "!opacity-100 select-hide"
           )}
           // placeholder={placeholder}
           value={value ?? ""}
