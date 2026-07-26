@@ -41,7 +41,7 @@ export default function BaseStat({
     if (playMode) {
       dispatch(rollStat(name));
     }
-  }, [dispatch, name]);
+  }, [dispatch, name, playMode]);
 
   const onScoreChange = useCallback(
     (value: number) => dispatch(setBaseStat({ field: name, value })),

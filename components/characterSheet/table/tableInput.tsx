@@ -1,7 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-import { read } from "fs";
 import React from "react";
 
 interface TableInputProps extends React.HTMLAttributes<HTMLDivElement> {

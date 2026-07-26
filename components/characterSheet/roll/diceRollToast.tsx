@@ -47,7 +47,10 @@ const DiceRollToast = function DiceRollToastInternal({
       || roll.result === DgRollResult.Fumble ? "!" : "")
     , [roll]);
 
-  const statNameMemo = useMemo(() => isStaticStat ? t("rollToast." + statId) : statName, [statName, isStaticStat]);
+  const statNameMemo = useMemo(
+    () => isStaticStat ? t("rollToast." + statId) : statName,
+    [t, statId, statName, isStaticStat]
+  );
 
   return (
     <div className={clsx("w-full p-4 rounded-lg flex items-center",
