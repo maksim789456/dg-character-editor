@@ -101,7 +101,7 @@
       "weaponsRange": "BASE RANGE",
       "weaponsDamage": "DAMAGE",
       "weaponsArmorPiecing": "ARMOR PIERCING",
-      "weaponsLethality": "LETHALITY",
+      "weaponsLethality": "LETHALITY %",
       "weaponsKillRadius": "KILL RADIUS",
       "weaponsAmmo": "AMMO"
     },

@@ -101,7 +101,7 @@
       "weaponsRange": "ДАЛЬНОСТЬ",
       "weaponsDamage": "УРОН",
       "weaponsArmorPiecing": "БРОНЕБОЙНОСТЬ",
-      "weaponsLethality": "ЛЕТАЛЬНОСТЬ",
+      "weaponsLethality": "% ЛЕТАЛЬНОСТИ",
       "weaponsKillRadius": "РАДИУС ПОРАЖ.",
       "weaponsAmmo": "БОЕЗАПАС"
     },

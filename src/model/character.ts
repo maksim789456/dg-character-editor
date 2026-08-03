@@ -94,7 +94,7 @@ export interface DgCharacterWeapon {
   baseRange?: string;
   damage?: string;
   armorPiercing?: string;
-  lethality?: string;
+  lethality?: number;
   killRadius?: string;
   ammo?: string;
 }

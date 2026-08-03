@@ -13,6 +13,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { rollDgStat } from "./diceRolling";
 import { toast } from "sonner";
 import DiceRollToast from "@/components/characterSheet/roll/diceRollToast";
+import { stat } from "fs";
 
 const initialState = {
   fullName: "",
@@ -218,7 +219,7 @@ export const dgCharacterSlice = createSlice({
         baseRange: "",
         damage: "",
         armorPiercing: "",
-        lethality: "",
+        lethality: 0,
         killRadius: "",
         ammo: "",
       } as DgCharacterWeapon);
@@ -293,6 +294,24 @@ export const dgCharacterSlice = createSlice({
 
       return state;
     },
+    rollWeaponLethality: (
+      state: DgCharacter,
+      action: PayloadAction<number>
+    ) => {
+      const weapon = state.weapons[action.payload];
+      if (weapon) {
+        const roll = rollDgStat(weapon.lethality ?? 0);
+        toast.custom((id) =>
+          <DiceRollToast
+            toastId={id}
+            statId={`weapon${action.payload}`}
+            statName={`Lethality ${weapon.name}`}
+            roll={roll}
+          />, { duration: Infinity });
+      }
+
+      return state;
+    },
     clear: () => initialState,
   },
 });
@@ -312,6 +331,7 @@ export const {
   editSpecialTraining,
   rollSkill,
   rollStat,
+  rollWeaponLethality,
   clear,
 } = dgCharacterSlice.actions;
 
