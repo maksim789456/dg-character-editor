@@ -1,11 +1,10 @@
-import PropTypes from "prop-types";
 import clsx from "clsx";
 import { Theme, ThemeContext } from "@/app/contexts/themeContext";
 import { useContext } from "react";
 
 interface LangSelectProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const ThemeSelect: React.FC<LangSelectProps> = ({ ...props }) => {
+export default function ThemeSelect({ ...props }: LangSelectProps) {
   const { theme, setTheme } = useContext(ThemeContext)!;
   const themes = [
     {
@@ -54,9 +53,3 @@ const ThemeSelect: React.FC<LangSelectProps> = ({ ...props }) => {
     </div>
   );
 };
-
-ThemeSelect.propTypes = {
-  className: PropTypes.string,
-};
-
-export default ThemeSelect;

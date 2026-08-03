@@ -7,9 +7,11 @@ import AddOtherSkill from "../skill/addOtherSkill";
 import SkillsList from "../skill/skillsList";
 import OtherSkillsList from "../skill/otherSkillsList";
 import { useTranslations } from "next-intl";
+import { SkillsSchema } from "@/res/dictionaries";
+import { DgCharacterSkill } from "@/src/model/character";
 
 interface SkillsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
-  skillsDict: any;
+  skillsDict: SkillsSchema;
 }
 
 const SkillsSection: React.FC<SkillsSectionProps> = ({
@@ -25,7 +27,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
           name: `${t("foreignLangShort")} (${type.name})`,
         };
       }),
-    [t, skillsDict.typalSkillVariants]
+    [t, skillsDict]
   );
 
   return (
@@ -36,8 +38,8 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({
     >
       <div className="grid grid-flow-col skills-grid">
         <SkillsList
-          baseSkills={skillsDict.baseSkills}
-          typalSkillVariants={skillsDict.typalSkillVariants}
+          baseSkills={skillsDict.baseSkills as DgCharacterSkill[]}
+          typalSkillVariants={skillsDict.typalSkillVariants as any}
         />
         <TableItem title={t("otherSkills")} />
         <OtherSkillsList foreignLanguages={foreignLanguages} />

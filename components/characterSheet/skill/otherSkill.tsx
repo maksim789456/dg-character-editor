@@ -1,14 +1,13 @@
 import { editSkill } from "@/src/features/dgCharacter/dgCharacterSlice";
 import TableInput from "../table/tableInput";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import PropTypes from "prop-types";
 
 interface OtherSkillProps extends React.HTMLAttributes<HTMLDivElement> {
   skillId: string;
   foreignLanguages: any;
 }
 
-const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) => {
+export default function OtherSkill({ skillId, foreignLanguages }: OtherSkillProps) {
   const disabled = useAppSelector((state) => !state.dgCharacter.editMode);
   const skill = useAppSelector(
     (state) => state.dgCharacter.skills.find((skill) => skill.id === skillId)!
@@ -60,10 +59,3 @@ const OtherSkill: React.FC<OtherSkillProps> = ({ skillId, foreignLanguages }) =>
     </div>
   );
 };
-
-OtherSkill.propTypes = {
-  skillId: PropTypes.string.isRequired,
-  foreignLanguages: PropTypes.any.isRequired,
-}
-
-export default OtherSkill;

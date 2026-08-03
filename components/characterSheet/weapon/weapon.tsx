@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
-import PropTypes from "prop-types";
 import TableInput from "../table/tableInput";
 import { editWeapon } from "@/src/features/dgCharacter/dgCharacterSlice";
 
@@ -7,7 +6,7 @@ interface WeaponListProps extends React.HTMLAttributes<HTMLDivElement> {
   weaponId: number;
 }
 
-const Weapon: React.FC<WeaponListProps> = ({ weaponId }) => {
+export default function Weapon({ weaponId }: WeaponListProps) {
   const weapon = useAppSelector((state) => state.dgCharacter.weapons[weaponId]);
   const dispatch = useAppDispatch();
   return (
@@ -117,9 +116,3 @@ const Weapon: React.FC<WeaponListProps> = ({ weaponId }) => {
     </div>
   );
 };
-
-Weapon.propTypes = {
-  weaponId: PropTypes.number.isRequired,
-};
-
-export default Weapon;

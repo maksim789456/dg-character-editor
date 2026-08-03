@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { useTranslations } from "next-intl";
-import PropTypes from "prop-types";
 
 interface SheetThemeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
   theme: string;
@@ -9,11 +8,11 @@ interface SheetThemeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const themesIds = ["white", "old", "ussr"];
 
-const SheetThemeSelector: React.FC<SheetThemeSelectorProps> = ({
+export default function SheetThemeSelector({
   theme,
   setTheme,
   ...props
-}) => {
+}: SheetThemeSelectorProps) {
   const t = useTranslations('characterSheet.settingsSection.sheetThemeSelect');
   const themes = themesIds.map((theme: string) => ({
     id: theme,
@@ -40,11 +39,3 @@ const SheetThemeSelector: React.FC<SheetThemeSelectorProps> = ({
     </div>
   );
 };
-
-SheetThemeSelector.propTypes = {
-  className: PropTypes.string,
-  theme: PropTypes.string.isRequired,
-  setTheme: PropTypes.func.isRequired,
-};
-
-export { SheetThemeSelector };

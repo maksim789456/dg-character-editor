@@ -1,54 +1,34 @@
-import { DgCharacterBound } from "@/src/model/character";
 import TableInput from "../table/tableInput";
+import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
+import { useCallback } from "react";
 import { editBound } from "@/src/features/dgCharacter/dgCharacterSlice";
-import { RootState } from "@/src/store/store";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
-import PropTypes from "prop-types";
 
 interface BoundProps extends React.HTMLAttributes<HTMLDivElement> {
-  disabled?: boolean;
-  boundMaxScore?: number;
   boundId: number;
-  bound?: DgCharacterBound;
-  onBoundChanged?: (bound: DgCharacterBound) => void;
 }
 
-const makeMapState = (state: RootState, ownProps: BoundProps) => ({
-  disabled: !state.dgCharacter.editMode,
-  boundMaxScore: state.dgCharacter.stats.cha.score,
-  bound: state.dgCharacter.bounds[ownProps.boundId],
-});
-
-const makeDispatchState = (dispatch: Dispatch, ownProps: BoundProps) => ({
-  onBoundChanged: (bound: DgCharacterBound) =>
-    dispatch(editBound({ id: ownProps.boundId, bound })),
-});
-
-const Bound: React.FC<BoundProps> = ({
-  disabled,
-  boundMaxScore,
-  bound,
+export default function Bound({
   boundId,
-  onBoundChanged,
-}) => {
-  const onNameChanged = (name: string | number) => {
-    if (bound && onBoundChanged && bound.name != name) {
-      onBoundChanged({ ...bound, name: name as string });
-    }
-  };
+}: BoundProps) {
+  const dispatch = useAppDispatch();
+  const disabled = useAppSelector(s => !s.dgCharacter.editMode);
+  const bound = useAppSelector(s => s.dgCharacter.bounds[boundId]);
+  const boundMaxScore = useAppSelector(s => s.dgCharacter.stats.cha.score);
 
-  const onDamageChanged = (damaged: boolean) => {
-    if (bound && onBoundChanged && bound.damaged != damaged) {
-      onBoundChanged({ ...bound, damaged });
-    }
-  };
+  const onDamageChanged = useCallback((damaged: boolean) =>
+    dispatch(editBound({ boundId, bound: { damaged } })),
+    [dispatch, boundId]
+  );
 
-  const onScoreChanged = (score: number | string) => {
-    if (bound && onBoundChanged && bound.score != score) {
-      onBoundChanged({ ...bound, score: score as number });
-    }
-  };
+  const onNameChanged = useCallback((name: string) =>
+    dispatch(editBound({ boundId, bound: { name } })),
+    [dispatch, boundId]
+  );
+
+  const onScoreChanged = useCallback((score: number) =>
+    dispatch(editBound({ boundId, bound: { score } })),
+    [dispatch, boundId]
+  );
 
   return bound ? (
     <div className="grid grid-cols-9">
@@ -59,7 +39,7 @@ const Bound: React.FC<BoundProps> = ({
         disabled={disabled}
         through={bound.score === 0}
         value={bound.name}
-        onValueChange={onNameChanged}
+        onValueChange={e => onNameChanged(e as string)}
         checkboxValue={bound?.damaged}
         onCheckboxValueChange={onDamageChanged}
       />
@@ -69,24 +49,10 @@ const Bound: React.FC<BoundProps> = ({
         isNumber={true}
         value={bound.score}
         maxValue={boundMaxScore}
-        onValueChange={onScoreChanged}
+        onValueChange={e => onScoreChanged(e as number)}
       />
     </div>
   ) : (
     <></>
   );
 };
-
-Bound.propTypes = {
-  disabled: PropTypes.bool,
-  boundMaxScore: PropTypes.number,
-  boundId: PropTypes.number.isRequired,
-  bound: PropTypes.shape({
-    damaged: PropTypes.bool.isRequired,
-    score: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
-  }),
-  onBoundChanged: PropTypes.func
-}
-
-export default connect(makeMapState, makeDispatchState)(Bound);
