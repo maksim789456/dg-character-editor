@@ -1,17 +1,16 @@
 import { deleteCharacter } from "@/src/features/dgCharacter/dgCharactersSlice";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import Link from "next/link";
-import PropTypes from "prop-types";
 
 interface CharacterListItemProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
   characterId: string;
 }
 
-const CharacterListItem: React.FC<CharacterListItemProps> = ({
+export default function CharacterListItem({
   lang,
   characterId,
-}) => {
+}: CharacterListItemProps) {
   const { fullName, profession } = useAppSelector(
     (state) => state.characters[characterId]!
   );
@@ -81,10 +80,3 @@ const CharacterListItem: React.FC<CharacterListItemProps> = ({
     </div>
   );
 };
-
-CharacterListItem.propTypes = {
-  lang: PropTypes.string.isRequired,
-  characterId: PropTypes.string.isRequired,
-};
-
-export default CharacterListItem;

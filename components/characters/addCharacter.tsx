@@ -1,14 +1,13 @@
 import { createCharacter } from "@/src/features/dgCharacter/dgCharactersSlice";
 import { useAppDispatch } from "@/src/redux/hooks";
 import { useRouter } from "next/navigation";
-import PropTypes from "prop-types";
 
 interface AddCharacterProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
   addText: string;
 }
 
-const AddCharacter: React.FC<AddCharacterProps> = ({ lang, addText, className }) => {
+export default function AddCharacter({ lang, addText, className }: AddCharacterProps) {
   const router = useRouter()
   const dispatch = useAppDispatch();
 
@@ -34,10 +33,3 @@ const AddCharacter: React.FC<AddCharacterProps> = ({ lang, addText, className })
   );
 };
 
-AddCharacter.propTypes = {
-  lang: PropTypes.string.isRequired,
-  addText: PropTypes.string.isRequired,
-  className: PropTypes.string,
-};
-
-export default AddCharacter;

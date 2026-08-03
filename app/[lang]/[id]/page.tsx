@@ -4,14 +4,15 @@ import { getLocaleDictionary, getSkillsDictionary } from "@/res/dictionaries";
 export default async function CharacterSheetPage({
   params,
 }: {
-  params: { lang: string; id: string };
+  params: Promise<{ lang: string; id: string }>;
 }) {
-  const skillsDict = await getSkillsDictionary(params.lang);
+  const { id, lang } = await params;
+  const skillsDict = await getSkillsDictionary(lang);
 
   return (
     <CharacterSheet
-      lang={params.lang}
-      id={params.id}
+      lang={lang}
+      id={id}
       skillsDict={skillsDict}
     />
   );

@@ -9,6 +9,7 @@ export default async function CharactersListPage({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
+  //TODO: Move ReduxProvider into own container
 
   return (
     <ReduxProvider>
