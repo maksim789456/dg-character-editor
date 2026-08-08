@@ -5,12 +5,13 @@ import CharacterListItem from "./characterListItem";
 import { shallowEqual } from "react-redux";
 import { selectCharactersIds } from "@/src/redux/selectors";
 import AddCharacter from "./addCharacter";
+import ReduxProvider from "../reduxProvider";
 
 interface CharactersListProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
 }
 
-export default function CharactersList({ lang }: CharactersListProps) {
+const CharactersListInternal = ({ lang }: CharactersListProps) => {
   const charactersIds = useAppSelector(selectCharactersIds, shallowEqual);
   return (
     <>
@@ -34,3 +35,8 @@ export default function CharactersList({ lang }: CharactersListProps) {
   );
 };
 
+export default function CharactersList(props: CharactersListProps) {
+  return (<ReduxProvider>
+    <CharactersListInternal {...props} />
+  </ReduxProvider>)
+}
