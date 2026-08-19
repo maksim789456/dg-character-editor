@@ -35,19 +35,13 @@ const DiceRollToast = function DiceRollToastInternal({
   const t = useTranslations("characterSheet");
   const isLast = true;
 
-  const rateStr = useMemo(() =>
-    roll.rate.toString() + "%"
-    + (typeof roll.modifier !== "undefined" && roll.modifier !== 0
-      ? ` + ${roll.modifier}%` : "")
-    , [roll]); // Build stat% + modifier% or only stat% string
-
   const rollStr = useMemo(() =>
     roll.roll.toString() +
-      (roll.result === DgRollResult.CriticalSuccess
+    (roll.result === DgRollResult.CriticalSuccess
       || roll.result === DgRollResult.Fumble ? "!" : "")
     , [roll]);
 
-  const statNameMemo = useMemo(
+  const statNameM = useMemo(
     () => isStaticStat ? t("rollToast." + statId) : statName,
     [t, statId, statName, isStaticStat]
   );
@@ -61,8 +55,8 @@ const DiceRollToast = function DiceRollToastInternal({
         {isLast ?
           <div className="w-full h-full flex flex-row justify-between gap-2">
             <div className="w-full">
-              <p className="text-md font-dg-main dark:text-neutral-200">{`${t("rollToast.roll")} ${statNameMemo}`}</p>
-              <p className="mt-1 text-sm dark:text-neutral-200">{rateStr}</p>
+              <p className="text-md font-dg-main dark:text-neutral-200">{t("rollToast.roll", {statName: statNameM})}</p>
+              <p className="mt-1 text-sm dark:text-neutral-200">{t("rollToast.rate", {rate: roll.rate, mod: roll.modifier})}</p>
             </div>
             <p className={clsx(
               "w-14 flex justify-center items-center font-dg-main text-2xl",

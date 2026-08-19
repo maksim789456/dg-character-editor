@@ -123,7 +123,8 @@
       "copyright": "Интеллектуальная собственность, известная как Delta Green, является торговой маркой и авторским правом, принадлежащим Delta Green Partnership"
     },
     "rollToast": {
-      "roll": "Проверка",
+      "roll": "Проверка {statName}",
+      "rate": "{rate}%{mod, plural, =0 {} other { + {mod}%}}",
       "skill": "навыка",
       "critical": "Критический",
       "success": "успех",

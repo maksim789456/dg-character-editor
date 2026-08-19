@@ -123,7 +123,8 @@
       "copyright": "The intellectual property known as Delta Green is a trademark and copyright owned by the Delta Green Partnership"
     },
     "rollToast": {
-      "roll": "Roll for",
+      "roll": "Roll for {statName}",
+      "rate": "{rate}%{mod, plural, =0 {} other { + {mod}%}}",
       "skill": "skill",
       "critical": "Crit",
       "success": "success",
