@@ -5,8 +5,10 @@ export function rollDice(sides: number): number {
 }
 
 export function rollDgStat(rate: number, modifier: number = 0): DgRoll {
-  const roll = rollDice(100);
+  let roll = rollDice(100);
   const result = calcRollResult(rate, roll, modifier);
+  if (roll == 100)
+    roll = 0;
 
   return {
     rate,
