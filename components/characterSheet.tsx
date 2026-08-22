@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import SettingsSection from "./characterSheet/sections/SettingsSection";
 import ThemeProvider from "@/app/contexts/themeContext";
 import { useTranslations } from "next-intl";
+import RollToaster from "./characterSheet/roll/toaster";
 import Footer from "./characterSheet/sections/footer";
 import { SkillsSchema } from "@/res/dictionaries";
 
@@ -31,6 +32,7 @@ export default function CharacterSheet({
       role="main"
       className="min-h-screen px-0 py-1 bg-white dark:bg-neutral-900 min-w-max sm:flex sm:flex-col sm:items-center sm:justify-between"
     >
+      <RollToaster />
       <div className="w-[40rem] md:w-[60rem] grid grid-cols-2 gap-0.5 gap-x-1">
         <Provider store={store}>
           <ThemeProvider>

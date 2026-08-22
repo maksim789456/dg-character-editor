@@ -29,7 +29,7 @@
     { "id": "demolitions", "name": "Подрывное дело" },
     { "id": "search", "name": "Поиск" },
     { "id": "psychotherapy", "name": "Психотерапия" },
-    { "id": "sigint", "name": "Радиоэлектронная разведка" },
+    { "id": "sigint", "name": "Радиоэлектр. разведка" },
     { "id": "craft", "name": "Ремесло" },
     { "id": "stealth", "name": "Скрытность" },
     { "id": "disguise", "name": "Смена внешности" },

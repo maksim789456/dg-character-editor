@@ -94,7 +94,7 @@ export interface DgCharacterWeapon {
   baseRange?: string;
   damage?: string;
   armorPiercing?: string;
-  lethality?: string;
+  lethality?: number;
   killRadius?: string;
   ammo?: string;
 }
@@ -109,4 +109,18 @@ export enum DgGender {
   Male,
   Female,
   Custom,
+}
+
+export interface DgRoll {
+  rate: number,
+  roll: number,
+  modifier?: number,
+  result: DgRollResult
+}
+
+export enum DgRollResult {
+  Fumble,
+  Failure,
+  Success,
+  CriticalSuccess
 }

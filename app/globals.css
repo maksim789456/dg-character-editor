@@ -13,3 +13,8 @@
     grid-template: repeat(18, 1fr) / repeat(3, 1fr) !important;
   }
 }
+
+.select-hide {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
