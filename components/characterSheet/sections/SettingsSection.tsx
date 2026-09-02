@@ -1,11 +1,15 @@
 import ExportButton from "../export/exportButton";
 import { set } from "@/src/features/dgCharacter/dgCharacterSlice";
-import React from "react";
+import React, { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "@/src/redux/hooks";
 import LangSelect from "@/components/langSelect";
 import ThemeSelect from "@/components/themeSelect";
 import SheetThemeSelector from "../export/sheetThemeSelector";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
+import PlayIcon from "@/components/icons/play";
+import EditIcon from "@/components/icons/edit";
+import BackIcon from "@/components/icons/back";
 
 interface SettingsSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   lang: string;
@@ -19,22 +23,21 @@ const SettingsSection: React.FC<SettingsSectionProps> = ({
   const [theme, setTheme] = React.useState("white");
   const editMode = useAppSelector((state) => state.dgCharacter.editMode);
   const dispatch = useAppDispatch();
+  const router = useRouter();
+
+  const onModeClick = useCallback(() => {
+    dispatch(set({ field: "editMode", value: !editMode }))
+  }, [editMode, dispatch]);
 
   return (
     <div className={`grid grid-cols-5 items-center gap-3 ${props.className}`}>
-      <div className="mr-auto flex flex-row gap-1">
-        <p className="font-dg-main text-dg dark:text-neutral-200">
-          {t("editMode")}
-        </p>
-        <input
-          name="editModeCheck"
-          aria-label="Enable Edit Mode"
-          type="checkbox"
-          checked={editMode}
-          onChange={(e) =>
-            dispatch(set({ field: "editMode", value: e.target.checked }))
-          }
-        />
+      <div className="flex flex-row gap-2">
+        <button className="bg-dg/90 dark:bg-neutral-800 rounded p-1.5" onClick={() => router.back()}>
+          <BackIcon />
+        </button>
+        <button className="bg-dg/90 dark:bg-neutral-800 rounded p-1.5" onClick={onModeClick}>
+          {!editMode ? <EditIcon /> : <PlayIcon />}
+        </button>
       </div>
       <div className="flex flex-row gap-3 col-span-3 justify-center">
         <SheetThemeSelector

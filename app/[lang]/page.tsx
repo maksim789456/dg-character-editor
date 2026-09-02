@@ -1,22 +1,13 @@
-import CharacterSheet from "@/components/characterSheet";
-import {
-  getSkillsDictionary,
-} from "@/res/dictionaries";
+import CharactersList from "@/components/characters/charactersList";
 
-export default async function CharacterSheetPage({
+export default async function CharactersListPage({
   params,
 }: {
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  const skillsDict = await getSkillsDictionary(lang);
 
   return (
-    <>
-      <CharacterSheet
-        lang={lang}
-        skillsDict={skillsDict}
-      />
-    </>
+    <CharactersList lang={lang} />
   );
 }
